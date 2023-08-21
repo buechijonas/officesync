@@ -1,0 +1,80 @@
+.profile {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin: 0 0 12px 0;
+}
+
+.profile .card {
+    background-color: white;
+    padding: 12px;
+    border-radius: 5px;
+}
+
+.profile .card .login {
+    height: 32px;
+    background-color: #ff9d8f;
+    color: white;
+    padding: 0 12px;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.profile .card .login:hover {
+    background-color: #f68373;
+}
+
+.profile .card .grid {
+    display: grid;
+    grid-template-columns: 1fr 44px;
+    grid-template-rows: 16px 16px;
+    grid-template-areas:
+        "name profile-picture"
+        "role profile-picture";
+    grid-gap: 12px;
+}
+
+.profile .card .grid .profile-picture {
+    grid-area: profile-picture;
+    filter: brightness(0) saturate(100%) invert(56%) sepia(4%) saturate(13%) hue-rotate(346deg) brightness(96%) contrast(87%);
+    cursor: pointer;
+}
+
+.profile .card .grid .name {
+    grid-area: name;
+    font-weight: bold;
+}
+
+.profile .card .grid .role {
+    grid-area: role;
+    color: gray;
+}
+
+.profile .card .grid .role .customer {
+    color: #a99869;
+}
+
+.profile .card .grid .role .staff {
+    color: #5e53ff
+}
+
+.profile .card .grid .role .developer {
+    color: #37a9c7
+}
+
+.profile .card .grid .role .admin {
+    color: #9d0300
+}
+
+@media print {
+    .profile {
+        display: none;
+    }
+}

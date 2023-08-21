@@ -1,0 +1,94 @@
+.content {
+    display: flex;
+    width: 100%;
+    padding: 12px;
+    overflow-y: scroll;
+    height: calc(100vh - 75px);
+}
+
+.content::-webkit-scrollbar {
+    display: none;
+}
+
+.content .blockify {
+    display: block;
+    width: 100%;
+}
+
+.content .blockify .flexify {
+    display: flex;
+    justify-content: center;
+}
+
+.content .form-card, .content .content-card {
+    width: 100%;
+    max-width: 1024px;
+    background-color: white;
+    border-color: #d9d9d9;
+    border-style: solid;
+    border-width: 1px;
+    padding: 12px;
+}
+
+.content .content-card {
+    padding: 12px 12px 0 12px;
+}
+
+.content .form-card .title, .content-card .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.content-card .title {
+    margin-bottom: 12px;
+}
+
+.content-card .file {
+    border-top-color: #d9d9d9;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-bottom-color: #d9d9d9;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    height: 48px;
+    margin: -1px -12px;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    grid-template-rows: 48px;
+    grid-template-areas:
+        "icon title";
+    grid-gap: 12px;
+}
+
+.content-card .file:hover {
+    background-color: #eeeeee;
+}
+
+.content-card a {
+    text-decoration: none;
+}
+
+.content-card .file .icon {
+    grid-area: icon;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: invert(42%) sepia(97%) saturate(2294%) hue-rotate(165deg) brightness(100%) contrast(101%);
+}
+
+.content-card .file .icon img {
+    width: 100%;
+}
+
+.content-card .file .file-title {
+    grid-area: title;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    color: gray;
+}

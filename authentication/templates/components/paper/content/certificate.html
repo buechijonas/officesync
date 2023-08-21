@@ -1,0 +1,21 @@
+{% load static %}
+<div class="title">
+    {{ headline }}
+</div>
+<div class="textsection">
+    <p>{{ certificate.user.first_name }} {{ certificate.user.last_name }}</p>
+</div>
+<div class="textsection">
+    <h2>{{ certificate.title }}</h2>
+    <p>Zertifikatsstufe: {{ certificate.level }}</p>
+    <p>Zertifikatsnummer: {{ certificate.certificatenumber }}</p>
+    <p>Gültig von {{ certificate.format_date }} bis {{ certificate.format_expiration }}</p>
+</div>
+<div class="textsection">
+    <h2>Beschreibung</h2>
+    <p>{{ certificate.description }}</p>
+</div>
+<div class="textsection">
+    <p>Austeller: {{ certificate.issuer }}</p>
+    <p>Verifikationshinweis: {{ certificate.reference }}</p>
+</div>

@@ -1,0 +1,85 @@
+{% load static %}
+
+<div class="sidebar">
+    <div class="flexify">
+        <div class="grid">
+            {% if page == 'config' %}
+                <a href="{% url 'system' %}" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/application-cog.svg' %}" alt="products"/>
+                        </div>
+                        <div class="text">
+                            <p>Konfiguration</p>
+                        </div>
+                    </div>
+                </a>
+            {% else %}
+                <a href="{% url 'system' %}" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/application-cog.svg' %}" alt="products"/>
+                        </div>
+                        <div class="text">
+                            <p>Konfiguration</p>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+            {% if page == 'roles' %}
+                <a href="{% url 'roles' %}" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/group.svg' %}" alt="products"/>
+                        </div>
+                        <div class="text">
+                            <p>Rollen</p>
+                        </div>
+                    </div>
+                </a>
+            {% else %}
+                <a href="{% url 'roles' %}" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/group.svg' %}" alt="products"/>
+                        </div>
+                        <div class="text">
+                            <p>Rollen</p>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+            {% if page == 'users' %}
+                <a href="" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/group_filled.svg' %}" alt="products"/>
+                        </div>
+                        <div class="text">
+                            {% if request.user.gender %}
+                                <p>Benutzer*innenliste</p>
+                            {% else %}
+                                <p>Benutzerliste</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </a>
+            {% else %}
+                <a href="" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/group_filled.svg' %}" alt="products"/>
+                        </div>
+                        <div class="text">
+                            {% if request.user.user_custom_interface.gender %}
+                                <p>Benutzer*innenliste</p>
+                            {% else %}
+                                <p>Benutzerliste</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>

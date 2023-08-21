@@ -1,0 +1,38 @@
+{% load static %}
+<div class="title">
+    {{ headline }}
+</div>
+<div class="textsection">
+    <h2>Wohnadresse</h2>
+    {% if user.address.country %}
+        {% if user.address.canton %}
+            <p>{{ user.address.country }}, {{ user.address.canton }}</p>
+        {% else %}
+            <p>{{ user.address.country }}, Kanton unbekannt</p>
+        {% endif %}
+    {% else %}
+        {% if user.address.canton %}
+            <p>Nicht ausgefüllt, {{ user.address.canton }}</p>
+        {% else %}
+            <p>Nicht ausgefüllt</p>
+        {% endif %}
+    {% endif %}
+    {% if user.address.street %}
+        {% if user.address.housenumber %}
+            <p>{{ user.address.street }} {{ user.address.housenumber }}</p>
+        {% else %}
+            <p>{{ user.address.street }}</p>
+        {% endif %}
+    {% else %}
+        {% if user.address.housenumber %}
+            <p>Unbekannte Strasse {{ user.address.housenumber }}</p>
+        {% else %}
+            <p>Nicht ausgefüllt</p>
+        {% endif %}
+    {% endif %}
+    {% if user.address.postalcode and user.address.location %}
+        <p>{{ user.address.postalcode }} {{ user.address.location }}</p>
+    {% else %}
+        <p>Nicht ausgefüllt</p>
+    {% endif %}
+</div>

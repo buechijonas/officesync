@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/global/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/profile.css' %}">
+    <title>{{ officesync.app }} - Konfiguration</title>
+</head>
+<body>
+{% include 'components/header/authentication.html' with title=officesync.app %}
+<main>
+    {% include 'components/sidebar/sidebar.html' with page="administration" %}
+    {% include 'components/subsidebar/subsidebar_administration.html' with page="config" %}
+    <div class="content">
+        <div class="blockify">
+            {% include 'components/profile/profile.html' %}
+            <div class="flexify">
+                <div class="cardify">
+                    <div class="title-container">
+                        <h1 class="h1">{{ officesync.app }}</h1>
+                        <div class="edit-container">
+                            <a class="button edit" href="{% url 'system_app_rename' officesync.id %}">
+                                <img src="{% static 'svgs/modify.svg' %}" alt="edit"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flexify">
+                <div class="cardify">
+                    <div class="title-container">
+                        <h1 class="h1">Logo</h1>
+                        <div class="edit-container">
+                            <a class="button edit" href="{% url 'system_app_logo_update' officesync.id %}">
+                                <img src="{% static 'svgs/modify.svg' %}" alt="edit"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% include 'components/footer.html' %}
+</body>

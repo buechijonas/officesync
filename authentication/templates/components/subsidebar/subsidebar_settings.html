@@ -1,0 +1,100 @@
+{% load static %}
+
+<div class="sidebar">
+    <div class="flexify">
+        <div class="grid">
+            {% if page == 'account' %}
+                <a href="{% url 'settings' user.id %}" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/account.svg' %}" alt="account"/>
+                        </div>
+                        <div class="text">
+                            <p>Konto</p>
+                        </div>
+                    </div>
+                </a>
+            {% else %}
+                <a href="{% url 'settings' user.id %}" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/account.svg' %}" alt="account"/>
+                        </div>
+                        <div class="text">
+                            <p>Konto</p>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+            {% if page == 'personal' %}
+                <a href="{% url 'settings_personal' user.id %}" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/personal.svg' %}" alt="personal"/>
+                        </div>
+                        <div class="text">
+                            <p>Personalakte</p>
+                        </div>
+                    </div>
+                </a>
+            {% else %}
+                <a href="{% url 'settings_personal' user.id %}" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/personal.svg' %}" alt="personal"/>
+                        </div>
+                        <div class="text">
+                            <p>Personalakte</p>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+            {% if page == 'work' %}
+                <a href="{% url 'settings_work' user.id %}" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/member.svg' %}" alt="work"/>
+                        </div>
+                        <div class="text">
+                            <p>Mitarbeiterakte</p>
+                        </div>
+                    </div>
+                </a>
+            {% else %}
+                <a href="{% url 'settings_work' user.id %}" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/member.svg' %}" alt="work"/>
+                        </div>
+                        <div class="text">
+                            <p>Mitarbeiterakte</p>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+            {% if page == 'linked' %}
+                <a href="{% url 'settings' user.id %}" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/linked.svg' %}" alt="linked"/>
+                        </div>
+                        <div class="text">
+                            <p>Verknüpfungen</p>
+                        </div>
+                    </div>
+                </a>
+            {% else %}
+                <a href="{% url 'settings' user.id %}" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/linked.svg' %}" alt="linked"/>
+                        </div>
+                        <div class="text">
+                            <p>Verknüpfungen</p>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>

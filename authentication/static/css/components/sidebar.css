@@ -1,0 +1,176 @@
+.sidebar {
+    position: relative;
+    width: 250px;
+    background-color: white;
+    height: calc(100vh - 50px);
+    border-left-color: #d9d9d9;
+    border-left-style: solid;
+    border-left-width: 1px;
+}
+
+.sidebar .flexify {
+    display: flex;
+    max-width: 250px;
+    width: 250px;
+}
+
+.sidebar .flexify .grid {
+    width: 100%;
+    height: calc(100vh - 51px);
+    display: inline-block;
+    overflow-y: scroll;
+}
+
+.sidebar .flexify .grid::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar .flexify .grid .logo {
+    display: flex;
+    height: 250px;
+    width: 250px;
+    background-color: #eeeeee;
+}
+
+.sidebar .flexify .grid .section {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    cursor: pointer;
+    text-decoration: none;
+    color: gray;
+    height: 48px;
+    border-bottom-color: #d9d9d9;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+.sidebar .flexify .grid .section:hover {
+    background-color: #eeeeee;
+}
+
+.sidebar .flexify .grid .section .not-current,
+.sidebar .flexify .grid .section .current {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    grid-template-rows: 24px;
+    grid-template-areas: "icon text";
+    grid-gap: 12px;
+}
+
+.sidebar .flexify .grid .section .not-current {
+    filter: brightness(0) saturate(100%) invert(56%) sepia(4%) saturate(13%) hue-rotate(346deg) brightness(96%) contrast(87%);
+}
+
+.sidebar .flexify .grid .section .current {
+filter: invert(15%) sepia(80%) saturate(7440%) hue-rotate(5deg) brightness(107%) contrast(121%);
+}
+
+.sidebar .flexify .grid .section .not-current .icon,
+.sidebar .flexify .grid .section .current .icon {
+    grid-area: icon;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.sidebar .flexify .grid .section .not-current .text,
+.sidebar .flexify .grid .section .current .text {
+    grid-area: text;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .loginout {
+    margin: 12px;
+    color: white;
+    padding: 12px;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    transition: 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.sidebar .loginout img {
+    display: none;
+}
+
+.sidebar .loginout-authentication {
+    background-color: red;
+}
+
+.sidebar .loginout-authentication:hover {
+    background-color: #b40000;
+}
+
+.sidebar .loginout-dashboard {
+    background-color: red;
+}
+
+.sidebar .loginout-dashboard:hover {
+    background-color: #b40000;
+}
+
+.sidebar .version {
+    position: absolute;
+    color: gray;
+    font-size: 0.6rem;
+    bottom: 6px;
+    left: 6px;
+}
+
+.sidebar .version p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 790px) {
+    .sidebar {
+        width: 48px;
+    }
+
+    .sidebar .flexify {
+        width: 48px;
+    }
+
+    .sidebar .flexify .grid .logo {
+        display: none;
+    }
+
+    .sidebar .flexify .grid .section .not-current .text,
+    .sidebar .flexify .grid .section .current .text {
+        display: none;
+    }
+
+    .sidebar .loginout {
+        margin: 12px 0 0 0;
+        height: 34px;
+        padding: 6px;
+    }
+
+    .sidebar .loginout img {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        filter: invert(100%) sepia(0%) saturate(7477%) hue-rotate(185deg) brightness(107%) contrast(100%);
+    }
+
+    .sidebar .loginout p {
+        display: none;
+    }
+
+    .sidebar .version {
+        display: none;
+    }
+}
+
+@media print {
+    .sidebar {
+        display: none;
+    }
+}

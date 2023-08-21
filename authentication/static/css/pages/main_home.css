@@ -1,0 +1,323 @@
+.content {
+    display: flex;
+    width: 100%;
+    padding: 12px;
+    overflow-y: scroll;
+    height: calc(100vh - 75px);
+}
+
+.content::-webkit-scrollbar {
+    display: none;
+}
+
+.content .blockify {
+    display: block;
+    width: 100%;
+}
+
+.content .blockify .flexify {
+    display: flex;
+    justify-content: center;
+}
+
+.content .blockify .flexify .cardify {
+    max-width: 1000px;
+    width: 100%;
+    background-color: white;
+    padding: 12px;
+    margin: 12px auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.content .blockify .flexify .cardify .title-container {
+    display: grid;
+    grid-template-columns: 1fr auto 50px;
+    grid-template-rows: 68px;
+    grid-template-areas:
+        "h1 . button";
+}
+
+.content .blockify .flexify .tabs {
+    max-width: 1024px;
+    width: 100%;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns:
+        1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        "tab1 tab2";
+    color: gray;
+}
+
+.content .blockify .flexify .tabs .tab1 {
+    grid-area: tab1;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content .blockify .flexify .tabs .tab1:hover {
+    background-color: #dadada;
+    border-radius: 5px;
+}
+
+.content .blockify .flexify .tabs .tab2 {
+    grid-area: tab2;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.content .blockify .flexify .tabs .tab2:hover {
+    background-color: #dadada;
+    border-radius: 5px;
+}
+
+.content .blockify .flexify .cardify .permissions h2 {
+    margin: 12px auto;
+}
+
+.content .blockify .flexify .cardify .permissions .permission-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        "value description status";
+    margin: 12px 0;
+}
+
+.content .blockify .flexify .permissions .titlefy {
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+.content .blockify .flexify .permissions .datafy {
+    color: gray;
+}
+
+.content .blockify .flexify .cardify .permissions .permission-container .value {
+    grid-area: value;
+}
+
+.content .blockify .flexify .cardify .permissions .permission-container .description {
+    grid-area: description;
+}
+
+.content .blockify .flexify .cardify .permissions .permission-container .status {
+    grid-area: status;
+}
+
+.content .blockify .flexify .cardify .title-container .h1 {
+    grid-area: h1;
+    display: flex;
+    align-items: center;
+}
+
+.content .blockify .flexify .cardify .title-container .edit-container {
+    grid-area: button;
+}
+
+
+.content .blockify .flexify .role-centrify {
+    max-width: 512px;
+    margin: 12px auto;
+}
+
+.content .blockify .flexify .role-card {
+    max-width: 512px;
+    width: 100%;
+    background-color: white;
+    margin: 12px auto;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.role-card a {
+    text-decoration: none;
+    display: flex;
+    height: 100%;
+    padding: 12px;
+}
+
+.content .form-card {
+    border-radius: 5px;
+    width: 100%;
+    max-width: 500px;
+    background-color: white;
+    border-color: #d9d9d9;
+    border-style: solid;
+    border-width: 1px;
+    padding: 12px;
+}
+
+.content .form-card .title, .task-card .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.content .dashboard {
+    max-width: 1024px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 172px 172px;
+    grid-row-gap: 64px;
+    margin-bottom: 12px;
+}
+
+.content .dashboard .cell {
+    height: 172px;
+    display: flex;
+    justify-content: center;
+}
+
+.content .dashboard .cell .card {
+    padding: 12px;
+    height: 148px;
+    width: 148px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 96px 28px;
+    grid-template-areas:
+        "icon"
+        "title";
+    grid-row-gap: 12px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.content .dashboard .cell .card-disabled {
+    padding: 12px;
+    height: 148px;
+    width: 148px;
+    background-color: #eeeeee;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 96px 28px;
+    grid-template-areas:
+        "icon"
+        "title";
+    grid-row-gap: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+
+.content .dashboard .cell .card:hover {
+    transform: scale(1.1);
+}
+
+.content .dashboard .cell .card .icon, .content .dashboard .cell .card-disabled .icon {
+    grid-area: icon;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .dashboard .cell .card .icon img,
+.content .dashboard .cell .card-disabled .icon img {
+    height: 100%;
+    width: 100%;
+}
+
+.content .dashboard .cell .card-disabled .icon img {
+    filter: invert(55%) sepia(4%) saturate(184%) hue-rotate(15deg) brightness(90%) contrast(85%);
+}
+
+.content .dashboard .cell .card .title,
+.content .dashboard .cell .card-disabled .title {
+    grid-area: title;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.content .dashboard .cell .card-disabled .title {
+    color: gray;
+}
+
+.content .flexify .web {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 256px;
+    grid-gap: 12px;
+}
+
+.content .web .cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content .web .cell .button {
+    width: 100%;
+    background-color: #b6b6b6;
+    border-radius: 2px;
+    color: white;
+    font-weight: bold;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.content .web .cell .button:hover {
+    background-color: #888888;
+}
+
+@media screen and (max-width: 790px) {
+    .content .dashboard {
+        max-width: 512px;
+        width: 100%;
+        grid-gap: 1px;
+    }
+}
+
+@media screen and (max-width: 584px) {
+    .content .dashboard {
+        width: 344px;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .content .flexify .web {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        margin: 96px 0;
+    }
+}
+
+@media screen and (max-width: 472px) {
+    .content .dashboard {
+        width: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 172px 172px 172px 172px;
+    }
+
+    .content .flexify .web {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        margin: 96px 0;
+    }
+}

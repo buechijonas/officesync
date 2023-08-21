@@ -1,0 +1,83 @@
+form {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form p {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 25px;
+    margin: 20px 0;
+}
+
+form label {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+form input, form textarea, select {
+    border-radius: 2px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #dddddd;
+    padding: 10px;
+    resize: none;
+    background-color: #fafafa;
+}
+
+form input:focus, form textarea:focus, select:focus {
+    outline-color: gray;
+    outline-style: solid;
+    outline-width: 2px;
+}
+
+form button {
+    height: 48px;
+    margin: 20px 0;
+    background-color: black;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 2px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+form button:hover {
+    background-color: #5c5c5c;
+}
+
+form .not-confirmed {
+    background-color: #9d0300;
+}
+
+form .not-confirmed:hover {
+    background-color: #9d0300;
+}
+
+form .disabled {
+    padding: 1px 0;
+}
+
+form .disabled div {
+    background-color: #009543;
+    height: 48px;
+    margin: 20px 0;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 2px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

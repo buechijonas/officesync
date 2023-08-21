@@ -1,0 +1,207 @@
+.content {
+    display: flex;
+    width: 100%;
+    padding: 12px;
+    overflow-y: scroll;
+    height: calc(100vh - 75px);
+}
+
+.content::-webkit-scrollbar {
+    display: none;
+}
+
+.content .blockify {
+    display: block;
+    width: 100%;
+}
+
+.content .blockify .flexify {
+    display: flex;
+    justify-content: center;
+    height: 1086px;
+    margin-bottom: 6px;
+}
+
+.content .blockify .flexify .paper {
+    width: 100%;
+    max-width: 720px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    background-color: white;
+    padding: 24px;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.content .blockify .flexify .paper::-webkit-scrollbar {
+    display: none;
+}
+
+.content .blockify .flexify .paper .paper-header {
+    height: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-color: #cccccc;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    margin-bottom: 24px;
+    font-size: 0.8rem;
+    color: gray;
+}
+
+.content .blockify .flexify .paper .paper-footer {
+    height: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-top-color: #cccccc;
+    border-top-width: 1px;
+    border-top-style: solid;
+    font-size: 0.8rem;
+    position: absolute;
+    bottom: 12px;
+    left: 24px;
+    right: 24px;
+    color: gray;
+}
+
+.content .blockify .flexify .paper .paper-header .left,
+.content .blockify .flexify .paper .paper-footer .left {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.content .blockify .flexify .paper .paper-header .center,
+.content .blockify .flexify .paper .paper-footer .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .blockify .flexify .paper .paper-header .right,
+.content .blockify .flexify .paper .paper-footer .right {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.content .blockify .flexify .paper .manipulate {
+    display: grid;
+    grid-template-columns: 1fr 36px;
+    grid-template-rows: 36px;
+    grid-template-areas:
+        ". edit";
+    position: absolute;
+    bottom: 48px;
+    width: 100%;
+    margin: 0 -48px;
+}
+
+.content .blockify .flexify .paper .manipulate .edit {
+    grid-area: edit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: invert(56%) sepia(50%) saturate(0%) hue-rotate(178deg) brightness(81%) contrast(80%);
+    transition: transform 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+.content .blockify .flexify .paper .manipulate .edit:hover {
+    transform: scale(1.1);
+}
+
+.content .blockify .flexify .paper .manipulate img {
+    width: 100%;
+}
+
+.content .blockify .flexify .paper .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.content .blockify .flexify .paper .textsection {
+    margin: 36px 12px;
+}
+
+.content .blockify .flexify .paper .textsection h2 {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 12px 0;
+}
+
+.content .blockify .flexify .paper .textsection h3 {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 12px 0;
+}
+
+.content .blockify .flexify .paper .textsection p {
+    color: gray;
+    margin: 6px 0;
+}
+
+.content .blockify .flexify .paper .textsection .tab1 {
+    padding: 0 0 0 12px;
+}
+
+.content .blockify .flexify .paper .textsection .tab2 {
+    padding: 0 0 0 18px;
+}
+
+.content .blockify .flexify .paper .textsection a {
+    color: #a99869;
+    text-decoration: none;
+}
+
+@media print {
+    .content {
+        display: block;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow-y: unset;
+    }
+
+    .content .blockify {
+        display: block;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .content .blockify .flexify {
+        display: block;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 99%;
+        page-break-before: always;
+    }
+
+    .content .blockify .flexify .paper {
+        display: block;
+        width: 96%;
+        max-width: none;
+        height: 98%;
+        max-height: none;
+        margin: 0;
+        border: none;
+        box-shadow: none;
+    }
+
+    .content .blockify .flexify .paper .textsection p {
+        font-size: 1.2rem;
+    }
+
+    .content .blockify .flexify .paper .manipulate {
+        display: none;
+    }
+}

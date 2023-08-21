@@ -1,0 +1,47 @@
+<div class="paper">
+    {% if page == 'meta' or page == 'address' or page == 'certificate' or page == 'update' or page == 'education' or page == 'health' or page == 'criminal' or page == 'salary' or page == 'absence' or page == 'feedback' or page == 'reprimant' %}
+        {% include 'components/paper/header/header.html' %}
+    {% endif %}
+    {% if page == "legalnotice" %}
+        {% include 'components/paper/content/legalnotice.html' with headline=headline %}
+    {% endif %}
+    {% if page == "privacy" %}
+        {% include 'components/paper/content/privacy.html' %}
+    {% endif %}
+    {% if page == "terms" %}
+        {% include 'components/paper/content/terms.html' %}
+    {% endif %}
+    {% if page == "meta" %}
+        {% include 'components/paper/content/meta.html' %}
+    {% endif %}
+    {% if page == "address" %}
+        {% include 'components/paper/content/address.html' %}
+    {% endif %}
+    {% if page == "certificate" %}
+        {% include 'components/paper/content/certificate.html' %}
+    {% endif %}
+    {% if page == "education" %}
+        {% include 'components/paper/content/education.html' %}
+    {% endif %}
+    {% if page == "health" %}
+        {% include 'components/paper/content/health.html' %}
+    {% endif %}
+    {% if page == "criminal" %}
+        {% include 'components/paper/content/criminal.html' %}
+    {% endif %}
+    {% if page == "salary" %}
+        {% include 'components/paper/content/salary.html' %}
+    {% endif %}
+    {% if page == "absence" %}
+        {% include 'components/paper/content/absence.html' %}
+    {% endif %}
+    {% if page == "feedback" %}
+        {% include 'components/paper/content/feedback.html' %}
+    {% endif %}
+    {% if page == "reprimant" %}
+        {% include 'components/paper/content/reprimant.html' %}
+    {% endif %}
+    {% if page == 'meta' or page == 'address' or page == 'certificate' or page == 'education' or page == 'health' or page == 'criminal' or page == 'salary' or page == 'absence' or page == 'reprimant' %}
+        {% include 'components/paper/footer/footer.html' %}
+    {% endif %}
+</div>

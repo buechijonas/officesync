@@ -1,0 +1,39 @@
+{% load static %}
+<div class="title">
+    {{ headline }}
+</div>
+<div class="textsection">
+    <p>{{ criminal.user.first_name }} {{ criminal.user.last_name }}</p>
+</div>
+<div class="textsection">
+    <h2>Angaben</h2>
+    <p>Straftat: {{ criminal.crime }}</p>
+    {% if criminal.judgements %}
+        <p>Urteile: {{ criminal.judgements }}</p>
+    {% else %}
+        <p>Urteile: Keine Angabe</p>
+    {% endif %}
+</div>
+<div class="textsection">
+    <p>Datum: {{ criminal.format_date }}</p>
+    <p>Verantwortliche*r: {{ criminal.responsible }}</p>
+    <p>Institution: {{ criminal.institution }}</p>
+</div>
+<div class="textsection">
+    <p>Wichtig zu wissen:</p>
+    {% if criminal.nice2know %}
+        <p>{{ criminal.nice2know }}</p>
+    {% else %}
+        <p>Keine Angabe</p>
+    {% endif %}
+</div>
+<div class="textsection">
+    <p>Hinweis:</p>
+    <p>Wenn Sie sich bei uns bewerben, ist es wichtig, dass Sie das Strafregister vollständig und korrekt vorlegen. In
+        einigen Fällen kann es sein, dass wir von Ihnen verlangen, uns den Strafregisterauszug zu übermitteln. Die
+        Vorlage des vollständigen Strafregisters ist von grosser Bedeutung, da dies Einfluss auf Ihre Bewerbung haben
+        kann. Wenn das Strafregister nicht vorgelegt wird oder Informationen fehlen, kann dies zu einer Einschränkung
+        der Chancen bei der Bewerbung führen. Wir legen Wert auf Transparenz und Vertrauen, daher bitten wir Sie, das
+        Strafregister gemäss unseren Anforderungen vorzulegen, um eine sorgfältige Prüfung Ihrer Bewerbung zu
+        ermöglichen.</p>
+</div>

@@ -1,0 +1,26 @@
+<div class="title">
+    {{ headline }}
+</div>
+<div class="textsection">
+    <h2>{{ absence.type }}</h2>
+    <p>{{ absence.recipient.first_name }} {{ absence.recipient.last_name }}</p>
+</div>
+<div class="textsection">
+    <p>{{ absence.format_start }} bis {{ absence.format_end }}</p>
+    <p>Erstellt von {{ absence.creator.first_name }} {{ absence.creator.last_name }}</p>
+</div>
+<div class="textsection">
+    <p>Beschreibung:</p>
+    {% if absence.description %}
+        <p>{{ absence.description }}</p>
+        {% else %}
+        <p>Keine Angaben</p>
+    {% endif %}
+</div>
+<div class="textsection">
+    {% if absence.confirmation %}
+        <p>Absenz genehmigt von {{ absence.beneficiary.first_name }} {{ absence.beneficiary.last_name }}</p>
+        {% else %}
+        <p>Absenz nicht genehmigt</p>
+    {% endif %}
+</div>

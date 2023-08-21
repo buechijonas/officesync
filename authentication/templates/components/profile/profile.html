@@ -1,0 +1,34 @@
+{% load static %}
+<div class="profile">
+    <div class="card">
+        {% if request.user.is_authenticated %}
+            <div class="grid">
+                <a href="" class="profile-picture">
+                    <img src="{% static 'svgs/profile_filled.svg' %}" alt="profile"/>
+                </a>
+                <div class="name">
+                    <p>{{ request.user.first_name }} {{ request.user.last_name }}</p>
+                </div>
+                <div class="role">
+                    {% for group in request.user.groups.all %}
+                        {% if group.name == 'customer' %}
+                            <p class="customer">Kunde</p>
+                        {% elif group.name == 'staff' %}
+                            <p class="staff">Mitarbeiter</p>
+                        {% elif group.name == 'developer' %}
+                            <p class="developer">Entwickler</p>
+                        {% elif group.name == 'admin' %}
+                            <p class="admin">Administrator</p>
+                        {% else %}
+                            <p class="unverified">Unverifizierte Gruppe</p>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% else %}
+            <a href="{% url 'login' %}" class="login">
+                <p>Anmelden</p>
+            </a>
+        {% endif %}
+    </div>
+</div>

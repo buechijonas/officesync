@@ -1,0 +1,53 @@
+<div class="title">
+    {{ headline }}
+</div>
+<div class="textsection">
+    <p>{{ feedback.user }} {{ feedback.user.last_name }}</p>
+    <p>Gutachter: {{ feedback.evaluator.first_name }} {{ feedback.evaluator.last_name }}</p>
+</div>
+<div class="textsection">
+    <p>{{ feedback.format_date }}</p>
+</div>
+<div class="textsection">
+    <h2>Sozialkompetenz</h2>
+    <p>Erscheinungsbild & Auftreten:</p>
+    <p>{{ feedback.appearance }}</p>
+</div>
+<div class="textsection">
+    <p>Teamarbeit:</p>
+    <p>{{ feedback.teamwork }}</p>
+</div>
+<div class="textsection">
+    <p>Hilfsbereitschaft:</p>
+    <p>{{ feedback.helpfulness }}</p>
+</div>
+<div class="textsection">
+    <p>Höflichkeit:</p>
+    <p>{{ feedback.politeness }}</p>
+</div>
+<div class="textsection">
+    <p>Kommunikation:</p>
+    <p>{{ feedback.communication }}</p>
+</div>
+<div class="textsection">
+    <h2>Leistung</h2>
+    <p>Arbeitsqualität:</p>
+    <p>{{ feedback.work_quality }}</p>
+</div>
+<div class="textsection">
+    <p>Arbeitsorganisation</p>
+    <p>{{ feedback.work_organisation }}</p>
+</div>
+<div class="textsection">
+    <p>Fachwissen:</p>
+    <p>{{ feedback.knowledge }}</p>
+</div>
+<div class="textsection">
+    <h2>Ausblick</h2>
+    <p>Ziele:</p>
+    <p>{{ feedback.format_goals }}</p>
+</div>
+<div class="textsection">
+    <p>Note:</p>
+    <p>{{ feedback.grade }}</p>
+</div>

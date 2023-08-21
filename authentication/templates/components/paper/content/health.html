@@ -1,0 +1,59 @@
+{% load static %}
+<div class="title">
+    {{ headline }}
+</div>
+<div class="textsection">
+    <p>{{ user.first_name }} {{ user.last_name }}</p>
+</div>
+<div class="textsection">
+    <h2>Angaben</h2>
+    {% if user.health.allergies %}
+        <p>Allergien: {{ user.health.allergies }}</p>
+    {% else %}
+        <p>Allergien: Keine</p>
+    {% endif %}
+    {% if user.health.chronic_diseases %}
+        <p>Chronische Krankheiten: {{ user.health.chronic_diseases }}</p>
+    {% else %}
+        <p>Chronische Krankheiten: Keine</p>
+    {% endif %}
+    {% if user.health.medical_treatments %}
+        <p>Medizinische Behandlungen: {{ user.health.medical_treatments }}</p>
+    {% else %}
+        <p>Medizinische Behandlungen: Keine</p>
+    {% endif %}
+    {% if user.health.medication %}
+        <p>Medikamenteneinnahme: {{ user.health.medication }}</p>
+    {% else %}
+        <p>Medikamenteneinnahme: Keine</p>
+    {% endif %}
+    {% if user.health.mental_health %}
+        <p>Mentale Gesundheit: {{ user.health.mental_health }}</p>
+    {% else %}
+        <p>Mentale Gesundheit: Keine</p>
+    {% endif %}
+    {% if user.health.vaccines %}
+        <p>Impfungen: {{ user.health.vaccines }}</p>
+    {% else %}
+        <p>Impfungen: Keine</p>
+    {% endif %}
+</div>
+<div class="textsection">
+    <p>Wichtig zu wissen:</p>
+    {% if user.health.others %}
+        <p>{{ user.health.others }}</p>
+    {% else %}
+        <p>Keine Angaben</p>
+    {% endif %}
+</div>
+<div class="textsection">
+    <p>Hinweis:</p>
+    <p>Die Erfassung und Bereitstellung der oben genannten Informationen in den persönlichen Gesundheitsakten ist
+        freiwillig und keine Pflicht. Wir verstehen, dass Ihre Gesundheitsdaten persönlich und sensibel sind. Wir
+        möchten jedoch darauf hinweisen, dass solche Informationen uns helfen können, Ihr Arbeitsumfeld so angenehm wie
+        möglich zu gestalten und gegebenenfalls angemessene Unterstützung bereitzustellen. Ihre Gesundheitsdaten werden
+        mit höchster Vertraulichkeit behandelt und nur von autorisierten Personen eingesehen. Wenn Sie Fragen oder
+        Bedenken bezüglich der Erfassung und Verarbeitung Ihrer Gesundheitsdaten haben, stehen wir Ihnen gerne zur
+        Verfügung. Ihre Privatsphäre ist uns sehr wichtig, und wir achten darauf, alle geltenden Datenschutzbestimmungen
+        einzuhalten.</p>
+</div>

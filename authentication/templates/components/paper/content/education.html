@@ -1,0 +1,28 @@
+{% load static %}
+<div class="title">
+    {{ headline }}
+</div>
+<div class="textsection">
+    <p>{{ education.user.first_name }} {{ education.user.last_name }}</p>
+</div>
+<div class="textsection">
+    <h2>{{ education.type }}</h2>
+    <p>{{ education.title }} ({{ education.specialization }})</p>
+    <p>{{ education.institution }}</p>
+</div>
+<div class="textsection">
+    <p>{{ education.format_start }} bis {{ education.format_end }}</p>
+</div>
+<div class="textsection">
+    <p>Beschreibung:</p>
+    {% if education.description %}
+        <p>{{ education.description }}</p>
+    {% else %}
+        <p>Keine Beschreibung</p>
+    {% endif %}
+</div>
+<div class="textsection">
+    <h2>Noten</h2>
+    <p>Abschlussnote: {{ education.final_grade }}</p>
+    <p>{{ education.format_grades }}</p>
+</div>

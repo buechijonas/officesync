@@ -1,0 +1,35 @@
+{% load static %}
+<div class="title">
+    {{ headline }}
+</div>
+<div class="textsection">
+    <h2>Angaben</h2>
+    <p>{{ salary.amount }} CHF</p>
+    <p>{{ salary.format_date }}</p>
+</div>
+<div class="textsection">
+    <p>Begünstigte: {{ salary.recipient.first_name }} {{ salary.recipient.last_name }}</p>
+    <p>Begünstigter: {{ salary.beneficiary.first_name }} {{ salary.beneficiary.last_name }}</p>
+</div>
+<div class="textsection">
+    {% if salary.confirmation == True %}
+        <p>Zur Kenntnis genommen von {{ salary.recipient.first_name }} {{ salary.recipient.last_name }}</p>
+    {% else %}
+        <p>Nicht zur Kenntnis genommen</p>
+    {% endif %}
+</div>
+<div class="textsection">
+    {% if salary.confirmation == False %}
+        <form action="{% url 'salary_confirm' salary.id %}" method="POST">
+            {% csrf_token %}
+            <button class="not-confirmed" type="submit">Nicht zur Kenntnis genommen</button>
+        </form>
+    {% else %}
+        <form>
+            {% csrf_token %}
+            <div class="disabled">
+                <div>Zur Kenntniss genommen</div>
+            </div>
+        </form>
+    {% endif %}
+</div>

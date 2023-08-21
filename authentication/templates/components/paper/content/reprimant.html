@@ -1,0 +1,14 @@
+<div class="title">
+    {{ headline }}
+</div>
+<div class="textsection">
+    <p>{{ reprimant.user.first_name }} {{ reprimant.user.last_name }}</p>
+    <p>Protokoll erstellt von {{ feedback.creator.first_name }} {{ feedback.creator.last_name }}</p>
+</div>
+<div class="textsection">
+    <p>{{ reprimant.format_date }}</p>
+</div>
+<div class="textsection">
+    <h2>Abmahnung</h2>
+    <p>Grund: {{ reprimant.reason }}</p>
+</div>

@@ -1,0 +1,41 @@
+{% load static %}
+<div class="title">
+    {{ headline }}
+</div>
+<div class="textsection">
+    <h2>Persönliche Daten</h2>
+    <p>{{ user.first_name }} {{ user.last_name }}</p>
+    {% if user.personal.birthdate %}
+        <p>Geboren am {{ user.personal.format_birthdate }}</p>
+    {% else %}
+        <p>Nicht ausgefüllt</p>
+    {% endif %}
+    {% if user.personal.sex %}
+        <p>{{ user.personal.sex }}</p>
+    {% else %}
+        <p>Nicht ausgefüllt</p>
+    {% endif %}
+    {% if user.personal.nationality %}
+        <p>{{ user.personal.nationality }}</p>
+    {% else %}
+        <p>Nicht ausgefüllt</p>
+    {% endif %}
+    {% if user.personal.citizenship %}
+        <p>{{ user.personal.citizenship }}</p>
+    {% else %}
+        <p>Nicht ausgefüllt</p>
+    {% endif %}
+</div>
+<div class="textsection">
+    <h2>Kontaktdaten</h2>
+    {% if user.personal.contact_mail %}
+        <p>{{ user.personal.contact_mail }}</p>
+    {% else %}
+        <p>Nicht ausgefüllt</p>
+    {% endif %}
+    {% if user.personal.contact_mobile %}
+        <p>{{ user.personal.contact_mobile }}</p>
+    {% else %}
+        <p>Nicht ausgefüllt</p>
+    {% endif %}
+</div>

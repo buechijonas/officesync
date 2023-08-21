@@ -7,7 +7,7 @@
                 <a href="{% url 'system' %}" class="section">
                     <div class="current">
                         <div class="icon">
-                            <img src="{% static 'svgs/application-cog.svg' %}" alt="products"/>
+                            <img src="{% static 'svgs/application-cog.svg' %}" alt="application-cog"/>
                         </div>
                         <div class="text">
                             <p>Konfiguration</p>
@@ -18,7 +18,7 @@
                 <a href="{% url 'system' %}" class="section">
                     <div class="not-current">
                         <div class="icon">
-                            <img src="{% static 'svgs/application-cog.svg' %}" alt="products"/>
+                            <img src="{% static 'svgs/application-cog.svg' %}" alt="application-cog"/>
                         </div>
                         <div class="text">
                             <p>Konfiguration</p>
@@ -30,7 +30,7 @@
                 <a href="{% url 'roles' %}" class="section">
                     <div class="current">
                         <div class="icon">
-                            <img src="{% static 'svgs/group.svg' %}" alt="products"/>
+                            <img src="{% static 'svgs/group.svg' %}" alt="roles"/>
                         </div>
                         <div class="text">
                             <p>Rollen</p>
@@ -41,7 +41,7 @@
                 <a href="{% url 'roles' %}" class="section">
                     <div class="not-current">
                         <div class="icon">
-                            <img src="{% static 'svgs/group.svg' %}" alt="products"/>
+                            <img src="{% static 'svgs/group.svg' %}" alt="roles"/>
                         </div>
                         <div class="text">
                             <p>Rollen</p>
@@ -50,13 +50,13 @@
                 </a>
             {% endif %}
             {% if page == 'users' %}
-                <a href="" class="section">
+                <a href="{% url 'users' %}" class="section">
                     <div class="current">
                         <div class="icon">
-                            <img src="{% static 'svgs/group_filled.svg' %}" alt="products"/>
+                            <img src="{% static 'svgs/group_filled.svg' %}" alt="group"/>
                         </div>
                         <div class="text">
-                            {% if request.user.gender %}
+                            {% if request.user.user_custom_interface.gender %}
                                 <p>Benutzer*innenliste</p>
                             {% else %}
                                 <p>Benutzerliste</p>
@@ -65,10 +65,10 @@
                     </div>
                 </a>
             {% else %}
-                <a href="" class="section">
+                <a href="{% url 'users' %}" class="section">
                     <div class="not-current">
                         <div class="icon">
-                            <img src="{% static 'svgs/group_filled.svg' %}" alt="products"/>
+                            <img src="{% static 'svgs/group_filled.svg' %}" alt="group"/>
                         </div>
                         <div class="text">
                             {% if request.user.user_custom_interface.gender %}
@@ -76,6 +76,52 @@
                             {% else %}
                                 <p>Benutzerliste</p>
                             {% endif %}
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+            {% if page == 'protocols' %}
+                <a href="{% url 'users' %}" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/clipboard-text-clock.svg' %}" alt="clipboard"/>
+                        </div>
+                        <div class="text">
+                            <p>Protokolle</p>
+                        </div>
+                    </div>
+                </a>
+            {% else %}
+                <a href="{% url 'users' %}" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/clipboard-text-clock.svg' %}" alt="clipboard"/>
+                        </div>
+                        <div class="text">
+                            <p>Protokolle</p>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+            {% if page == 'signature' %}
+                <a href="{% url 'users' %}" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/ideogram-cjk.svg' %}" alt="signature"/>
+                        </div>
+                        <div class="text">
+                            <p>Signatur</p>
+                        </div>
+                    </div>
+                </a>
+            {% else %}
+                <a href="{% url 'users' %}" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/ideogram-cjk.svg' %}" alt="signature"/>
+                        </div>
+                        <div class="text">
+                            <p>Signatur</p>
                         </div>
                     </div>
                 </a>

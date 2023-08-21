@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/global/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/profile.css' %}">
+    <title>{{ officesync.app }} - Konfiguration</title>
+</head>
+<body>
+{% include 'components/header/authentication.html' with title=officesync.app %}
+<main>
+    {% include 'components/sidebar/sidebar.html' with page="administration" %}
+    {% include 'components/subsidebar/subsidebar_administration.html' with page="roles" %}
+    <div class="content">
+        <div class="blockify">
+            {% include 'components/profile/profile.html' %}
+            <div class="flexify">
+                <div class="cardify">
+                    <div class="title-container">
+                        <h1 style="color: {{ role.color }}" class="h1">{{ role.name }}</h1>
+                        <div class="edit-container">
+                            <a class="button edit" href="{% url 'role_update' role.name %}">
+                                <img src="{% static 'svgs/modify.svg' %}" alt="edit"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flexify">
+                <div class="tabs">
+                    <a href="{% url 'role' role.name %}" class="tab1">
+                        <p>Detail</p>
+                    </a>
+                    <a href="{% url 'role_manage' role.name %}" class="tab2 current">
+                        <p>Verwalten</p>
+                    </a>
+                </div>
+            </div>
+            <div class="flexify">
+                <form method="post" class="cardify">
+                    {% csrf_token %}
+                    <div class="permissions">
+                        <h2>Administration</h2>
+                        <div class="permission-container titlefy">
+                            <p class="value">Wert</p>
+                            <p class="description">Beschreibung</p>
+                            <p class="status">Status</p>
+                        </div>
+                        {% for permission in permissions_system %}
+                            <div class="permission-container datafy">
+                                <p class="value">{{ permission.permission }}</p>
+                                <p class="description">{{ permission.description }}</p>
+                                <div class="permission-checkbox">
+                                    <input type="checkbox" name="selected_permissions" value="{{ permission.id }}"
+                                           {% if permission in role.permissions.all %}checked{% endif %}>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="permissions">
+                        <h2>Disposition</h2>
+                        <div class="permission-container titlefy">
+                            <p class="value">Wert</p>
+                            <p class="description">Beschreibung</p>
+                            <p class="status">Status</p>
+                        </div>
+                        {% for permission in permissions_disposition %}
+                            <div class="permission-container datafy">
+                                <p class="value">{{ permission.permission }}</p>
+                                <p class="description">{{ permission.description }}</p>
+                                <div class="permission-checkbox">
+                                    <input type="checkbox" name="selected_permissions" value="{{ permission.id }}"
+                                           {% if permission in role.permissions.all %}checked{% endif %}>
+                                </div>
+
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="permissions">
+                        <h2>Verwaltung</h2>
+                        <div class="permission-container titlefy">
+                            <p class="value">Wert</p>
+                            <p class="description">Beschreibung</p>
+                            <p class="status">Status</p>
+                        </div>
+                        {% for permission in permissions_management %}
+                            <div class="permission-container datafy">
+                                <p class="value">{{ permission.permission }}</p>
+                                <p class="description">{{ permission.description }}</p>
+                                <div class="permission-checkbox">
+                                    <input type="checkbox" name="selected_permissions" value="{{ permission.id }}"
+                                           {% if permission in role.permissions.all %}checked{% endif %}>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="buttons">
+                        <a href="{% url 'role_manage' role.name %}" class="cancel-button cancel-delete-confirm">
+                            Abbrechen
+                        </a>
+                        <button class="submit" type="submit">Speichern</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% include 'components/footer.html' %}
+</body>

@@ -94,16 +94,29 @@
                 </a>
             {% endif %}
             {% if request.user.is_authenticated %}
-                <a href="" class="section">
-                    <div class="not-current">
-                        <div class="icon">
-                            <img src="{% static 'svgs/map-marker-path.svg' %}" alt="home"/>
+                {% if page == "disposition" %}
+                    <a href="{% url 'tours' %}" class="section">
+                        <div class="current">
+                            <div class="icon">
+                                <img src="{% static 'svgs/map-marker-path.svg' %}" alt="home"/>
+                            </div>
+                            <div class="text">
+                                <p>Disposition</p>
+                            </div>
                         </div>
-                        <div class="text">
-                            <p>Disposition</p>
+                    </a>
+                {% else %}
+                    <a href="{% url 'tours' %}" class="section">
+                        <div class="not-current">
+                            <div class="icon">
+                                <img src="{% static 'svgs/map-marker-path.svg' %}" alt="home"/>
+                            </div>
+                            <div class="text">
+                                <p>Disposition</p>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                {% endif %}
             {% endif %}
             {% if request.user.is_authenticated %}
                 <a href="" class="section">

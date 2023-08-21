@@ -58,6 +58,35 @@ h3 {
     background-color: #7c7c7c;
 }
 
+.content .blockify .delete {
+    background-color: darkred;
+}
+
+.content .blockify .cancel-delete-confirm {
+    background-color: #7c7c7c;
+}
+
+.content .blockify .cancel-delete-confirm:hover {
+    background-color: #545454;
+}
+
+.content .blockify .delete-confirm:hover {
+    background-color: #640000;
+}
+
+.content .blockify .delete-confirm {
+    background-color: darkred;
+}
+
+.content .blockify .delete-confirm:hover {
+    background-color: #640000;
+}
+
+
+.content .blockify .permission {
+    background-color: #ff9100;
+}
+
 @media print {
     body {
         display: block;

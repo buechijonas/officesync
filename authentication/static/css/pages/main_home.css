@@ -38,6 +38,18 @@
         "h1 . button";
 }
 
+.content .blockify .flexify .manage-role-buttons-container {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    grid-template-rows: 68px;
+    grid-template-areas:
+        ". right";
+}
+
+.content .blockify .flexify .manage-role-buttons-container .align-right {
+    grid-area: right;
+}
+
 .content .blockify .flexify .tabs {
     max-width: 1024px;
     width: 100%;
@@ -50,7 +62,12 @@
     grid-template-rows: 1fr;
     grid-template-areas:
         "tab1 tab2";
-    color: gray;
+}
+
+.content .blockify .flexify .tabs .current {
+    border-bottom-color: gray;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
 }
 
 .content .blockify .flexify .tabs .tab1 {
@@ -59,6 +76,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: gray;
+    text-decoration: none;
 }
 
 .content .blockify .flexify .tabs .tab1:hover {
@@ -72,6 +91,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: gray;
+    text-decoration: none;
 
 }
 
@@ -86,10 +107,11 @@
 
 .content .blockify .flexify .cardify .permissions .permission-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 100px;
     grid-template-rows: 1fr;
     grid-template-areas:
         "value description status";
+    grid-column-gap: 12px;
     margin: 12px 0;
 }
 
@@ -112,6 +134,32 @@
 
 .content .blockify .flexify .cardify .permissions .permission-container .status {
     grid-area: status;
+}
+
+.content .blockify .flexify .cardify .permissions .permission-container .permission-check {
+    display: flex;
+    width: 16px;
+    margin: 0 12px;
+    filter: invert(49%) sepia(0%) saturate(1%) hue-rotate(242deg) brightness(99%) contrast(86%);
+}
+
+.content .blockify .flexify .cardify .permissions .permission-container .permission-checkbox {
+    display: flex;
+    width: 48px;
+    height: 48px;
+}
+
+.content .blockify .flexify .cardify .permissions .permission-container .permission-checkbox input {
+    width: 100%;
+    height: 100%;
+}
+
+.content .blockify .flexify .cardify .permissions .permission-container .permission-checkbox input:checked {
+    accent-color: #009543;
+}
+
+.content .blockify .flexify .cardify .permissions .permission-container .checked {
+    filter: invert(37%) sepia(93%) saturate(536%) hue-rotate(99deg) brightness(95%) contrast(101%);
 }
 
 .content .blockify .flexify .cardify .title-container .h1 {
@@ -138,6 +186,33 @@
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
+}
+
+.content .blockify .flexify .role-card .blockify .userify {
+    color: black;
+    display: grid;
+    grid-template-columns: 48px auto;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "img name"
+        "img usertag";
+    width: 100%;
+    grid-column-gap: 12px;
+}
+
+.content .blockify .flexify .role-card .blockify .userify .img {
+    grid-area: img;
+    filter: brightness(0) saturate(100%) invert(56%) sepia(4%) saturate(13%) hue-rotate(346deg) brightness(96%) contrast(87%);
+}
+
+.content .blockify .flexify .role-card .blockify .userify .name {
+    grid-area: name;
+}
+
+.content .blockify .flexify .role-card .blockify .userify .usertag {
+    font-weight: normal;
+    color: gray;
+    grid-area: usertag;
 }
 
 .role-card a {
@@ -292,6 +367,10 @@
         max-width: 512px;
         width: 100%;
         grid-gap: 1px;
+    }
+
+    .content .blockify .flexify .cardify .permissions .permission-container {
+        grid-template-columns: 1fr 1fr 100px;
     }
 }
 

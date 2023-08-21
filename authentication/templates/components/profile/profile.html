@@ -10,19 +10,11 @@
                     <p>{{ request.user.first_name }} {{ request.user.last_name }}</p>
                 </div>
                 <div class="role">
-                    {% for group in request.user.groups.all %}
-                        {% if group.name == 'customer' %}
-                            <p class="customer">Kunde</p>
-                        {% elif group.name == 'staff' %}
-                            <p class="staff">Mitarbeiter</p>
-                        {% elif group.name == 'developer' %}
-                            <p class="developer">Entwickler</p>
-                        {% elif group.name == 'admin' %}
-                            <p class="admin">Administrator</p>
-                        {% else %}
-                            <p class="unverified">Unverifizierte Gruppe</p>
-                        {% endif %}
-                    {% endfor %}
+                    {% if request.user.advanced.role %}
+                        <p style="color: {{ request.user.advanced.role.color }}">{{ request.user.advanced.role }}</p>
+                    {% else %}
+                        <p class="unverified">Keine Rolle</p>
+                    {% endif %}
                 </div>
             </div>
         {% else %}

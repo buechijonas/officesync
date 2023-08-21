@@ -1,8 +1,9 @@
-from django.contrib.auth.models import AbstractUser, Permission
+from django.contrib.auth import get_user_model
+from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.db import models
 from django.utils import timezone
-from django.contrib.auth.models import Group
-from django.contrib.auth import get_user_model
+
+from administration.models import Role
 
 User = get_user_model()
 
@@ -17,24 +18,12 @@ class OfficeSync(models.Model):
     def __str__(self):
         return f"{self.app}"
 
-class AdvancedUser(AbstractUser):
-    pp = models.ImageField(upload_to='static/images/uploads/profile', null=True, blank=True)
-    groups = models.ManyToManyField(
-        Group,
-        blank=True,
-        help_text=
-        'The groups this user belongs to. A user will get all permissions '
-        'granted to each of their groups.'
-        ,
-        related_name='authentication_user_set'  # Update the related name
-    )
 
-    user_permissions = models.ManyToManyField(
-        Permission,
-        blank=True,
-        help_text='Specific permissions for this user.',
-        related_name='authentication_user_set'  # Update the related name
-    )
+class AdvancedUser(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="advanced")
+    pp = models.ImageField(upload_to='static/images/uploads/profile', null=True, blank=True)
+    role = models.ForeignKey(Role, null=True, on_delete=models.SET_NULL, blank=True)
+
 
     def get_profile_url(self):
         if self.pp and hasattr(self.pp, 'url'):
@@ -47,17 +36,23 @@ class AdvancedUser(AbstractUser):
         else:
             return ""
 
+    def __str__(self):
+        return f"{self.user.username}"
+
+
 class UserCustomInterface(models.Model):
     class UI(models.TextChoices):
         LIGHTMODE = "Hell", "Hell"
         DARKMODE = "Dunkel", "Dunkel"
         CONTRAST = "Kontrast", "Kontrast"
+
     ui = models.CharField(max_length=50, choices=UI.choices, default=UI.LIGHTMODE)
     gender = models.BooleanField(default=False)
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="user_custom_interface")
 
     def __str__(self):
         return f"{self.user.username} ({self.ui})"
+
 
 class Warn(models.Model):
     class Reasons(models.TextChoices):

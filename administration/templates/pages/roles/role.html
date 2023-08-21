@@ -26,35 +26,30 @@
                 <div class="cardify">
                     <div class="title-container">
                         <h1 style="color: {{ role.color }}" class="h1">{{ role.name }}</h1>
+                        <div class="edit-container">
+                            <a class="button edit" href="{% url 'role_update' role.name %}">
+                                <img src="{% static 'svgs/modify.svg' %}" alt="edit"/>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="flexify">
                 <div class="tabs">
-                    <div class="tab1">
+                    <a href="{% url 'role' role.name %}" class="tab1 current">
                         <p>Detail</p>
-                    </div>
-                    <div class="tab2">
+                    </a>
+                    <a href="{% url 'role_manage' role.name %}" class="tab2">
                         <p>Verwalten</p>
-                    </div>
+                    </a>
                 </div>
             </div>
             <div class="flexify">
-                <div class="cardify">
-                    <div class="permissions">
-                        <h2>Administration</h2>
-                        <div class="permission-container titlefy">
-                            <p class="value">Wert</p>
-                            <p class="description">Beschreibung</p>
-                            <p class="status">Status</p>
-                        </div>
-                        {% for permission in permissions_system %}
-                            <div class="permission-container datafy">
-                                <p class="value">{{ permission.permission }}</p>
-                                <p class="description">{{ permission.description }}</p>
-                            <img src="{% static 'svgs/check-circle.svg' %}" alt="check" />
-                            </div>
-                        {% endfor %}
+                <div class="blockify" style="max-width: 1012px; padding: 0 12px 0 0">
+                    <div class="manage-role-buttons-container">
+                        <a class="button add align-right" href="">
+                            <img src="{% static 'svgs/add.svg' %}" alt="add"/>
+                        </a>
                     </div>
                 </div>
             </div>

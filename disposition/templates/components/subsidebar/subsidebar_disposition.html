@@ -1,0 +1,77 @@
+{% load static %}
+
+<div class="sidebar">
+    <div class="flexify">
+        <div class="grid">
+            {% if page == 'tours' %}
+                <a href="" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/transit-connection-variant.svg' %}" alt="products"/>
+                        </div>
+                        <div class="text">
+                            <p>Touren</p>
+                        </div>
+                    </div>
+                </a>
+            {% else %}
+                <a href="" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/transit-connection-variant.svg' %}" alt="products"/>
+                        </div>
+                        <div class="text">
+                            <p>Touren</p>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+            {% if page == 'locations' %}
+                <a href="" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/map-marker.svg' %}" alt="products"/>
+                        </div>
+                        <div class="text">
+                            <p>Standorte</p>
+                        </div>
+                    </div>
+                </a>
+            {% else %}
+                <a href="" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/map-marker.svg' %}" alt="products"/>
+                        </div>
+                        <div class="text">
+                            <p>Standorte</p>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+            {% if page == 'vehicles' %}
+                <a href="" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/truck.svg' %}" alt="products"/>
+                        </div>
+                        <div class="text">
+                            <p>Fahrzeuge</p>
+                        </div>
+                    </div>
+                </a>
+            {% else %}
+                <a href="" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/truck.svg' %}" alt="products"/>
+                        </div>
+                        <div class="text">
+                            <p>Fahrzeuge</p>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>

@@ -1,4 +1,10 @@
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
 from django.db import models
+from django.utils import timezone
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 # Create your models here.
 
@@ -35,3 +41,31 @@ class Role(models.Model):
 
     class Meta:
         ordering = ['name']
+
+class Logs(models.Model):
+    ACTION_CHOICES = (
+        ('CREATE', 'Erstellen'),
+        ('EDIT', 'Bearbeiten'),
+        ('DELETE', 'Löschen'),
+    )
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    action = models.CharField(max_length=10, choices=ACTION_CHOICES)
+    timestamp = models.DateTimeField(default=timezone.now)
+
+    content_type = models.ForeignKey(ContentType, on_delete=models.SET_NULL, null=True)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey('content_type', 'object_id')
+    model_name = models.CharField(max_length=50, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        if self.content_type:
+            self.model_name = self.content_type.model
+
+        super(Logs, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return f'User: {self.user.username} | Action: {self.action} | {self.model_name}: {self.content_object} | Date: {self.timestamp}'
+
+    class Meta:
+        ordering = ['-timestamp']

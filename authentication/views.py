@@ -9,7 +9,7 @@ from .forms import SignUpForm, LoginForm
 
 from django.contrib.auth import authenticate, get_user_model, login, logout
 
-from .models import UserCustomInterface, OfficeSync
+from .models import UserCustomInterface, OfficeSync, AdvancedUser
 
 User = get_user_model()
 
@@ -23,6 +23,7 @@ class SignUpView(generic.CreateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
+        AdvancedUser.objects.create(user=self.object)
         UserCustomInterface.objects.create(user=self.object)
         return response
 

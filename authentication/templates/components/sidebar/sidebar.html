@@ -8,6 +8,7 @@
                     <img src="{{ officesync.get_logo_url }}" alt="edit"/>
                 {% endif %}
             </div>
+            {% if request.user.is_authenticated %}
             {% if page == "home" %}
                 <a href="{% url 'home' %}" class="section">
                     <div class="current">
@@ -31,7 +32,7 @@
                     </div>
                 </a>
             {% endif %}
-
+        {% endif %}
             {% if request.user.is_authenticated %}
                 {% if page == "administration" %}
                     <a href="{% url 'system' %}" class="section">
@@ -141,7 +142,19 @@
                     </div>
                 </div>
             </a>
-            <a href="" class="section">
+            {% if page == "privacy" %}
+            <a href="{% url 'privacy' %}" class="section">
+                <div class="current">
+                    <div class="icon">
+                        <img src="{% static 'svgs/shield-account.svg' %}" alt="impressum"/>
+                    </div>
+                    <div class="text">
+                        <p>Datenschutzerklärung</p>
+                    </div>
+                </div>
+            </a>
+            {% else %}
+            <a href="{% url 'privacy' %}" class="section">
                 <div class="not-current">
                     <div class="icon">
                         <img src="{% static 'svgs/shield-account.svg' %}" alt="impressum"/>
@@ -151,7 +164,20 @@
                     </div>
                 </div>
             </a>
-            <a href="" class="section">
+            {% endif %}
+            {% if page == "terms" %}
+            <a href="{% url 'terms' %}" class="section">
+                <div class="current">
+                    <div class="icon">
+                        <img src="{% static 'svgs/cursor-pointer.svg' %}" alt="impressum"/>
+                    </div>
+                    <div class="text">
+                        <p>Nutzungsbedingungen</p>
+                    </div>
+                </div>
+            </a>
+            {% else %}
+            <a href="{% url 'terms' %}" class="section">
                 <div class="not-current">
                     <div class="icon">
                         <img src="{% static 'svgs/cursor-pointer.svg' %}" alt="impressum"/>
@@ -161,6 +187,30 @@
                     </div>
                 </div>
             </a>
+            {%endif%}
+            {% if page == "copyright" %}
+            <a href="{% url 'copyright' %}" class="section">
+                <div class="current">
+                    <div class="icon">
+                        <img src="{% static 'svgs/copyright.svg' %}" alt="impressum"/>
+                    </div>
+                    <div class="text">
+                        <p>Urheberrecht</p>
+                    </div>
+                </div>
+            </a>
+            {% else %}
+            <a href="{% url 'copyright' %}" class="section">
+                <div class="not-current">
+                    <div class="icon">
+                        <img src="{% static 'svgs/copyright.svg' %}" alt="impressum"/>
+                    </div>
+                    <div class="text">
+                        <p>Urheberrecht</p>
+                    </div>
+                </div>
+            </a>
+            {%endif%}
             {% if request.user.is_authenticated %}
                 <a href="{% url 'logout' %}" class="loginout loginout-dashboard">
                     <p>Abmelden</p>

@@ -122,6 +122,7 @@
 
 .content .blockify .flexify .permissions .datafy {
     color: gray;
+    margin: 12px auto;
 }
 
 .content .blockify .flexify .cardify .permissions .permission-container .value {

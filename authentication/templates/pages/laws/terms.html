@@ -9,18 +9,55 @@
     <link rel="stylesheet" href="{% static 'css/components/profile.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
-    <link rel="stylesheet" href="{% static 'css/pages/main_paper.css' %}">
-    <title>Nutzungsbedingungen</title>
+    <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}">
+    <title>{{ officesync.app }} - Nutzungsbedingungen</title>
 </head>
 <body>
-{% include 'components/header/dashboard.html' with title="Nutzungsbedingungen" %}
-<main>
+    {% include 'components/header/authentication.html' with title=officesync.app %}
+    <main>
     {% include 'components/sidebar/sidebar.html' with page="terms" %}
     <div class="content">
         <div class="blockify">
             {% include 'components/profile/profile.html' %}
             <div class="flexify">
-                {% include 'components/paper/paper.html' with page="terms" headline="Nutzungsbedingungen" %}
+                <div class="cardify">
+                    <div class="title-container">
+                        <h1 class="h1">Nutzungsbedingungen von OfficeSync auf eigenen Servern</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="flexify">
+                <div class="cardify">
+                    <div class="permissions">
+                        <p class="datafy">Diese Nutzungsbedingungen ("Bedingungen") regeln die Bereitstellung und Nutzung der Webapplikation "OfficeSync" ("Plattform") auf eigenen Servern durch Dritte. Wenn Sie die Plattform auf Ihren eigenen Servern bereitstellen möchten, stimmen Sie diesen Bedingungen ausdrücklich zu. Wenn Sie diesen Bedingungen nicht zustimmen, dürfen Sie die Plattform nicht bereitstellen oder nutzen.</p>
+                        <h2>1. Bereitstellung der Plattform</h2>
+                        <p class="datafy">1.1 Die Plattform wird als Open-Source-Software bereitgestellt und kann von Dritten auf eigenen Servern deployt werden.</p>
+                        <p class="datafy">1.2 Sie sind verantwortlich für die ordnungsgemäße Installation, Konfiguration und Wartung der Plattform auf Ihren Servern.</p>
+                        <h2>2. Nutzung und Inhalte</h2>
+                        <p class="datafy">2.1 Sie sind allein verantwortlich für die Nutzung der Plattform auf Ihren Servern und für sämtliche Inhalte, die innerhalb der Plattform erstellt, hochgeladen oder geteilt werden.</p>
+                        <p class="datafy">2.2 Sie stimmen zu, die Plattform nicht für illegale, diffamierende, beleidigende oder rechtswidrige Aktivitäten zu nutzen.</p>
+                        <h2>3. Datenschutz und Sicherheit</h2>
+                        <p class="datafy">3.1 Sie sind verpflichtet, angemessene Maßnahmen zur Sicherheit und zum Schutz der persönlichen Daten zu ergreifen, die innerhalb der Plattform verarbeitet werden.</p>
+                        <p class="datafy">3.2 Wir übernehmen keine Haftung für Datenschutzverletzungen oder Sicherheitsvorfälle, die im Zusammenhang mit der Bereitstellung der Plattform auf Ihren Servern auftreten.</p>
+                        <h2>4. Haftungsausschluss</h2>
+                        <p class="datafy">4.1 Die Bereitstellung und Nutzung der Plattform erfolgt auf eigene Gefahr. Wir übernehmen keine Verantwortung für Schäden, die durch die Bereitstellung, Nutzung oder Inhalte der Plattform entstehen.</p>
+                        <p class="datafy">4.2 Wir übernehmen keine Gewährleistung für die Funktionalität, Richtigkeit oder Verfügbarkeit der Plattform auf Ihren Servern.</p>
+                        <h2>5. Änderungen der Nutzungsbedingungen</h2>
+                        <p class="datafy">5.1 Wir behalten uns das Recht vor, diese Nutzungsbedingungen jederzeit zu ändern oder zu aktualisieren. Die aktualisierten Bedingungen treten mit ihrer Veröffentlichung in Kraft.</p>
+                        <p class="datafy">Durch die Bereitstellung und Nutzung der Plattform auf eigenen Servern erklären Sie, dass Sie diese Nutzungsbedingungen gelesen und verstanden haben und sich damit einverstanden erklären. Diese Bedingungen bilden die gesamte Vereinbarung zwischen Ihnen und Kiidle in Bezug auf die Bereitstellung und Nutzung der Plattform auf eigenen Servern.</p>
+                    </div>
+                    {% if request.user.is_authenticated and not request.user.advanced.terms %}
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="buttons">
+                            <a href="{% url 'logout' %}" class="cancel-button cancel-delete-confirm">
+                                Abbrechen
+                                </a>
+                            <button class="submit" type="submit">Zustimmen</button>
+                        </div>
+                    </form>
+                    {%  endif %}
+                </div>
             </div>
         </div>
     </div>

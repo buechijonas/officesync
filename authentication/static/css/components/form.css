@@ -39,7 +39,7 @@ form .buttons {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     grid-template-areas:
-        "submit cancel";
+        "cancel submit";
     grid-gap: 12px;
     width: 100%;
     max-width: 500px;

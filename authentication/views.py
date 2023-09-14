@@ -6,6 +6,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views import generic
 
+from administration.models import Log
 from .forms import LoginForm, SignUpForm
 from .models import AdvancedUser, OfficeSync, UserCustomInterface
 
@@ -96,6 +97,12 @@ class PrivacyView(generic.ListView):
             request.user.advanced.privacy = True
             request.user.advanced.save()
 
+        Log.objects.create(
+            user=request.user,
+            action="READ",
+            message=f"@{request.user} hat die Datenschutzerklärung zugestimmt."
+        )
+
         if request.user.advanced.terms:
             if request.user.advanced.copyright:
                 return redirect("home")
@@ -121,6 +128,12 @@ class TermsView(generic.ListView):
             request.user.advanced.terms = True
             request.user.advanced.save()
 
+        Log.objects.create(
+            user=request.user,
+            action="READ",
+            message=f"@{request.user} hat die Nutzungsbedingungen zugestimmt."
+        )
+
         if request.user.advanced.copyright:
             return redirect("home")
         return redirect("copyright")
@@ -141,5 +154,11 @@ class CopyrightView(generic.ListView):
         if request.user.is_authenticated:
             request.user.advanced.copyright = True
             request.user.advanced.save()
+
+        Log.objects.create(
+            user=request.user,
+            action="READ",
+            message=f"@{request.user} hat die Urheberrechtsreglement zugestimmt."
+        )
 
         return redirect("home")

@@ -1,13 +1,14 @@
+from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views import generic
 
 from authentication.models import OfficeSync, AdvancedUser
 
-from .models import CustomPermission, Logs, Role
+from .models import CustomPermission, Log, Role
 
 User = get_user_model()
 
@@ -46,6 +47,12 @@ class AppNameUpdateView(LoginRequiredMixin, generic.UpdateView):
         return reverse_lazy("system")
 
     def form_valid(self, form):
+        Log.objects.create(
+            user=self.request.user,
+            action="UPDATE",
+            message=f"{self.request.user} nannte die Webanwendung um ({self.object.app})."
+        )
+
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
@@ -76,6 +83,12 @@ class AppLogoUpdateView(LoginRequiredMixin, generic.UpdateView):
         return reverse_lazy("system")
 
     def form_valid(self, form):
+        Log.objects.create(
+            user=self.request.user,
+            action="UPDATE",
+            message=f"{self.request.user} änderte das Logo der Webanwendung."
+        )
+
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
@@ -138,8 +151,11 @@ class RoleCreateView(LoginRequiredMixin, generic.CreateView):
     def form_valid(self, form):
         response = super().form_valid(form)
 
-        Logs.objects.create(
-            user=self.request.user, action="CREATE", content_object=self.object
+        Log.objects.create(
+            user=self.request.user,
+            action="CREATE",
+            content_object=self.object,
+            message=f"@{self.request.user} hat die Rolle {self.object} erstellt."
         )
 
         return response
@@ -263,11 +279,27 @@ class RoleUpdateView(LoginRequiredMixin, generic.UpdateView):
         return reverse_lazy("role", kwargs={"name": self.object.name})
 
     def form_valid(self, form):
+        old_role_name = self.get_object().name
+        old_role_color = self.get_object().color
         response = super().form_valid(form)
+        new_role_name = self.object.name
+        new_role_color = self.object.color
 
-        Logs.objects.create(
-            user=self.request.user, action="UPDATE", content_object=self.object
-        )
+        messages = []
+
+        if old_role_color != new_role_color:
+            messages.append(f"@{self.request.user} färbte '{old_role_name}' um.")
+
+        if old_role_name != new_role_name:
+            messages.append(f"@{self.request.user} nannte '{old_role_name}' auf '{new_role_name}' um.")
+
+        for message in messages:
+            Log.objects.create(
+                user=self.request.user,
+                action="UPDATE",
+                content_object=self.object,
+                message=message
+            )
 
         return response
 
@@ -324,14 +356,26 @@ class RoleDeleteView(LoginRequiredMixin, generic.DeleteView):
         obj = get_object_or_404(queryset)
         return obj
 
-    def delete(self, request, *args, **kwargs):
-        obj = self.get_object()
+    def get(self, request, name):
+        role = get_object_or_404(Role, name=name)
+        return render(request, self.template_name, {'role': role})
 
-        Logs.objects.create(user=self.request.user, action="DELETE", content_object=obj)
+    def post(self, request, name):
+        role = get_object_or_404(Role, name=name)
+        old_role_name = role.name
 
-        obj.delete()
+        # Create the log entry
+        Log.objects.create(
+            user=request.user,
+            action="DELETE",
+            content_object=role,
+            message=f"{request.user} hat '{old_role_name}' gelöscht."
+        )
 
-        return super().delete(request, *args, **kwargs)
+        role.delete()  # Löschen Sie die Rolle nach Erstellung des Log-Eintrags
+
+        messages.success(request, f"{old_role_name} wurde erfolgreich gelöscht.")
+        return HttpResponseRedirect(reverse_lazy("roles"))
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -358,7 +402,11 @@ class RolePermissionsUpdateView(LoginRequiredMixin, generic.UpdateView):
         return reverse_lazy("role_manage", kwargs={"name": self.object.name})
 
     def form_valid(self, form):
+        old_role_name = self.object.name
         selected_permission_ids = self.request.POST.getlist("selected_permissions")
+
+        # Speichern der alten Berechtigungen der Rolle
+        old_permissions = list(self.object.permissions.all())
 
         self.object.permissions.clear()
 
@@ -366,7 +414,21 @@ class RolePermissionsUpdateView(LoginRequiredMixin, generic.UpdateView):
             permission = CustomPermission.objects.get(id=permission_id)
             self.object.permissions.add(permission)
 
-        return super().form_valid(form)
+        new_permissions = list(self.object.permissions.all())
+
+        permissions_changed = old_permissions != new_permissions
+
+        response = super().form_valid(form)
+
+        if permissions_changed:
+            Log.objects.create(
+                user=self.request.user,
+                action="UPDATE",
+                content_object=self.object,
+                message=f"{self.request.user} hat bei '{old_role_name}' die Rechte angepasst."
+            )
+
+        return response
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -451,7 +513,37 @@ class UsersView(LoginRequiredMixin, generic.ListView):
         context = super().get_context_data(**kwargs)
         context[
             "officesync"
-        ] = OfficeSync.objects.first()  # Hole das erste OfficeSync-Objekt
+        ] = OfficeSync.objects.first()
+        return context
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            if not request.user.advanced.privacy:
+                return redirect("privacy")
+
+            if not request.user.advanced.terms:
+                return redirect("terms")
+
+            if not request.user.advanced.copyright:
+                return redirect("copyright")
+
+        return super().dispatch(request, *args, **kwargs)
+
+
+class LogsView(LoginRequiredMixin, generic.ListView):
+    model = Log
+    fields = []
+    template_name = "pages/logs.html"
+
+    def get_queryset(self):
+        return Log.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context[
+            "officesync"
+        ] = OfficeSync.objects.first()
+        context["logs"] = Log.objects.all()
         return context
 
     def dispatch(self, request, *args, **kwargs):

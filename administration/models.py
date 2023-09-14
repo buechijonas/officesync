@@ -42,8 +42,9 @@ class Role(models.Model):
     class Meta:
         ordering = ['name']
 
-class Logs(models.Model):
+class Log(models.Model):
     ACTION_CHOICES = (
+        ('READ', 'Lesen'),
         ('CREATE', 'Erstellen'),
         ('EDIT', 'Bearbeiten'),
         ('DELETE', 'Löschen'),
@@ -53,16 +54,17 @@ class Logs(models.Model):
     action = models.CharField(max_length=10, choices=ACTION_CHOICES)
     timestamp = models.DateTimeField(default=timezone.now)
 
-    content_type = models.ForeignKey(ContentType, on_delete=models.SET_NULL, null=True)
-    object_id = models.PositiveIntegerField()
+    content_type = models.ForeignKey(ContentType, on_delete=models.DO_NOTHING, null=True)
+    object_id = models.PositiveIntegerField(null=True, blank=True)
     content_object = GenericForeignKey('content_type', 'object_id')
     model_name = models.CharField(max_length=50, blank=True, null=True)
+    message = models.CharField(max_length=200, null=True, blank=True)
 
     def save(self, *args, **kwargs):
         if self.content_type:
             self.model_name = self.content_type.model
 
-        super(Logs, self).save(*args, **kwargs)
+        super(Log, self).save(*args, **kwargs)
 
     def __str__(self):
         return f'User: {self.user.username} | Action: {self.action} | {self.model_name}: {self.content_object} | Date: {self.timestamp}'

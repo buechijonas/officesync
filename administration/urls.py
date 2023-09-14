@@ -1,7 +1,7 @@
 from django.urls import path
 
 from .views import SystemView, AppNameUpdateView, AppLogoUpdateView, RolesView, RoleCreateView, RoleDetailView, \
-    RoleManageDetailView, RoleUpdateView, RoleDeleteView, RolePermissionsUpdateView, UsersView, RoleUsersView
+    RoleManageDetailView, RoleUpdateView, RoleDeleteView, RolePermissionsUpdateView, UsersView, RoleUsersView, LogsView
 
 urlpatterns = [
     path("", SystemView.as_view(), name="system"),
@@ -16,4 +16,5 @@ urlpatterns = [
     path("roles/<slug:name>/manage/delete", RoleDeleteView.as_view(), name="role_delete"),
     path("roles/<slug:name>/manage/permissions", RolePermissionsUpdateView.as_view(), name="role_permission"),
     path("users/", UsersView.as_view(), name="users"),
+    path("logs/", LogsView.as_view(), name="logs"),
 ]

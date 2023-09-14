@@ -227,6 +227,86 @@
     accent-color: #009543;
 }
 
+.content .blockify .flexify .role-card .blockify .logify {
+    color: black;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 24px 24px;
+    grid-template-areas:
+        "modelname . action"
+        "user . date";
+    width: 100%;
+    grid-column-gap: 12px;
+}
+
+.content .blockify .flexify .role-card .blockify .logify .modelname {
+    grid-area: modelname;
+}
+
+.content .blockify .flexify .role-card .blockify .logify .contentobject {
+    grid-area: contentobject;
+}
+
+.content .blockify .flexify .role-card .blockify .logify .action {
+    grid-area: action;
+    display: flex;
+    justify-content: right;
+    margin-right: 24px;
+}
+
+.content .blockify .flexify .role-card .blockify .logify .action .read {
+    background-color: #7c7c7c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+.content .blockify .flexify .role-card .blockify .logify .action .create {
+    background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+.content .blockify .flexify .role-card .blockify .logify .action .update {
+    background-color: #ff9100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+.content .blockify .flexify .role-card .blockify .logify .action .delete {
+    background-color: darkred;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+.content .blockify .flexify .role-card .blockify .logify .date {
+    grid-area: date;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-right: 24px;
+    font-size: 0.6rem;
+}
+
 .role-card a {
     text-decoration: none;
     display: flex;

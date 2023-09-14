@@ -80,8 +80,8 @@
                     </div>
                 </a>
             {% endif %}
-            {% if page == 'protocols' %}
-                <a href="{% url 'users' %}" class="section">
+            {% if page == 'logs' %}
+                <a href="{% url 'logs' %}" class="section">
                     <div class="current">
                         <div class="icon">
                             <img src="{% static 'svgs/clipboard-text-clock.svg' %}" alt="clipboard"/>
@@ -92,7 +92,7 @@
                     </div>
                 </a>
             {% else %}
-                <a href="{% url 'users' %}" class="section">
+                <a href="{% url 'logs' %}" class="section">
                     <div class="not-current">
                         <div class="icon">
                             <img src="{% static 'svgs/clipboard-text-clock.svg' %}" alt="clipboard"/>

@@ -84,9 +84,6 @@ coverage.xml
 *.cover
 .hypothesis/
 
-# Ignore Django migration files
-**/migrations/
-
 # Ignore Python cache files
 __pycache__/
 *.pyc

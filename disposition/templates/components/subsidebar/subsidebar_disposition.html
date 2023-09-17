@@ -50,7 +50,7 @@
                 </a>
             {% endif %}
             {% if page == 'vehicles' %}
-                <a href="" class="section">
+                <a href="{% url 'vehicles' %}" class="section">
                     <div class="current">
                         <div class="icon">
                             <img src="{% static 'svgs/truck.svg' %}" alt="products"/>
@@ -61,7 +61,7 @@
                     </div>
                 </a>
             {% else %}
-                <a href="" class="section">
+                <a href="{% url 'vehicles' %}" class="section">
                     <div class="not-current">
                         <div class="icon">
                             <img src="{% static 'svgs/truck.svg' %}" alt="products"/>

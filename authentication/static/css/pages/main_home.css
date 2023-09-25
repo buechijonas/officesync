@@ -201,9 +201,26 @@
     grid-column-gap: 12px;
 }
 
-.content .blockify .flexify .role-card .blockify .userify .img {
+.content .blockify .flexify .role-card .blockify .userify .img   {
     grid-area: img;
     filter: brightness(0) saturate(100%) invert(56%) sepia(4%) saturate(13%) hue-rotate(346deg) brightness(96%) contrast(87%);
+}
+
+.content .blockify .flexify .cardify .vehicle-pimg  {
+    height: 48px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    filter: brightness(0) saturate(100%) invert(56%) sepia(4%) saturate(13%) hue-rotate(346deg) brightness(96%) contrast(87%);
+}
+
+.content .blockify .flexify .cardify .vehicle-pimg  img {
+    margin-right: 12px;
+}
+
+.content .blockify .flexify .cardify .vehicle-pimg img {
+    height: 100%;
+    width: 100%;
 }
 
 .content .blockify .flexify .role-card .blockify .userify .name {

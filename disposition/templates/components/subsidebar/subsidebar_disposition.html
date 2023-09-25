@@ -1,5 +1,4 @@
 {% load static %}
-
 <div class="sidebar">
     <div class="flexify">
         <div class="grid">
@@ -7,7 +6,8 @@
                 <a href="" class="section">
                     <div class="current">
                         <div class="icon">
-                            <img src="{% static 'svgs/transit-connection-variant.svg' %}" alt="products"/>
+                            <img src="{% static 'svgs/transit-connection-variant.svg' %}"
+                                 alt="products" />
                         </div>
                         <div class="text">
                             <p>Touren</p>
@@ -18,7 +18,8 @@
                 <a href="" class="section">
                     <div class="not-current">
                         <div class="icon">
-                            <img src="{% static 'svgs/transit-connection-variant.svg' %}" alt="products"/>
+                            <img src="{% static 'svgs/transit-connection-variant.svg' %}"
+                                 alt="products" />
                         </div>
                         <div class="text">
                             <p>Touren</p>
@@ -27,10 +28,10 @@
                 </a>
             {% endif %}
             {% if page == 'locations' %}
-                <a href="" class="section">
+                <a href="{% url 'stations' %}" class="section">
                     <div class="current">
                         <div class="icon">
-                            <img src="{% static 'svgs/map-marker.svg' %}" alt="products"/>
+                            <img src="{% static 'svgs/map-marker-multiple.svg' %}" alt="products" />
                         </div>
                         <div class="text">
                             <p>Standorte</p>
@@ -38,10 +39,10 @@
                     </div>
                 </a>
             {% else %}
-                <a href="" class="section">
+                <a href="{% url 'stations' %}" class="section">
                     <div class="not-current">
                         <div class="icon">
-                            <img src="{% static 'svgs/map-marker.svg' %}" alt="products"/>
+                            <img src="{% static 'svgs/map-marker-multiple.svg' %}" alt="products" />
                         </div>
                         <div class="text">
                             <p>Standorte</p>
@@ -53,7 +54,7 @@
                 <a href="{% url 'vehicles' %}" class="section">
                     <div class="current">
                         <div class="icon">
-                            <img src="{% static 'svgs/truck.svg' %}" alt="products"/>
+                            <img src="{% static 'svgs/truck.svg' %}" alt="products" />
                         </div>
                         <div class="text">
                             <p>Fahrzeuge</p>
@@ -64,7 +65,7 @@
                 <a href="{% url 'vehicles' %}" class="section">
                     <div class="not-current">
                         <div class="icon">
-                            <img src="{% static 'svgs/truck.svg' %}" alt="products"/>
+                            <img src="{% static 'svgs/truck.svg' %}" alt="products" />
                         </div>
                         <div class="text">
                             <p>Fahrzeuge</p>

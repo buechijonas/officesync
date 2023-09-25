@@ -11,12 +11,15 @@ User = get_user_model()
 class OfficeSync(models.Model):
     app = models.CharField(max_length=20, default="OfficeSync", null=True, blank=True)
     logo = models.ImageField(
-        upload_to="authentication/static/images/uploads/logo", null=True, blank=True
+        upload_to="authentication/static/images/uploads/logo", null=True, blank=True,
+        default="authentication/static/images/uploads/logo_default/officesync.png"
     )
 
     def get_logo_url(self):
         if self.logo and hasattr(self.logo, "url"):
             return self.logo.url.replace("/authentication/", "/")
+        else:
+            return "/static/images/uploads/logo_default/officesync.png"
 
     def __str__(self):
         return f"{self.app}"

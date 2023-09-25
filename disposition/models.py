@@ -1,8 +1,8 @@
 from django.core.validators import MinValueValidator
 from django.db import models
 
-
 # Create your models here.
+
 
 class Station(models.Model):
     name = models.CharField(max_length=30)
@@ -50,26 +50,51 @@ class Vehicle(models.Model):
         MODIFIED = "modified", "Modifiziert"
 
     license_plate = models.CharField(max_length=20, verbose_name="Kennzeichen*")
-    name = models.CharField(max_length=20, null=True, blank=True, default="Keine", verbose_name="Name")
-    type = models.CharField(max_length=50, choices=Type.choices, default=Type.PASSENGER_CAR,
-                            verbose_name="Fahrzeugtyp*")
+    name = models.CharField(
+        max_length=20, null=True, blank=True, default="Keine", verbose_name="Name"
+    )
+    type = models.CharField(
+        max_length=50,
+        choices=Type.choices,
+        default=Type.PASSENGER_CAR,
+        verbose_name="Fahrzeugtyp*",
+    )
     model = models.CharField(max_length=20, verbose_name="Fahrzeugmodell*")
     manufacturer = models.CharField(max_length=20, verbose_name="Hersteller*")
     year_of_manufacturer = models.PositiveIntegerField(
-        default=1900,
-        verbose_name="Baujahr*",
-        validators=[MinValueValidator(1900)]
+        default=1900, verbose_name="Baujahr*", validators=[MinValueValidator(1900)]
     )
     vin = models.CharField(max_length=20, verbose_name="Identifikationsnummer*")
-    power_engine = models.CharField(max_length=20, default="Unbekannt", verbose_name="Leistung & Motor", null=True,
-                                    blank=True)
+    power_engine = models.CharField(
+        max_length=20,
+        default="Unbekannt",
+        verbose_name="Leistung & Motor",
+        null=True,
+        blank=True,
+    )
     capacity = models.CharField(max_length=20, verbose_name="Lagerkapazität*")
-    fuel_type = models.CharField(max_length=20, choices=Fuel.choices, default=Fuel.DIESEL, verbose_name="Fahrzeugtyp*")
-    fuel_consumption = models.CharField(max_length=20, verbose_name="Durchschnittlicher Kraftstoffverbrauch*")
-    insurance = models.TextField(max_length=200, default="Keine Angaben", null=True, blank=True,
-                                 verbose_name="Versicherungsdaten")
-    condition = models.CharField(max_length=20, choices=Condition.choices, default=Condition.UNUSED,
-                                 verbose_name="Zustand*")
+    fuel_type = models.CharField(
+        max_length=20,
+        choices=Fuel.choices,
+        default=Fuel.DIESEL,
+        verbose_name="Fahrzeugtyp*",
+    )
+    fuel_consumption = models.CharField(
+        max_length=20, verbose_name="Durchschnittlicher Kraftstoffverbrauch*"
+    )
+    insurance = models.TextField(
+        max_length=200,
+        default="Keine Angaben",
+        null=True,
+        blank=True,
+        verbose_name="Versicherungsdaten",
+    )
+    condition = models.CharField(
+        max_length=20,
+        choices=Condition.choices,
+        default=Condition.UNUSED,
+        verbose_name="Zustand*",
+    )
 
 
 class VehicleData(models.Model):

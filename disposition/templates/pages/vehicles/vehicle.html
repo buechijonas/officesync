@@ -1,0 +1,245 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {% if officesync.get_logo_url %}<link rel="icon" href="{{ officesync.get_logo_url }}" type="image/png" />{% endif %}
+        <link rel="stylesheet" href="{% static 'css/global/global.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/components/header.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/components/footer.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/components/sidebar.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/components/form.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/components/main.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/components/profile.css' %}" />
+        <title>{{ officesync.app }} - Fahrzeuge</title>
+    </head>
+    <body>
+        {% include 'components/header/authentication.html' with title=officesync.app %}
+        <main>
+            {% include 'components/sidebar/sidebar.html' with page="disposition" %}
+            {% include 'components/subsidebar/subsidebar_disposition.html' with page="vehicles" %}
+            <div class="content">
+                <div class="blockify">
+                    {% include 'components/profile/profile.html' %}
+                    <div class="flexify">
+                        <div class="blockify">
+                            <div class="flexify">
+                                <div class="cardify">
+                                    <div class="title-container">
+                                        <h1 class="h1">{{ vehicle.license_plate }}</h1>
+                                        <div class="edit-container">
+                                            <a class="button edit" href="{% url 'vehicle_update' vehicle.pk %}">
+                                                <img src="{% static 'svgs/modify.svg' %}" alt="edit" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flexify">
+                        <div class="cardify">
+                            <div class="permissions">
+                                <div>
+                                    <h2>Metadaten</h2>
+                                    <div class="flexify" style="justify-content: left">
+                                        {% if vehicle.type == "passenger_car" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/car-hatchback.svg" alt="car_hatchback" />
+                                                <p>Personenwagen</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.type == "van" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/van-utility.svg" alt="car_hatchback" />
+                                                <p>Kleintransporter</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.type == "truck" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/truck.svg" alt="truck" />
+                                                <p>Lastwagen</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.type == "delivery_truck" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/truck-delivery.svg" alt="delivery_truck" />
+                                                <p>Lieferwagen</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.type == "cargo_container_truck" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/truck-cargo-container.svg"
+                                                     alt="cargo_container_truck" />
+                                                <p>Frachtcontainerlastwagen</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.type == "dump_truck" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/dump-truck.svg" alt="dump_truck" />
+                                                <p>Kipplaster</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.type == "tanker_truck" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/tanker-truck.svg" alt="tanker_truck" />
+                                                <p>Tanklastwagen</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.type == "tow_truck" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/tow-truck.svg" alt="tow_truck" />
+                                                <p>Abschleppwagen</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.type == "flatbed_truck" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/truck-flatbed.svg" alt="flatbed_truck" />
+                                                <p>Pritschenwagen</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.type == "trailer_truck" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/truck-trailer.svg" alt="trailer_truck" />
+                                                <p>Anhänger</p>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="flexify" style="justify-content: left">
+                                        {% if vehicle.fuel_type == "diesel" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/gas-station.svg" alt="gas-station" />
+                                                <p>Diesel</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.fuel_type == "gasoline" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/gas-station.svg" alt="gas-station" />
+                                                <p>Benzin</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.fuel_type == "electric" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/ev-station.svg" alt="ev-station" />
+                                                <p>Elektrisch</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.fuel_type == "hydrogen" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/hydrogen-station.svg" alt="hydrogen-station" />
+                                                <p>Wasserstoff</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.fuel_type == "natural_gas" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/gas-station.svg" alt="gas-station" />
+                                                <p>Erdgas</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.fuel_type == "biodiesel" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/gas-station.svg" alt="gas-station" />
+                                                <p>Biodiesel</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.fuel_type == "lpg" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/gas-station.svg" alt="gas-station" />
+                                                <p>Autogas</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.fuel_type == "e85" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/gas-station.svg" alt="gas-station" />
+                                                <p>E85</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.fuel_type == "lng" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/gas-station.svg" alt="gas-station" />
+                                                <p>Flüssigerdgas</p>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="flexify" style="justify-content: left">
+                                        {% if vehicle.condition == "unused" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/star-box.svg" alt="star_box" />
+                                                <p>Ungebraucht</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.condition == "used" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/percent-box.svg" alt="percent_box" />
+                                                <p>Gebraucht</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.condition == "damaged" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/alert-box.svg" alt="alert_box" />
+                                                <p>Beschädigt</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.condition == "repaired" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/text-box.svg" alt="text_box" />
+                                                <p>Repariert</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.condition == "total_loss" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/image-broken-variant.svg"
+                                                     alt="image_broken_variant" />
+                                                <p>Totalschaden</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.condition == "needs_maintenance" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/information-box.svg" alt="information_box" />
+                                                <p>Instandhaltungsbedarf</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.condition == "not_drivable" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/close-box.svg" alt="close_box" />
+                                                <p>Unbetriebsbereit</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if vehicle.condition == "modified" %}
+                                            <div class="vehicle-pimg">
+                                                <img src="/static/svgs/cog-box.svg" alt="cog_box" />
+                                                <p>Modifiziert</p>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                    <p class="datafy">Kraftstoffverbrauch: {{ vehicle.fuel_consumption }}</p>
+                                    <p class="datafy">Leistung & Motor:: {{ vehicle.power_engine }}</p>
+                                    <p class="datafy">Lagerkapazität: {{ vehicle.capacity }}</p>
+                                </div>
+                                <div>
+                                    <h2>Erkennungsdaten</h2>
+                                    <p class="datafy">Kennzeichen: {{ vehicle.license_plate }}</p>
+                                    <p class="datafy">Name: {{ vehicle.name }}</p>
+                                    <p class="datafy">Identifikationsnummer: {{ vehicle.vin }}</p>
+                                </div>
+                                <div>
+                                    <h2>Produktionsdaten</h2>
+                                    <p class="datafy">Fahrzeugmodell: {{ vehicle.model }}</p>
+                                    <p class="datafy">Fahrzeughersteller: {{ vehicle.manufacturer }}</p>
+                                    <p class="datafy">Herstellungsjahr: {{ vehicle.year_of_manufacturer }}</p>
+                                </div>
+                                <div>
+                                    <h2>Versicherung</h2>
+                                    <p>{{ vehicle.insurance }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        {% include 'components/footer.html' %}
+    </body>
+</html>

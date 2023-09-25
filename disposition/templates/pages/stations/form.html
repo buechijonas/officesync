@@ -19,21 +19,21 @@
         {% include 'components/header/authentication.html' with title=officesync.app %}
         <main>
             {% include 'components/sidebar/sidebar.html' with page="disposition" %}
-            {% include 'components/subsidebar/subsidebar_disposition.html' with page="vehicles" %}
+            {% include 'components/subsidebar/subsidebar_disposition.html' with page="locations" %}
             <div class="content">
                 <div class="blockify">
                     {% include 'components/profile/profile.html' %}
                     <div class="flexify">
                         <div class="cardify">
                             <div class="title-container">
-                                {% if vehicle.pk %}
-                                    <h1 class="h1">{{ vehicle.license_plate }}</h1>
+                                {% if station.pk %}
+                                    <h1 class="h1">{{ station.name }}</h1>
                                 {% else %}
                                     <h1 class="h1">Fahrzeuge</h1>
                                 {% endif %}
-                                {% if vehicle.pk %}
+                                {% if station.pk %}
                                     <div class="edit-container">
-                                        <a class="button delete" href="{% url 'vehicle_delete' vehicle.pk %}">
+                                        <a class="button delete" href="{% url 'station_delete' station.pk %}">
                                             <img src="{% static 'svgs/delete.svg' %}" alt="edit" />
                                         </a>
                                     </div>
@@ -48,12 +48,12 @@
                                     {% csrf_token %}
                                     {{ form.as_p }}
                                     <div class="buttons">
-                                        {% if vehicle %}
-                                            <a href="{% url 'vehicle' vehicle.pk %}"
+                                        {% if station %}
+                                            <a href="{% url 'station' station.pk %}"
                                                class="cancel-button cancel-delete-confirm">Abbrechen</a>
                                             <button class="submit" type="submit">Speichern</button>
                                         {% else %}
-                                            <a href="{% url 'vehicles' %}"
+                                            <a href="{% url 'stations' %}"
                                                class="cancel-button cancel-delete-confirm">Abbrechen</a>
                                             <button class="submit" type="submit">Hinzufügen</button>
                                         {% endif %}

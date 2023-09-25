@@ -27,16 +27,29 @@ class SignUpView(generic.CreateView):
         UserCustomInterface.objects.create(user=self.object)
         return response
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["officesync"] = OfficeSync.objects.first()
+        return context
+
 
 def sign_in(request):
     if request.method == "GET":
         if request.user.is_authenticated:
             return redirect("/")
         form = LoginForm()
-        return render(request, "pages/authentication/login.html", {"form": form})
+
+        office_sync = OfficeSync.objects.first()
+        context = {
+            "form": form,
+            "officesync": office_sync,
+        }
+
+        return render(request, "pages/authentication/login.html", context)
 
     elif request.method == "POST":
         form = LoginForm(request.POST)
+
         if form.is_valid():
             username = form.cleaned_data["username"]
             password = form.cleaned_data["password"]
@@ -46,8 +59,14 @@ def sign_in(request):
                 messages.success(request, f"Erfolgreich angemeldet!")
                 return redirect("home")
 
+        office_sync = OfficeSync.objects.first()
+        context = {
+            "form": form,
+            "officesync": office_sync,
+        }
+
         messages.error(request, f"Benutzername oder Passwort ist falsch.")
-        return render(request, "pages/authentication/login.html", {"form": form})
+        return render(request, "pages/authentication/login.html", context)
 
 
 @login_required

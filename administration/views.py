@@ -377,6 +377,11 @@ class RoleDeleteView(LoginRequiredMixin, generic.DeleteView):
         messages.success(request, f"{old_role_name} wurde erfolgreich gelöscht.")
         return HttpResponseRedirect(reverse_lazy("roles"))
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["officesync"] = OfficeSync.objects.first()
+        return context
+
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             if not request.user.advanced.privacy:

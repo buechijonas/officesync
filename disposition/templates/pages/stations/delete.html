@@ -18,17 +18,17 @@
     <body>
         {% include 'components/header/authentication.html' with title="Achtung" %}
         <main>
-            {% include 'components/sidebar/sidebar.html' with page="administration" %}
-            {% include 'components/subsidebar/subsidebar_administration.html' with page="roles" %}
+            {% include 'components/sidebar/sidebar.html' with page="disposition" %}
+            {% include 'components/subsidebar/subsidebar_disposition.html' with page="locations" %}
             <div class="content">
                 <div class="blockify">
                     {% include 'components/profile/profile.html' %}
                     <div class="flexify">
                         <div class="cardify">
                             <div class="title-container">
-                                <h1 style="color: {{ role.color }}" class="h1">{{ role.name }}</h1>
+                                <h1 class="h1">{{ vehicle.license_plate }}</h1>
                                 <div class="edit-container">
-                                    <a class="button delete" href="{% url 'role_delete' role.name %}">
+                                    <a class="button delete" href="{% url 'vehicle_delete' station.pk %}">
                                         <img src="{% static 'svgs/delete.svg' %}" alt="edit" />
                                     </a>
                                 </div>
@@ -42,7 +42,7 @@
                                 {% csrf_token %}
                                 {{ form.as_p }}
                                 <div class="buttons">
-                                    <a href="{% url 'role_update' role.name %}"
+                                    <a href="{% url 'station_update' station.pk %}"
                                        class="cancel-button cancel-delete-confirm">Abbrechen</a>
                                     <button class="submit delete-confirm" type="submit">Löschen</button>
                                 </div>
@@ -52,4 +52,5 @@
                 </div>
             </div>
         </main>
+        {% include 'components/footer.html' %}
     </body>

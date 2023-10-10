@@ -2,6 +2,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if officesync.get_logo_url %}
+        <link rel="icon" href="{{ officesync.get_logo_url }}" type="image/png">
+    {% endif %}
     <link rel="stylesheet" href="{% static 'css/global/global.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
@@ -13,8 +16,8 @@
     <title>{{ officesync.app }} - Urheberrecht</title>
 </head>
 <body>
-    {% include 'components/header/authentication.html' with title=officesync.app %}
-    <main>
+{% include 'components/header/authentication.html' with title=officesync.app %}
+<main>
     {% include 'components/sidebar/sidebar.html' with page="copyright" %}
     <div class="content">
         <div class="blockify">
@@ -29,34 +32,53 @@
             <div class="flexify">
                 <div class="cardify">
                     <div class="permissions">
-                        <p class="datafy">Diese Urheberrechtsbestimmungen regeln die Verwendung der Open-Source-Webapplikation "OfficeSync", die von Kiidle entwickelt wurde im Auftrag von der Firma "Ruch Transporte GmbH". Durch die Verwendung von "OfficeSync" stimmen Sie diesen Bestimmungen ausdrücklich zu. Falls Sie diesen Bestimmungen nicht zustimmen, dürfen Sie "OfficeSync" nicht verwenden.</p>
+                        <p class="datafy">Diese Urheberrechtsbestimmungen regeln die Verwendung der
+                            Open-Source-Webapplikation "OfficeSync", die von Kiidle entwickelt wurde im Auftrag von der
+                            Firma "Ruch Transporte GmbH". Durch die Verwendung von "OfficeSync" stimmen Sie diesen
+                            Bestimmungen ausdrücklich zu. Falls Sie diesen Bestimmungen nicht zustimmen, dürfen Sie
+                            "OfficeSync" nicht verwenden.</p>
                         <h2>1. Nutzung und Veränderung</h2>
-                        <p class="datafy">1.1 "OfficeSync" ist als Open-Source-Software verfügbar und kann von Dritten verwendet und auf eigenen Servern deployt werden.</p>
-                        <p class="datafy">1.2 Sie dürfen "OfficeSync" verwenden, ohne jedoch den Code, die Funktionalitäten oder das Design der Plattform zu verändern, zu ergänzen oder zu manipulieren.</p>
-                        <p class="datafy">1.3 Insbesondere ist es Ihnen untersagt, das Logo von "Kiidle" im "OfficeSync" zu entfernen oder anderweitig zu manipulieren.</p>
+                        <p class="datafy">1.1 "OfficeSync" ist als Open-Source-Software verfügbar und kann von Dritten
+                            verwendet und auf eigenen Servern deployt werden.</p>
+                        <p class="datafy">1.2 Sie dürfen "OfficeSync" verwenden, ohne jedoch den Code, die
+                            Funktionalitäten oder das Design der Plattform zu verändern, zu ergänzen oder zu
+                            manipulieren.</p>
+                        <p class="datafy">1.3 Insbesondere ist es Ihnen untersagt, das Logo von "Kiidle" im "OfficeSync"
+                            zu entfernen oder anderweitig zu manipulieren.</p>
                         <h2>2. Einschränkungen und Konsequenzen</h2>
-                        <p class="datafy">2.1 Die Verwendung von veränderten, ergänzten oder manipulierten Kopien von "OfficeSync" ohne ausdrückliche Genehmigung ist strikt untersagt.</p>
-                        <p class="datafy">2.2 Kunden oder Dritte, die unerlaubte Kopien, veränderte Versionen oder manipulierte Kopien von "OfficeSync" verwenden, unterliegen denselben rechtlichen Konsequenzen wie diejenigen, die "OfficeSync" verändert haben..</p>
+                        <p class="datafy">2.1 Die Verwendung von veränderten, ergänzten oder manipulierten Kopien von
+                            "OfficeSync" ohne ausdrückliche Genehmigung ist strikt untersagt.</p>
+                        <p class="datafy">2.2 Kunden oder Dritte, die unerlaubte Kopien, veränderte Versionen oder
+                            manipulierte Kopien von "OfficeSync" verwenden, unterliegen denselben rechtlichen
+                            Konsequenzen wie diejenigen, die "OfficeSync" verändert haben..</p>
                         <h2>3. Schutz des Urheberrechts</h2>
-                        <p class="datafy">3.1 "OfficeSync" und alle damit verbundenen geistigen Eigentumsrechte, einschließlich Urheberrechte, gehören der Organisation Kiidle.</p>
-                        <p class="datafy">3.2 Jegliche Nutzung, Verwendung oder Veränderung von "OfficeSync" ohne ausdrückliche Genehmigung von Kiidle stellt eine Verletzung des Urheberrechts dar.</p>
+                        <p class="datafy">3.1 "OfficeSync" und alle damit verbundenen geistigen Eigentumsrechte,
+                            einschließlich Urheberrechte, gehören der Organisation Kiidle.</p>
+                        <p class="datafy">3.2 Jegliche Nutzung, Verwendung oder Veränderung von "OfficeSync" ohne
+                            ausdrückliche Genehmigung von Kiidle stellt eine Verletzung des Urheberrechts dar.</p>
                         <h2>4. Haftungsausschluss</h2>
-                        <p class="datafy">4.1 Kiidle übernimmt keine Haftung für Schäden, die durch die Verwendung, Bereitstellung oder Bereitstellung veränderter Versionen von "OfficeSync" entstehen.</p>
+                        <p class="datafy">4.1 Kiidle übernimmt keine Haftung für Schäden, die durch die Verwendung,
+                            Bereitstellung oder Bereitstellung veränderter Versionen von "OfficeSync" entstehen.</p>
                         <h2>5. Änderungen der Bestimmungen</h2>
-                        <p class="datafy">5.1 Kiidle behält sich das Recht vor, diese Bestimmungen jederzeit zu ändern oder zu aktualisieren. Die aktualisierten Bestimmungen treten mit ihrer Veröffentlichung in Kraft.</p>
-                        <p class="datafy">Durch die Verwendung von "OfficeSync" stimmen Sie zu, dass Sie diese Bestimmungen gelesen und verstanden haben und sich damit einverstanden erklären. Diese Bestimmungen bilden die gesamte Vereinbarung zwischen Ihnen und [Ihr Unternehmen/Name] in Bezug auf die Verwendung von "OfficeSync".</p>
+                        <p class="datafy">5.1 Kiidle behält sich das Recht vor, diese Bestimmungen jederzeit zu ändern
+                            oder zu aktualisieren. Die aktualisierten Bestimmungen treten mit ihrer Veröffentlichung in
+                            Kraft.</p>
+                        <p class="datafy">Durch die Verwendung von "OfficeSync" stimmen Sie zu, dass Sie diese
+                            Bestimmungen gelesen und verstanden haben und sich damit einverstanden erklären. Diese
+                            Bestimmungen bilden die gesamte Vereinbarung zwischen Ihnen und [Ihr Unternehmen/Name] in
+                            Bezug auf die Verwendung von "OfficeSync".</p>
                     </div>
                     {% if request.user.is_authenticated and not request.user.advanced.copyright %}
-                    <form method="post">
-                        {% csrf_token %}
-                        <div class="buttons">
-                            <a href="{% url 'logout' %}" class="cancel-button cancel-delete-confirm">
-                                Abbrechen
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="buttons">
+                                <a href="{% url 'logout' %}" class="cancel-button cancel-delete-confirm">
+                                    Abbrechen
                                 </a>
-                            <button class="submit" type="submit">Zustimmen</button>
-                        </div>
-                    </form>
-                    {%  endif %}
+                                <button class="submit" type="submit">Zustimmen</button>
+                            </div>
+                        </form>
+                    {% endif %}
                 </div>
             </div>
         </div>

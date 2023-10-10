@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% if officesync.get_logo_url %}<link rel="icon" href="{{ officesync.get_logo_url }}" type="image/png">{% endif %}
+        <link rel="stylesheet" href="{% static 'css/global/global.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/sidebar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/profile.css' %}">
+        <title>{{ officesync.app }} - Fahrzeuge</title>
+    </head>
+    <body>
+        {% include 'components/header/authentication.html' with title=officesync.app %}
+        <main>
+            {% include 'components/sidebar/sidebar.html' with page="disposition" %}
+            {% include 'components/subsidebar/subsidebar_disposition.html' with page="vehicles" %}
+            <div class="content">
+                <div class="blockify">
+                    {% include 'components/profile/profile.html' %}
+                    <div class="flexify">
+                        <div class="blockify">
+                            <div class="flexify">
+                                <div class="cardify">
+                                    <div class="title-container">
+                                        <h1 class="h1">Fahrzeuge</h1>
+                                        <div class="edit-container">
+                                            <a class="button add" href="{% url 'vehicles_create' %}">
+                                                <img src="{% static 'svgs/add.svg' %}" alt="add" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% for vehicle in vehicles %}
+                                <div class="role-card">
+                                    <a class="blockify" href="{% url 'vehicle' vehicle.pk %}">
+                                        <div class="userify">
+                                            {% if vehicle.type == "passenger_car" %}
+                                                <div class="flexify img">
+                                                    <img src="/static/svgs/car-hatchback.svg" alt="car_hatchback" />
+                                                </div>
+                                            {% endif %}
+                                            {% if vehicle.type == "van" %}
+                                                <div class="flexify img">
+                                                    <img src="/static/svgs/van-utility.svg" alt="car_hatchback" />
+                                                </div>
+                                            {% endif %}
+                                            {% if vehicle.type == "truck" %}
+                                                <div class="flexify img">
+                                                    <img src="/static/svgs/truck.svg" alt="truck" />
+                                                </div>
+                                            {% endif %}
+                                            {% if vehicle.type == "delivery_truck" %}
+                                                <div class="flexify img">
+                                                    <img src="/static/svgs/truck-delivery.svg" alt="delivery_truck" />
+                                                </div>
+                                            {% endif %}
+                                            {% if vehicle.type == "cargo_container_truck" %}
+                                                <div class="flexify img">
+                                                    <img src="/static/svgs/truck-cargo-container.svg"
+                                                         alt="cargo_container_truck" />
+                                                </div>
+                                            {% endif %}
+                                            {% if vehicle.type == "dump_truck" %}
+                                                <div class="flexify img">
+                                                    <img src="/static/svgs/dump-truck.svg" alt="dump_truck" />
+                                                </div>
+                                            {% endif %}
+                                            {% if vehicle.type == "tanker_truck" %}
+                                                <div class="flexify img">
+                                                    <img src="/static/svgs/tanker-truck.svg" alt="tanker_truck" />
+                                                </div>
+                                            {% endif %}
+                                            {% if vehicle.type == "tow_truck" %}
+                                                <div class="flexify img">
+                                                    <img src="/static/svgs/tow-truck.svg" alt="tow_truck" />
+                                                </div>
+                                            {% endif %}
+                                            {% if vehicle.type == "flatbed_truck" %}
+                                                <div class="flexify img">
+                                                    <img src="/static/svgs/truck-flatbed.svg" alt="flatbed_truck" />
+                                                </div>
+                                            {% endif %}
+                                            {% if vehicle.type == "trailer_truck" %}
+                                                <div class="flexify img">
+                                                    <img src="/static/svgs/truck-trailer.svg" alt="trailer_truck" />
+                                                </div>
+                                            {% endif %}
+                                            <p class="name">Kennzeichen: {{ vehicle.license_plate }}</p>
+                                            <p class="usertag">Fahrzeugmodell: {{ vehicle.model }}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        {% include 'components/footer.html' %}
+    </body>

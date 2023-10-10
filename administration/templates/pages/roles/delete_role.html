@@ -1,55 +1,55 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/global/global.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/sidebar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
-    <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/profile.css' %}">
-    <title>{{ officesync.app }} - Konfiguration</title>
-</head>
-<body>
-{% include 'components/header/authentication.html' with title=officesync.app %}
-<main>
-    {% include 'components/sidebar/sidebar.html' with page="administration" %}
-    {% include 'components/subsidebar/subsidebar_administration.html' with page="roles" %}
-    <div class="content">
-        <div class="blockify">
-            {% include 'components/profile/profile.html' %}
-            <div class="flexify">
-                <div class="cardify">
-                    <div class="title-container">
-                        <h1 style="color: {{ role.color }}" class="h1">{{ role.name }}</h1>
-                        <div class="edit-container">
-                            <a class="button delete" href="{% url 'role_delete' role.name %}">
-                                <img src="{% static 'svgs/delete.svg' %}" alt="edit"/>
-                            </a>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% if officesync.get_logo_url %}<link rel="icon" href="{{ officesync.get_logo_url }}" type="image/png">{% endif %}
+        <link rel="stylesheet" href="{% static 'css/global/global.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/sidebar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/profile.css' %}">
+        <title>Achtung - Konfiguration</title>
+    </head>
+    <body>
+        {% include 'components/header/authentication.html' with title="Achtung" %}
+        <main>
+            {% include 'components/sidebar/sidebar.html' with page="administration" %}
+            {% include 'components/subsidebar/subsidebar_administration.html' with page="roles" %}
+            <div class="content">
+                <div class="blockify">
+                    {% include 'components/profile/profile.html' %}
+                    <div class="flexify">
+                        <div class="cardify">
+                            <div class="title-container">
+                                <h1 style="color: {{ role.color }}" class="h1">{{ role.name }}</h1>
+                                <div class="edit-container">
+                                    <a class="button delete" href="{% url 'role_delete' role.name %}">
+                                        <img src="{% static 'svgs/delete.svg' %}" alt="edit" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flexify">
+                        <div class="cardify">
+                            <h1 style="display: flex; justify-content: center">Bist du sicher?</h1>
+                            <form method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <div class="buttons">
+                                    <a href="{% url 'role_update' role.name %}"
+                                       class="cancel-button cancel-delete-confirm">Abbrechen</a>
+                                    <button class="submit delete-confirm" type="submit">Löschen</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="flexify">
-                <div class="cardify">
-                    <h1 style="display: flex; justify-content: center">Bist du sicher?</h1>
-                    <form method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <div class="buttons">
-                            <a href="{% url 'role_update' role.name %}" class="cancel-button cancel-delete-confirm">
-                                Abbrechen
-                            </a>
-                            <button class="submit delete-confirm" type="submit">Löschen</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
-</body>
+        </main>
+    </body>

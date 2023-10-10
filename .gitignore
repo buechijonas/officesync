@@ -6,6 +6,9 @@ __pycache__
 db.sqlite3
 media
 
+# Ignore Custom Logo
+authentication/static/images/uploads/logo/
+
 # Backup files #
 *.bak
 
@@ -83,9 +86,6 @@ nosetests.xml
 coverage.xml
 *.cover
 .hypothesis/
-
-# Ignore Django migration files
-**/migrations/
 
 # Ignore Python cache files
 __pycache__/

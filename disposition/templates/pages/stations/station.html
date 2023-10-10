@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {% if officesync.get_logo_url %}<link rel="icon" href="{{ officesync.get_logo_url }}" type="image/png" />{% endif %}
+        <link rel="stylesheet" href="{% static 'css/global/global.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/components/header.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/components/footer.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/components/sidebar.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/components/form.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/components/main.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/components/profile.css' %}" />
+        <title>{{ officesync.app }} - Fahrzeuge</title>
+    </head>
+    <body>
+        {% include 'components/header/authentication.html' with title=officesync.app %}
+        <main>
+            {% include 'components/sidebar/sidebar.html' with page="disposition" %}
+            {% include 'components/subsidebar/subsidebar_disposition.html' with page="locations" %}
+            <div class="content">
+                <div class="blockify">
+                    {% include 'components/profile/profile.html' %}
+                    <div class="flexify">
+                        <div class="blockify">
+                            <div class="flexify">
+                                <div class="cardify">
+                                    <div class="title-container">
+                                        <h1 class="h1">{{ station.name }}</h1>
+                                        <div class="edit-container">
+                                            <a class="button edit" href="{% url 'station_update' station.pk %}">
+                                                <img src="{% static 'svgs/modify.svg' %}" alt="edit" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flexify">
+                        <div class="cardify">
+                            <div class="permissions">
+                                <div>
+                                    <h2>Kontakt</h2>
+                                    <p class="datafy">E-Mail: {{ station.contactmail }}</p>
+                                    <p class="datafy">Mobile: {{ station.contactphone }}</p>
+                                </div>
+                                <div>
+                                    <h2>Adresse</h2>
+                                    <p class="datafy">Land: {{ station.country }}</p>
+                                    <p class="datafy">Bundesland: {{ station.state }}</p>
+                                    <p class="datafy">PLZ/Ort: {{ station.location }}</p>
+                                    <p class="datafy">Strasse/Nr: {{ station.street }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        {% include 'components/footer.html' %}
+    </body>

@@ -1,47 +1,45 @@
 {% load static %}
-
+{% load i18n %}
 <div class="sidebar">
     <div class="flexify">
         <div class="grid">
             <div class="logo">
-                {% if officesync.get_logo_url %}
-                    <img src="{{ officesync.get_logo_url }}" alt="edit"/>
-                {% endif %}
+                {% if officesync.get_logo_url %}<img src="{{ officesync.get_logo_url }}" alt="edit" />{% endif %}
             </div>
             {% if request.user.is_authenticated %}
-            {% if page == "home" %}
-                <a href="{% url 'home' %}" class="section">
-                    <div class="current">
-                        <div class="icon">
-                            <img src="{% static 'svgs/home_filled.svg' %}" alt="home"/>
+                {% if page == "home" %}
+                    <a href="{% url 'home' %}" class="section">
+                        <div class="current">
+                            <div class="icon">
+                                <img src="{% static 'svgs/home_filled.svg' %}" alt="home" />
+                            </div>
+                            <div class="text">
+                                <p>{% translate "Startseite" %}</p>
+                            </div>
                         </div>
-                        <div class="text">
-                            <p>Home</p>
+                    </a>
+                {% else %}
+                    <a href="{% url 'home' %}" class="section">
+                        <div class="not-current">
+                            <div class="icon">
+                                <img src="{% static 'svgs/home_filled.svg' %}" alt="home" />
+                            </div>
+                            <div class="text">
+                                <p>{% translate "Startseite" %}</p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            {% else %}
-                <a href="{% url 'home' %}" class="section">
-                    <div class="not-current">
-                        <div class="icon">
-                            <img src="{% static 'svgs/home_filled.svg' %}" alt="home"/>
-                        </div>
-                        <div class="text">
-                            <p>Home</p>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                {% endif %}
             {% endif %}
-        {% endif %}
             {% if request.user.is_authenticated %}
                 {% if page == "administration" %}
                     <a href="{% url 'system' %}" class="section">
                         <div class="current">
                             <div class="icon">
-                                <img src="{% static 'svgs/shield-crown.svg' %}" alt="home"/>
+                                <img src="{% static 'svgs/shield-crown.svg' %}" alt="home" />
                             </div>
                             <div class="text">
-                                <p>Administration</p>
+                                <p>{% translate "Administration" %}</p>
                             </div>
                         </div>
                     </a>
@@ -49,10 +47,10 @@
                     <a href="{% url 'system' %}" class="section">
                         <div class="not-current">
                             <div class="icon">
-                                <img src="{% static 'svgs/shield-crown.svg' %}" alt="home"/>
+                                <img src="{% static 'svgs/shield-crown.svg' %}" alt="home" />
                             </div>
                             <div class="text">
-                                <p>Administration</p>
+                                <p>{% translate "Administration" %}</p>
                             </div>
                         </div>
                     </a>
@@ -62,34 +60,57 @@
                 <a href="" class="section">
                     <div class="not-current">
                         <div class="icon">
-                            <img src="{% static 'svgs/sticker-emoji.svg' %}" alt="home"/>
+                            <img src="{% static 'svgs/sticker-emoji.svg' %}" alt="home" />
                         </div>
                         <div class="text">
-                            <p>Persönlich</p>
+                            <p>{% translate "Persönlich" %}</p>
                         </div>
                     </div>
                 </a>
             {% endif %}
             {% if request.user.is_authenticated %}
-                <a href="" class="section">
-                    <div class="not-current">
-                        <div class="icon">
-                            <img src="{% static 'svgs/email.svg' %}" alt="home"/>
+                {% if page == "mail" %}
+                    <a href="{% url 'announcements' %}" class="section">
+                        <div class="current">
+                            <div class="icon">
+                                <img src="{% static 'svgs/email.svg' %}" alt="home" />
+                            </div>
+                            <div class="text">
+                                <p>{% translate "Kommunikation" %}</p>
+                            </div>
+                            {% if unread_count %}
+                            <div class="count">
+                                <p>{{ unread_count }}</p>
+                            </div>
+                            {% endif %}
                         </div>
-                        <div class="text">
-                            <p>Kommunikation</p>
+                    </a>
+                {% else %}
+                    <a href="{% url 'announcements' %}" class="section">
+                        <div class="not-current">
+                            <div class="icon">
+                                <img src="{% static 'svgs/email.svg' %}" alt="home" />
+                            </div>
+                            <div class="text">
+                                <p>{% translate "Kommunikation" %}</p>
+                            </div>
+                            {% if unread_count %}
+                            <div class="count">
+                                <p>{{ unread_count }}</p>
+                            </div>
+                            {% endif %}
                         </div>
-                    </div>
-                </a>
+                    </a>
+                {% endif %}
             {% endif %}
             {% if request.user.is_authenticated %}
                 <a href="" class="section">
                     <div class="not-current">
                         <div class="icon">
-                            <img src="{% static 'svgs/ruler-square-compass.svg' %}" alt="home"/>
+                            <img src="{% static 'svgs/ruler-square-compass.svg' %}" alt="home" />
                         </div>
                         <div class="text">
-                            <p>Verwaltung</p>
+                            <p>{% translate "Verwaltung" %}</p>
                         </div>
                     </div>
                 </a>
@@ -99,10 +120,10 @@
                     <a href="{% url 'tours' %}" class="section">
                         <div class="current">
                             <div class="icon">
-                                <img src="{% static 'svgs/map-marker-path.svg' %}" alt="home"/>
+                                <img src="{% static 'svgs/map-marker-path.svg' %}" alt="home" />
                             </div>
                             <div class="text">
-                                <p>Disposition</p>
+                                <p>{% translate "Disposition" %}</p>
                             </div>
                         </div>
                     </a>
@@ -110,10 +131,10 @@
                     <a href="{% url 'tours' %}" class="section">
                         <div class="not-current">
                             <div class="icon">
-                                <img src="{% static 'svgs/map-marker-path.svg' %}" alt="home"/>
+                                <img src="{% static 'svgs/map-marker-path.svg' %}" alt="home" />
                             </div>
                             <div class="text">
-                                <p>Disposition</p>
+                                <p>{% translate "Disposition" %}</p>
                             </div>
                         </div>
                     </a>
@@ -123,107 +144,106 @@
                 <a href="" class="section">
                     <div class="not-current">
                         <div class="icon">
-                            <img src="{% static 'svgs/cloud_filled.svg' %}" alt="home"/>
+                            <img src="{% static 'svgs/cloud_filled.svg' %}" alt="home" />
                         </div>
                         <div class="text">
-                            <p>Cloud</p>
+                            <p>{% translate "Cloud" %}</p>
                         </div>
                     </div>
                 </a>
             {% endif %}
-
             <a href="" class="section">
                 <div class="not-current">
                     <div class="icon">
-                        <img src="{% static 'svgs/document_contact.svg' %}" alt="impressum"/>
+                        <img src="{% static 'svgs/document_contact.svg' %}" alt="impressum" />
                     </div>
                     <div class="text">
-                        <p>Impressum</p>
+                        <p>{% translate "Impressum" %}</p>
                     </div>
                 </div>
             </a>
             {% if page == "privacy" %}
-            <a href="{% url 'privacy' %}" class="section">
-                <div class="current">
-                    <div class="icon">
-                        <img src="{% static 'svgs/shield-account.svg' %}" alt="impressum"/>
+                <a href="{% url 'privacy' %}" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/shield-account.svg' %}" alt="impressum" />
+                        </div>
+                        <div class="text">
+                            <p>{% translate "Datenschutzerklärung" %}</p>
+                        </div>
                     </div>
-                    <div class="text">
-                        <p>Datenschutzerklärung</p>
-                    </div>
-                </div>
-            </a>
+                </a>
             {% else %}
-            <a href="{% url 'privacy' %}" class="section">
-                <div class="not-current">
-                    <div class="icon">
-                        <img src="{% static 'svgs/shield-account.svg' %}" alt="impressum"/>
+                <a href="{% url 'privacy' %}" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/shield-account.svg' %}" alt="impressum" />
+                        </div>
+                        <div class="text">
+                            <p>{% translate "Datenschutzerklärung" %}</p>
+                        </div>
                     </div>
-                    <div class="text">
-                        <p>Datenschutzerklärung</p>
-                    </div>
-                </div>
-            </a>
+                </a>
             {% endif %}
             {% if page == "terms" %}
-            <a href="{% url 'terms' %}" class="section">
-                <div class="current">
-                    <div class="icon">
-                        <img src="{% static 'svgs/cursor-pointer.svg' %}" alt="impressum"/>
+                <a href="{% url 'terms' %}" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/cursor-pointer.svg' %}" alt="impressum" />
+                        </div>
+                        <div class="text">
+                            <p>{% translate "Nutzungsbedingungen" %}</p>
+                        </div>
                     </div>
-                    <div class="text">
-                        <p>Nutzungsbedingungen</p>
-                    </div>
-                </div>
-            </a>
+                </a>
             {% else %}
-            <a href="{% url 'terms' %}" class="section">
-                <div class="not-current">
-                    <div class="icon">
-                        <img src="{% static 'svgs/cursor-pointer.svg' %}" alt="impressum"/>
+                <a href="{% url 'terms' %}" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/cursor-pointer.svg' %}" alt="impressum" />
+                        </div>
+                        <div class="text">
+                            <p>{% translate "Nutzungsbedingungen" %}</p>
+                        </div>
                     </div>
-                    <div class="text">
-                        <p>Nutzungsbedingungen</p>
-                    </div>
-                </div>
-            </a>
-            {%endif%}
+                </a>
+            {% endif %}
             {% if page == "copyright" %}
-            <a href="{% url 'copyright' %}" class="section">
-                <div class="current">
-                    <div class="icon">
-                        <img src="{% static 'svgs/copyright.svg' %}" alt="impressum"/>
+                <a href="{% url 'copyright' %}" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/copyright.svg' %}" alt="impressum" />
+                        </div>
+                        <div class="text">
+                            <p>{% translate "Urheberrecht" %}</p>
+                        </div>
                     </div>
-                    <div class="text">
-                        <p>Urheberrecht</p>
-                    </div>
-                </div>
-            </a>
+                </a>
             {% else %}
-            <a href="{% url 'copyright' %}" class="section">
-                <div class="not-current">
-                    <div class="icon">
-                        <img src="{% static 'svgs/copyright.svg' %}" alt="impressum"/>
+                <a href="{% url 'copyright' %}" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/copyright.svg' %}" alt="impressum" />
+                        </div>
+                        <div class="text">
+                            <p>{% translate "Urheberrecht" %}</p>
+                        </div>
                     </div>
-                    <div class="text">
-                        <p>Urheberrecht</p>
-                    </div>
-                </div>
-            </a>
-            {%endif%}
+                </a>
+            {% endif %}
             {% if request.user.is_authenticated %}
                 <a href="{% url 'logout' %}" class="loginout loginout-dashboard">
-                    <p>Abmelden</p>
-                    <img src="{% static 'svgs/logout.svg' %}" alt="logout"/>
+                    <p>{% translate "Abmelden" %}</p>
+                    <img src="{% static 'svgs/logout.svg' %}" alt="logout" />
                 </a>
             {% else %}
                 <a href="{% url 'login' %}" class="loginout loginout-dashboard">
-                    <p>Anmelden</p>
-                    <img src="{% static 'svgs/login.svg' %}" alt="logout"/>
+                    <p>{% translate "Anmelden" %}</p>
+                    <img src="{% static 'svgs/login.svg' %}" alt="logout" />
                 </a>
             {% endif %}
             <div class="version">
-                <p>OfficeSync</p>
+                <p>{% translate "OfficeSync" %}</p>
                 <p>v2023.0.1</p>
             </div>
         </div>

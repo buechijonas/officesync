@@ -7,6 +7,8 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from administration.models import Log
+from communication.models import Announcement, Message
+
 from .forms import LoginForm, SignUpForm
 from .models import AdvancedUser, OfficeSync, UserCustomInterface
 
@@ -84,7 +86,21 @@ class HomeView(LoginRequiredMixin, generic.ListView):
         context[
             "officesync"
         ] = OfficeSync.objects.first()  # Hole das erste OfficeSync-Objekt
+        context["unread_announcements_count"] = self.get_unread_announcements().count()
+        context["unread_messages_count"] = self.get_unread_messages().count()
+        context["unread_count"] = (
+            context["unread_announcements_count"] + context["unread_messages_count"]
+        )
         return context
+
+    def get_unread_announcements(self):
+        return Announcement.objects.exclude(read_by=self.request.user)
+
+    def get_unread_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=False)
+
+    def get_read_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=True)
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -119,7 +135,7 @@ class PrivacyView(generic.ListView):
         Log.objects.create(
             user=request.user,
             action="READ",
-            message=f"@{request.user} hat die Datenschutzerklärung zugestimmt."
+            message=f"@{request.user} hat die Datenschutzerklärung zugestimmt.",
         )
 
         if request.user.advanced.terms:
@@ -150,7 +166,7 @@ class TermsView(generic.ListView):
         Log.objects.create(
             user=request.user,
             action="READ",
-            message=f"@{request.user} hat die Nutzungsbedingungen zugestimmt."
+            message=f"@{request.user} hat die Nutzungsbedingungen zugestimmt.",
         )
 
         if request.user.advanced.copyright:
@@ -177,7 +193,7 @@ class CopyrightView(generic.ListView):
         Log.objects.create(
             user=request.user,
             action="READ",
-            message=f"@{request.user} hat die Urheberrechtsreglement zugestimmt."
+            message=f"@{request.user} hat die Urheberrechtsreglement zugestimmt.",
         )
 
         return redirect("home")

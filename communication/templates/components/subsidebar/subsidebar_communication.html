@@ -1,0 +1,120 @@
+{% load static %}
+{% load i18n %}
+<div class="sidebar">
+    <div class="flexify">
+        <div class="grid">
+            {% if page == 'announcements' %}
+                <a href="{% url 'announcements' %}" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/mail.svg' %}" alt="mail" />
+                        </div>
+                        <div class="text">
+                            <p>{% translate "Ankündigungen" %}</p>
+                        </div>
+                        {% if unread_announcements_count %}
+                            <div class="count">
+                                <p>{{ unread_announcements_count }}</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </a>
+            {% else %}
+                <a href="{% url 'announcements' %}" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/mail.svg' %}" alt="mail" />
+                        </div>
+                        <div class="text">
+                            <p>{% translate "Ankündigungen" %}</p>
+                        </div>
+                        {% if unread_announcements_count %}
+                            <div class="count">
+                                <p>{{ unread_announcements_count }}</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </a>
+            {% endif %}
+            {% if page == 'inbox' %}
+                <a href="{% url 'inbox' %}" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/inbox-arrow-down.svg' %}" alt="inbox_arrow_down" />
+                        </div>
+                        <div class="text">
+                            <p>{% translate "Eingang" %}</p>
+                        </div>
+                        {% if unread_messages_count %}
+                            <div class="count">
+                                <p>{{ unread_messages_count }}</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </a>
+            {% else %}
+                <a href="{% url 'inbox' %}" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/inbox-arrow-down.svg' %}" alt="inbox_arrow_down" />
+                        </div>
+                        <div class="text">
+                            <p>{% translate "Eingang" %}</p>
+                        </div>
+                        {% if unread_messages_count %}
+                            <div class="count">
+                                <p>{{ unread_messages_count }}</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </a>
+            {% endif %}
+            {% if page == 'outbox' %}
+                <a href="{% url 'outbox' %}" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/inbox-arrow-up.svg' %}" alt="inbox_arrow_up" />
+                        </div>
+                        <div class="text">
+                            <p>{% translate "Ausgang" %}</p>
+                        </div>
+                    </div>
+                </a>
+            {% else %}
+                <a href="{% url 'outbox' %}" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/inbox-arrow-up.svg' %}" alt="inbox_arrow_up" />
+                        </div>
+                        <div class="text">
+                            <p>{% translate "Ausgang" %}</p>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+            {% if page == 'archive' %}
+                <a href="{% url 'archive' %}" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/inbox-multiple.svg' %}" alt="inbox_multiple" />
+                        </div>
+                        <div class="text">
+                            <p>{% translate "Archiv" %}</p>
+                        </div>
+                    </div>
+                </a>
+            {% else %}
+                <a href="{% url 'archive' %}" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/inbox-multiple.svg' %}" alt="inbox_multiple" />
+                        </div>
+                        <div class="text">
+                            <p>{% translate "Archiv" %}</p>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>

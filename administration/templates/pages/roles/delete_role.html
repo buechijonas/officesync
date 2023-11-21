@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,10 +14,11 @@
         <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
         <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}">
         <link rel="stylesheet" href="{% static 'css/components/profile.css' %}">
-        <title>Achtung - Konfiguration</title>
+        <title>{% translate "Warning" %} - {{ role.name }}</title>
     </head>
     <body>
-        {% include 'components/header/authentication.html' with title="Achtung" %}
+        {% translate "Warning" as title %}
+        {% include 'components/header/authentication.html' with title=title %}
         <main>
             {% include 'components/sidebar/sidebar.html' with page="administration" %}
             {% include 'components/subsidebar/subsidebar_administration.html' with page="roles" %}
@@ -37,14 +39,14 @@
                     </div>
                     <div class="flexify">
                         <div class="cardify">
-                            <h1 style="display: flex; justify-content: center">Bist du sicher?</h1>
+                            <h1 style="display: flex; justify-content: center">{% translate "Bist du sicher?" %}</h1>
                             <form method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 {{ form.as_p }}
                                 <div class="buttons">
                                     <a href="{% url 'role_update' role.name %}"
-                                       class="cancel-button cancel-delete-confirm">Abbrechen</a>
-                                    <button class="submit delete-confirm" type="submit">Löschen</button>
+                                       class="cancel-button cancel-delete-confirm">{% translate "Abbrechen" %}</a>
+                                    <button class="submit delete-confirm" type="submit">{% translate "Löschen" %}</button>
                                 </div>
                             </form>
                         </div>

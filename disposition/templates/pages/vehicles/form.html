@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -50,17 +51,17 @@
                                     <div class="buttons">
                                         {% if vehicle %}
                                             <a href="{% url 'vehicle' vehicle.pk %}"
-                                               class="cancel-button cancel-delete-confirm">Abbrechen</a>
-                                            <button class="submit" type="submit">Speichern</button>
+                                               class="cancel-button cancel-delete-confirm">{% translate "Abbrechen" %}</a>
+                                            <button class="submit" type="submit">{% translate "Speichern" %}</button>
                                         {% else %}
                                             <a href="{% url 'vehicles' %}"
-                                               class="cancel-button cancel-delete-confirm">Abbrechen</a>
-                                            <button class="submit" type="submit">Hinzufügen</button>
+                                               class="cancel-button cancel-delete-confirm">{% translate "Abbrechen" %}</a>
+                                            <button class="submit" type="submit">{% translate "Hinzufügen" %}</button>
                                         {% endif %}
                                     </div>
                                 </form>
                             {% else %}
-                                <p class="access-denied">Zugriff verweigert</p>
+                                <p class="access-denied">{% translate "Zugriff verweigert" %}</p>
                             {% endif %}
                         </div>
                     </div>

@@ -14,3 +14,4 @@ class AuthenticationConfig(AppConfig):
         call_command("setup_roles")
         call_command("setup_permissions")
         call_command("init_officesync")
+        call_command("init_signature")

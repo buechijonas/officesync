@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,7 +14,7 @@
         <link rel="stylesheet" href="{% static 'css/components/main.css' %}" />
         <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}" />
         <link rel="stylesheet" href="{% static 'css/components/profile.css' %}" />
-        <title>{{ officesync.app }} - Fahrzeuge</title>
+        <title>{{ officesync.app }} - {% translate "Standorte" %}</title>
     </head>
     <body>
         {% include 'components/header/authentication.html' with title=officesync.app %}
@@ -43,16 +44,16 @@
                         <div class="cardify">
                             <div class="permissions">
                                 <div>
-                                    <h2>Kontakt</h2>
-                                    <p class="datafy">E-Mail: {{ station.contactmail }}</p>
-                                    <p class="datafy">Mobile: {{ station.contactphone }}</p>
+                                    <h2>{% translate "Kontakt" %}</h2>
+                                    <p class="datafy">{% translate "E-Mail" %}: {{ station.contactmail }}</p>
+                                    <p class="datafy">{% translate "Mobile" %}: {{ station.contactphone }}</p>
                                 </div>
                                 <div>
-                                    <h2>Adresse</h2>
-                                    <p class="datafy">Land: {{ station.country }}</p>
-                                    <p class="datafy">Bundesland: {{ station.state }}</p>
-                                    <p class="datafy">PLZ/Ort: {{ station.location }}</p>
-                                    <p class="datafy">Strasse/Nr: {{ station.street }}</p>
+                                    <h2>{% translate "Adresse" %}</h2>
+                                    <p class="datafy">{% translate "Land" %}: {{ station.country }}</p>
+                                    <p class="datafy">{% translate "Bundesland" %}: {{ station.state }}</p>
+                                    <p class="datafy">{% translate "PLZ" %}/{% translate "Ort" %}: {{ station.location }}</p>
+                                    <p class="datafy">{% translate "Strasse" %}/{% translate "Nr" %}: {{ station.street }}</p>
                                 </div>
                             </div>
                         </div>

@@ -52,18 +52,10 @@
 .sidebar .flexify .grid .section .not-current,
 .sidebar .flexify .grid .section .current {
     display: grid;
-    grid-template-columns: 24px 1fr;
+    grid-template-columns: 24px auto 24px;
     grid-template-rows: 24px;
-    grid-template-areas: "icon text";
+    grid-template-areas: "icon text count";
     grid-gap: 12px;
-}
-
-.sidebar .flexify .grid .section .not-current {
-    filter: brightness(0) saturate(100%) invert(56%) sepia(4%) saturate(13%) hue-rotate(346deg) brightness(96%) contrast(87%);
-}
-
-.sidebar .flexify .grid .section .current {
-filter: invert(15%) sepia(80%) saturate(7440%) hue-rotate(5deg) brightness(107%) contrast(121%);
 }
 
 .sidebar .flexify .grid .section .not-current .icon,
@@ -74,11 +66,35 @@ filter: invert(15%) sepia(80%) saturate(7440%) hue-rotate(5deg) brightness(107%)
     width: 100%;
 }
 
+.sidebar .flexify .grid .section .current .icon,
+.sidebar .flexify .grid .section .current .text {
+    filter: invert(15%) sepia(80%) saturate(7440%) hue-rotate(5deg) brightness(107%) contrast(121%);
+}
+
+.sidebar .flexify .grid .section .not-current .icon,
+.sidebar .flexify .grid .section .not-current .text {
+    filter: brightness(0) saturate(100%) invert(56%) sepia(4%) saturate(13%) hue-rotate(346deg) brightness(96%) contrast(87%);
+}
+
 .sidebar .flexify .grid .section .not-current .text,
 .sidebar .flexify .grid .section .current .text {
     grid-area: text;
     display: flex;
     align-items: center;
+}
+
+.sidebar .flexify .grid .section .not-current .count,
+.sidebar .flexify .grid .section .current .count {
+    filter: none !important;
+    grid-area: count;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    font-size: 0.6rem;
 }
 
 .sidebar .loginout {

@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,57 +11,77 @@
     <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}">
-    <title>{{ officesync.app }} - Datenschutzerklärung</title>
+    <title>{{ officesync.app }} - {% translate "Datenschutzerklärung" %}</title>
 </head>
 <body>
     {% include 'components/header/authentication.html' with title=officesync.app %}
     <main>
-    {% include 'components/sidebar/sidebar.html' with page="privacy" %}
-    <div class="content">
-        <div class="blockify">
-            {% include 'components/profile/profile.html' %}
-            <div class="flexify">
-                <div class="cardify">
-                    <div class="title-container">
-                        <h1 class="h1">Datenschutzerklärung gemäß Europäischer Union (EU) & der Schweiz</h1>
+        {% include 'components/sidebar/sidebar.html' with page="privacy" %}
+        <div class="content">
+            <div class="blockify">
+                {% include 'components/profile/profile.html' %}
+                <div class="flexify">
+                    <div class="cardify">
+                        <div class="title-container">
+                            <h1 class="h1">{% translate "Datenschutzerklärung gemäß Europäischer Union (EU) & der Schweiz" %}</h1>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="flexify">
-                <div class="cardify">
-                    <div class="permissions">
-                        <p class="datafy">Wir legen großen Wert auf den Schutz Ihrer persönlichen Daten und die Einhaltung der Datenschutzvorschriften der Europäischen Union. Diese Datenschutzerklärung erklärt, wie Ihre personenbezogenen Daten in Verbindung mit der Nutzung der OfficeSync-Plattform gesammelt, verarbeitet und geschützt werden.</p>
-                        <h2>Datenerhebung und -verarbeitung</h2>
-                        <p class="datafy">- Die von Ihnen bereitgestellten Daten, einschließlich Vorname, Nachname, Kontaktdaten und berufliche Informationen, werden ausschließlich für interne Zwecke verwendet.</p>
-                        <p class="datafy">- Daten, die für die Funktionen der Plattform notwendig sind, wie z. B. Ferien- und Arbeitszeitinformationen, werden zur effizienten Abwicklung Ihrer Arbeitsabläufe erfasst und verarbeitet.</p>
-                        <p class="datafy">- Alle Datenverarbeitungen erfolgen gemäß den geltenden Datenschutzbestimmungen der EU.</p>
-                        <h2>Datensicherheit</h2>
-                        <p class="datafy">- Wir setzen angemessene technische und organisatorische Maßnahmen ein, um Ihre Daten vor unbefugtem Zugriff, Verlust oder Missbrauch zu schützen.</p>
-                        <p class="datafy">- Zugriff auf Ihre persönlichen Daten erhalten nur berechtigte Mitarbeiter, die diese Informationen zur Erfüllung ihrer beruflichen Aufgaben benötigen.</p>
-                        <h2>Datenweitergabe</h2>
-                        <p class="datafy">- Ihre persönlichen Daten werden nicht ohne Ihre ausdrückliche Zustimmung an Dritte weitergegeben, es sei denn, dies ist gesetzlich vorgeschrieben oder für die Ausführung bestimmter Funktionen der Plattform erforderlich.</p>
-                        <h2>Datenlöschung</h2>
-                        <p class="datafy">- Nach Kündigung Ihres Kontos und Beendigung Ihrer Tätigkeit bei der Firma werden sämtliche personalisierten persönlichen Daten nach einer Aufbewahrungsfrist von 10 Jahren unwiderruflich gelöscht.</p>
-                        <p class="datafy">- Einige notwendige Daten wie Vorname, Nachname, Anzahl der Arbeitsstunden und Ferientage werden aus Gründen der Compliance und auf Anfrage von Behörden aufbewahrt.</p>
-                        <h2>Ihre Rechte</h2>
-                        <p class="datafy">- Sie haben das Recht, auf Ihre persönlichen Daten zuzugreifen, sie zu korrigieren oder zu löschen.</p>
-                        <p class="datafy">- Sie können der Verarbeitung Ihrer Daten widersprechen oder die Einschränkung der Verarbeitung beantragen.</p>
-                    </div>
-                    {% if request.user.is_authenticated and not request.user.advanced.privacy %}
-                    <form method="post">
-                        {% csrf_token %}
-                        <div class="buttons">
-                            <a href="{% url 'logout' %}" class="cancel-button cancel-delete-confirm">
-                                Abbrechen
-                                </a>
-                            <button class="submit" type="submit">Zustimmen</button>
+                <div class="flexify">
+                    <div class="cardify">
+                        <div class="permissions">
+                            <p class="datafy">
+                                {% translate "Wir legen großen Wert auf den Schutz Ihrer persönlichen Daten und die Einhaltung der Datenschutzvorschriften der Europäischen Union. Diese Datenschutzerklärung erklärt, wie Ihre personenbezogenen Daten in Verbindung mit der Nutzung der OfficeSync-Plattform gesammelt, verarbeitet und geschützt werden." %}
+                            </p>
+                            <h2>{% translate "Datenerhebung und -verarbeitung" %}</h2>
+                            <p class="datafy">
+                                {% translate "- Die von Ihnen bereitgestellten Daten, einschließlich Vorname, Nachname, Kontaktdaten und berufliche Informationen, werden ausschließlich für interne Zwecke verwendet." %}
+                            </p>
+                            <p class="datafy">
+                                {% translate "- Daten, die für die Funktionen der Plattform notwendig sind, wie z. B. Ferien- und Arbeitszeitinformationen, werden zur effizienten Abwicklung Ihrer Arbeitsabläufe erfasst und verarbeitet." %}
+                            </p>
+                            <p class="datafy">
+                                {% translate "- Daten, die für die Funktionen der Plattform notwendig sind, wie z. B. Ferien- und Arbeitszeitinformationen, werden zur effizienten Abwicklung Ihrer Arbeitsabläufe erfasst und verarbeitet." %}
+                            </p>
+                            <h2>{% translate "Datensicherheit" %}</h2>
+                            <p class="datafy">
+                                {% translate "- Wir setzen angemessene technische und organisatorische Maßnahmen ein, um Ihre Daten vor unbefugtem Zugriff, Verlust oder Missbrauch zu schützen." %}
+                            </p>
+                            <p class="datafy">
+                                {% translate "- Zugriff auf Ihre persönlichen Daten erhalten nur berechtigte Mitarbeiter, die diese Informationen zur Erfüllung ihrer beruflichen Aufgaben benötigen." %}
+                            </p>
+                            <h2>{% translate "Datenweitergabe" %}</h2>
+                            <p class="datafy">
+                                {% translate "- Ihre persönlichen Daten werden nicht ohne Ihre ausdrückliche Zustimmung an Dritte weitergegeben, es sei denn, dies ist gesetzlich vorgeschrieben oder für die Ausführung bestimmter Funktionen der Plattform erforderlich." %}
+                            </p>
+                            <h2>{% translate "Datenlöschung" %}</h2>
+                            <p class="datafy">
+                                {% translate "- Nach Kündigung Ihres Kontos und Beendigung Ihrer Tätigkeit bei der Firma werden sämtliche personalisierten persönlichen Daten nach einer Aufbewahrungsfrist von 10 Jahren unwiderruflich gelöscht." %}
+                            </p>
+                            <p class="datafy">
+                                {% translate "- Einige notwendige Daten wie Vorname, Nachname, Anzahl der Arbeitsstunden und Ferientage werden aus Gründen der Compliance und auf Anfrage von Behörden aufbewahrt." %}
+                            </p>
+                            <h2>{% translate "Ihre Rechte" %}</h2>
+                            <p class="datafy">
+                                {% translate "- Sie haben das Recht, auf Ihre persönlichen Daten zuzugreifen, sie zu korrigieren oder zu löschen." %}
+                            </p>
+                            <p class="datafy">
+                                {% translate "- Sie können der Verarbeitung Ihrer Daten widersprechen oder die Einschränkung der Verarbeitung beantragen." %}
+                            </p>
                         </div>
-                    </form>
-                    {%  endif %}
+                        {% if request.user.is_authenticated and not request.user.advanced.privacy %}
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="buttons">
+                                    <a href="{% url 'logout' %}" class="cancel-button cancel-delete-confirm">{% translate "Abbrechen" %}</a>
+                                    <button class="submit" type="submit">{% translate "Zustimmen" %}</button>
+                                </div>
+                            </form>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
-{% include 'components/footer.html' %}
+    </main>
+    {% include 'components/footer.html' %}
 </body>

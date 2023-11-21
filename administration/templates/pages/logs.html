@@ -1,74 +1,73 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if officesync.get_logo_url %}
-        <link rel="icon" href="{{ officesync.get_logo_url }}" type="image/png">
-    {% endif %}
-    <link rel="stylesheet" href="{% static 'css/global/global.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/sidebar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
-    <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/profile.css' %}">
-    <title>{{ officesync.app }} - Protokolle</title>
-</head>
-<body>
-{% include 'components/header/authentication.html' with title=officesync.app %}
-<main>
-    {% include 'components/sidebar/sidebar.html' with page="administration" %}
-    {% include 'components/subsidebar/subsidebar_administration.html' with page="logs" %}
-    <div class="content">
-        <div class="blockify">
-            {% include 'components/profile/profile.html' %}
-            <div class="flexify">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% if officesync.get_logo_url %}<link rel="icon" href="{{ officesync.get_logo_url }}" type="image/png">{% endif %}
+        <link rel="stylesheet" href="{% static 'css/global/global.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/sidebar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/profile.css' %}">
+        <title>{{ officesync.app }} - {% translate "Protokolle" %}</title>
+    </head>
+    <body>
+        {% include 'components/header/authentication.html' with title=officesync.app %}
+        <main>
+            {% include 'components/sidebar/sidebar.html' with page="administration" %}
+            {% include 'components/subsidebar/subsidebar_administration.html' with page="logs" %}
+            <div class="content">
                 <div class="blockify">
+                    {% include 'components/profile/profile.html' %}
                     <div class="flexify">
-                        <div class="cardify">
-                            <div class="title-container">
-                                <h1 class="h1">Protokolle</h1>
+                        <div class="blockify">
+                            <div class="flexify">
+                                <div class="cardify">
+                                    <div class="title-container">
+                                        <h1 class="h1">{% translate "Protokolle" %}</h1>
+                                    </div>
+                                </div>
                             </div>
+                            {% for log in logs %}
+                                <div class="role-card">
+                                    <a class="blockify" href="">
+                                        <div class="logify">
+                                            <p class="modelname">{{ log.message }}</p>
+                                            <div class="action">
+                                                {% if log.action == "READ" %}
+                                                    <div class="read">
+                                                        <p>{{ log.action }}</p>
+                                                    </div>
+                                                {% endif %}
+                                                {% if log.action == "CREATE" %}
+                                                    <div class="create">
+                                                        <p>{{ log.action }}</p>
+                                                    </div>
+                                                {% endif %}
+                                                {% if log.action == "UPDATE" %}
+                                                    <div class="update">
+                                                        <p>{{ log.action }}</p>
+                                                    </div>
+                                                {% endif %}
+                                                {% if log.action == "DELETE" %}
+                                                    <div class="delete">
+                                                        <p>{{ log.action }}</p>
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                            <p class="date">{{ log.timestamp }}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>
-                    {% for log in logs %}
-                        <div class="role-card">
-                            <a class="blockify" href="">
-                                <div class="logify">
-                                    <p class="modelname">{{ log.message }}</p>
-                                    <div class="action">
-                                        {% if log.action == "READ" %}
-                                            <div class="read">
-                                                <p>{{ log.action }}</p>
-                                            </div>
-                                        {% endif %}
-                                        {% if log.action == "CREATE" %}
-                                            <div class="create">
-                                                <p>{{ log.action }}</p>
-                                            </div>
-                                        {% endif %}
-                                        {% if log.action == "UPDATE" %}
-                                            <div class="update">
-                                                <p>{{ log.action }}</p>
-                                            </div>
-                                        {% endif %}
-                                        {% if log.action == "DELETE" %}
-                                            <div class="delete">
-                                                <p>{{ log.action }}</p>
-                                            </div>
-                                        {% endif %}
-                                    </div>
-                                    <p class="date">{{ log.timestamp }}</p>
-                                </div>
-                            </a>
-                        </div>
-                    {% endfor %}
                 </div>
             </div>
-        </div>
-    </div>
-</main>
-</body>
+        </main>
+    </body>

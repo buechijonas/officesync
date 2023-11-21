@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
         <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}">
         <link rel="stylesheet" href="{% static 'css/components/profile.css' %}">
-        <title>{{ officesync.app }} - Fahrzeuge erstellen</title>
+        <title>{{ officesync.app }} - Standort erstellen</title>
     </head>
     <body>
         {% include 'components/header/authentication.html' with title=officesync.app %}
@@ -29,7 +29,7 @@
                                 {% if station.pk %}
                                     <h1 class="h1">{{ station.name }}</h1>
                                 {% else %}
-                                    <h1 class="h1">Fahrzeuge</h1>
+                                    <h1 class="h1">Standorte</h1>
                                 {% endif %}
                                 {% if station.pk %}
                                     <div class="edit-container">

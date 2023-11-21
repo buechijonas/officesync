@@ -1,12 +1,15 @@
 from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Case, CharField, F, Q, Value, When
+from django.db.models.functions import Lower
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from authentication.models import OfficeSync, AdvancedUser
+from authentication.models import AdvancedUser, OfficeSync
+from communication.models import Announcement, Message
 
 from .models import CustomPermission, Log, Role
 
@@ -22,7 +25,21 @@ class SystemView(LoginRequiredMixin, generic.ListView):
         context[
             "officesync"
         ] = OfficeSync.objects.first()  # Hole das erste OfficeSync-Objekt
+        context["unread_announcements_count"] = self.get_unread_announcements().count()
+        context["unread_messages_count"] = self.get_unread_messages().count()
+        context["unread_count"] = (
+            context["unread_announcements_count"] + context["unread_messages_count"]
+        )
         return context
+
+    def get_unread_announcements(self):
+        return Announcement.objects.exclude(read_by=self.request.user)
+
+    def get_unread_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=False)
+
+    def get_read_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=True)
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -50,7 +67,7 @@ class AppNameUpdateView(LoginRequiredMixin, generic.UpdateView):
         Log.objects.create(
             user=self.request.user,
             action="UPDATE",
-            message=f"{self.request.user} nannte die Webanwendung um ({self.object.app})."
+            message=f"{self.request.user} nannte die Webanwendung um ({self.object.app}).",
         )
 
         return super().form_valid(form)
@@ -58,7 +75,21 @@ class AppNameUpdateView(LoginRequiredMixin, generic.UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["officesync"] = OfficeSync.objects.first()
+        context["unread_announcements_count"] = self.get_unread_announcements().count()
+        context["unread_messages_count"] = self.get_unread_messages().count()
+        context["unread_count"] = (
+            context["unread_announcements_count"] + context["unread_messages_count"]
+        )
         return context
+
+    def get_unread_announcements(self):
+        return Announcement.objects.exclude(read_by=self.request.user)
+
+    def get_unread_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=False)
+
+    def get_read_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=True)
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -86,7 +117,7 @@ class AppLogoUpdateView(LoginRequiredMixin, generic.UpdateView):
         Log.objects.create(
             user=self.request.user,
             action="UPDATE",
-            message=f"{self.request.user} änderte das Logo der Webanwendung."
+            message=f"{self.request.user} änderte das Logo der Webanwendung.",
         )
 
         return super().form_valid(form)
@@ -94,7 +125,21 @@ class AppLogoUpdateView(LoginRequiredMixin, generic.UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["officesync"] = OfficeSync.objects.first()
+        context["unread_announcements_count"] = self.get_unread_announcements().count()
+        context["unread_messages_count"] = self.get_unread_messages().count()
+        context["unread_count"] = (
+            context["unread_announcements_count"] + context["unread_messages_count"]
+        )
         return context
+
+    def get_unread_announcements(self):
+        return Announcement.objects.exclude(read_by=self.request.user)
+
+    def get_unread_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=False)
+
+    def get_read_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=True)
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -121,10 +166,22 @@ class RolesView(LoginRequiredMixin, generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context[
-            "officesync"
-        ] = OfficeSync.objects.first()
+        context["officesync"] = OfficeSync.objects.first()
+        context["unread_announcements_count"] = self.get_unread_announcements().count()
+        context["unread_messages_count"] = self.get_unread_messages().count()
+        context["unread_count"] = (
+            context["unread_announcements_count"] + context["unread_messages_count"]
+        )
         return context
+
+    def get_unread_announcements(self):
+        return Announcement.objects.exclude(read_by=self.request.user)
+
+    def get_unread_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=False)
+
+    def get_read_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=True)
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -155,7 +212,7 @@ class RoleCreateView(LoginRequiredMixin, generic.CreateView):
             user=self.request.user,
             action="CREATE",
             content_object=self.object,
-            message=f"@{self.request.user} hat die Rolle {self.object} erstellt."
+            message=f"@{self.request.user} hat die Rolle {self.object} erstellt.",
         )
 
         return response
@@ -165,7 +222,21 @@ class RoleCreateView(LoginRequiredMixin, generic.CreateView):
         context[
             "officesync"
         ] = OfficeSync.objects.first()  # Hole das erste OfficeSync-Objekt
+        context["unread_announcements_count"] = self.get_unread_announcements().count()
+        context["unread_messages_count"] = self.get_unread_messages().count()
+        context["unread_count"] = (
+            context["unread_announcements_count"] + context["unread_messages_count"]
+        )
         return context
+
+    def get_unread_announcements(self):
+        return Announcement.objects.exclude(read_by=self.request.user)
+
+    def get_unread_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=False)
+
+    def get_read_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=True)
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -199,7 +270,9 @@ class RoleDetailView(LoginRequiredMixin, generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["officesync"] = OfficeSync.objects.first()
-        context["users"] = User.objects.filter(advanced__role__name=self.kwargs.get(self.slug_url_kwarg))
+        context["users"] = User.objects.filter(
+            advanced__role__name=self.kwargs.get(self.slug_url_kwarg)
+        )
         context["permissions_system"] = CustomPermission.objects.filter(
             permission__contains="system"
         )
@@ -209,7 +282,21 @@ class RoleDetailView(LoginRequiredMixin, generic.DetailView):
         context["permissions_management"] = CustomPermission.objects.filter(
             permission__contains="management"
         )
+        context["unread_announcements_count"] = self.get_unread_announcements().count()
+        context["unread_messages_count"] = self.get_unread_messages().count()
+        context["unread_count"] = (
+            context["unread_announcements_count"] + context["unread_messages_count"]
+        )
         return context
+
+    def get_unread_announcements(self):
+        return Announcement.objects.exclude(read_by=self.request.user)
+
+    def get_unread_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=False)
+
+    def get_read_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=True)
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -252,7 +339,21 @@ class RoleManageDetailView(LoginRequiredMixin, generic.DetailView):
         context["permissions_management"] = CustomPermission.objects.filter(
             permission__contains="management"
         )
+        context["unread_announcements_count"] = self.get_unread_announcements().count()
+        context["unread_messages_count"] = self.get_unread_messages().count()
+        context["unread_count"] = (
+            context["unread_announcements_count"] + context["unread_messages_count"]
+        )
         return context
+
+    def get_unread_announcements(self):
+        return Announcement.objects.exclude(read_by=self.request.user)
+
+    def get_unread_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=False)
+
+    def get_read_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=True)
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -291,14 +392,16 @@ class RoleUpdateView(LoginRequiredMixin, generic.UpdateView):
             messages.append(f"@{self.request.user} färbte '{old_role_name}' um.")
 
         if old_role_name != new_role_name:
-            messages.append(f"@{self.request.user} nannte '{old_role_name}' auf '{new_role_name}' um.")
+            messages.append(
+                f"@{self.request.user} nannte '{old_role_name}' auf '{new_role_name}' um."
+            )
 
         for message in messages:
             Log.objects.create(
                 user=self.request.user,
                 action="UPDATE",
                 content_object=self.object,
-                message=message
+                message=message,
             )
 
         return response
@@ -323,7 +426,21 @@ class RoleUpdateView(LoginRequiredMixin, generic.UpdateView):
         context["permissions_management"] = CustomPermission.objects.filter(
             permission__contains="management"
         )
+        context["unread_announcements_count"] = self.get_unread_announcements().count()
+        context["unread_messages_count"] = self.get_unread_messages().count()
+        context["unread_count"] = (
+            context["unread_announcements_count"] + context["unread_messages_count"]
+        )
         return context
+
+    def get_unread_announcements(self):
+        return Announcement.objects.exclude(read_by=self.request.user)
+
+    def get_unread_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=False)
+
+    def get_read_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=True)
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -358,7 +475,7 @@ class RoleDeleteView(LoginRequiredMixin, generic.DeleteView):
 
     def get(self, request, name):
         role = get_object_or_404(Role, name=name)
-        return render(request, self.template_name, {'role': role})
+        return render(request, self.template_name, {"role": role})
 
     def post(self, request, name):
         role = get_object_or_404(Role, name=name)
@@ -369,7 +486,7 @@ class RoleDeleteView(LoginRequiredMixin, generic.DeleteView):
             user=request.user,
             action="DELETE",
             content_object=role,
-            message=f"{request.user} hat '{old_role_name}' gelöscht."
+            message=f"{request.user} hat '{old_role_name}' gelöscht.",
         )
 
         role.delete()  # Löschen Sie die Rolle nach Erstellung des Log-Eintrags
@@ -380,7 +497,21 @@ class RoleDeleteView(LoginRequiredMixin, generic.DeleteView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["officesync"] = OfficeSync.objects.first()
+        context["unread_announcements_count"] = self.get_unread_announcements().count()
+        context["unread_messages_count"] = self.get_unread_messages().count()
+        context["unread_count"] = (
+            context["unread_announcements_count"] + context["unread_messages_count"]
+        )
         return context
+
+    def get_unread_announcements(self):
+        return Announcement.objects.exclude(read_by=self.request.user)
+
+    def get_unread_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=False)
+
+    def get_read_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=True)
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -430,7 +561,7 @@ class RolePermissionsUpdateView(LoginRequiredMixin, generic.UpdateView):
                 user=self.request.user,
                 action="UPDATE",
                 content_object=self.object,
-                message=f"{self.request.user} hat bei '{old_role_name}' die Rechte angepasst."
+                message=f"{self.request.user} hat bei '{old_role_name}' die Rechte angepasst.",
             )
 
         return response
@@ -447,7 +578,21 @@ class RolePermissionsUpdateView(LoginRequiredMixin, generic.UpdateView):
         context["permissions_management"] = CustomPermission.objects.filter(
             permission__contains="management"
         ).order_by("permission")
+        context["unread_announcements_count"] = self.get_unread_announcements().count()
+        context["unread_messages_count"] = self.get_unread_messages().count()
+        context["unread_count"] = (
+            context["unread_announcements_count"] + context["unread_messages_count"]
+        )
         return context
+
+    def get_unread_announcements(self):
+        return Announcement.objects.exclude(read_by=self.request.user)
+
+    def get_unread_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=False)
+
+    def get_read_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=True)
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -489,7 +634,21 @@ class RoleUsersView(LoginRequiredMixin, generic.UpdateView):
         context = super().get_context_data(**kwargs)
         context["officesync"] = OfficeSync.objects.first()
         context["users"] = User.objects.all()
+        context["unread_announcements_count"] = self.get_unread_announcements().count()
+        context["unread_messages_count"] = self.get_unread_messages().count()
+        context["unread_count"] = (
+            context["unread_announcements_count"] + context["unread_messages_count"]
+        )
         return context
+
+    def get_unread_announcements(self):
+        return Announcement.objects.exclude(read_by=self.request.user)
+
+    def get_unread_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=False)
+
+    def get_read_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=True)
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -512,14 +671,70 @@ class UsersView(LoginRequiredMixin, generic.ListView):
     context_object_name = "users"
 
     def get_queryset(self):
-        return User.objects.all()
+        queryset = User.objects.all()
+
+        # Filter aus dem GET-Parameter holen
+        search_query = self.request.GET.get("search", "")
+        role_query = self.request.GET.get("role", "")
+
+        if search_query:
+            # Teilen des Suchbegriffs in einzelne Worte
+            search_terms = search_query.split()
+
+            # Erstellen einer Q-Objekt für jedes Wort
+            q_objects = Q()
+
+            for term in search_terms:
+                q_objects |= (
+                    Q(first_name__icontains=term)
+                    | Q(last_name__icontains=term)
+                    | Q(username__icontains=term)
+                )
+
+            # Anwenden der Filter auf die Query
+            queryset = queryset.filter(q_objects)
+
+        if role_query:
+            # Filtern nach der Rolle
+            queryset = queryset.filter(advanced__role__id=role_query)
+
+        # Sortierung anpassen
+        queryset = queryset.annotate(
+            role_name_order=Case(
+                When(advanced__role__name__isnull=True, then=Value("ZZZZZZZZ")),
+                default=F("advanced__role__name"),
+                output_field=CharField(),
+            )
+        ).order_by(
+            Lower("role_name_order"),
+            Lower("first_name"),
+            Lower("last_name"),
+            Lower("username"),
+        )
+
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context[
-            "officesync"
-        ] = OfficeSync.objects.first()
+        context["officesync"] = OfficeSync.objects.first()
+        context["roles"] = Role.objects.all()
+        context["search_query"] = self.request.GET.get("search", "")
+        context["role_query"] = self.request.GET.get("role", "")
+        context["unread_announcements_count"] = self.get_unread_announcements().count()
+        context["unread_messages_count"] = self.get_unread_messages().count()
+        context["unread_count"] = (
+            context["unread_announcements_count"] + context["unread_messages_count"]
+        )
         return context
+
+    def get_unread_announcements(self):
+        return Announcement.objects.exclude(read_by=self.request.user)
+
+    def get_unread_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=False)
+
+    def get_read_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=True)
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -545,11 +760,23 @@ class LogsView(LoginRequiredMixin, generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context[
-            "officesync"
-        ] = OfficeSync.objects.first()
+        context["officesync"] = OfficeSync.objects.first()
         context["logs"] = Log.objects.all()
+        context["unread_announcements_count"] = self.get_unread_announcements().count()
+        context["unread_messages_count"] = self.get_unread_messages().count()
+        context["unread_count"] = (
+            context["unread_announcements_count"] + context["unread_messages_count"]
+        )
         return context
+
+    def get_unread_announcements(self):
+        return Announcement.objects.exclude(read_by=self.request.user)
+
+    def get_unread_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=False)
+
+    def get_read_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=True)
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:

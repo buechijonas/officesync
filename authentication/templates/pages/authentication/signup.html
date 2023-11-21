@@ -1,46 +1,49 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if officesync.get_logo_url %}
-        <link rel="icon" href="{{ officesync.get_logo_url }}" type="image/png">
-    {% endif %}
-    <link rel="stylesheet" href="{% static 'css/global/global.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/sidebar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
-    <link rel="stylesheet" href="{% static 'css/pages/main_authentication.css' %}">
-    <title>Anmelden</title>
-</head>
-<body>
-{% include 'components/header/authentication.html' with title="Registrierung" %}
-<main>
-    {% include 'components/sidebar/sidebar.html' %}
-    <div class="content">
-        <div class="card">
-            <div class="header">
-                <div class="image">
-                    <img src="{% static 'images/swiss_flag.png' alt="swiss_flag" %}"/>
-                </div>
-                <div class="text">
-                    <p>Konto eröffnen</p>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% if officesync.get_logo_url %}<link rel="icon" href="{{ officesync.get_logo_url }}" type="image/png">{% endif %}
+        <link rel="stylesheet" href="{% static 'css/global/global.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/sidebar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
+        <link rel="stylesheet"
+              href="{% static 'css/pages/main_authentication.css' %}">
+        <title>{% translate "Registrieren" %}</title>
+    </head>
+    <body>
+        {% translate "Registrieren" as title %}
+        {% include 'components/header/authentication.html' with title=title %}
+        <main>
+            {% include 'components/sidebar/sidebar.html' %}
+            <div class="content">
+                <div class="card">
+                    <div class="header">
+                        <div class="image">
+                            <img src="{% static 'images/swiss_flag.png' alt="swiss_flag" %}" />
+                        </div>
+                        <div class="text">
+                            <p>{% translate "Konto eröffnen" %}</p>
+                        </div>
+                    </div>
+                    <div class="form-container">
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit">{% translate "Registrieren" %}</button>
+                        </form>
+                        <p>
+                            {% translate "Bereits Konto?" %} <a href="{% url 'login' %}">{% translate "Anmelden" %}</a>
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="form-container">
-                <form method="POST">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit">Registrieren</button>
-                </form>
-                <p>Bereits Konto? <a href="{% url 'login' %}">Anmelden</a></p>
-            </div>
-        </div>
-    </div>
-</main>
-{% include 'components/footer.html' %}
-</body>
+        </main>
+        {% include 'components/footer.html' %}
+    </body>
 </html>

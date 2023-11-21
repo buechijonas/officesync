@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load i18n %}
 <div class="sidebar">
     <div class="flexify">
         <div class="grid">
@@ -7,10 +7,10 @@
                 <a href="{% url 'system' %}" class="section">
                     <div class="current">
                         <div class="icon">
-                            <img src="{% static 'svgs/application-cog.svg' %}" alt="application-cog"/>
+                            <img src="{% static 'svgs/application-cog.svg' %}" alt="application-cog" />
                         </div>
                         <div class="text">
-                            <p>Konfiguration</p>
+                            <p>{% translate "Konfiguration" %}</p>
                         </div>
                     </div>
                 </a>
@@ -18,10 +18,10 @@
                 <a href="{% url 'system' %}" class="section">
                     <div class="not-current">
                         <div class="icon">
-                            <img src="{% static 'svgs/application-cog.svg' %}" alt="application-cog"/>
+                            <img src="{% static 'svgs/application-cog.svg' %}" alt="application-cog" />
                         </div>
                         <div class="text">
-                            <p>Konfiguration</p>
+                            <p>{% translate "Konfiguration" %}</p>
                         </div>
                     </div>
                 </a>
@@ -30,10 +30,10 @@
                 <a href="{% url 'roles' %}" class="section">
                     <div class="current">
                         <div class="icon">
-                            <img src="{% static 'svgs/group.svg' %}" alt="roles"/>
+                            <img src="{% static 'svgs/group.svg' %}" alt="roles" />
                         </div>
                         <div class="text">
-                            <p>Rollen</p>
+                            <p>{% translate "Rollen" %}</p>
                         </div>
                     </div>
                 </a>
@@ -41,10 +41,10 @@
                 <a href="{% url 'roles' %}" class="section">
                     <div class="not-current">
                         <div class="icon">
-                            <img src="{% static 'svgs/group.svg' %}" alt="roles"/>
+                            <img src="{% static 'svgs/group.svg' %}" alt="roles" />
                         </div>
                         <div class="text">
-                            <p>Rollen</p>
+                            <p>{% translate "Rollen" %}</p>
                         </div>
                     </div>
                 </a>
@@ -53,13 +53,13 @@
                 <a href="{% url 'users' %}" class="section">
                     <div class="current">
                         <div class="icon">
-                            <img src="{% static 'svgs/group_filled.svg' %}" alt="group"/>
+                            <img src="{% static 'svgs/group_filled.svg' %}" alt="group" />
                         </div>
                         <div class="text">
                             {% if request.user.user_custom_interface.gender %}
-                                <p>Benutzer*innenliste</p>
+                                <p>{% translate "Benutzer*innenliste" %}</p>
                             {% else %}
-                                <p>Benutzerliste</p>
+                                <p>{% translate "Benutzerliste" %}</p>
                             {% endif %}
                         </div>
                     </div>
@@ -68,13 +68,13 @@
                 <a href="{% url 'users' %}" class="section">
                     <div class="not-current">
                         <div class="icon">
-                            <img src="{% static 'svgs/group_filled.svg' %}" alt="group"/>
+                            <img src="{% static 'svgs/group_filled.svg' %}" alt="group" />
                         </div>
                         <div class="text">
                             {% if request.user.user_custom_interface.gender %}
-                                <p>Benutzer*innenliste</p>
+                                <p>{% translate "Benutzer*innenliste" %}</p>
                             {% else %}
-                                <p>Benutzerliste</p>
+                                <p>{% translate "Benutzerliste" %}</p>
                             {% endif %}
                         </div>
                     </div>
@@ -84,10 +84,10 @@
                 <a href="{% url 'logs' %}" class="section">
                     <div class="current">
                         <div class="icon">
-                            <img src="{% static 'svgs/clipboard-text-clock.svg' %}" alt="clipboard"/>
+                            <img src="{% static 'svgs/clipboard-text-clock.svg' %}" alt="clipboard" />
                         </div>
                         <div class="text">
-                            <p>Protokolle</p>
+                            <p>{% translate "Protokolle" %}</p>
                         </div>
                     </div>
                 </a>
@@ -95,10 +95,10 @@
                 <a href="{% url 'logs' %}" class="section">
                     <div class="not-current">
                         <div class="icon">
-                            <img src="{% static 'svgs/clipboard-text-clock.svg' %}" alt="clipboard"/>
+                            <img src="{% static 'svgs/clipboard-text-clock.svg' %}" alt="clipboard" />
                         </div>
                         <div class="text">
-                            <p>Protokolle</p>
+                            <p>{% translate "Protokolle" %}</p>
                         </div>
                     </div>
                 </a>
@@ -107,10 +107,10 @@
                 <a href="{% url 'users' %}" class="section">
                     <div class="current">
                         <div class="icon">
-                            <img src="{% static 'svgs/ideogram-cjk.svg' %}" alt="signature"/>
+                            <img src="{% static 'svgs/ideogram-cjk.svg' %}" alt="signature" />
                         </div>
                         <div class="text">
-                            <p>Signatur</p>
+                            <p>{% translate "Signatur" %}</p>
                         </div>
                     </div>
                 </a>
@@ -118,10 +118,10 @@
                 <a href="{% url 'users' %}" class="section">
                     <div class="not-current">
                         <div class="icon">
-                            <img src="{% static 'svgs/ideogram-cjk.svg' %}" alt="signature"/>
+                            <img src="{% static 'svgs/ideogram-cjk.svg' %}" alt="signature" />
                         </div>
                         <div class="text">
-                            <p>Signatur</p>
+                            <p>{% translate "Signatur" %}</p>
                         </div>
                     </div>
                 </a>

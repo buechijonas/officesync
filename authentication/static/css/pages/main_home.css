@@ -220,12 +220,161 @@
 
 .content .blockify .flexify .cardify .vehicle-pimg img {
     height: 100%;
+    width: 48px;
+}
+
+.content .blockify .flexify .cardify .announcement-content {
+    color: darkslategray;
+    white-space: pre-line;
+}
+
+.content .blockify .flexify .cardify .signature-grid {
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: lightgray;
+    font-size: 0.75rem;
+    margin: 12px 0;
+    padding: 12px 0;
+    grid-column-gap: 12px;
+    display: grid;
+    grid-template-columns: 128px 1fr;
+    grid-template-rows: 16px 16px 16px 16px 16px 16px 16px 16px 16px 16px 16px;
+    grid-template-areas:
+        "name ."
+        "role ."
+        "logo ."
+        "logo corporation"
+        "logo ."
+        "logo address"
+        "logo location"
+        "logo country"
+        "logo ."
+        "logo ."
+        "url .";
+}
+
+.content .blockify .flexify .cardify .signature-grid .name {
+    grid-area: name;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.content .blockify .cardify .signature-grid .role {
+    grid-area: role;
+    display: flex;
+    align-items: center;
+}
+
+.content .blockify .cardify .signature-grid .corporation {
+    grid-area: corporation;
+    display: flex;
+    align-items: center;
+    color: red;
+    font-weight: bold;
+}
+
+.content .blockify .cardify .signature-grid .address {
+    grid-area: address;
+    display: flex;
+    align-items: center;
+}
+
+.content .blockify .cardify .signature-grid .location {
+    grid-area: location;
+    display: flex;
+    align-items: center;
+}
+
+.content .blockify .cardify .signature-grid .country {
+    grid-area: country;
+    display: flex;
+    align-items: center;
+}
+
+.content .blockify .cardify .signature-grid .url {
+    grid-area: url;
+    display: flex;
+    align-items: center;
+    color: #0061FF;
+    text-decoration: underline;
+}
+
+
+.content .blockify .flexify .cardify .signature-grid .signature-logo {
+    grid-area: logo;
+    display: flex;
     width: 100%;
+}
+
+.content .blockify .flexify .grid-announcement {
+    max-width: 1024px;
+    width: 100%;
+    grid-gap: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        "author-cardify date-cardify";
+}
+
+.content .blockify .flexify .date-cardify {
+    grid-area: date-cardify;
+    display: flex;
+    justify-content: right;
+    height: min-content;
+}
+
+.content .blockify .flexify .date-cardify p {
+    background-color: white;
+    padding: 12px;
+    border-radius: 5px;
+    color: gray;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.content .blockify .flexify .author-cardify {
+    grid-area: author-cardify;
+    background-color: white;
+    padding: 12px;
+    border-radius: 5px;
+}
+
+.content .blockify .flexify .author-cardify .grid {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    grid-template-rows: 16px 16px;
+    grid-gap: 12px;
+    grid-template-areas:
+        "profile-picture name"
+        "profile-picture role";
+}
+
+.content .blockify .flexify .author-cardify .grid .profile-picture {
+    grid-area: profile-picture;
+    filter: brightness(0) saturate(100%) invert(56%) sepia(4%) saturate(13%) hue-rotate(346deg) brightness(96%) contrast(87%);
+    cursor: pointer;
+}
+
+.content .blockify .flexify .author-cardify .grid .name {
+    grid-area: name;
+    font-weight: bold;
+}
+
+.content .blockify .flexify .author-cardify .grid .tag {
+    color: gray;
 }
 
 .content .blockify .flexify .role-card .blockify .userify .name {
     grid-area: name;
     margin: 0;
+}
+
+.content .blockify .flexify .role-card .blockify .userify .name-thin {
+    grid-area: name;
+    margin: 0;
+    font-weight: lighter;
 }
 
 .content .blockify .flexify .role-card .blockify .userify .usertag {

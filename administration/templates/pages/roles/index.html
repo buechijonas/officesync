@@ -1,54 +1,52 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if officesync.get_logo_url %}
-        <link rel="icon" href="{{ officesync.get_logo_url }}" type="image/png">
-    {% endif %}
-    <link rel="stylesheet" href="{% static 'css/global/global.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/sidebar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
-    <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/profile.css' %}">
-    <title>{{ officesync.app }} - Rollen</title>
-</head>
-<body>
-{% include 'components/header/authentication.html' with title=officesync.app %}
-<main>
-    {% include 'components/sidebar/sidebar.html' with page="administration" %}
-    {% include 'components/subsidebar/subsidebar_administration.html' with page="roles" %}
-    <div class="content">
-        <div class="blockify">
-            {% include 'components/profile/profile.html' %}
-            <div class="flexify">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% if officesync.get_logo_url %}<link rel="icon" href="{{ officesync.get_logo_url }}" type="image/png">{% endif %}
+        <link rel="stylesheet" href="{% static 'css/global/global.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/sidebar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/profile.css' %}">
+        <title>{{ officesync.app }} - {% translate "Rollen" %}</title>
+    </head>
+    <body>
+        {% include 'components/header/authentication.html' with title=officesync.app %}
+        <main>
+            {% include 'components/sidebar/sidebar.html' with page="administration" %}
+            {% include 'components/subsidebar/subsidebar_administration.html' with page="roles" %}
+            <div class="content">
                 <div class="blockify">
+                    {% include 'components/profile/profile.html' %}
                     <div class="flexify">
-                        <div class="cardify">
-                            <div class="title-container">
-                                <h1 class="h1">Rollen</h1>
-                                <div class="edit-container">
-                                    <a class="button add" href="{% url 'roles_create' %}">
-                                        <img src="{% static 'svgs/add.svg' %}" alt="add"/>
-                                    </a>
+                        <div class="blockify">
+                            <div class="flexify">
+                                <div class="cardify">
+                                    <div class="title-container">
+                                        <h1 class="h1">{% translate "Rollen" %}</h1>
+                                        <div class="edit-container">
+                                            <a class="button add" href="{% url 'roles_create' %}">
+                                                <img src="{% static 'svgs/add.svg' %}" alt="add" />
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            {% for role in roles %}
+                                <div class="role-card">
+                                    <a style="color: {{ role.color }}" href="{% url 'role' role.name %}">{{ role.name }}</a>
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>
-                    {% for role in roles %}
-                        <div class="role-card">
-                            <a style="color: {{ role.color }}" href="{% url 'role' role.name %}">{{ role.name }}
-                            </a>
-                        </div>
-                    {% endfor %}
                 </div>
             </div>
-        </div>
-    </div>
-</main>
-{% include 'components/footer.html' %}
-</body>
+        </main>
+        {% include 'components/footer.html' %}
+    </body>

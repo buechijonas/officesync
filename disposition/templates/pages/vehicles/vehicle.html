@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,7 +14,7 @@
         <link rel="stylesheet" href="{% static 'css/components/main.css' %}" />
         <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}" />
         <link rel="stylesheet" href="{% static 'css/components/profile.css' %}" />
-        <title>{{ officesync.app }} - Fahrzeuge</title>
+        <title>{{ officesync.app }} - {% translate "Fahrzeuge" %}</title>
     </head>
     <body>
         {% include 'components/header/authentication.html' with title=officesync.app %}
@@ -43,67 +44,67 @@
                         <div class="cardify">
                             <div class="permissions">
                                 <div>
-                                    <h2>Metadaten</h2>
+                                    <h2>{% translate "Metadaten" %}</h2>
                                     <div class="flexify" style="justify-content: left">
                                         {% if vehicle.type == "passenger_car" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/car-hatchback.svg" alt="car_hatchback" />
-                                                <p>Personenwagen</p>
+                                                <p>{% translate "Personenwagen" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.type == "van" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/van-utility.svg" alt="car_hatchback" />
-                                                <p>Kleintransporter</p>
+                                                <p>{% translate "Kleintransporter" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.type == "truck" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/truck.svg" alt="truck" />
-                                                <p>Lastwagen</p>
+                                                <p>{% translate "Lastwagen" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.type == "delivery_truck" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/truck-delivery.svg" alt="delivery_truck" />
-                                                <p>Lieferwagen</p>
+                                                <p>{% translate "Lieferwagen" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.type == "cargo_container_truck" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/truck-cargo-container.svg"
                                                      alt="cargo_container_truck" />
-                                                <p>Frachtcontainerlastwagen</p>
+                                                <p>{% translate "Frachtcontainerlastwagen" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.type == "dump_truck" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/dump-truck.svg" alt="dump_truck" />
-                                                <p>Kipplaster</p>
+                                                <p>{% translate "Kipplaster" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.type == "tanker_truck" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/tanker-truck.svg" alt="tanker_truck" />
-                                                <p>Tanklastwagen</p>
+                                                <p>{% translate "Tanklastwagen" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.type == "tow_truck" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/tow-truck.svg" alt="tow_truck" />
-                                                <p>Abschleppwagen</p>
+                                                <p>{% translate "Abschleppwagen" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.type == "flatbed_truck" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/truck-flatbed.svg" alt="flatbed_truck" />
-                                                <p>Pritschenwagen</p>
+                                                <p>{% translate "Pritschenwagen" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.type == "trailer_truck" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/truck-trailer.svg" alt="trailer_truck" />
-                                                <p>Anhänger</p>
+                                                <p>{% translate "Anhänger" %}</p>
                                             </div>
                                         {% endif %}
                                     </div>
@@ -111,55 +112,55 @@
                                         {% if vehicle.fuel_type == "diesel" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/gas-station.svg" alt="gas-station" />
-                                                <p>Diesel</p>
+                                                <p>{% translate "Diesel" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.fuel_type == "gasoline" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/gas-station.svg" alt="gas-station" />
-                                                <p>Benzin</p>
+                                                <p>{% translate "Benzin" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.fuel_type == "electric" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/ev-station.svg" alt="ev-station" />
-                                                <p>Elektrisch</p>
+                                                <p>{% translate "Elektrisch" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.fuel_type == "hydrogen" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/hydrogen-station.svg" alt="hydrogen-station" />
-                                                <p>Wasserstoff</p>
+                                                <p>{% translate "Wasserstoff" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.fuel_type == "natural_gas" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/gas-station.svg" alt="gas-station" />
-                                                <p>Erdgas</p>
+                                                <p>{% translate "Erdgas" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.fuel_type == "biodiesel" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/gas-station.svg" alt="gas-station" />
-                                                <p>Biodiesel</p>
+                                                <p>{% translate "Biodiesel" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.fuel_type == "lpg" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/gas-station.svg" alt="gas-station" />
-                                                <p>Autogas</p>
+                                                <p>{% translate "Autogas" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.fuel_type == "e85" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/gas-station.svg" alt="gas-station" />
-                                                <p>E85</p>
+                                                <p>{% translate "E85" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.fuel_type == "lng" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/gas-station.svg" alt="gas-station" />
-                                                <p>Flüssigerdgas</p>
+                                                <p>{% translate "Flüssigerdgas" %}</p>
                                             </div>
                                         {% endif %}
                                     </div>
@@ -167,71 +168,71 @@
                                         {% if vehicle.condition == "unused" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/star-box.svg" alt="star_box" />
-                                                <p>Ungebraucht</p>
+                                                <p>{% translate "Ungebraucht" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.condition == "used" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/percent-box.svg" alt="percent_box" />
-                                                <p>Gebraucht</p>
+                                                <p>{% translate "Gebraucht" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.condition == "damaged" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/alert-box.svg" alt="alert_box" />
-                                                <p>Beschädigt</p>
+                                                <p>{% translate "Beschädigt" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.condition == "repaired" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/text-box.svg" alt="text_box" />
-                                                <p>Repariert</p>
+                                                <p>{% translate "Repariert" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.condition == "total_loss" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/image-broken-variant.svg"
                                                      alt="image_broken_variant" />
-                                                <p>Totalschaden</p>
+                                                <p>{% translate "Totalschaden" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.condition == "needs_maintenance" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/information-box.svg" alt="information_box" />
-                                                <p>Instandhaltungsbedarf</p>
+                                                <p>{% translate "Instandhaltungsbedarf" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.condition == "not_drivable" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/close-box.svg" alt="close_box" />
-                                                <p>Unbetriebsbereit</p>
+                                                <p>{% translate "Unbetriebsbereit" %}</p>
                                             </div>
                                         {% endif %}
                                         {% if vehicle.condition == "modified" %}
                                             <div class="vehicle-pimg">
                                                 <img src="/static/svgs/cog-box.svg" alt="cog_box" />
-                                                <p>Modifiziert</p>
+                                                <p>{% translate "Modifiziert" %}</p>
                                             </div>
                                         {% endif %}
                                     </div>
-                                    <p class="datafy">Kraftstoffverbrauch: {{ vehicle.fuel_consumption }}</p>
-                                    <p class="datafy">Leistung & Motor:: {{ vehicle.power_engine }}</p>
-                                    <p class="datafy">Lagerkapazität: {{ vehicle.capacity }}</p>
+                                    <p class="datafy">{% translate "Kraftstoffverbrauch" %}: {{ vehicle.fuel_consumption }}</p>
+                                    <p class="datafy">{% translate "Leistung & Motor" %}: {{ vehicle.power_engine }}</p>
+                                    <p class="datafy">{% translate "Lagerkapazität" %}: {{ vehicle.capacity }}</p>
                                 </div>
                                 <div>
-                                    <h2>Erkennungsdaten</h2>
-                                    <p class="datafy">Kennzeichen: {{ vehicle.license_plate }}</p>
-                                    <p class="datafy">Name: {{ vehicle.name }}</p>
-                                    <p class="datafy">Identifikationsnummer: {{ vehicle.vin }}</p>
+                                    <h2>{% translate "Erkennungsdaten" %}</h2>
+                                    <p class="datafy">{% translate "Kennzeichen" %}: {{ vehicle.license_plate }}</p>
+                                    <p class="datafy">{% translate "Name" %}: {{ vehicle.name }}</p>
+                                    <p class="datafy">{% translate "Identifikationsnummer" %}: {{ vehicle.vin }}</p>
                                 </div>
                                 <div>
-                                    <h2>Produktionsdaten</h2>
-                                    <p class="datafy">Fahrzeugmodell: {{ vehicle.model }}</p>
-                                    <p class="datafy">Fahrzeughersteller: {{ vehicle.manufacturer }}</p>
-                                    <p class="datafy">Herstellungsjahr: {{ vehicle.year_of_manufacturer }}</p>
+                                    <h2>{% translate "Produktionsdaten" %}</h2>
+                                    <p class="datafy">{% translate "Fahrzeugmodell" %}: {{ vehicle.model }}</p>
+                                    <p class="datafy">{% translate "Fahrzeughersteller" %}: {{ vehicle.manufacturer }}</p>
+                                    <p class="datafy">{% translate "Herstellungsjahr" %}: {{ vehicle.year_of_manufacturer }}</p>
                                 </div>
                                 <div>
-                                    <h2>Versicherung</h2>
+                                    <h2>{% translate "Versicherung" %}</h2>
                                     <p>{{ vehicle.insurance }}</p>
                                 </div>
                             </div>

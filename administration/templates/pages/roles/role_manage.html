@@ -1,132 +1,132 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if officesync.get_logo_url %}
-        <link rel="icon" href="{{ officesync.get_logo_url }}" type="image/png">
-    {% endif %}
-    <link rel="stylesheet" href="{% static 'css/global/global.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/sidebar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
-    <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/profile.css' %}">
-    <title>{{ officesync.app }} - Konfiguration</title>
-</head>
-<body>
-{% include 'components/header/authentication.html' with title=officesync.app %}
-<main>
-    {% include 'components/sidebar/sidebar.html' with page="administration" %}
-    {% include 'components/subsidebar/subsidebar_administration.html' with page="roles" %}
-    <div class="content">
-        <div class="blockify">
-            {% include 'components/profile/profile.html' %}
-            <div class="flexify">
-                <div class="cardify">
-                    <div class="title-container">
-                        <h1 style="color: {{ role.color }}" class="h1">{{ role.name }}</h1>
-                        <div class="edit-container">
-                            <a class="button edit" href="{% url 'role_update' role.name %}">
-                                <img src="{% static 'svgs/modify.svg' %}" alt="edit"/>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% if officesync.get_logo_url %}<link rel="icon" href="{{ officesync.get_logo_url }}" type="image/png">{% endif %}
+        <link rel="stylesheet" href="{% static 'css/global/global.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/sidebar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/profile.css' %}">
+        <title>{{ officesync.app }} - {{ role.name }}</title>
+    </head>
+    <body>
+        {% include 'components/header/authentication.html' with title=officesync.app %}
+        <main>
+            {% include 'components/sidebar/sidebar.html' with page="administration" %}
+            {% include 'components/subsidebar/subsidebar_administration.html' with page="roles" %}
+            <div class="content">
+                <div class="blockify">
+                    {% include 'components/profile/profile.html' %}
+                    <div class="flexify">
+                        <div class="cardify">
+                            <div class="title-container">
+                                <h1 style="color: {{ role.color }}" class="h1">{{ role.name }}</h1>
+                                <div class="edit-container">
+                                    <a class="button edit" href="{% url 'role_update' role.name %}">
+                                        <img src="{% static 'svgs/modify.svg' %}" alt="edit" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flexify">
+                        <div class="tabs">
+                            <a href="{% url 'role' role.name %}" class="tab1">
+                                <p>{% translate "Detail" %}</p>
+                            </a>
+                            <a href="{% url 'role_manage' role.name %}" class="tab2 current">
+                                <p>{% translate "Verwalten" %}</p>
                             </a>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="flexify">
-                <div class="tabs">
-                    <a href="{% url 'role' role.name %}" class="tab1">
-                        <p>Detail</p>
-                    </a>
-                    <a href="{% url 'role_manage' role.name %}" class="tab2 current">
-                        <p>Verwalten</p>
-                    </a>
-                </div>
-            </div>
-            <div class="flexify">
-                <div class="cardify">
-                    <div class="manage-role-buttons-container">
-                        <a class="button permission align-right" href="{% url 'role_permission' role.name %}">
-                            <img src="{% static 'svgs/key.svg' %}" alt="permission"/>
-                        </a>
-                    </div>
-                    <div class="permissions">
-                        <h2>Administration</h2>
-                        <div class="permission-container titlefy">
-                            <p class="value">Wert</p>
-                            <p class="description">Beschreibung</p>
-                            <p class="status">Status</p>
-                        </div>
-                        {% for permission in permissions_system %}
-                            <div class="permission-container datafy">
-                                <p class="value">{{ permission.permission }}</p>
-                                <p class="description">{{ permission.description }}</p>
-                                {% if permission in role.permissions.all %}
-                                    <div class="permission-check checked">
-                                        <img src="{% static 'svgs/check-circle.svg' %}" alt="check"/>
-                                    </div>
-                                {% else %}
-                                    <div class="permission-check">
-                                        <img src="{% static 'svgs/check-circle.svg' %}" alt="check"/>
-                                    </div>
-                                {% endif %}
+                    <div class="flexify">
+                        <div class="cardify">
+                            <div class="manage-role-buttons-container">
+                                <a class="button permission align-right"
+                                   href="{% url 'role_permission' role.name %}">
+                                    <img src="{% static 'svgs/key.svg' %}" alt="permission" />
+                                </a>
                             </div>
-                        {% endfor %}
-                    </div>
-                    <div class="permissions">
-                        <h2>Disposition</h2>
-                        <div class="permission-container titlefy">
-                            <p class="value">Wert</p>
-                            <p class="description">Beschreibung</p>
-                            <p class="status">Status</p>
-                        </div>
-                        {% for permission in permissions_disposition %}
-                            <div class="permission-container datafy">
-                                <p class="value">{{ permission.permission }}</p>
-                                <p class="description">{{ permission.description }}</p>
-                                {% if permission in role.permissions.all %}
-                                    <div class="permission-check checked">
-                                        <img src="{% static 'svgs/check-circle.svg' %}" alt="check"/>
+                            <div class="permissions">
+                                <h2>{% translate "Administration" %}</h2>
+                                <div class="permission-container titlefy">
+                                    <p class="value">{% translate "Wert" %}</p>
+                                    <p class="description">{% translate "Beschreibung" %}</p>
+                                    <p class="status">{% translate "Status" %}</p>
+                                </div>
+                                {% for permission in permissions_system %}
+                                    <div class="permission-container datafy">
+                                        <p class="value">{{ permission.permission }}</p>
+                                        <p class="description">{{ permission.description }}</p>
+                                        {% if permission in role.permissions.all %}
+                                            <div class="permission-check checked">
+                                                <img src="{% static 'svgs/check-circle.svg' %}" alt="check" />
+                                            </div>
+                                        {% else %}
+                                            <div class="permission-check">
+                                                <img src="{% static 'svgs/check-circle.svg' %}" alt="check" />
+                                            </div>
+                                        {% endif %}
                                     </div>
-                                {% else %}
-                                    <div class="permission-check">
-                                        <img src="{% static 'svgs/check-circle.svg' %}" alt="check"/>
-                                    </div>
-                                {% endif %}
+                                {% endfor %}
                             </div>
-                        {% endfor %}
-                    </div>
-                    <div class="permissions">
-                        <h2>Verwaltung</h2>
-                        <div class="permission-container titlefy">
-                            <p class="value">Wert</p>
-                            <p class="description">Beschreibung</p>
-                            <p class="status">Status</p>
-                        </div>
-                        {% for permission in permissions_management %}
-                            <div class="permission-container datafy">
-                                <p class="value">{{ permission.permission }}</p>
-                                <p class="description">{{ permission.description }}</p>
-                                {% if permission in role.permissions.all %}
-                                    <div class="permission-check checked">
-                                        <img src="{% static 'svgs/check-circle.svg' %}" alt="check"/>
+                            <div class="permissions">
+                                <h2>{% translate "Disposition" %}</h2>
+                                <div class="permission-container titlefy">
+                                    <p class="value">{% translate "Wert" %}</p>
+                                    <p class="description">{% translate "Beschreibung" %}</p>
+                                    <p class="status">{% translate "Status" %}</p>
+                                </div>
+                                {% for permission in permissions_disposition %}
+                                    <div class="permission-container datafy">
+                                        <p class="value">{{ permission.permission }}</p>
+                                        <p class="description">{{ permission.description }}</p>
+                                        {% if permission in role.permissions.all %}
+                                            <div class="permission-check checked">
+                                                <img src="{% static 'svgs/check-circle.svg' %}" alt="check" />
+                                            </div>
+                                        {% else %}
+                                            <div class="permission-check">
+                                                <img src="{% static 'svgs/check-circle.svg' %}" alt="check" />
+                                            </div>
+                                        {% endif %}
                                     </div>
-                                {% else %}
-                                    <div class="permission-check">
-                                        <img src="{% static 'svgs/check-circle.svg' %}" alt="check"/>
-                                    </div>
-                                {% endif %}
+                                {% endfor %}
                             </div>
-                        {% endfor %}
+                            <div class="permissions">
+                                <h2>{% translate "Verwaltung" %}</h2>
+                                <div class="permission-container titlefy">
+                                    <p class="value">{% translate "Wert" %}</p>
+                                    <p class="description">{% translate "Beschreibung" %}</p>
+                                    <p class="status">{% translate "Status" %}</p>
+                                </div>
+                                {% for permission in permissions_management %}
+                                    <div class="permission-container datafy">
+                                        <p class="value">{{ permission.permission }}</p>
+                                        <p class="description">{{ permission.description }}</p>
+                                        {% if permission in role.permissions.all %}
+                                            <div class="permission-check checked">
+                                                <img src="{% static 'svgs/check-circle.svg' %}" alt="check" />
+                                            </div>
+                                        {% else %}
+                                            <div class="permission-check">
+                                                <img src="{% static 'svgs/check-circle.svg' %}" alt="check" />
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</main>
-{% include 'components/footer.html' %}
-</body>
+        </main>
+        {% include 'components/footer.html' %}
+    </body>

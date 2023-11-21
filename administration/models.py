@@ -1,12 +1,14 @@
+from django.contrib.auth import get_user_model
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.utils import timezone
-from django.contrib.auth import get_user_model
+from django.utils.translation import gettext_lazy as _
 
 User = get_user_model()
 
 # Create your models here.
+
 
 class CustomPermission(models.Model):
     permission = models.CharField(max_length=200)
@@ -14,6 +16,7 @@ class CustomPermission(models.Model):
 
     def __str__(self):
         return self.permission
+
 
 class Role(models.Model):
     class Colors(models.TextChoices):
@@ -32,31 +35,41 @@ class Role(models.Model):
         BROWN = "brown", "Braun"
         BLACK = "black", "Schwarz"
 
-    name = models.CharField(max_length=20)
-    color = models.CharField(max_length=20, choices=Colors.choices, default=Colors.BLACK)
-    permissions = models.ManyToManyField(CustomPermission, related_name='roles', blank=True)
+    name = models.CharField(max_length=20, verbose_name=_("Name"))
+    color = models.CharField(
+        max_length=20,
+        choices=Colors.choices,
+        default=Colors.BLACK,
+        verbose_name=_("Color"),
+    )
+    permissions = models.ManyToManyField(
+        CustomPermission, related_name="roles", blank=True
+    )
 
     def __str__(self):
         return self.name
 
     class Meta:
-        ordering = ['name']
+        ordering = ["name"]
+
 
 class Log(models.Model):
     ACTION_CHOICES = (
-        ('READ', 'Lesen'),
-        ('CREATE', 'Erstellen'),
-        ('EDIT', 'Bearbeiten'),
-        ('DELETE', 'Löschen'),
+        ("READ", "Lesen"),
+        ("CREATE", "Erstellen"),
+        ("EDIT", "Bearbeiten"),
+        ("DELETE", "Löschen"),
     )
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     action = models.CharField(max_length=10, choices=ACTION_CHOICES)
     timestamp = models.DateTimeField(default=timezone.now)
 
-    content_type = models.ForeignKey(ContentType, on_delete=models.DO_NOTHING, null=True)
+    content_type = models.ForeignKey(
+        ContentType, on_delete=models.DO_NOTHING, null=True
+    )
     object_id = models.PositiveIntegerField(null=True, blank=True)
-    content_object = GenericForeignKey('content_type', 'object_id')
+    content_object = GenericForeignKey("content_type", "object_id")
     model_name = models.CharField(max_length=50, blank=True, null=True)
     message = models.CharField(max_length=200, null=True, blank=True)
 
@@ -67,7 +80,7 @@ class Log(models.Model):
         super(Log, self).save(*args, **kwargs)
 
     def __str__(self):
-        return f'User: {self.user.username} | Action: {self.action} | {self.model_name}: {self.content_object} | Date: {self.timestamp}'
+        return f"User: {self.user.username} | Action: {self.action} | {self.model_name}: {self.content_object} | Date: {self.timestamp}"
 
     class Meta:
-        ordering = ['-timestamp']
+        ordering = ["-timestamp"]

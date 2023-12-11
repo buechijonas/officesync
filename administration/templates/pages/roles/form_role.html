@@ -29,9 +29,11 @@
                             <div class="title-container">
                                 <h1 style="color: {{ role.color }}" class="h1">{{ role.name }}</h1>
                                 <div class="edit-container">
-                                    <a class="button delete" href="{% url 'role_delete' role.name %}">
-                                        <img src="{% static 'svgs/delete.svg' %}" alt="edit" />
-                                    </a>
+                                    {% if has_delete_role_permission %}
+                                        <a class="button delete" href="{% url 'role_delete' role.name %}">
+                                            <img src="{% static 'svgs/delete.svg' %}" alt="edit" />
+                                        </a>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

@@ -34,9 +34,11 @@
                                 {% endif %}
                                 {% if vehicle.pk %}
                                     <div class="edit-container">
-                                        <a class="button delete" href="{% url 'vehicle_delete' vehicle.pk %}">
-                                            <img src="{% static 'svgs/delete.svg' %}" alt="edit" />
-                                        </a>
+                                        {% if has_delete_vehicle_permission %}
+                                            <a class="button delete" href="{% url 'vehicle_delete' vehicle.pk %}">
+                                                <img src="{% static 'svgs/delete.svg' %}" alt="edit" />
+                                            </a>
+                                        {% endif %}
                                     </div>
                                 {% endif %}
                             </div>

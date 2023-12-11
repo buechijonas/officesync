@@ -29,10 +29,12 @@
                             <div class="title-container">
                                 <h1 class="h1">{{ officesync.app }}</h1>
                                 <div class="edit-container">
-                                    <a class="button edit"
-                                       href="{% url 'system_app_rename' officesync.id %}">
-                                        <img src="{% static 'svgs/modify.svg' %}" alt="edit" />
-                                    </a>
+                                    {% if has_app_config_permission %}
+                                        <a class="button edit"
+                                           href="{% url 'system_app_rename' officesync.id %}">
+                                            <img src="{% static 'svgs/modify.svg' %}" alt="edit" />
+                                        </a>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
@@ -42,10 +44,12 @@
                             <div class="title-container">
                                 <h1 class="h1">{% translate "Logo" %}</h1>
                                 <div class="edit-container">
-                                    <a class="button edit"
-                                       href="{% url 'system_app_logo_update' officesync.id %}">
-                                        <img src="{% static 'svgs/modify.svg' %}" alt="edit" />
-                                    </a>
+                                    {% if has_logo_config_permission %}
+                                        <a class="button edit"
+                                           href="{% url 'system_app_logo_update' officesync.id %}">
+                                            <img src="{% static 'svgs/modify.svg' %}" alt="edit" />
+                                        </a>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

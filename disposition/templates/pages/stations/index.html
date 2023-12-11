@@ -31,9 +31,11 @@
                                     <div class="title-container">
                                         <h1 class="h1">{% translate "Standorte" %}</h1>
                                         <div class="edit-container">
-                                            <a class="button add" href="{% url 'stations_create' %}">
-                                                <img src="{% static 'svgs/add.svg' %}" alt="add" />
-                                            </a>
+                                            {% if has_create_location_permission %}
+                                                <a class="button add" href="{% url 'stations_create' %}">
+                                                    <img src="{% static 'svgs/add.svg' %}" alt="add" />
+                                                </a>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
@@ -43,7 +45,7 @@
                                     <a class="blockify" href="{% url 'station' station.pk %}">
                                         <div class="userify">
                                             <div class="flexify img">
-                                                <img src="/static/svgs/map-marker.svg" alt="map_marker" />
+                                                <img class="location" src="/static/svgs/map-marker.svg" alt="map_marker" />
                                             </div>
                                             <p class="name">{{ station.name }}</p>
                                             <p class="usertag">{{ station.country }}, {{ station.state }}: {{ station.location }}, {{ station.street }}</p>

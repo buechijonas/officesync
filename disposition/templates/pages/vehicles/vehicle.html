@@ -31,9 +31,11 @@
                                     <div class="title-container">
                                         <h1 class="h1">{{ vehicle.license_plate }}</h1>
                                         <div class="edit-container">
+                                            {% if has_update_vehicle_permission %}
                                             <a class="button edit" href="{% url 'vehicle_update' vehicle.pk %}">
                                                 <img src="{% static 'svgs/modify.svg' %}" alt="edit" />
                                             </a>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>

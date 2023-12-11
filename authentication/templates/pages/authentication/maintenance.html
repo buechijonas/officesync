@@ -1,0 +1,38 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% if officesync.get_logo_url %}<link rel="icon" href="{{ officesync.get_logo_url }}" type="image/png">{% endif %}
+        <link rel="stylesheet" href="{% static 'css/global/global.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/sidebar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/profile.css' %}">
+        <title>{{ officesync.app }} - Startseite</title>
+    </head>
+    <body>
+        {% include 'components/header/authentication.html' with title=officesync.app %}
+        <main>
+            {% include 'components/sidebar/sidebar.html' with page="denied" %}
+            <div class="content">
+                <div class="blockify">
+                    {% include 'components/profile/profile.html' %}
+                    <div class="flexify">
+                        <div class="access-denied">
+                            <img src="{% static 'svgs/undraw_maintenance.svg' %}" alt="access-denide" />
+                        </div>
+                    </div>
+                    <div class="flexify">
+                        <div class="">
+                            <p class="access-denied">{% translate "Wartungsarbeiten" %}</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </body>

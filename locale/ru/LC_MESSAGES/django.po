@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-06 01:53+0000\n"
+"POT-Creation-Date: 2023-11-23 23:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,6 +89,7 @@ msgstr ""
 #: authentication/templates/pages/laws/privacy.html:76
 #: authentication/templates/pages/laws/terms.html:76
 #: communication/templates/pages/announcements/create.html:42
+#: communication/templates/pages/inbox/create.html:45
 #: disposition/templates/pages/stations/delete.html:48
 #: disposition/templates/pages/vehicles/delete.html:48
 #: disposition/templates/pages/vehicles/form.html:54
@@ -177,24 +178,25 @@ msgstr ""
 
 #: administration/templates/pages/roles/form_management_permission.html:73
 #: administration/templates/pages/roles/role_manage.html:81
-#: authentication/templates/components/sidebar/sidebar.html:126
-#: authentication/templates/components/sidebar/sidebar.html:137
+#: authentication/templates/components/sidebar/sidebar.html:139
+#: authentication/templates/components/sidebar/sidebar.html:150
 #: authentication/templates/pages/root/home.html:65
 msgid "Disposition"
 msgstr ""
 
 #: administration/templates/pages/roles/form_management_permission.html:93
 #: administration/templates/pages/roles/role_manage.html:104
-#: authentication/templates/components/sidebar/sidebar.html:113
+#: authentication/templates/components/sidebar/sidebar.html:126
 #: authentication/templates/pages/root/home.html:57
 msgid "Verwaltung"
 msgstr ""
 
-#: administration/templates/pages/system.html:43 communication/models.py:20
+#: administration/templates/pages/system.html:43 communication/models.py:25
 msgid "Logo"
 msgstr ""
 
 #: administration/templates/pages/users/index.html:41
+#: communication/templates/pages/inbox/select.html:43
 msgid "Benutzer suchen..."
 msgstr ""
 
@@ -203,11 +205,109 @@ msgid "Alle Rollen"
 msgstr ""
 
 #: administration/templates/pages/users/index.html:48
+#: communication/templates/pages/inbox/select.html:46
 msgid "Zurücksetzen"
 msgstr ""
 
 #: administration/templates/pages/users/index.html:51
+#: communication/templates/pages/inbox/select.html:49
 msgid "Suchen"
+msgstr ""
+
+#: authentication/models.py:62
+msgid "Hell"
+msgstr ""
+
+#: authentication/models.py:63
+msgid "Dunkel"
+msgstr ""
+
+#: authentication/models.py:64
+msgid "Kontrast"
+msgstr ""
+
+#: authentication/models.py:78
+msgid "Falschinformationen"
+msgstr ""
+
+#: authentication/models.py:79
+msgid "Missbrauch von Privilegien"
+msgstr ""
+
+#: authentication/models.py:80
+msgid "Belästigung"
+msgstr ""
+
+#: authentication/models.py:81
+msgid "Cybermobbing"
+msgstr ""
+
+#: authentication/models.py:82
+msgid "Cybergrooming"
+msgstr ""
+
+#: authentication/models.py:83
+msgid "Whataboutismus"
+msgstr ""
+
+#: authentication/models.py:84
+msgid "Relativierung"
+msgstr ""
+
+#: authentication/models.py:85
+msgid "Erpressung"
+msgstr ""
+
+#: authentication/models.py:86
+msgid "Drohung"
+msgstr ""
+
+#: authentication/models.py:87
+msgid "Wortwahl"
+msgstr ""
+
+#: authentication/models.py:88
+msgid "Hassrede"
+msgstr ""
+
+#: authentication/models.py:89
+msgid "Beleidigung"
+msgstr ""
+
+#: authentication/models.py:90
+msgid "Diskriminierung"
+msgstr ""
+
+#: authentication/models.py:91
+msgid "Sexismus"
+msgstr ""
+
+#: authentication/models.py:92
+msgid "Rassismus"
+msgstr ""
+
+#: authentication/models.py:93
+msgid "Faschismus"
+msgstr ""
+
+#: authentication/models.py:94
+msgid "Antisemitismus"
+msgstr ""
+
+#: authentication/models.py:95
+msgid "Islamophobie"
+msgstr ""
+
+#: authentication/models.py:96
+msgid "Homophobie"
+msgstr ""
+
+#: authentication/models.py:97
+msgid "Betrug"
+msgstr ""
+
+#: authentication/models.py:98
+msgid "Spam"
 msgstr ""
 
 #: authentication/templates/components/sidebar/sidebar.html:17
@@ -215,50 +315,51 @@ msgstr ""
 msgid "Startseite"
 msgstr ""
 
-#: authentication/templates/components/sidebar/sidebar.html:66
+#: authentication/templates/components/sidebar/sidebar.html:67
+#: authentication/templates/components/sidebar/sidebar.html:78
 #: authentication/templates/pages/root/home.html:41
 msgid "Persönlich"
 msgstr ""
 
-#: authentication/templates/components/sidebar/sidebar.html:79
-#: authentication/templates/components/sidebar/sidebar.html:95
+#: authentication/templates/components/sidebar/sidebar.html:92
+#: authentication/templates/components/sidebar/sidebar.html:108
 #: authentication/templates/pages/root/home.html:49
 msgid "Kommunikation"
 msgstr ""
 
-#: authentication/templates/components/sidebar/sidebar.html:150
+#: authentication/templates/components/sidebar/sidebar.html:163
 #: authentication/templates/pages/root/home.html:73
 msgid "Cloud"
 msgstr ""
 
-#: authentication/templates/components/sidebar/sidebar.html:161
+#: authentication/templates/components/sidebar/sidebar.html:174
 msgid "Impressum"
 msgstr ""
 
-#: authentication/templates/components/sidebar/sidebar.html:172
-#: authentication/templates/components/sidebar/sidebar.html:183
+#: authentication/templates/components/sidebar/sidebar.html:185
+#: authentication/templates/components/sidebar/sidebar.html:196
 #: authentication/templates/pages/laws/privacy.html:14
 msgid "Datenschutzerklärung"
 msgstr ""
 
-#: authentication/templates/components/sidebar/sidebar.html:195
-#: authentication/templates/components/sidebar/sidebar.html:206
+#: authentication/templates/components/sidebar/sidebar.html:208
+#: authentication/templates/components/sidebar/sidebar.html:219
 #: authentication/templates/pages/laws/terms.html:14
 msgid "Nutzungsbedingungen"
 msgstr ""
 
-#: authentication/templates/components/sidebar/sidebar.html:218
-#: authentication/templates/components/sidebar/sidebar.html:229
+#: authentication/templates/components/sidebar/sidebar.html:231
+#: authentication/templates/components/sidebar/sidebar.html:242
 #: authentication/templates/pages/laws/copyright.html:15
 #: authentication/templates/pages/laws/copyright.html:27
 msgid "Urheberrecht"
 msgstr ""
 
-#: authentication/templates/components/sidebar/sidebar.html:236
+#: authentication/templates/components/sidebar/sidebar.html:249
 msgid "Abmelden"
 msgstr ""
 
-#: authentication/templates/components/sidebar/sidebar.html:241
+#: authentication/templates/components/sidebar/sidebar.html:254
 #: authentication/templates/pages/authentication/login.html:17
 #: authentication/templates/pages/authentication/login.html:20
 #: authentication/templates/pages/authentication/login.html:38
@@ -266,8 +367,8 @@ msgstr ""
 msgid "Anmelden"
 msgstr ""
 
-#: authentication/templates/components/sidebar/sidebar.html:246
-#: communication/models.py:13
+#: authentication/templates/components/sidebar/sidebar.html:259
+#: communication/models.py:15
 msgid "OfficeSync"
 msgstr ""
 
@@ -589,79 +690,128 @@ msgid ""
 "Bereitstellung und Nutzung der Plattform auf eigenen Servern."
 msgstr ""
 
+#: communication/models.py:12
+msgid "Name anzeigen"
+msgstr ""
+
 #: communication/models.py:13
+msgid "Rollen anzeigen"
+msgstr ""
+
+#: communication/models.py:15
 msgid "Unternehmen"
 msgstr ""
 
-#: communication/models.py:23
+#: communication/models.py:18
+msgid "Unternehmen anzeigen"
+msgstr ""
+
+#: communication/models.py:27
+msgid "Logo anzeigen"
+msgstr ""
+
+#: communication/models.py:29
 msgid "Schweiz"
 msgstr ""
 
-#: communication/models.py:23
+#: communication/models.py:29
 #: disposition/templates/pages/stations/station.html:53
 msgid "Land"
 msgstr ""
 
-#: communication/models.py:26
-msgid "Standort"
+#: communication/models.py:31
+msgid "Land anzeigen"
 msgstr ""
 
-#: communication/models.py:28
+#: communication/models.py:33
+#: disposition/templates/pages/stations/station.html:55
+msgid "Ort"
+msgstr ""
+
+#: communication/models.py:35
+msgid "Ort anzeigen"
+msgstr ""
+
+#: communication/models.py:36
 #: disposition/templates/pages/stations/station.html:55
 msgid "PLZ"
 msgstr ""
 
-#: communication/models.py:30
+#: communication/models.py:37
+msgid "PLZ anzeigen"
+msgstr ""
+
+#: communication/models.py:39
 #: disposition/templates/pages/stations/station.html:56
 msgid "Strasse"
 msgstr ""
 
-#: communication/models.py:61
+#: communication/models.py:41
+msgid "Strasse anzeigen"
+msgstr ""
+
+#: communication/models.py:43
+msgid "Hausnummer"
+msgstr ""
+
+#: communication/models.py:46
+msgid "Hausnummer anzeigen"
+msgstr ""
+
+#: communication/models.py:49
+msgid "Webseite"
+msgstr ""
+
+#: communication/models.py:51
+msgid "Webseite anzeigen"
+msgstr ""
+
+#: communication/models.py:78 communication/models.py:130
 msgid "Title"
 msgstr ""
 
-#: communication/models.py:62
+#: communication/models.py:79 communication/models.py:131
 msgid "Content"
 msgstr ""
 
-#: communication/models.py:63
+#: communication/models.py:80 communication/models.py:132
 msgid "Created at"
 msgstr ""
 
-#: communication/models.py:81
+#: communication/models.py:98 communication/models.py:151
 #, python-brace-format
 msgid "Vor {seconds} Sekunden"
 msgstr ""
 
-#: communication/models.py:83
+#: communication/models.py:100 communication/models.py:153
 msgid "Vor 1 Minute"
 msgstr ""
 
-#: communication/models.py:85
+#: communication/models.py:102 communication/models.py:155
 #, python-brace-format
 msgid "Vor {minutes} Minuten"
 msgstr ""
 
-#: communication/models.py:87
+#: communication/models.py:104 communication/models.py:157
 msgid "Vor 1 Stunde"
 msgstr ""
 
-#: communication/models.py:89
+#: communication/models.py:106 communication/models.py:159
 #, python-brace-format
 msgid "Vor {hours} Stunden"
 msgstr ""
 
-#: communication/models.py:91
+#: communication/models.py:108 communication/models.py:161
 #, python-brace-format
 msgid "Gestern um {time} Uhr"
 msgstr ""
 
-#: communication/models.py:95
+#: communication/models.py:112 communication/models.py:165
 #, python-brace-format
 msgid "Vor {days} Tagen um {time} Uhr"
 msgstr ""
 
-#: communication/models.py:99
+#: communication/models.py:116 communication/models.py:169
 #, python-brace-format
 msgid "Vor 1 Woche um {time} Uhr"
 msgstr ""
@@ -671,35 +821,60 @@ msgstr ""
 #: communication/templates/pages/announcements/announcement.html:17
 #: communication/templates/pages/announcements/announcements.html:17
 #: communication/templates/pages/announcements/announcements.html:32
+#: communication/templates/pages/archive/archive.html:17
+#: communication/templates/pages/archive/message.html:17
+#: communication/templates/pages/inbox/inbox.html:17
+#: communication/templates/pages/inbox/message.html:17
+#: communication/templates/pages/outbox/message.html:17
+#: communication/templates/pages/outbox/outbox.html:17
 msgid "Ankündigungen"
 msgstr ""
 
 #: communication/templates/components/subsidebar/subsidebar_communication.html:46
-#: communication/templates/components/subsidebar/subsidebar_communication.html:57
+#: communication/templates/components/subsidebar/subsidebar_communication.html:62
+#: communication/templates/pages/inbox/inbox.html:32
 msgid "Eingang"
 msgstr ""
 
-#: communication/templates/components/subsidebar/subsidebar_communication.html:69
-#: communication/templates/components/subsidebar/subsidebar_communication.html:80
+#: communication/templates/components/subsidebar/subsidebar_communication.html:79
+#: communication/templates/components/subsidebar/subsidebar_communication.html:90
+#: communication/templates/pages/outbox/outbox.html:32
 msgid "Ausgang"
 msgstr ""
 
-#: communication/templates/components/subsidebar/subsidebar_communication.html:92
-#: communication/templates/components/subsidebar/subsidebar_communication.html:103
+#: communication/templates/components/subsidebar/subsidebar_communication.html:102
+#: communication/templates/components/subsidebar/subsidebar_communication.html:113
+#: communication/templates/pages/archive/archive.html:32
 msgid "Archiv"
 msgstr ""
 
-#: communication/templates/pages/announcements/announcement.html:83
+#: communication/templates/pages/announcements/announcement.html:113
+#: communication/templates/pages/archive/message.html:110
+#: communication/templates/pages/inbox/message.html:110
 msgid "Gelesen"
 msgstr ""
 
 #: communication/templates/pages/announcements/create.html:17
 #: communication/templates/pages/announcements/create.html:30
+#: communication/templates/pages/inbox/create.html:17
+#: communication/templates/pages/inbox/select.html:17
 msgid "Ankündigung erstellen"
 msgstr ""
 
 #: communication/templates/pages/announcements/create.html:43
 msgid "Veröffentlichen"
+msgstr ""
+
+#: communication/templates/pages/inbox/create.html:32
+msgid "Nachricht erstellen"
+msgstr ""
+
+#: communication/templates/pages/inbox/create.html:46
+msgid "Senden"
+msgstr ""
+
+#: communication/templates/pages/inbox/select.html:32
+msgid "Senden an"
 msgstr ""
 
 #: disposition/models.py:21
@@ -910,6 +1085,8 @@ msgstr ""
 
 #: disposition/templates/components/subsidebar/subsidebar_disposition.html:14
 #: disposition/templates/components/subsidebar/subsidebar_disposition.html:26
+#: personal/templates/components/subsidebar/subsidebar_personal.html:59
+#: personal/templates/components/subsidebar/subsidebar_personal.html:70
 msgid "Touren"
 msgstr ""
 
@@ -947,10 +1124,6 @@ msgstr ""
 
 #: disposition/templates/pages/stations/station.html:54
 msgid "Bundesland"
-msgstr ""
-
-#: disposition/templates/pages/stations/station.html:55
-msgid "Ort"
 msgstr ""
 
 #: disposition/templates/pages/stations/station.html:56
@@ -1027,6 +1200,17 @@ msgstr ""
 
 #: officesync/settings.py:74
 msgid "shqiptare"
+msgstr ""
+
+#: personal/templates/components/subsidebar/subsidebar_personal.html:13
+#: personal/templates/components/subsidebar/subsidebar_personal.html:24
+#: personal/templates/pages/profile/profile.html:17
+msgid "Profil"
+msgstr ""
+
+#: personal/templates/components/subsidebar/subsidebar_personal.html:36
+#: personal/templates/components/subsidebar/subsidebar_personal.html:47
+msgid "Notizen"
 msgstr ""
 
 #: venv/lib/python3.11/site-packages/click/_termui_impl.py:518

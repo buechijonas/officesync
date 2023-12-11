@@ -29,9 +29,11 @@
                             <div class="title-container">
                                 <h1 style="color: {{ role.color }}" class="h1">{{ role.name }}</h1>
                                 <div class="edit-container">
-                                    <a class="button edit" href="{% url 'role_update' role.name %}">
-                                        <img src="{% static 'svgs/modify.svg' %}" alt="edit" />
-                                    </a>
+                                    {% if has_rename_role_permission %}
+                                        <a class="button edit" href="{% url 'role_update' role.name %}">
+                                            <img src="{% static 'svgs/modify.svg' %}" alt="edit" />
+                                        </a>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

@@ -1,12 +1,13 @@
+from django import forms
 from django.contrib import messages
 from django.contrib.auth import authenticate, get_user_model, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from administration.models import Log
+from administration.models import Log, Role
 from communication.models import Announcement, Message
 
 from .forms import LoginForm, SignUpForm
@@ -27,6 +28,12 @@ class SignUpView(generic.CreateView):
         response = super().form_valid(form)
         AdvancedUser.objects.create(user=self.object)
         UserCustomInterface.objects.create(user=self.object)
+
+        standard_role = get_object_or_404(Role, name="Standard")
+        advanced_user = AdvancedUser.objects.get(user=self.object)
+        advanced_user.role = standard_role
+        advanced_user.save()
+
         return response
 
     def get_context_data(self, **kwargs):
@@ -116,6 +123,142 @@ class HomeView(LoginRequiredMixin, generic.ListView):
         return super().dispatch(request, *args, **kwargs)
 
 
+class AccessDenied(LoginRequiredMixin, generic.ListView):
+    model = User
+    template_name = "pages/authentication/access.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context[
+            "officesync"
+        ] = OfficeSync.objects.first()  # Hole das erste OfficeSync-Objekt
+        context["unread_announcements_count"] = self.get_unread_announcements().count()
+        context["unread_messages_count"] = self.get_unread_messages().count()
+        context["unread_count"] = (
+            context["unread_announcements_count"] + context["unread_messages_count"]
+        )
+        return context
+
+    def get_unread_announcements(self):
+        return Announcement.objects.exclude(read_by=self.request.user)
+
+    def get_unread_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=False)
+
+    def get_read_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=True)
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            if not request.user.advanced.privacy:
+                return redirect("privacy")
+
+            if not request.user.advanced.terms:
+                return redirect("terms")
+
+            if not request.user.advanced.copyright:
+                return redirect("copyright")
+
+        return super().dispatch(request, *args, **kwargs)
+
+
+class MaintenanceView(LoginRequiredMixin, generic.ListView):
+    model = User
+    template_name = "pages/authentication/maintenance.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context[
+            "officesync"
+        ] = OfficeSync.objects.first()  # Hole das erste OfficeSync-Objekt
+        context["unread_announcements_count"] = self.get_unread_announcements().count()
+        context["unread_messages_count"] = self.get_unread_messages().count()
+        context["unread_count"] = (
+            context["unread_announcements_count"] + context["unread_messages_count"]
+        )
+        return context
+
+    def get_unread_announcements(self):
+        return Announcement.objects.exclude(read_by=self.request.user)
+
+    def get_unread_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=False)
+
+    def get_read_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=True)
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            if not request.user.advanced.privacy:
+                return redirect("privacy")
+
+            if not request.user.advanced.terms:
+                return redirect("terms")
+
+            if not request.user.advanced.copyright:
+                return redirect("copyright")
+
+        return super().dispatch(request, *args, **kwargs)
+
+
+class AccountView(generic.UpdateView):
+    model = User
+    fields = ["first_name", "last_name", "email", "username"]
+    template_name = "pages/settings/account.html"
+
+    def get_success_url(self):
+        return reverse_lazy("home")
+
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        form.fields["pp"] = forms.ChoiceField(
+            choices=AdvancedUser.Profile.choices, required=False
+        )
+        return form
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        pp = form.cleaned_data.get("pp")
+        advanced_user, created = AdvancedUser.objects.get_or_create(user=self.object)
+        advanced_user.pp = pp
+        advanced_user.save()
+        return response
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context[
+            "officesync"
+        ] = OfficeSync.objects.first()  # Hole das erste OfficeSync-Objekt
+        context["unread_announcements_count"] = self.get_unread_announcements().count()
+        context["unread_messages_count"] = self.get_unread_messages().count()
+        context["unread_count"] = (
+            context["unread_announcements_count"] + context["unread_messages_count"]
+        )
+        return context
+
+    def get_unread_announcements(self):
+        return Announcement.objects.exclude(read_by=self.request.user)
+
+    def get_unread_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=False)
+
+    def get_read_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=True)
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            if not request.user.advanced.privacy:
+                return redirect("privacy")
+
+            if not request.user.advanced.terms:
+                return redirect("terms")
+
+            if not request.user.advanced.copyright:
+                return redirect("copyright")
+
+        return super().dispatch(request, *args, **kwargs)
+
+
 class PrivacyView(generic.ListView):
     model = User
     template_name = "pages/laws/privacy.html"
@@ -125,7 +268,21 @@ class PrivacyView(generic.ListView):
         context[
             "officesync"
         ] = OfficeSync.objects.first()  # Hole das erste OfficeSync-Objekt
+        context["unread_announcements_count"] = self.get_unread_announcements().count()
+        context["unread_messages_count"] = self.get_unread_messages().count()
+        context["unread_count"] = (
+            context["unread_announcements_count"] + context["unread_messages_count"]
+        )
         return context
+
+    def get_unread_announcements(self):
+        return Announcement.objects.exclude(read_by=self.request.user)
+
+    def get_unread_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=False)
+
+    def get_read_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=True)
 
     def post(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -156,7 +313,21 @@ class TermsView(generic.ListView):
         context[
             "officesync"
         ] = OfficeSync.objects.first()  # Hole das erste OfficeSync-Objekt
+        context["unread_announcements_count"] = self.get_unread_announcements().count()
+        context["unread_messages_count"] = self.get_unread_messages().count()
+        context["unread_count"] = (
+            context["unread_announcements_count"] + context["unread_messages_count"]
+        )
         return context
+
+    def get_unread_announcements(self):
+        return Announcement.objects.exclude(read_by=self.request.user)
+
+    def get_unread_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=False)
+
+    def get_read_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=True)
 
     def post(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -183,7 +354,21 @@ class CopyrightView(generic.ListView):
         context[
             "officesync"
         ] = OfficeSync.objects.first()  # Hole das erste OfficeSync-Objekt
+        context["unread_announcements_count"] = self.get_unread_announcements().count()
+        context["unread_messages_count"] = self.get_unread_messages().count()
+        context["unread_count"] = (
+            context["unread_announcements_count"] + context["unread_messages_count"]
+        )
         return context
+
+    def get_unread_announcements(self):
+        return Announcement.objects.exclude(read_by=self.request.user)
+
+    def get_unread_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=False)
+
+    def get_read_messages(self):
+        return Message.objects.filter(receiver=self.request.user, receiver_read=True)
 
     def post(self, request, *args, **kwargs):
         if request.user.is_authenticated:

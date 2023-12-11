@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -29,13 +30,15 @@
                                 {% if station.pk %}
                                     <h1 class="h1">{{ station.name }}</h1>
                                 {% else %}
-                                    <h1 class="h1">Standorte</h1>
+                                    <h1 class="h1">{% translate "Standorte" %}</h1>
                                 {% endif %}
                                 {% if station.pk %}
                                     <div class="edit-container">
-                                        <a class="button delete" href="{% url 'station_delete' station.pk %}">
-                                            <img src="{% static 'svgs/delete.svg' %}" alt="edit" />
-                                        </a>
+                                        {% if has_delete_location_permission %}
+                                            <a class="button delete" href="{% url 'station_delete' station.pk %}">
+                                                <img src="{% static 'svgs/delete.svg' %}" alt="edit" />
+                                            </a>
+                                        {% endif %}
                                     </div>
                                 {% endif %}
                             </div>
@@ -50,12 +53,12 @@
                                     <div class="buttons">
                                         {% if station %}
                                             <a href="{% url 'station' station.pk %}"
-                                               class="cancel-button cancel-delete-confirm">Abbrechen</a>
-                                            <button class="submit" type="submit">Speichern</button>
+                                               class="cancel-button cancel-delete-confirm">{% translate 'Abbrechen' %}</a>
+                                            <button class="submit" type="submit">{% translate 'Speichern' %}</button>
                                         {% else %}
                                             <a href="{% url 'stations' %}"
-                                               class="cancel-button cancel-delete-confirm">Abbrechen</a>
-                                            <button class="submit" type="submit">Hinzufügen</button>
+                                               class="cancel-button cancel-delete-confirm">{% translate 'Abbrechen' %}</a>
+                                            <button class="submit" type="submit">{% translate 'Hinzufügen' %}</button>
                                         {% endif %}
                                     </div>
                                 </form>

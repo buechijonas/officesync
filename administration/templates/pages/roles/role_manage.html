@@ -29,9 +29,11 @@
                             <div class="title-container">
                                 <h1 style="color: {{ role.color }}" class="h1">{{ role.name }}</h1>
                                 <div class="edit-container">
-                                    <a class="button edit" href="{% url 'role_update' role.name %}">
-                                        <img src="{% static 'svgs/modify.svg' %}" alt="edit" />
-                                    </a>
+                                    {% if has_rename_role_permission %}
+                                        <a class="button edit" href="{% url 'role_update' role.name %}">
+                                            <img src="{% static 'svgs/modify.svg' %}" alt="edit" />
+                                        </a>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
@@ -49,10 +51,12 @@
                     <div class="flexify">
                         <div class="cardify">
                             <div class="manage-role-buttons-container">
-                                <a class="button permission align-right"
-                                   href="{% url 'role_permission' role.name %}">
-                                    <img src="{% static 'svgs/key.svg' %}" alt="permission" />
-                                </a>
+                                {% if has_perm_role_permission %}
+                                    <a class="button permission align-right"
+                                       href="{% url 'role_permission' role.name %}">
+                                        <img src="{% static 'svgs/key.svg' %}" alt="permission" />
+                                    </a>
+                                {% endif %}
                             </div>
                             <div class="permissions">
                                 <h2>{% translate "Administration" %}</h2>

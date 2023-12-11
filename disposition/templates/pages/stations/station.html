@@ -31,9 +31,11 @@
                                     <div class="title-container">
                                         <h1 class="h1">{{ station.name }}</h1>
                                         <div class="edit-container">
-                                            <a class="button edit" href="{% url 'station_update' station.pk %}">
-                                                <img src="{% static 'svgs/modify.svg' %}" alt="edit" />
-                                            </a>
+                                            {% if has_update_location_permission %}
+                                                <a class="button edit" href="{% url 'station_update' station.pk %}">
+                                                    <img src="{% static 'svgs/modify.svg' %}" alt="edit" />
+                                                </a>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>

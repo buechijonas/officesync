@@ -37,9 +37,76 @@
                                 <div class="grid-announcement">
                                     <div class="author-cardify">
                                         <div class="grid">
-                                            <a href="" class="profile-picture">
-                                                <img src="/static/svgs/profile_filled.svg" alt="profile">
-                                            </a>
+                                            {% if announcement.sender.advanced.pp == "bird" %}
+                                                <a href="{% url 'account' request.user.pk %}" class="profile-picture">
+                                                    <img src="{% static 'svgs/bird.svg' %}" alt="bird" />
+                                                </a>
+                                            {% elif announcement.sender.advanced.pp == "butterfly" %}
+                                                <a href="{% url 'account' request.user.pk %}" class="profile-picture">
+                                                    <img src="{% static 'svgs/butterfly.svg' %}" alt="butterfly" />
+                                                </a>
+                                            {% elif announcement.sender.advanced.pp == "cat" %}
+                                                <a href="{% url 'account' request.user.pk %}" class="profile-picture">
+                                                    <img src="{% static 'svgs/cat.svg' %}" alt="cat" />
+                                                </a>
+                                            {% elif announcement.sender.advanced.pp == "dog" %}
+                                                <a href="{% url 'account' request.user.pk %}" class="profile-picture">
+                                                    <img src="{% static 'svgs/dog.svg' %}" alt="dog" />
+                                                </a>
+                                            {% elif announcement.sender.advanced.pp == "duck" %}
+                                                <a href="{% url 'account' request.user.pk %}" class="profile-picture">
+                                                    <img src="{% static 'svgs/duck.svg' %}" alt="duck" />
+                                                </a>
+                                            {% elif announcement.sender.advanced.pp == "jellyfish" %}
+                                                <a href="{% url 'account' request.user.pk %}" class="profile-picture">
+                                                    <img src="{% static 'svgs/jellyfish.svg' %}" alt="jellyfish" />
+                                                </a>
+                                            {% elif announcement.sender.advanced.pp == "owl" %}
+                                                <a href="{% url 'account' request.user.pk %}" class="profile-picture">
+                                                    <img src="{% static 'svgs/owl.svg' %}" alt="owl" />
+                                                </a>
+                                            {% elif announcement.sender.advanced.pp == "panda" %}
+                                                <a href="{% url 'account' request.user.pk %}" class="profile-picture">
+                                                    <img src="{% static 'svgs/panda.svg' %}" alt="panda" />
+                                                </a>
+                                            {% elif announcement.sender.advanced.pp == "penguin" %}
+                                                <a href="{% url 'account' request.user.pk %}" class="profile-picture">
+                                                    <img src="{% static 'svgs/penguin.svg' %}" alt="penguin" />
+                                                </a>
+                                            {% elif announcement.sender.advanced.pp == "pig" %}
+                                                <a href="{% url 'account' request.user.pk %}" class="profile-picture">
+                                                    <img src="{% static 'svgs/pig.svg' %}" alt="pig" />
+                                                </a>
+                                            {% elif announcement.sender.advanced.pp == "rabbit" %}
+                                                <a href="{% url 'account' request.user.pk %}" class="profile-picture">
+                                                    <img src="{% static 'svgs/rabbit.svg' %}" alt="rabbit" />
+                                                </a>
+                                            {% elif announcement.sender.advanced.pp == "sheep" %}
+                                                <a href="{% url 'account' request.user.pk %}" class="profile-picture">
+                                                    <img src="{% static 'svgs/sheep.svg' %}" alt="sheep" />
+                                                </a>
+                                            {% elif announcement.sender.advanced.pp == "snail" %}
+                                                <a href="{% url 'account' request.user.pk %}" class="profile-picture">
+                                                    <img src="{% static 'svgs/snail.svg' %}" alt="snail" />
+                                                </a>
+                                            {% elif announcement.sender.advanced.pp == "snake" %}
+                                                <a href="{% url 'account' request.user.pk %}" class="profile-picture">
+                                                    <img src="{% static 'svgs/snake.svg' %}" alt="snake" />
+                                                </a>
+                                            {% elif announcement.sender.advanced.pp == "turkey" %}
+                                                <a href="{% url 'account' request.user.pk %}" class="profile-picture">
+                                                    <img src="{% static 'svgs/turkey.svg' %}" alt="turkey" />
+                                                </a>
+                                            {% elif announcement.sender.advanced.pp == "turtle" %}
+                                                <a href="{% url 'account' request.user.pk %}" class="profile-picture">
+                                                    <img src="{% static 'svgs/turtle.svg' %}" alt="turtle" />
+                                                </a>
+                                            {% else %}
+                                                <a href="{% url 'account' request.user.pk %}"
+                                                   class="profile-picture no-profile-picture">
+                                                    <img src="{% static 'svgs/profile_filled.svg' %}" alt="profile" />
+                                                </a>
+                                            {% endif %}
                                             <div class="name">
                                                 {% if announcement.sender.advanced.role %}
                                                     <span style="color: {{ announcement.sender.advanced.role.color }};">{{ announcement.sender.advanced.role.name }}</span> | {{ announcement.sender.first_name }} {{ announcement.sender.last_name }}

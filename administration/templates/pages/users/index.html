@@ -56,7 +56,43 @@
                                     <a class="blockify" href="">
                                         <div class="userify">
                                             <div class="flexify img">
-                                                <img src="/static/svgs/profile_filled.svg" alt="profile" />
+                                                {% if user.advanced.pp == "bird" %}
+                                                    <img src="{% static 'svgs/bird.svg' %}" alt="bird" />
+                                                {% elif user.advanced.pp == "butterfly" %}
+                                                    <img src="{% static 'svgs/butterfly.svg' %}" alt="butterfly" />
+                                                {% elif user.advanced.pp == "cat" %}
+                                                    <img src="{% static 'svgs/cat.svg' %}" alt="cat" />
+                                                {% elif user.advanced.pp == "dog" %}
+                                                    <img src="{% static 'svgs/dog.svg' %}" alt="dog" />
+                                                {% elif user.advanced.pp == "duck" %}
+                                                    <img src="{% static 'svgs/duck.svg' %}" alt="duck" />
+                                                {% elif user.advanced.pp == "jellyfish" %}
+                                                    <img src="{% static 'svgs/jellyfish.svg' %}" alt="jellyfish" />
+                                                {% elif user.advanced.pp == "owl" %}
+                                                    <img src="{% static 'svgs/owl.svg' %}" alt="owl" />
+                                                {% elif user.advanced.pp == "panda" %}
+                                                    <img src="{% static 'svgs/panda.svg' %}" alt="panda" />
+                                                {% elif user.advanced.pp == "penguin" %}
+                                                    <img src="{% static 'svgs/penguin.svg' %}" alt="penguin" />
+                                                {% elif user.advanced.pp == "pig" %}
+                                                    <img src="{% static 'svgs/pig.svg' %}" alt="pig" />
+                                                {% elif user.advanced.pp == "rabbit" %}
+                                                    <img src="{% static 'svgs/rabbit.svg' %}" alt="rabbit" />
+                                                {% elif user.advanced.pp == "sheep" %}
+                                                    <img src="{% static 'svgs/sheep.svg' %}" alt="sheep" />
+                                                {% elif user.advanced.pp == "snail" %}
+                                                    <img src="{% static 'svgs/snail.svg' %}" alt="snail" />
+                                                {% elif user.advanced.pp == "snake" %}
+                                                    <img src="{% static 'svgs/snake.svg' %}" alt="snake" />
+                                                {% elif user.advanced.pp == "turkey" %}
+                                                    <img src="{% static 'svgs/turkey.svg' %}" alt="turkey" />
+                                                {% elif user.advanced.pp == "turtle" %}
+                                                    <img src="{% static 'svgs/turtle.svg' %}" alt="turtle" />
+                                                {% else %}
+                                                    <img class="no-profile"
+                                                         src="/static/svgs/profile_filled.svg"
+                                                         alt="profile" />
+                                                {% endif %}
                                             </div>
                                             <p class="name">
                                                 {% if user.advanced.role %}

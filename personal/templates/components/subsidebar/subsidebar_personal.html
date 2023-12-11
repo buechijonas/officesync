@@ -1,0 +1,77 @@
+{% load static %}
+{% load i18n %}
+<div class="sidebar">
+    <div class="flexify">
+        <div class="grid">
+            {% if page == 'personal' %}
+                <a href="{% url 'maintenance' %}" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/folder-account.svg' %}" alt="profile" />
+                        </div>
+                        <div class="text">
+                            <p>{% translate "Profil" %}</p>
+                        </div>
+                    </div>
+                </a>
+            {% else %}
+                <a href="{% url 'maintenance' %}" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/folder-account.svg' %}" alt="profile" />
+                        </div>
+                        <div class="text">
+                            <p>{% translate "Profil" %}</p>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+            {% if page == 'notes' %}
+                <a href="{% url 'notes' %}" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/sticker.svg' %}" alt="sticker" />
+                        </div>
+                        <div class="text">
+                            <p>{% translate "Notizen" %}</p>
+                        </div>
+                    </div>
+                </a>
+            {% else %}
+                <a href="{% url 'notes' %}" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/sticker.svg' %}" alt="sticker" />
+                        </div>
+                        <div class="text">
+                            <p>{% translate "Notizen" %}</p>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+            {% if page == 'tours' %}
+                <a href="{% url 'maintenance' %}" class="section">
+                    <div class="current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/transit-connection-variant.svg' %}" alt="mail" />
+                        </div>
+                        <div class="text">
+                            <p>{% translate "Touren" %}</p>
+                        </div>
+                    </div>
+                </a>
+            {% else %}
+                <a href="{% url 'maintenance' %}" class="section">
+                    <div class="not-current">
+                        <div class="icon">
+                            <img src="{% static 'svgs/transit-connection-variant.svg' %}" alt="mail" />
+                        </div>
+                        <div class="text">
+                            <p>{% translate "Touren" %}</p>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>

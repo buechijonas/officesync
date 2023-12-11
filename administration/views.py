@@ -20,11 +20,32 @@ class SystemView(LoginRequiredMixin, generic.ListView):
     model = User
     template_name = "pages/system.html"
 
+    def has_administration_access(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.access"
+        ).exists()
+
+    def has_logo_config_permission(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.config.logo"
+        ).exists()
+
+    def has_app_config_permission(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.config.app"
+        ).exists()
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context[
             "officesync"
         ] = OfficeSync.objects.first()  # Hole das erste OfficeSync-Objekt
+        context["has_logo_config_permission"] = self.has_logo_config_permission(
+            self.request.user
+        )
+        context["has_app_config_permission"] = self.has_app_config_permission(
+            self.request.user
+        )
         context["unread_announcements_count"] = self.get_unread_announcements().count()
         context["unread_messages_count"] = self.get_unread_messages().count()
         context["unread_count"] = (
@@ -51,6 +72,9 @@ class SystemView(LoginRequiredMixin, generic.ListView):
 
             if not request.user.advanced.copyright:
                 return redirect("copyright")
+
+        if not self.has_administration_access(request.user):
+            return redirect("denied")
 
         return super().dispatch(request, *args, **kwargs)
 
@@ -72,6 +96,16 @@ class AppNameUpdateView(LoginRequiredMixin, generic.UpdateView):
 
         return super().form_valid(form)
 
+    def has_administration_access(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.access"
+        ).exists()
+
+    def has_app_config_permission(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.config.app"
+        ).exists()
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["officesync"] = OfficeSync.objects.first()
@@ -101,6 +135,12 @@ class AppNameUpdateView(LoginRequiredMixin, generic.UpdateView):
 
             if not request.user.advanced.copyright:
                 return redirect("copyright")
+
+        if not self.has_administration_access(request.user):
+            return redirect("denied")
+
+        if not self.has_app_config_permission(request.user):
+            return redirect("denied")
 
         return super().dispatch(request, *args, **kwargs)
 
@@ -122,6 +162,16 @@ class AppLogoUpdateView(LoginRequiredMixin, generic.UpdateView):
 
         return super().form_valid(form)
 
+    def has_administration_access(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.access"
+        ).exists()
+
+    def has_logo_config_permission(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.config.logo"
+        ).exists()
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["officesync"] = OfficeSync.objects.first()
@@ -151,6 +201,12 @@ class AppLogoUpdateView(LoginRequiredMixin, generic.UpdateView):
 
             if not request.user.advanced.copyright:
                 return redirect("copyright")
+
+        if not self.has_administration_access(request.user):
+            return redirect("denied")
+
+        if not self.has_logo_config_permission(request.user):
+            return redirect("denied")
 
         return super().dispatch(request, *args, **kwargs)
 
@@ -164,9 +220,22 @@ class RolesView(LoginRequiredMixin, generic.ListView):
     def get_queryset(self):
         return Role.objects.all()
 
+    def has_administration_access(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.access"
+        ).exists()
+
+    def has_create_role_permission(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.roles.create"
+        ).exists()
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["officesync"] = OfficeSync.objects.first()
+        context["has_create_role_permission"] = self.has_create_role_permission(
+            self.request.user
+        )
         context["unread_announcements_count"] = self.get_unread_announcements().count()
         context["unread_messages_count"] = self.get_unread_messages().count()
         context["unread_count"] = (
@@ -193,6 +262,9 @@ class RolesView(LoginRequiredMixin, generic.ListView):
 
             if not request.user.advanced.copyright:
                 return redirect("copyright")
+
+        if not self.has_administration_access(request.user):
+            return redirect("denied")
 
         return super().dispatch(request, *args, **kwargs)
 
@@ -217,6 +289,16 @@ class RoleCreateView(LoginRequiredMixin, generic.CreateView):
 
         return response
 
+    def has_administration_access(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.access"
+        ).exists()
+
+    def has_create_role_permission(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.roles.create"
+        ).exists()
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context[
@@ -249,6 +331,12 @@ class RoleCreateView(LoginRequiredMixin, generic.CreateView):
             if not request.user.advanced.copyright:
                 return redirect("copyright")
 
+        if not self.has_administration_access(request.user):
+            return redirect("denied")
+
+        if not self.has_create_role_permission(request.user):
+            return redirect("denied")
+
         return super().dispatch(request, *args, **kwargs)
 
 
@@ -267,9 +355,22 @@ class RoleDetailView(LoginRequiredMixin, generic.DetailView):
         obj = get_object_or_404(queryset)
         return obj
 
+    def has_administration_access(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.access"
+        ).exists()
+
+    def has_rename_role_permission(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.roles.rename"
+        ).exists()
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["officesync"] = OfficeSync.objects.first()
+        context["has_rename_role_permission"] = self.has_rename_role_permission(
+            self.request.user
+        )
         context["users"] = User.objects.filter(
             advanced__role__name=self.kwargs.get(self.slug_url_kwarg)
         )
@@ -309,6 +410,9 @@ class RoleDetailView(LoginRequiredMixin, generic.DetailView):
             if not request.user.advanced.copyright:
                 return redirect("copyright")
 
+        if not self.has_administration_access(request.user):
+            return redirect("denied")
+
         return super().dispatch(request, *args, **kwargs)
 
 
@@ -327,18 +431,39 @@ class RoleManageDetailView(LoginRequiredMixin, generic.DetailView):
         obj = get_object_or_404(queryset)
         return obj
 
+    def has_administration_access(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.access"
+        ).exists()
+
+    def has_rename_role_permission(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.roles.rename"
+        ).exists()
+
+    def has_perm_role_permission(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.roles.perm"
+        ).exists()
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["officesync"] = OfficeSync.objects.first()
+        context["has_rename_role_permission"] = self.has_rename_role_permission(
+            self.request.user
+        )
+        context["has_perm_role_permission"] = self.has_perm_role_permission(
+            self.request.user
+        )
         context["permissions_system"] = CustomPermission.objects.filter(
             permission__contains="system"
-        )
+        ).order_by("permission")
         context["permissions_disposition"] = CustomPermission.objects.filter(
             permission__contains="disposition"
-        )
+        ).order_by("permission")
         context["permissions_management"] = CustomPermission.objects.filter(
             permission__contains="management"
-        )
+        ).order_by("permission")
         context["unread_announcements_count"] = self.get_unread_announcements().count()
         context["unread_messages_count"] = self.get_unread_messages().count()
         context["unread_count"] = (
@@ -365,6 +490,9 @@ class RoleManageDetailView(LoginRequiredMixin, generic.DetailView):
 
             if not request.user.advanced.copyright:
                 return redirect("copyright")
+
+        if not self.has_administration_access(request.user):
+            return redirect("denied")
 
         return super().dispatch(request, *args, **kwargs)
 
@@ -414,9 +542,27 @@ class RoleUpdateView(LoginRequiredMixin, generic.UpdateView):
         obj = get_object_or_404(queryset)
         return obj
 
+    def has_administration_access(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.access"
+        ).exists()
+
+    def has_rename_role_permission(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.roles.rename"
+        ).exists()
+
+    def has_delete_role_permission(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.roles.delete"
+        ).exists()
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["officesync"] = OfficeSync.objects.first()
+        context["has_delete_role_permission"] = self.has_delete_role_permission(
+            self.request.user
+        )
         context["permissions_system"] = CustomPermission.objects.filter(
             permission__contains="system"
         )
@@ -452,6 +598,12 @@ class RoleUpdateView(LoginRequiredMixin, generic.UpdateView):
 
             if not request.user.advanced.copyright:
                 return redirect("copyright")
+
+        if not self.has_administration_access(request.user):
+            return redirect("denied")
+
+        if not self.has_rename_role_permission(request.user):
+            return redirect("denied")
 
         return super().dispatch(request, *args, **kwargs)
 
@@ -494,6 +646,16 @@ class RoleDeleteView(LoginRequiredMixin, generic.DeleteView):
         messages.success(request, f"{old_role_name} wurde erfolgreich gelöscht.")
         return HttpResponseRedirect(reverse_lazy("roles"))
 
+    def has_administration_access(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.access"
+        ).exists()
+
+    def has_delete_role_permission(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.roles.delete"
+        ).exists()
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["officesync"] = OfficeSync.objects.first()
@@ -523,6 +685,12 @@ class RoleDeleteView(LoginRequiredMixin, generic.DeleteView):
 
             if not request.user.advanced.copyright:
                 return redirect("copyright")
+
+        if not self.has_administration_access(request.user):
+            return redirect("denied")
+
+        if not self.has_delete_role_permission(request.user):
+            return redirect("denied")
 
         return super().dispatch(request, *args, **kwargs)
 
@@ -566,9 +734,27 @@ class RolePermissionsUpdateView(LoginRequiredMixin, generic.UpdateView):
 
         return response
 
+    def has_administration_access(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.access"
+        ).exists()
+
+    def has_rename_role_permission(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.roles.rename"
+        ).exists()
+
+    def has_perm_role_permission(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.roles.perm"
+        ).exists()
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["officesync"] = OfficeSync.objects.first()
+        context["has_rename_role_permission"] = self.has_rename_role_permission(
+            self.request.user
+        )
         context["permissions_system"] = CustomPermission.objects.filter(
             permission__contains="system"
         ).order_by("permission")
@@ -605,6 +791,12 @@ class RolePermissionsUpdateView(LoginRequiredMixin, generic.UpdateView):
             if not request.user.advanced.copyright:
                 return redirect("copyright")
 
+        if not self.has_administration_access(request.user):
+            return redirect("denied")
+
+        if not self.has_perm_role_permission(request.user):
+            return redirect("denied")
+
         return super().dispatch(request, *args, **kwargs)
 
 
@@ -619,7 +811,12 @@ class RoleUsersView(LoginRequiredMixin, generic.UpdateView):
         return reverse_lazy("role", kwargs={"name": self.object.name})
 
     def form_valid(self, form):
-        selected_user_ids = self.request.POST.getlist("selected_users")
+        current_assigned_users = set(self.object.users.values_list("id", flat=True))
+
+        selected_user_ids = set(map(int, self.request.POST.getlist("selected_users")))
+
+        users_to_remove = current_assigned_users - selected_user_ids
+        standard_role = Role.objects.get(name="Standard")
 
         self.object.users.clear()
 
@@ -627,6 +824,12 @@ class RoleUsersView(LoginRequiredMixin, generic.UpdateView):
             user = User.objects.get(id=user_id)
             advanced_user = AdvancedUser.objects.get(user=user)
             self.object.users.add(advanced_user)
+
+        for user_id in users_to_remove:
+            user = User.objects.get(id=user_id)
+            advanced_user = AdvancedUser.objects.get(user=user)
+            advanced_user.role = standard_role
+            advanced_user.save()
 
         return super().form_valid(form)
 
@@ -650,6 +853,11 @@ class RoleUsersView(LoginRequiredMixin, generic.UpdateView):
     def get_read_messages(self):
         return Message.objects.filter(receiver=self.request.user, receiver_read=True)
 
+    def has_administration_access(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.access"
+        ).exists()
+
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             if not request.user.advanced.privacy:
@@ -660,6 +868,9 @@ class RoleUsersView(LoginRequiredMixin, generic.UpdateView):
 
             if not request.user.advanced.copyright:
                 return redirect("copyright")
+
+        if not self.has_administration_access(request.user):
+            return redirect("denied")
 
         return super().dispatch(request, *args, **kwargs)
 
@@ -714,6 +925,16 @@ class UsersView(LoginRequiredMixin, generic.ListView):
 
         return queryset
 
+    def has_administration_access(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.access"
+        ).exists()
+
+    def has_users_access(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.users.access"
+        ).exists()
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["officesync"] = OfficeSync.objects.first()
@@ -747,6 +968,12 @@ class UsersView(LoginRequiredMixin, generic.ListView):
             if not request.user.advanced.copyright:
                 return redirect("copyright")
 
+        if not self.has_administration_access(request.user):
+            return redirect("denied")
+
+        if not self.has_users_access(request.user):
+            return redirect("denied")
+
         return super().dispatch(request, *args, **kwargs)
 
 
@@ -757,6 +984,16 @@ class LogsView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return Log.objects.all()
+
+    def has_administration_access(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.access"
+        ).exists()
+
+    def has_logs_access(self, user):
+        return user.advanced.role.permissions.filter(
+            permission="system.logs.access"
+        ).exists()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -788,5 +1025,11 @@ class LogsView(LoginRequiredMixin, generic.ListView):
 
             if not request.user.advanced.copyright:
                 return redirect("copyright")
+
+        if not self.has_administration_access(request.user):
+            return redirect("denied")
+
+        if not self.has_logs_access(request.user):
+            return redirect("denied")
 
         return super().dispatch(request, *args, **kwargs)

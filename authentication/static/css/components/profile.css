@@ -43,8 +43,11 @@
 
 .profile .card .grid .profile-picture {
     grid-area: profile-picture;
-    filter: brightness(0) saturate(100%) invert(56%) sepia(4%) saturate(13%) hue-rotate(346deg) brightness(96%) contrast(87%);
     cursor: pointer;
+}
+
+.profile .card .grid .no-profile-picture {
+    filter: brightness(0) saturate(100%) invert(56%) sepia(4%) saturate(13%) hue-rotate(346deg) brightness(96%) contrast(87%);
 }
 
 .profile .card .grid .name {

@@ -31,9 +31,11 @@
                                     <div class="title-container">
                                         <h1 class="h1">{% translate "Rollen" %}</h1>
                                         <div class="edit-container">
-                                            <a class="button add" href="{% url 'roles_create' %}">
-                                                <img src="{% static 'svgs/add.svg' %}" alt="add" />
-                                            </a>
+                                            {% if has_create_role_permission %}
+                                                <a class="button add" href="{% url 'roles_create' %}">
+                                                    <img src="{% static 'svgs/add.svg' %}" alt="add" />
+                                                </a>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>

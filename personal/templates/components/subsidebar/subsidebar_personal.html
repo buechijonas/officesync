@@ -4,7 +4,7 @@
     <div class="flexify">
         <div class="grid">
             {% if page == 'personal' %}
-                <a href="{% url 'maintenance' %}" class="section">
+                <a href="{% url 'profile' %}" class="section">
                     <div class="current">
                         <div class="icon">
                             <img src="{% static 'svgs/folder-account.svg' %}" alt="profile" />
@@ -12,10 +12,15 @@
                         <div class="text">
                             <p>{% translate "Profil" %}</p>
                         </div>
+                        {% if unconfirmed_salaries_count %}
+                            <div class="count">
+                                <p>{{ unconfirmed_salaries_count }}</p>
+                            </div>
+                        {% endif %}
                     </div>
                 </a>
             {% else %}
-                <a href="{% url 'maintenance' %}" class="section">
+                <a href="{% url 'profile' %}" class="section">
                     <div class="not-current">
                         <div class="icon">
                             <img src="{% static 'svgs/folder-account.svg' %}" alt="profile" />

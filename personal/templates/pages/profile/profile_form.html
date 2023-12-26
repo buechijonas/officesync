@@ -1,0 +1,130 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% if officesync.get_logo_url %}<link rel="icon" href="{{ officesync.get_logo_url }}" type="image/png">{% endif %}
+        <link rel="stylesheet" href="{% static 'css/global/global.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/sidebar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/profile.css' %}">
+        <title>{{ officesync.app }} - {% translate "Profil" %}</title>
+    </head>
+    <body>
+        {% include 'components/header/authentication.html' with title=officesync.app %}
+        <main>
+            {% include 'components/sidebar/sidebar.html' with page="personal" %}
+            {% include 'components/subsidebar/subsidebar_personal.html' with page="personal" %}
+            <div class="content">
+                <div class="blockify">
+                    {% include 'components/profile/profile.html' %}
+                    <div class="flexify">
+                        <div class="blockify">
+                            <div class="flexify">
+                                <div class="cardify">
+                                    <div class="title-container">
+                                        <h1 class="h1">{{ request.user.first_name }} {{ request.user.last_name }}</h1>
+                                        <div class="edit-container">
+                                            {% if has_update_vehicle_permission %}
+                                                <a class="button edit" href="{% url 'vehicle_update' vehicle.pk %}">
+                                                    <img src="{% static 'svgs/modify.svg' %}" alt="edit" />
+                                                </a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flexify">
+                                <div class="tabs-profile">
+                                    <a href="{% url 'profile' %}" class="public current">{% translate 'Öffentlich' %}</a>
+                                    <a href="{% url 'personal' %}" class="personal">{% translate 'Personalakte' %}</a>
+                                    <a href="{% url 'work' %}" class="work">{% translate 'Mitarbeiterakte' %}
+                                        {% if unconfirmed_salaries_count %}
+                                            <div class="count">
+                                                <p>{{ unconfirmed_salaries_count }}</p>
+                                            </div>
+                                        {% endif %}
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flexify">
+                                <div class="cardify-pp">
+                                    <div class="cardify-pp-grid">
+                                        {% if request.user.advanced.pp == "bird" %}
+                                            <img src="{% static 'svgs/bird.svg' %}" alt="bird" />
+                                        {% elif request.user.advanced.pp == "butterfly" %}
+                                            <img src="{% static 'svgs/butterfly.svg' %}" alt="butterfly" />
+                                        {% elif request.user.advanced.pp == "cat" %}
+                                            <img src="{% static 'svgs/cat.svg' %}" alt="cat" />
+                                        {% elif request.user.advanced.pp == "dog" %}
+                                            <img src="{% static 'svgs/dog.svg' %}" alt="dog" />
+                                        {% elif request.user.advanced.pp == "duck" %}
+                                            <img src="{% static 'svgs/duck.svg' %}" alt="duck" />
+                                        {% elif request.user.advanced.pp == "jellyfish" %}
+                                            <img src="{% static 'svgs/jellyfish.svg' %}" alt="jellyfish" />
+                                        {% elif request.user.advanced.pp == "owl" %}
+                                            <img src="{% static 'svgs/owl.svg' %}" alt="owl" />
+                                        {% elif request.user.advanced.pp == "panda" %}
+                                            <img src="{% static 'svgs/panda.svg' %}" alt="panda" />
+                                        {% elif request.user.advanced.pp == "penguin" %}
+                                            <img src="{% static 'svgs/penguin.svg' %}" alt="penguin" />
+                                        {% elif request.user.advanced.pp == "pig" %}
+                                            <img src="{% static 'svgs/pig.svg' %}" alt="pig" />
+                                        {% elif request.user.advanced.pp == "rabbit" %}
+                                            <img src="{% static 'svgs/rabbit.svg' %}" alt="rabbit" />
+                                        {% elif request.user.advanced.pp == "sheep" %}
+                                            <img src="{% static 'svgs/sheep.svg' %}" alt="sheep" />
+                                        {% elif request.user.advanced.pp == "snail" %}
+                                            <img src="{% static 'svgs/snail.svg' %}" alt="snail" />
+                                        {% elif request.user.advanced.pp == "snake" %}
+                                            <img src="{% static 'svgs/snake.svg' %}" alt="snake" />
+                                        {% elif request.user.advanced.pp == "turkey" %}
+                                            <img src="{% static 'svgs/turkey.svg' %}" alt="turkey" />
+                                        {% elif request.user.advanced.pp == "turtle" %}
+                                            <img src="{% static 'svgs/turtle.svg' %}" alt="turtle" />
+                                        {% else %}
+                                            <img src="{% static 'svgs/profile_filled.svg' %}" alt="profile" />
+                                        {% endif %}
+                                        <div class="name">{{ request.user.first_name }} {{ request.user.last_name }}</div>
+                                        <div class="username">@{{ request.user.username }}#{{ request.user.id }}</div>
+                                        <div class="role">
+                                            {% if request.user.advanced.role %}
+                                                <p style="color: {{ request.user.advanced.role.color }}">{{ request.user.advanced.role }}</p>
+                                            {% else %}
+                                                <p class="unverified">Keine Rolle</p>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flexify">
+                                <div class="cardify">
+                                    {% if request.user.is_authenticated %}
+                                        <form method="POST" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            {{ form.as_p }}
+                                            <div class="buttons">
+                                                <a href="{% url 'profile' %}"
+                                                   class="cancel-button cancel-delete-confirm">{% translate "Abbrechen" %}</a>
+                                                {% if role.name %}
+                                                    <button class="submit" type="submit">{% translate "Speichern" %}</button>
+                                                {% else %}
+                                                    <button class="submit" type="submit">{% translate "Hinzufügen" %}</button>
+                                                {% endif %}
+                                            </div>
+                                        </form>
+                                    {% else %}
+                                        <p class="access-denied">{% translate "Zugriff verweigert" %}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </body>

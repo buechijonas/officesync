@@ -11,7 +11,7 @@ from administration.models import Log, Role
 from communication.models import Announcement, Message
 
 from .forms import LoginForm, SignUpForm
-from .models import AdvancedUser, OfficeSync, UserCustomInterface
+from .models import AdvancedUser, Meta, OfficeSync, UserCustomInterface, Health
 
 User = get_user_model()
 
@@ -27,6 +27,8 @@ class SignUpView(generic.CreateView):
     def form_valid(self, form):
         response = super().form_valid(form)
         AdvancedUser.objects.create(user=self.object)
+        Meta.objects.create(user=self.object)
+        Health.objects.create(user=self.object)
         UserCustomInterface.objects.create(user=self.object)
 
         standard_role = get_object_or_404(Role, name="Standard")

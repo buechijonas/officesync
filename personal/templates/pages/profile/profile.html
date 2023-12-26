@@ -20,7 +20,7 @@
         {% include 'components/header/authentication.html' with title=officesync.app %}
         <main>
             {% include 'components/sidebar/sidebar.html' with page="personal" %}
-            {% include 'components/subsidebar/subsidebar_personal.html' with page="announcements" %}
+            {% include 'components/subsidebar/subsidebar_personal.html' with page="personal" %}
             <div class="content">
                 <div class="blockify">
                     {% include 'components/profile/profile.html' %}
@@ -40,9 +40,218 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="flexify">
+                                <div class="tabs-profile">
+                                    <a href="{% url 'profile' %}" class="public current">{% translate 'Öffentlich' %}</a>
+                                    <a href="{% url 'personal' %}" class="personal">{% translate 'Personalakte' %}</a>
+                                    <a href="{% url 'work' %}" class="work">{% translate 'Mitarbeiterakte' %}
+                                        {% if unconfirmed_salaries_count %}
+                                            <div class="count">
+                                                <p>{{ unconfirmed_salaries_count }}</p>
+                                            </div>
+                                        {% endif %}
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flexify">
+                                <div class="cardify-pp">
+                                    <div class="cardify-pp-grid">
+                                        {% if request.user.advanced.pp == "bird" %}
+                                            <img src="{% static 'svgs/bird.svg' %}" alt="bird" />
+                                        {% elif request.user.advanced.pp == "butterfly" %}
+                                            <img src="{% static 'svgs/butterfly.svg' %}" alt="butterfly" />
+                                        {% elif request.user.advanced.pp == "cat" %}
+                                            <img src="{% static 'svgs/cat.svg' %}" alt="cat" />
+                                        {% elif request.user.advanced.pp == "dog" %}
+                                            <img src="{% static 'svgs/dog.svg' %}" alt="dog" />
+                                        {% elif request.user.advanced.pp == "duck" %}
+                                            <img src="{% static 'svgs/duck.svg' %}" alt="duck" />
+                                        {% elif request.user.advanced.pp == "jellyfish" %}
+                                            <img src="{% static 'svgs/jellyfish.svg' %}" alt="jellyfish" />
+                                        {% elif request.user.advanced.pp == "owl" %}
+                                            <img src="{% static 'svgs/owl.svg' %}" alt="owl" />
+                                        {% elif request.user.advanced.pp == "panda" %}
+                                            <img src="{% static 'svgs/panda.svg' %}" alt="panda" />
+                                        {% elif request.user.advanced.pp == "penguin" %}
+                                            <img src="{% static 'svgs/penguin.svg' %}" alt="penguin" />
+                                        {% elif request.user.advanced.pp == "pig" %}
+                                            <img src="{% static 'svgs/pig.svg' %}" alt="pig" />
+                                        {% elif request.user.advanced.pp == "rabbit" %}
+                                            <img src="{% static 'svgs/rabbit.svg' %}" alt="rabbit" />
+                                        {% elif request.user.advanced.pp == "sheep" %}
+                                            <img src="{% static 'svgs/sheep.svg' %}" alt="sheep" />
+                                        {% elif request.user.advanced.pp == "snail" %}
+                                            <img src="{% static 'svgs/snail.svg' %}" alt="snail" />
+                                        {% elif request.user.advanced.pp == "snake" %}
+                                            <img src="{% static 'svgs/snake.svg' %}" alt="snake" />
+                                        {% elif request.user.advanced.pp == "turkey" %}
+                                            <img src="{% static 'svgs/turkey.svg' %}" alt="turkey" />
+                                        {% elif request.user.advanced.pp == "turtle" %}
+                                            <img src="{% static 'svgs/turtle.svg' %}" alt="turtle" />
+                                        {% else %}
+                                            <img src="{% static 'svgs/profile_filled.svg' %}" alt="profile" />
+                                        {% endif %}
+                                        <div class="name">{{ request.user.first_name }} {{ request.user.last_name }}</div>
+                                        <div class="username">@{{ request.user.username }}#{{ request.user.id }}</div>
+                                        <div class="role">
+                                            {% if request.user.advanced.role %}
+                                                <p style="color: {{ request.user.advanced.role.color }}">{{ request.user.advanced.role }}</p>
+                                            {% else %}
+                                                <p class="unverified">Keine Rolle</p>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flexify">
+                                <div class="cardify">
+                                    <div class="manage-role-buttons-container">
+                                        <a class="button edit align-right"
+                                           href="{% url 'profile_update' request.user.advanced.pk %}">
+                                            <img src="/static/svgs/modify.svg" alt="edit">
+                                        </a>
+                                    </div>
+                                    <div class="permissions">
+                                        {% if request.user.advanced.biographie %}
+                                            <h2>{% translate 'Biografie' %}</h2>
+                                            <p class="datafy">{{ request.user.advanced.format_biographie }}</p>
+                                        {% endif %}
+                                        <h2>{% translate 'Medien' %}</h2>
+                                        <div class="medias">
+                                            {% if request.user.advanced.discord_username %}
+                                                <div class="media">
+                                                    <div class="media-pic discord-pic">
+                                                        <img src="{% static 'svgs/discord.svg' %}" alt="discord" />
+                                                    </div>
+                                                    <p class="text-pic">{{ request.user.advanced.discord_username }}</p>
+                                                </div>
+                                            {% endif %}
+                                            {% if request.user.advanced.epicgames_username %}
+                                                <div class="media">
+                                                    <div class="media-pic epicgames-pic">
+                                                        <img src="{% static 'svgs/epicgames.svg' %}" alt="epicgames" />
+                                                    </div>
+                                                    <p class="text-pic">{{ request.user.advanced.epicgames_username }}</p>
+                                                </div>
+                                            {% endif %}
+                                            {% if request.user.advanced.facebook_username %}
+                                                <div class="media">
+                                                    <div class="media-pic facebook-pic">
+                                                        <img src="{% static 'svgs/facebook.svg' %}" alt="facebook" />
+                                                    </div>
+                                                    <p class="text-pic">@{{ request.user.advanced.facebook_username }}</p>
+                                                </div>
+                                            {% endif %}
+                                            {% if request.user.advanced.instagram_username %}
+                                                <div class="media">
+                                                    <div class="media-pic instagram-pic">
+                                                        <img src="{% static 'svgs/instagram.svg' %}" alt="instagram" />
+                                                    </div>
+                                                    <p class="text-pic">@{{ request.user.advanced.instagram_username }}</p>
+                                                </div>
+                                            {% endif %}
+                                            {% if request.user.advanced.linkedin_username %}
+                                                <div class="media">
+                                                    <div class="media-pic linkedin-pic">
+                                                        <img src="{% static 'svgs/linkedin.svg' %}" alt="linkedin" />
+                                                    </div>
+                                                    <p class="text-pic">{{ request.user.advanced.linkedin_username }}</p>
+                                                </div>
+                                            {% endif %}
+                                            {% if request.user.advanced.pinterest_username %}
+                                                <div class="media">
+                                                    <div class="media-pic pinterest-pic">
+                                                        <img src="{% static 'svgs/pinterest.svg' %}" alt="pinterest" />
+                                                    </div>
+                                                    <p class="text-pic">{{ request.user.advanced.pinterest_username }}</p>
+                                                </div>
+                                            {% endif %}
+                                            {% if request.user.advanced.playstation_username %}
+                                                <div class="media">
+                                                    <div class="media-pic playstation-pic">
+                                                        <img src="{% static 'svgs/playstation.svg' %}" alt="playstation" />
+                                                    </div>
+                                                    <p class="text-pic">{{ request.user.advanced.playstation_username }}</p>
+                                                </div>
+                                            {% endif %}
+                                            {% if request.user.advanced.reddit_username %}
+                                                <div class="media">
+                                                    <div class="media-pic reddit-pic">
+                                                        <img src="{% static 'svgs/reddit.svg' %}" alt="reddit" />
+                                                    </div>
+                                                    <p class="text-pic">{{ request.user.advanced.reddit_username }}</p>
+                                                </div>
+                                            {% endif %}
+                                            {% if request.user.advanced.snapchat_username %}
+                                                <div class="media">
+                                                    <div class="media-pic snapchat-pic">
+                                                        <img src="{% static 'svgs/snapchat.svg' %}" alt="snapchat" />
+                                                    </div>
+                                                    <p class="text-pic">{{ request.user.advanced.snapchat_username }}</p>
+                                                </div>
+                                            {% endif %}
+                                            {% if request.user.advanced.steam_username %}
+                                                <div class="media">
+                                                    <div class="media-pic steam-pic">
+                                                        <img src="{% static 'svgs/steam.svg' %}" alt="steam" />
+                                                    </div>
+                                                    <p class="text-pic">{{ request.user.advanced.steam_username }}</p>
+                                                </div>
+                                            {% endif %}
+                                            {% if request.user.advanced.threads_username %}
+                                                <div class="media">
+                                                    <div class="media-pic threads-pic">
+                                                        <img src="{% static 'svgs/threads.svg' %}" alt="threads" />
+                                                    </div>
+                                                    <p class="text-pic">@{{ request.user.advanced.threads_username }}</p>
+                                                </div>
+                                            {% endif %}
+                                            {% if request.user.advanced.tiktok_username %}
+                                                <div class="media">
+                                                    <div class="media-pic tiktok-pic">
+                                                        <img src="{% static 'svgs/tiktok.svg' %}" alt="tiktok" />
+                                                    </div>
+                                                    <p class="text-pic">@{{ request.user.advanced.tiktok_username }}</p>
+                                                </div>
+                                            {% endif %}
+                                            {% if request.user.advanced.twitter_username %}
+                                                <div class="media">
+                                                    <div class="media-pic twitter-pic">
+                                                        <img src="{% static 'svgs/x.svg' %}" alt="twitter" />
+                                                    </div>
+                                                    <p class="text-pic">@{{ request.user.advanced.twitter_username }}</p>
+                                                </div>
+                                            {% endif %}
+                                            {% if request.user.advanced.xbox_username %}
+                                                <div class="media">
+                                                    <div class="media-pic xbox-pic">
+                                                        <img src="{% static 'svgs/xbox.svg' %}" alt="xing" />
+                                                    </div>
+                                                    <p class="text-pic">{{ request.user.advanced.xbox_username }}</p>
+                                                </div>
+                                            {% endif %}
+                                            {% if request.user.advanced.xing_username %}
+                                                <div class="media">
+                                                    <div class="media-pic xing-pic">
+                                                        <img src="{% static 'svgs/xing.svg' %}" alt="xing" />
+                                                    </div>
+                                                    <p class="text-pic">{{ request.user.advanced.xing_username }}</p>
+                                                </div>
+                                            {% endif %}
+                                            {% if request.user.advanced.youtube_username %}
+                                                <div class="media">
+                                                    <div class="media-pic youtube-pic">
+                                                        <img src="{% static 'svgs/youtube.svg' %}" alt="youtube" />
+                                                    </div>
+                                                    <p class="text-pic">{{ request.user.advanced.youtube_username }}</p>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </main>
-    </body>
+                </main>
+            </body>

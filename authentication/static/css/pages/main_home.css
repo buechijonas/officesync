@@ -31,6 +31,34 @@
     width: 100%;
 }
 
+.content .blockify .flexify .reprimant-count-box {
+    margin: 12px;
+}
+
+.content .blockify .flexify .reprimant-count-box .reprimant-count-one {
+    padding: 12px;
+    background-color: #009543;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.content .blockify .flexify .reprimant-count-box .reprimant-count-two {
+    padding: 12px;
+    background-color: #ff9100;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.content .blockify .flexify .reprimant-count-box .reprimant-count-three {
+    padding: 12px;
+    background-color: darkred;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
 .content .blockify .flexify .cardify {
     max-width: 1000px;
     width: 100%;
@@ -39,6 +67,85 @@
     margin: 12px auto;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.content .blockify .flexify .cardify .folder {
+    display: grid;
+    grid-template-columns: 32px auto 32px;
+    grid-template-rows: 32px;
+    grid-template-areas:
+        "icon title count";
+    grid-gap: 12px;
+    padding: 6px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.content .blockify .flexify .cardify .folder:hover {
+    background-color: #ededed;
+}
+
+.content .blockify .flexify .cardify .folder .icon {
+    height: 32px;
+    width: 32px;
+    display: flex;
+    filter: invert(59%) sepia(70%) saturate(6508%) hue-rotate(163deg) brightness(100%) contrast(101%);
+}
+
+.content .blockify .flexify .cardify .folder .title {
+    display: flex;
+    align-items: center;
+    color: gray;
+}
+
+.content .blockify .flexify .cardify-pp {
+    display: inline-block;
+    background-color: white;
+    padding: 12px;
+    margin: 12px auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.content .blockify .flexify .cardify-pp .cardify-pp-grid {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    grid-template-rows: 48px 32px 16px;
+    grid-template-areas:
+        "img name"
+        "img username"
+        "img role";
+    grid-column-gap: 12px;
+}
+
+.content .blockify .flexify .cardify-pp .cardify-pp-grid img {
+    grid-area: img;
+    height: 100%;
+    width: 100%;
+}
+
+.content .blockify .flexify .cardify-pp .cardify-pp-grid .name {
+    grid-area: name;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.content .blockify .flexify .cardify-pp .cardify-pp-grid .username {
+    grid-area: username;
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    color: gray;
+}
+
+.content .blockify .flexify .cardify-pp .cardify-pp-grid .role {
+    grid-area: role;
+    display: flex;
+    align-items: end;
+    font-size: 0.75rem;
+    font-weight: bold;
 }
 
 .content .blockify .flexify .cardify .title-container {
@@ -61,6 +168,60 @@
     grid-area: right;
 }
 
+.content .blockify .flexify .tabs-profile {
+    max-width: 1024px;
+    width: 100%;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns:
+        1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        "public personal work";
+}
+
+.content .blockify .flexify .tabs-profile .public,
+.content .blockify .flexify .tabs-profile .personal,
+.content .blockify .flexify .tabs-profile .work {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+    text-decoration: none;
+}
+
+.content .blockify .flexify .tabs-profile .public {
+    grid-area: public;
+}
+
+.content .blockify .flexify .tabs-profile .personal {
+    grid-area: personal;
+}
+
+.content .blockify .flexify .tabs-profile .work {
+    grid-area: work;
+    display: grid;
+    grid-gap: 12px;
+    grid-template-columns: auto 24px;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        "title count";
+}
+
+.content .blockify .flexify .tabs .tab2 {
+    grid-area: tab2;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+    text-decoration: none;
+
+}
+
 .content .blockify .flexify .tabs {
     max-width: 1024px;
     width: 100%;
@@ -75,7 +236,8 @@
         "tab1 tab2";
 }
 
-.content .blockify .flexify .tabs .current {
+.content .blockify .flexify .tabs .current,
+.content .blockify .flexify .tabs-profile .current {
     border-bottom-color: gray;
     border-bottom-width: 2px;
     border-bottom-style: solid;
@@ -91,11 +253,6 @@
     text-decoration: none;
 }
 
-.content .blockify .flexify .tabs .tab1:hover {
-    background-color: #dadada;
-    border-radius: 5px;
-}
-
 .content .blockify .flexify .tabs .tab2 {
     grid-area: tab2;
     padding: 12px;
@@ -107,7 +264,11 @@
 
 }
 
-.content .blockify .flexify .tabs .tab2:hover {
+.content .blockify .flexify .tabs .tab1:hover,
+.content .blockify .flexify .tabs .tab2:hover,
+.content .blockify .flexify .tabs-profile .public:hover,
+.content .blockify .flexify .tabs-profile .personal:hover,
+.content .blockify .flexify .tabs-profile .work:hover   {
     background-color: #dadada;
     border-radius: 5px;
 }
@@ -134,6 +295,97 @@
 .content .blockify .flexify .permissions .datafy {
     color: gray;
     margin: 12px auto;
+}
+
+.content .blockify .flexify .permissions .media {
+    display: grid;
+    grid-column-gap: 12px;
+    grid-template-columns: 24px 1fr;
+    grid-template-rows: 24px;
+    grid-template-areas:
+        "media-pic text-pic"
+}
+
+.content .blockify .flexify .permissions .medias {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.content .blockify .flexify .permissions .medias .media {
+    padding: 6px;
+}
+
+.content .blockify .flexify .permissions .medias .media .media-pic {
+    grid-area: media-pic;
+}
+
+.content .blockify .flexify .permissions .medias .media .text-pic {
+    grid-area: text-pic;
+    color: gray;
+}
+
+.content .blockify .flexify .permissions .medias .media .discord-pic {
+    filter: invert(48%) sepia(88%) saturate(4175%) hue-rotate(221deg) brightness(95%) contrast(101%);
+}
+
+.content .blockify .flexify .permissions .medias .media .epicgames-pic {
+    filter: invert(0%) sepia(7%) saturate(7473%) hue-rotate(352deg) brightness(101%) contrast(108%);
+}
+
+.content .blockify .flexify .permissions .medias .media .facebook-pic {
+    filter: invert(32%) sepia(85%) saturate(4994%) hue-rotate(215deg) brightness(104%) contrast(105%);
+}
+
+.content .blockify .flexify .permissions .medias .media .instagram-pic {
+    filter: invert(38%) sepia(82%) saturate(2943%) hue-rotate(326deg) brightness(93%) contrast(91%);
+}
+
+.content .blockify .flexify .permissions .medias .media .linkedin-pic {
+    filter: invert(25%) sepia(91%) saturate(1462%) hue-rotate(191deg) brightness(103%) contrast(94%);
+}
+
+.content .blockify .flexify .permissions .medias .media .pinterest-pic {
+    filter: invert(20%) sepia(66%) saturate(7461%) hue-rotate(346deg) brightness(73%) contrast(105%);
+}
+
+.content .blockify .flexify .permissions .medias .media .playstation-pic {
+    filter: invert(17%) sepia(91%) saturate(1998%) hue-rotate(206deg) brightness(89%) contrast(109%);
+}
+
+.content .blockify .flexify .permissions .medias .media .reddit-pic {
+    filter: invert(35%) sepia(38%) saturate(5544%) hue-rotate(0deg) brightness(101%) contrast(108%);
+}
+
+.content .blockify .flexify .permissions .medias .media .snapchat-pic {
+    filter: invert(85%) sepia(68%) saturate(7497%) hue-rotate(354deg) brightness(105%) contrast(108%);
+}
+
+.content .blockify .flexify .permissions .medias .media .steam-pic {
+    filter: invert(0%) sepia(7%) saturate(7473%) hue-rotate(352deg) brightness(101%) contrast(108%);
+}
+
+.content .blockify .flexify .permissions .medias .media .threads-pic {
+    filter: invert(0%) sepia(7%) saturate(7473%) hue-rotate(352deg) brightness(101%) contrast(108%);
+}
+
+.content .blockify .flexify .permissions .medias .media .tiktok-pic {
+    filter: invert(0%) sepia(7%) saturate(7473%) hue-rotate(352deg) brightness(101%) contrast(108%);
+}
+
+.content .blockify .flexify .permissions .medias .media .twitter-pic {
+    filter: invert(0%) sepia(7%) saturate(7473%) hue-rotate(352deg) brightness(101%) contrast(108%);
+}
+
+.content .blockify .flexify .permissions .medias .media .xbox-pic {
+    filter: invert(27%) sepia(76%) saturate(1126%) hue-rotate(85deg) brightness(103%) contrast(92%);
+}
+
+.content .blockify .flexify .permissions .medias .media .xing-pic {
+    filter: invert(30%) sepia(13%) saturate(6211%) hue-rotate(148deg) brightness(87%) contrast(101%);
+}
+
+.content .blockify .flexify .permissions .medias .media .youtube-pic {
+    filter: invert(10%) sepia(98%) saturate(7440%) hue-rotate(357deg) brightness(93%) contrast(120%);
 }
 
 .content .blockify .flexify .cardify .permissions .permission-container .value {
@@ -957,5 +1209,11 @@
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr 1fr;
         margin: 96px 0;
+    }
+}
+
+@media print {
+    .content .blockify .flexify .tabs-profile {
+        display: none;
     }
 }

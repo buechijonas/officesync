@@ -1,0 +1,93 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% if officesync.get_logo_url %}<link rel="icon" href="{{ officesync.get_logo_url }}" type="image/png">{% endif %}
+        <link rel="stylesheet" href="{% static 'css/global/global.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/sidebar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/profile.css' %}">
+        <title>{{ officesync.app }} - {% translate "Profil" %}</title>
+    </head>
+    <body>
+        {% include 'components/header/authentication.html' with title=officesync.app %}
+        <main>
+            {% include 'components/sidebar/sidebar.html' with page="personal" %}
+            {% include 'components/subsidebar/subsidebar_personal.html' with page="personal" %}
+            <div class="content">
+                <div class="blockify">
+                    {% include 'components/profile/profile.html' %}
+                    <div class="flexify">
+                        <div class="blockify">
+                            <div class="flexify">
+                                <div class="cardify">
+                                    <div class="title-container">
+                                        <h1 class="h1">{{ request.user.first_name }} {{ request.user.last_name }}</h1>
+                                        <div class="edit-container">
+                                            {% if has_update_vehicle_permission %}
+                                                <a class="button edit" href="{% url 'vehicle_update' vehicle.pk %}">
+                                                    <img src="{% static 'svgs/modify.svg' %}" alt="edit" />
+                                                </a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flexify">
+                                <div class="tabs-profile">
+                                    <a href="{% url 'profile' %}" class="public">{% translate 'Öffentlich' %}</a>
+                                    <a href="{% url 'personal' %}" class="personal current">{% translate 'Personalakte' %}</a>
+                                    <a href="{% url 'work' %}" class="work">{% translate 'Mitarbeiterakte' %}
+                                        {% if unconfirmed_salaries_count %}
+                                            <div class="count">
+                                                <p>{{ unconfirmed_salaries_count }}</p>
+                                            </div>
+                                        {% endif %}
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flexify">
+                                <div class="cardify">
+                                    <div class="permissions">
+                                        <h2>{% translate 'Gesundheitsakte' %}</h2>
+                                        {% if request.user.health.allergies %}
+                                            <p class="datafy">{% translate 'Allergien' %}: {{ request.user.health.allergies }}</p>
+                                        {% else %}
+                                            <p class="datafy">{% translate 'Allergien' %}: {% translate 'Unbekannt' %}</p>
+                                        {% endif %}
+                                        {% if request.user.health.chronic_diseases %}
+                                            <p class="datafy">{% translate 'Chronische Erkankungen' %}: {{ request.user.health.chronic_diseases }}</p>
+                                        {% else %}
+                                            <p class="datafy">{% translate 'Chronische Erkankungen' %}: {% translate 'Unbekannt' %}</p>
+                                        {% endif %}
+                                        {% if request.user.health.medical_treatments %}
+                                            <p class="datafy">{% translate 'Medizinische Behandlung' %}: {{ request.user.health.medical_treatments }}</p>
+                                        {% else %}
+                                            <p class="datafy">{% translate 'Medizinische Behandlung' %}: {% translate 'Unbekannt' %}</p>
+                                        {% endif %}
+                                        {% if request.user.health.medication %}
+                                            <p class="datafy">{% translate 'Medikamente' %}: {{ request.user.health.medication }}</p>
+                                        {% else %}
+                                            <p class="datafy">{% translate 'Medikamente' %}: {% translate 'Unbekannt' %}</p>
+                                        {% endif %}
+                                        {% if request.user.health.mental_health %}
+                                            <p class="datafy">{% translate 'Psychische Verfassung' %}: {{ request.user.health.mental_health }}</p>
+                                        {% else %}
+                                            <p class="datafy">{% translate 'Psychische Verfassung' %}: {% translate 'Unbekannt' %}</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>

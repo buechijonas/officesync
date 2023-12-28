@@ -84,7 +84,9 @@
 }
 
 .sidebar .flexify .grid .section .not-current .count,
-.sidebar .flexify .grid .section .current .count {
+.sidebar .flexify .grid .section .current .count,
+.content .blockify .flexify .tabs-profile .work .count,
+.content .blockify .flexify .cardify .folder .count {
     filter: none !important;
     grid-area: count;
     display: flex;

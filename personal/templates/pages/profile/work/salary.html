@@ -1,0 +1,115 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% if officesync.get_logo_url %}<link rel="icon" href="{{ officesync.get_logo_url }}" type="image/png">{% endif %}
+        <link rel="stylesheet" href="{% static 'css/global/global.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/sidebar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/profile.css' %}">
+        <title>{{ officesync.app }} - {% translate "Profil" %}</title>
+    </head>
+    <body>
+        {% include 'components/header/authentication.html' with title=officesync.app %}
+        <main>
+            {% include 'components/sidebar/sidebar.html' with page="personal" %}
+            {% include 'components/subsidebar/subsidebar_personal.html' with page="personal" %}
+            <div class="content">
+                <div class="blockify">
+                    {% include 'components/profile/profile.html' %}
+                    <div class="flexify">
+                        <div class="blockify">
+                            <div class="flexify">
+                                <div class="cardify">
+                                    <div class="title-container">
+                                        <h1 class="h1">{{ request.user.first_name }} {{ request.user.last_name }}</h1>
+                                        <div class="edit-container">
+                                            {% if has_update_vehicle_permission %}
+                                                <a class="button edit" href="{% url 'vehicle_update' vehicle.pk %}">
+                                                    <img src="{% static 'svgs/modify.svg' %}" alt="edit" />
+                                                </a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flexify">
+                                <div class="tabs-profile">
+                                    <a href="{% url 'profile' %}" class="public">{% translate 'Öffentlich' %}</a>
+                                    <a href="{% url 'personal' %}" class="personal">{% translate 'Personalakte' %}</a>
+                                    <a href="{% url 'work' %}" class="work current">{% translate 'Mitarbeiterakte' %}
+                                        {% if unconfirmed_salaries_count %}
+                                            <div class="count">
+                                                <p>{{ unconfirmed_salaries_count }}</p>
+                                            </div>
+                                        {% endif %}
+                                    </a>
+                                </div>
+                            </div>
+                            {% for salary in request.user.salaries.all %}
+                                <div class="flexify">
+                                    <div class="cardify">
+                                        <div class="permissions">
+                                            <h2>{% translate 'Lohnauszug' %}</h2>
+                                            {% if salary.amount %}
+                                                <p class="datafy">{% translate 'Betrag' %}: {{ salary.amount }} CHF</p>
+                                            {% else %}
+                                                <p class="datafy">{% translate 'Betrag' %}: {% translate 'Unbekannt' %}</p>
+                                            {% endif %}
+                                            {% if salary.date %}
+                                                <p class="datafy">{% translate 'Datum' %}: {{ salary.format_date }}</p>
+                                            {% else %}
+                                                <p class="datafy">{% translate 'Datum' %}: {% translate 'Unbekannt' %}</p>
+                                            {% endif %}
+                                            {% if salary.beneficiary %}
+                                                <p class="datafy">
+                                                    {% translate 'Begünstigter' %}: {{ salary.beneficiary.first_name }} {{ salary.beneficiary.last_name }}
+                                                </p>
+                                            {% else %}
+                                                <p class="datafy">{% translate 'Begünstigter' %}: {% translate 'Unbekannt' %}</p>
+                                            {% endif %}
+                                            {% if salary.confirmation %}
+                                                <p class="datafy">{% translate 'Bestätigung' %}: {% translate 'Bestätigt ' %}</p>
+                                            {% else %}
+                                                <p class="datafy">{% translate 'Bestätigung' %}: {% translate 'Nicht bestätigt' %}</p>
+                                            {% endif %}
+                                        </div>
+                                        {% if request.user.is_authenticated and not salary.confirmation %}
+                                            <form method="post"
+                                                  style="border-top-style: solid;
+                                                         border-top-width: 1px;
+                                                         border-top-color: lightgray">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="salary_id" value="{{ salary.id }}">
+                                                <div class="buttons">
+                                                    <button class="submit" type="submit">{% translate "Bestätigen" %}</button>
+                                                </div>
+                                            </form>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% empty %}
+                                <div class="flexify">
+                                    <div class="access-denied">
+                                        <img src="{% static 'svgs/undraw_no_data.svg' %}" alt="access-denide" />
+                                    </div>
+                                </div>
+                                <div class="flexify">
+                                    <div class="">
+                                        <p class="access-denied">{% translate "Keine Daten vorhanden" %}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>

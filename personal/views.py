@@ -598,7 +598,11 @@ class NotesView(generic.ListView):
 
 class NoteUpdateView(generic.UpdateView):
     model = Note
+    fields = ["title", "content", "color"]
     template_name = "pages/notes/update.html"
+
+    def get_success_url(self):
+        return reverse_lazy("notes")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -43,157 +43,159 @@
                             <div class="flexify">
                                 <div class="grid-notes">
                                     {% for note in notes %}
-                                        {% if note.color == "red" %}
-                                            <div class="note">
-                                                <div class="note-header">
-                                                    <div class="red">
-                                                        <div class="title">
-                                                            <p>{{ note.title }}</p>
-                                                        </div>
-                                                        <div class="edit">
-                                                            <img src="{% static 'svgs/modify.svg' %}" alt="application-cog" />
+                                        {% if note.author == request.user %}
+                                            {% if note.color == "red" %}
+                                                <div class="note">
+                                                    <div class="note-header">
+                                                        <div class="red">
+                                                            <div class="title">
+                                                                <p>{{ note.title }}</p>
+                                                            </div>
+                                                            <a href="{% url 'notes_update' note.pk %}" class="edit">
+                                                                <img src="{% static 'svgs/modify.svg' %}" alt="application-cog" />
+                                                            </a>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="note-content">
-                                                    <div class="red">
-                                                        <p>{{ note.content }}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        {% endif %}
-                                        {% if note.color == "orange" %}
-                                            <div class="note">
-                                                <div class="note-header">
-                                                    <div class="orange">
-                                                        <div class="title">
-                                                            <p>{{ note.title }}</p>
-                                                        </div>
-                                                        <div class="edit">
-                                                            <img src="{% static 'svgs/modify.svg' %}" alt="application-cog" />
+                                                    <div class="note-content">
+                                                        <div class="red">
+                                                            <p>{{ note.content }}</p>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="note-content">
-                                                    <div class="orange">
-                                                        <p>{{ note.content }}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        {% endif %}
-                                        {% if note.color == "yellow" %}
-                                            <div class="note">
-                                                <div class="note-header">
-                                                    <div class="yellow">
-                                                        <div class="title">
-                                                            <p>{{ note.title }}</p>
-                                                        </div>
-                                                        <div class="edit">
-                                                            <img src="{% static 'svgs/modify.svg' %}" alt="application-cog" />
+                                            {% endif %}
+                                            {% if note.color == "orange" %}
+                                                <div class="note">
+                                                    <div class="note-header">
+                                                        <div class="orange">
+                                                            <div class="title">
+                                                                <p>{{ note.title }}</p>
+                                                            </div>
+                                                            <a href="{% url 'notes_update' note.pk %}" class="edit">
+                                                                <img src="{% static 'svgs/modify.svg' %}" alt="application-cog" />
+                                                            </a>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="note-content">
-                                                    <div class="yellow">
-                                                        <p>{{ note.content }}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        {% endif %}
-                                        {% if note.color == "green" %}
-                                            <div class="note">
-                                                <div class="note-header">
-                                                    <div class="green">
-                                                        <div class="title">
-                                                            <p>{{ note.title }}</p>
-                                                        </div>
-                                                        <div class="edit">
-                                                            <img src="{% static 'svgs/modify.svg' %}" alt="application-cog" />
+                                                    <div class="note-content">
+                                                        <div class="orange">
+                                                            <p>{{ note.content }}</p>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="note-content">
-                                                    <div class="green">
-                                                        <p>{{ note.content }}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        {% endif %}
-                                        {% if note.color == "cyan" %}
-                                            <div class="note">
-                                                <div class="note-header">
-                                                    <div class="cyan">
-                                                        <div class="title">
-                                                            <p>{{ note.title }}</p>
-                                                        </div>
-                                                        <div class="edit">
-                                                            <img src="{% static 'svgs/modify.svg' %}" alt="application-cog" />
+                                            {% endif %}
+                                            {% if note.color == "yellow" %}
+                                                <div class="note">
+                                                    <div class="note-header">
+                                                        <div class="yellow">
+                                                            <div class="title">
+                                                                <p>{{ note.title }}</p>
+                                                            </div>
+                                                            <a href="{% url 'notes_update' note.pk %}" class="edit">
+                                                                <img src="{% static 'svgs/modify.svg' %}" alt="application-cog" />
+                                                            </a>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="note-content">
-                                                    <div class="cyan">
-                                                        <p>{{ note.content }}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        {% endif %}
-                                        {% if note.color == "blue" %}
-                                            <div class="note">
-                                                <div class="note-header">
-                                                    <div class="blue">
-                                                        <div class="title">
-                                                            <p>{{ note.title }}</p>
-                                                        </div>
-                                                        <div class="edit">
-                                                            <img src="{% static 'svgs/modify.svg' %}" alt="application-cog" />
+                                                    <div class="note-content">
+                                                        <div class="yellow">
+                                                            <p>{{ note.content }}</p>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="note-content">
-                                                    <div class="blue">
-                                                        <p>{{ note.content }}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        {% endif %}
-                                        {% if note.color == "purple" %}
-                                            <div class="note">
-                                                <div class="note-header">
-                                                    <div class="purple">
-                                                        <div class="title">
-                                                            <p>{{ note.title }}</p>
-                                                        </div>
-                                                        <div class="edit">
-                                                            <img src="{% static 'svgs/modify.svg' %}" alt="application-cog" />
+                                            {% endif %}
+                                            {% if note.color == "green" %}
+                                                <div class="note">
+                                                    <div class="note-header">
+                                                        <div class="green">
+                                                            <div class="title">
+                                                                <p>{{ note.title }}</p>
+                                                            </div>
+                                                            <a href="{% url 'notes_update' note.pk %}" class="edit">
+                                                                <img src="{% static 'svgs/modify.svg' %}" alt="application-cog" />
+                                                            </a>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="note-content">
-                                                    <div class="purple">
-                                                        <p>{{ note.content }}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        {% endif %}
-                                        {% if note.color == "gray" %}
-                                            <div class="note">
-                                                <div class="note-header">
-                                                    <div class="gray">
-                                                        <div class="title">
-                                                            <p>{{ note.title }}</p>
-                                                        </div>
-                                                        <div class="edit">
-                                                            <img src="{% static 'svgs/modify.svg' %}" alt="application-cog" />
+                                                    <div class="note-content">
+                                                        <div class="green">
+                                                            <p>{{ note.content }}</p>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="note-content">
-                                                    <div class="gray">
-                                                        <p>{{ note.content }}</p>
+                                            {% endif %}
+                                            {% if note.color == "cyan" %}
+                                                <div class="note">
+                                                    <div class="note-header">
+                                                        <div class="cyan">
+                                                            <div class="title">
+                                                                <p>{{ note.title }}</p>
+                                                            </div>
+                                                            <a href="{% url 'notes_update' note.pk %}" class="edit">
+                                                                <img src="{% static 'svgs/modify.svg' %}" alt="application-cog" />
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="note-content">
+                                                        <div class="cyan">
+                                                            <p>{{ note.content }}</p>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            {% endif %}
+                                            {% if note.color == "blue" %}
+                                                <div class="note">
+                                                    <div class="note-header">
+                                                        <div class="blue">
+                                                            <div class="title">
+                                                                <p>{{ note.title }}</p>
+                                                            </div>
+                                                            <a href="{% url 'notes_update' note.pk %}" class="edit">
+                                                                <img src="{% static 'svgs/modify.svg' %}" alt="application-cog" />
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="note-content">
+                                                        <div class="blue">
+                                                            <p>{{ note.content }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                            {% if note.color == "purple" %}
+                                                <div class="note">
+                                                    <div class="note-header">
+                                                        <div class="purple">
+                                                            <div class="title">
+                                                                <p>{{ note.title }}</p>
+                                                            </div>
+                                                            <a href="{% url 'notes_update' note.pk %}" class="edit">
+                                                                <img src="{% static 'svgs/modify.svg' %}" alt="application-cog" />
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="note-content">
+                                                        <div class="purple">
+                                                            <p>{{ note.content }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                            {% if note.color == "gray" %}
+                                                <div class="note">
+                                                    <div class="note-header">
+                                                        <div class="gray">
+                                                            <div class="title">
+                                                                <p>{{ note.title }}</p>
+                                                            </div>
+                                                            <a href="{% url 'notes_update' note.pk %}" class="edit">
+                                                                <img src="{% static 'svgs/modify.svg' %}" alt="application-cog" />
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="note-content">
+                                                        <div class="gray">
+                                                            <p>{{ note.content }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
                                         {% endif %}
                                     {% endfor %}
                                 </div>

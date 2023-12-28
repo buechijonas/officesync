@@ -1,5 +1,4 @@
 from django.urls import path
-
 from .views import (
     AbsenceView,
     AdressView,
@@ -7,6 +6,7 @@ from .views import (
     HealthView,
     MetaView,
     NotesView,
+    NoteUpdateView,
     PerformanceView,
     PersonalView,
     ProfileUpdateView,
@@ -30,4 +30,5 @@ urlpatterns = [
     path("work/performance", PerformanceView.as_view(), name="performance"),
     path("work/reprimant", ReprimantView.as_view(), name="reprimant"),
     path("notes", NotesView.as_view(), name="notes"),
+    path("notes/<int:pk>/update", NoteUpdateView.as_view(), name="notes_update"),
 ]

@@ -1,0 +1,211 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% if officesync.get_logo_url %}<link rel="icon" href="{{ officesync.get_logo_url }}" type="image/png">{% endif %}
+        <link rel="stylesheet" href="{% static 'css/global/global.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/sidebar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/profile.css' %}">
+        <title>{{ officesync.app }} - {% translate "Profil" %}</title>
+    </head>
+    <body>
+        {% include 'components/header/authentication.html' with title=officesync.app %}
+        <main>
+            {% include 'components/sidebar/sidebar.html' with page="personal" %}
+            {% include 'components/subsidebar/subsidebar_personal.html' with page="notes" %}
+            <main class="content">
+                <div class="blockify">
+                    {% include 'components/profile/profile.html' %}
+                    <div class="flexify">
+                        <div class="blockify">
+                            <div class="flexify">
+                                <div class="cardify">
+                                    <div class="title-container">
+                                        <h1 class="h1">{% translate "Notiz bearbeiten" %}</h1>
+                                        <div class="edit-container">
+                                            {% if has_update_vehicle_permission %}
+                                                <a class="button create" href="">
+                                                    <img src="{% static 'svgs/create.svg' %}" alt="create" />
+                                                </a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flexify">
+                                <div class="grid-notes-update">
+                                    {% if note.color == "red" %}
+                                        <form method="POST" enctype="multipart/form-data" class="note">
+                                            {% csrf_token %}
+                                            <div class="note-header">
+                                                <div class="red">
+                                                    <div class="title">{{ form.title }}</div>
+                                                    <a href="{% url 'notes_update' note.pk %}" class="edit">
+                                                        <img src="{% static 'svgs/delete.svg' %}" alt="application-cog" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="note-content">
+                                                <div class="red">
+                                                    {{ form.content }}
+                                                    {{ form.color }}
+                                                    <button class="submit" type="submit">{% translate "Speichern" %}</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    {% endif %}
+                                    {% if note.color == "orange" %}
+                                        <form method="POST" enctype="multipart/form-data" class="note">
+                                            {% csrf_token %}
+                                            <div class="note-header">
+                                                <div class="orange">
+                                                    <div class="title">{{ form.title }}</div>
+                                                    <a href="{% url 'notes_update' note.pk %}" class="edit">
+                                                        <img src="{% static 'svgs/delete.svg' %}" alt="application-cog" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="note-content">
+                                                <div class="orange">
+                                                    {{ form.content }}
+                                                    {{ form.color }}
+                                                    <button class="submit" type="submit">{% translate "Speichern" %}</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    {% endif %}
+                                    {% if note.color == "yellow" %}
+                                        <form method="POST" enctype="multipart/form-data" class="note">
+                                            {% csrf_token %}
+                                            <div class="note-header">
+                                                <div class="yellow">
+                                                    <div class="title">{{ form.title }}</div>
+                                                    <a href="{% url 'notes_update' note.pk %}" class="edit">
+                                                        <img src="{% static 'svgs/delete.svg' %}" alt="application-cog" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="note-content">
+                                                <div class="yellow">
+                                                    {{ form.content }}
+                                                    {{ form.color }}
+                                                    <button class="submit" type="submit">{% translate "Speichern" %}</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    {% endif %}
+                                    {% if note.color == "green" %}
+                                        <form method="POST" enctype="multipart/form-data" class="note">
+                                            {% csrf_token %}
+                                            <div class="note-header">
+                                                <div class="green">
+                                                    <div class="title">{{ form.title }}</div>
+                                                    <a href="{% url 'notes_update' note.pk %}" class="edit">
+                                                        <img src="{% static 'svgs/delete.svg' %}" alt="application-cog" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="note-content">
+                                                <div class="green">
+                                                    {{ form.content }}
+                                                    {{ form.color }}
+                                                    <button class="submit" type="submit">{% translate "Speichern" %}</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    {% endif %}
+                                    {% if note.color == "cyan" %}
+                                        <form method="POST" enctype="multipart/form-data" class="note">
+                                            {% csrf_token %}
+                                            <div class="note-header">
+                                                <div class="cyan">
+                                                    <div class="title">{{ form.title }}</div>
+                                                    <a href="{% url 'notes_update' note.pk %}" class="edit">
+                                                        <img src="{% static 'svgs/delete.svg' %}" alt="application-cog" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="note-content">
+                                                <div class="cyan">
+                                                    {{ form.content }}
+                                                    {{ form.color }}
+                                                    <button class="submit" type="submit">{% translate "Speichern" %}</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    {% endif %}
+                                    {% if note.color == "blue" %}
+                                        <form method="POST" enctype="multipart/form-data" class="note">
+                                            {% csrf_token %}
+                                            <div class="note-header">
+                                                <div class="blue">
+                                                    <div class="title">{{ form.title }}</div>
+                                                    <a href="{% url 'notes_update' note.pk %}" class="edit">
+                                                        <img src="{% static 'svgs/delete.svg' %}" alt="application-cog" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="note-content">
+                                                <div class="blue">
+                                                    {{ form.content }}
+                                                    {{ form.color }}
+                                                    <button class="submit" type="submit">{% translate "Speichern" %}</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    {% endif %}
+                                    {% if note.color == "purple" %}
+                                        <form method="POST" enctype="multipart/form-data" class="note">
+                                            {% csrf_token %}
+                                            <div class="note-header">
+                                                <div class="purple">
+                                                    <div class="title">{{ form.title }}</div>
+                                                    <a href="{% url 'notes_update' note.pk %}" class="edit">
+                                                        <img src="{% static 'svgs/delete.svg' %}" alt="application-cog" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="note-content">
+                                                <div class="purple">
+                                                    {{ form.content }}
+                                                    {{ form.color }}
+                                                    <button class="submit" type="submit">{% translate "Speichern" %}</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    {% endif %}
+                                    {% if note.color == "gray" %}
+                                        <form method="POST" enctype="multipart/form-data" class="note">
+                                            {% csrf_token %}
+                                            <div class="note-header">
+                                                <div class="gray">
+                                                    <div class="title">{{ form.title }}</div>
+                                                    <a href="{% url 'notes_update' note.pk %}" class="edit">
+                                                        <img src="{% static 'svgs/delete.svg' %}" alt="application-cog" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="note-content">
+                                                <div class="gray">
+                                                    {{ form.content }}
+                                                    {{ form.color }}
+                                                    <button class="submit" type="submit">{% translate "Speichern" %}</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </body>

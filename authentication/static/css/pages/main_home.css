@@ -446,7 +446,24 @@
     overflow: hidden;
 }
 
-.content .blockify .flexify .grid-notes .note {
+.content .blockify .flexify .grid-notes-update {
+    max-width: 1000px;
+    width: 100%;
+    margin: 12px auto;
+    display: grid;
+    grid-gap: 36px 12px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        ". note .";
+    overflow: hidden;
+}
+
+.content .blockify .flexify .grid-notes-update .note {
+    grid-area: note;
+}
+
+.content .blockify .flexify .grid-notes .note,
+.content .blockify .flexify .grid-notes-update .note {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 50px 1fr;
@@ -456,7 +473,8 @@
     min-height: 275px;
 }
 
-.content .blockify .flexify .grid-notes .note .note-header {
+.content .blockify .flexify .grid-notes .note .note-header,
+.content .blockify .flexify .grid-notes-update .note .note-header {
     grid-area: "note-header";
     font-weight: bold;
     display: flex;
@@ -469,7 +487,15 @@
 .content .blockify .flexify .grid-notes .note-header .green,
 .content .blockify .flexify .grid-notes .note-header .yellow,
 .content .blockify .flexify .grid-notes .note-header .orange,
-.content .blockify .flexify .grid-notes .note-header .red {
+.content .blockify .flexify .grid-notes .note-header .red,
+.content .blockify .flexify .grid-notes-update .note-header .gray,
+.content .blockify .flexify .grid-notes-update .note-header .purple,
+.content .blockify .flexify .grid-notes-update .note-header .blue,
+.content .blockify .flexify .grid-notes-update .note-header .cyan,
+.content .blockify .flexify .grid-notes-update .note-header .green,
+.content .blockify .flexify .grid-notes-update .note-header .yellow,
+.content .blockify .flexify .grid-notes-update .note-header .orange,
+.content .blockify .flexify .grid-notes-update .note-header .red {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 50px;
@@ -480,44 +506,92 @@
         border-radius: 5px 5px 0 0;
 }
 
-.content .blockify .flexify .grid-notes .note .note-header .gray {
+.content .blockify .flexify .grid-notes .note .note-header .gray,
+.content .blockify .flexify .grid-notes-update .note .note-header .gray {
     background-color: #b6b6b6;
     padding: 0 0 0 12px;
 }
 
-.content .blockify .flexify .grid-notes .note .note-header .purple {
+.content .blockify .flexify .grid-notes .note .note-header .purple,
+.content .blockify .flexify .grid-notes-update .note .note-header .purple {
     background-color: #E597F9;
     padding: 0 0 0 12px;
 }
 
-.content .blockify .flexify .grid-notes .note .note-header .blue {
+.content .blockify .flexify .grid-notes .note .note-header .blue,
+.content .blockify .flexify .grid-notes-update .note .note-header .blue {
     background-color: #97D6F9;
     padding: 0 0 0 12px;
 }
 
-.content .blockify .flexify .grid-notes .note .note-header .cyan {
+.content .blockify .flexify .grid-notes .note .note-header .cyan,
+.content .blockify .flexify .grid-notes-update .note .note-header .cyan {
     background-color: #97F9ED;
     padding: 0 0 0 12px;
 }
 
-.content .blockify .flexify .grid-notes .note .note-header .green {
+.content .blockify .flexify .grid-notes .note .note-header .green,
+.content .blockify .flexify .grid-notes-update .note .note-header .green {
     background-color: #97F99B;
     padding: 0 0 0 12px;
 }
 
-.content .blockify .flexify .grid-notes .note .note-header .yellow {
+.content .blockify .flexify .grid-notes .note .note-header .yellow,
+.content .blockify .flexify .grid-notes-update .note .note-header .yellow {
     background-color: #FFE49E;
     padding: 0 0 0 12px;
 }
 
-.content .blockify .flexify .grid-notes .note .note-header .orange {
+.content .blockify .flexify .grid-notes .note .note-header .orange,
+.content .blockify .flexify .grid-notes-update .note .note-header .orange {
     background-color: #FFC19E;
     padding: 0 0 0 12px;
 }
 
-.content .blockify .flexify .grid-notes .note .note-header .red {
+.content .blockify .flexify .grid-notes .note .note-header .red,
+.content .blockify .flexify .grid-notes-update .note .note-header .red {
     background-color: #FF9E9E;
     padding: 0 0 0 12px;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-header .gray input {
+    background-color: #acacac;
+    border: none;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-header .purple input {
+    background-color: #dc8fef;
+    border: none;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-header .blue input {
+    background-color: #8dcaec;
+    border: none;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-header .cyan input {
+    background-color: #92efe4;
+    border: none;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-header .green input {
+    background-color: #8eef91;
+    border: none;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-header .yellow input {
+    background-color: #ecd393;
+    border: none;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-header .orange input {
+    background-color: #f0b594;
+    border: none;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-header .red input {
+    background-color: #f09494;
+    border: none;
 }
 
 .content .blockify .flexify .grid-notes .note-header .gray .title,
@@ -527,7 +601,15 @@
 .content .blockify .flexify .grid-notes .note-header .green .title,
 .content .blockify .flexify .grid-notes .note-header .yellow .title,
 .content .blockify .flexify .grid-notes .note-header .orange .title,
-.content .blockify .flexify .grid-notes .note-header .red .title {
+.content .blockify .flexify .grid-notes .note-header .red .title,
+.content .blockify .flexify .grid-notes-update .note-header .gray .title,
+.content .blockify .flexify .grid-notes-update .note-header .purple .title,
+.content .blockify .flexify .grid-notes-update .note-header .blue .title,
+.content .blockify .flexify .grid-notes-update .note-header .cyan .title,
+.content .blockify .flexify .grid-notes-update .note-header .green .title,
+.content .blockify .flexify .grid-notes-update .note-header .yellow .title,
+.content .blockify .flexify .grid-notes-update .note-header .orange .title,
+.content .blockify .flexify .grid-notes-update .note-header .red .title {
     grid-area: title;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -541,7 +623,15 @@
 .content .blockify .flexify .grid-notes .note-header .green .title p,
 .content .blockify .flexify .grid-notes .note-header .yellow .title p,
 .content .blockify .flexify .grid-notes .note-header .orange .title p,
-.content .blockify .flexify .grid-notes .note-header .red .title p {
+.content .blockify .flexify .grid-notes .note-header .red .title p,
+.content .blockify .flexify .grid-notes-update .note-header .gray .title p,
+.content .blockify .flexify .grid-notes-update .note-header .purple .title p,
+.content .blockify .flexify .grid-notes-update .note-header .blue .title p,
+.content .blockify .flexify .grid-notes-update .note-header .cyan .title p,
+.content .blockify .flexify .grid-notes-update .note-header .green .title p,
+.content .blockify .flexify .grid-notes-update .note-header .yellow .title p,
+.content .blockify .flexify .grid-notes-update .note-header .orange .title p,
+.content .blockify .flexify .grid-notes-update .note-header .red .title p {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -555,7 +645,15 @@
 .content .blockify .flexify .grid-notes .note-header .green .edit,
 .content .blockify .flexify .grid-notes .note-header .yellow .edit,
 .content .blockify .flexify .grid-notes .note-header .orange .edit,
-.content .blockify .flexify .grid-notes .note-header .red .edit {
+.content .blockify .flexify .grid-notes .note-header .red .edit,
+.content .blockify .flexify .grid-notes-update .note-header .gray .edit,
+.content .blockify .flexify .grid-notes-update .note-header .purple .edit,
+.content .blockify .flexify .grid-notes-update .note-header .blue .edit,
+.content .blockify .flexify .grid-notes-update .note-header .cyan .edit,
+.content .blockify .flexify .grid-notes-update .note-header .green .edit,
+.content .blockify .flexify .grid-notes-update .note-header .yellow .edit,
+.content .blockify .flexify .grid-notes-update .note-header .orange .edit,
+.content .blockify .flexify .grid-notes-update .note-header .red .edit {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -566,67 +664,83 @@
     cursor: pointer;
 }
 
-.content .blockify .flexify .grid-notes .note-header .gray .edit {
+.content .blockify .flexify .grid-notes .note-header .gray .edit,
+.content .blockify .flexify .grid-notes-update .note-header .gray .edit {
     background-color: #a3a3a3;
 }
 
-.content .blockify .flexify .grid-notes .note-header .gray .edit:hover {
+.content .blockify .flexify .grid-notes .note-header .gray .edit:hover,
+.content .blockify .flexify .grid-notes-update .note-header .gray .edit:hover {
     background-color: #969696;
 }
 
-.content .blockify .flexify .grid-notes .note-header .purple .edit {
+.content .blockify .flexify .grid-notes .note-header .purple .edit,
+.content .blockify .flexify .grid-notes-update .note-header .purple .edit {
     background-color: #d28ae4;
 }
 
-.content .blockify .flexify .grid-notes .note-header .purple .edit:hover {
+.content .blockify .flexify .grid-notes .note-header .purple .edit:hover,
+.content .blockify .flexify .grid-notes-update .note-header .purple .edit:hover {
     background-color: #c37fd4;
 }
 
-.content .blockify .flexify .grid-notes .note-header .blue .edit {
+.content .blockify .flexify .grid-notes .note-header .blue .edit,
+.content .blockify .flexify .grid-notes-update .note-header .blue .edit {
     background-color: #8bc9eb;
 }
 
-.content .blockify .flexify .grid-notes .note-header .blue .edit:hover {
+.content .blockify .flexify .grid-notes .note-header .blue .edit:hover,
+.content .blockify .flexify .grid-notes-update .note-header .blue .edit:hover {
     background-color: #83bede;
 }
 
-.content .blockify .flexify .grid-notes .note-header .cyan .edit {
+.content .blockify .flexify .grid-notes .note-header .cyan .edit,
+.content .blockify .flexify .grid-notes-update .note-header .cyan .edit {
     background-color: #8dece1;
 }
 
-.content .blockify .flexify .grid-notes .note-header .cyan .edit:hover {
+.content .blockify .flexify .grid-notes .note-header .cyan .edit:hover,
+.content .blockify .flexify .grid-notes-update .note-header .cyan .edit:hover {
     background-color: #84ddd2;
 }
 
-.content .blockify .flexify .grid-notes .note-header .green .edit {
+.content .blockify .flexify .grid-notes .note-header .green .edit,
+.content .blockify .flexify .grid-notes-update .note-header .green .edit  {
     background-color: #8fec92;
 }
 
-.content .blockify .flexify .grid-notes .note-header .green .edit:hover {
+.content .blockify .flexify .grid-notes .note-header .green .edit:hover,
+.content .blockify .flexify .grid-notes-update .note-header .green .edit:hover {
     background-color: #85dc88;
 }
 
-.content .blockify .flexify .grid-notes .note-header .yellow .edit {
+.content .blockify .flexify .grid-notes .note-header .yellow .edit,
+.content .blockify .flexify .grid-notes-update .note-header .yellow .edit {
     background-color: #efd694;
 }
 
-.content .blockify .flexify .grid-notes .note-header .yellow .edit:hover {
+.content .blockify .flexify .grid-notes .note-header .yellow .edit:hover,
+.content .blockify .flexify .grid-notes-update .note-header .yellow .edit:hover {
     background-color: #e4cd8e;
 }
 
-.content .blockify .flexify .grid-notes .note-header .orange .edit {
+.content .blockify .flexify .grid-notes .note-header .orange .edit,
+.content .blockify .flexify .grid-notes-update .note-header .orange .edit {
     background-color: #ebb291;
 }
 
-.content .blockify .flexify .grid-notes .note-header .orange .edit:hover {
+.content .blockify .flexify .grid-notes .note-header .orange .edit:hover,
+.content .blockify .flexify .grid-notes-update .note-header .orange .edit:hover  {
     background-color: #d9a485;
 }
 
-.content .blockify .flexify .grid-notes .note-header .red .edit {
+.content .blockify .flexify .grid-notes .note-header .red .edit,
+.content .blockify .flexify .grid-notes-update .note-header .red .edit {
     background-color: #f79191;
 }
 
-.content .blockify .flexify .grid-notes .note-header .red .edit:hover {
+.content .blockify .flexify .grid-notes .note-header .red .edit:hover,
+.content .blockify .flexify .grid-notes-update .note-header .red .edit:hover {
     background-color: #e38484;
 }
 
@@ -637,12 +751,21 @@
 .content .blockify .flexify .grid-notes .note-header .green .edit img,
 .content .blockify .flexify .grid-notes .note-header .yellow .edit img,
 .content .blockify .flexify .grid-notes .note-header .orange .edit img,
-.content .blockify .flexify .grid-notes .note-header .red .edit img {
+.content .blockify .flexify .grid-notes .note-header .red .edit img,
+.content .blockify .flexify .grid-notes-update .note-header .gray .edit img,
+.content .blockify .flexify .grid-notes-update .note-header .purple .edit img,
+.content .blockify .flexify .grid-notes-update .note-header .blue .edit img,
+.content .blockify .flexify .grid-notes-update .note-header .cyan .edit img,
+.content .blockify .flexify .grid-notes-update .note-header .green .edit img,
+.content .blockify .flexify .grid-notes-update .note-header .yellow .edit img,
+.content .blockify .flexify .grid-notes-update .note-header .orange .edit img,
+.content .blockify .flexify .grid-notes-update .note-header .red .edit img  {
     width: 100%;
     height: 100%;
     filter: invert();
 }
-.content .blockify .flexify .grid-notes .note .note-content {
+.content .blockify .flexify .grid-notes .note .note-content,
+.content .blockify .flexify .grid-notes-update .note .note-content {
     grid-area: "note-content";
 }
 
@@ -653,56 +776,160 @@
 .content .blockify .flexify .grid-notes .note .note-content .green,
 .content .blockify .flexify .grid-notes .note .note-content .yellow,
 .content .blockify .flexify .grid-notes .note .note-content .orange,
-.content .blockify .flexify .grid-notes .note .note-content .red {
+.content .blockify .flexify .grid-notes .note .note-content .red,
+.content .blockify .flexify .grid-notes-update .note .note-content .gray,
+.content .blockify .flexify .grid-notes-update .note .note-content .purple,
+.content .blockify .flexify .grid-notes-update .note .note-content .blue,
+.content .blockify .flexify .grid-notes-update .note .note-content .cyan,
+.content .blockify .flexify .grid-notes-update .note .note-content .green,
+.content .blockify .flexify .grid-notes-update .note .note-content .yellow,
+.content .blockify .flexify .grid-notes-update .note .note-content .orange,
+.content .blockify .flexify .grid-notes-update .note .note-content .red {
     border-radius: 0 0 5px 5px;
 }
 
-.content .blockify .flexify .grid-notes .note .note-content .gray {
+.content .blockify .flexify .grid-notes .note .note-content .gray,
+.content .blockify .flexify .grid-notes-update .note .note-content .gray {
     background-color: #c3c3c3;
     padding: 12px;
     height: 100%;
 }
 
-.content .blockify .flexify .grid-notes .note .note-content .purple {
+.content .blockify .flexify .grid-notes .note .note-content .purple,
+.content .blockify .flexify .grid-notes-update .note .note-content .purple {
     background-color: #F1BBFF;
     padding: 12px;
     height: 100%;
 }
 
-.content .blockify .flexify .grid-notes .note .note-content .blue {
+.content .blockify .flexify .grid-notes .note .note-content .blue,
+.content .blockify .flexify .grid-notes-update .note .note-content .blue {
     background-color: #BBE6FF;
     padding: 12px;
     height: 100%;
 }
 
-.content .blockify .flexify .grid-notes .note .note-content .cyan {
+.content .blockify .flexify .grid-notes .note .note-content .cyan,
+.content .blockify .flexify .grid-notes-update .note .note-content .cyan {
     background-color: #BBFFFB;
     padding: 12px;
     height: 100%;
 }
 
-.content .blockify .flexify .grid-notes .note .note-content .green {
+.content .blockify .flexify .grid-notes .note .note-content .green,
+.content .blockify .flexify .grid-notes-update .note .note-content .green {
     background-color: #BBFFBD;
     padding: 12px;
     height: 100%;
 }
 
-.content .blockify .flexify .grid-notes .note .note-content .yellow {
+.content .blockify .flexify .grid-notes .note .note-content .yellow,
+.content .blockify .flexify .grid-notes-update .note .note-content .yellow {
     background-color: #FFF0BB;
     padding: 12px;
     height: 100%;
 }
 
-.content .blockify .flexify .grid-notes .note .note-content .orange {
+.content .blockify .flexify .grid-notes .note .note-content .orange,
+.content .blockify .flexify .grid-notes-update .note .note-content .orange {
     background-color: #FFD7BB;
     padding: 12px;
     height: 100%;
 }
 
-.content .blockify .flexify .grid-notes .note .note-content .red {
+.content .blockify .flexify .grid-notes .note .note-content .red,
+.content .blockify .flexify .grid-notes-update .note .note-content .red {
     background-color: #FFBBBB;
     padding: 12px;
     height: 100%;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-content .gray textarea {
+    background-color: #b8b8b8;
+    border: none;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-content .purple textarea {
+    background-color: #e6b0f4;
+    border: none;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-content .blue textarea {
+    background-color: #b1dcf5;
+    border: none;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-content .cyan textarea {
+    background-color: #b3f5f1;
+    border: none;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-content .green textarea {
+    background-color: #aff1b2;
+    border: none;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-content .yellow textarea {
+    background-color: #f1e4af;
+    border: none;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-content .orange textarea {
+    background-color: #f7cfb3;
+    border: none;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-content .red textarea {
+    background-color: #efadad;
+    border: none;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-content .gray select {
+    background-color: #b8b8b8;
+    border: none;
+    width: 100%;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-content .purple select {
+    background-color: #e6b0f4;
+    border: none;
+    width: 100%;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-content .blue select {
+    background-color: #b1dcf5;
+    border: none;
+    width: 100%;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-content .cyan select {
+    background-color: #b3f5f1;
+    border: none;
+    width: 100%;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-content .green select {
+    background-color: #aff1b2;
+    border: none;
+    width: 100%;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-content .yellow select {
+    background-color: #f1e4af;
+    border: none;
+    width: 100%;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-content .orange select {
+    background-color: #f7cfb3;
+    border: none;
+    width: 100%;
+}
+
+.content .blockify .flexify .grid-notes-update .note .note-content .red select {
+    background-color: #efadad;
+    border: none;
+    width: 100%;
 }
 
 .content .blockify .flexify .role-centrify {

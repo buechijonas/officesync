@@ -1,0 +1,96 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% if officesync.get_logo_url %}<link rel="icon" href="{{ officesync.get_logo_url }}" type="image/png">{% endif %}
+        <link rel="stylesheet" href="{% static 'css/global/global.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/sidebar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/pages/main_home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/components/profile.css' %}">
+        <title>{{ officesync.app }} - {% translate "Profil" %}</title>
+    </head>
+    <body>
+        {% include 'components/header/authentication.html' with title=officesync.app %}
+        <main>
+            {% include 'components/sidebar/sidebar.html' with page="personal" %}
+            {% include 'components/subsidebar/subsidebar_personal.html' with page="personal" %}
+            <div class="content">
+                <div class="blockify">
+                    {% include 'components/profile/profile.html' %}
+                    <div class="flexify">
+                        <div class="blockify">
+                            <div class="flexify">
+                                <div class="cardify">
+                                    <div class="title-container">
+                                        <h1 class="h1">{{ request.user.first_name }} {{ request.user.last_name }}</h1>
+                                        <div class="edit-container">
+                                            {% if has_update_vehicle_permission %}
+                                                <a class="button edit" href="{% url 'vehicle_update' vehicle.pk %}">
+                                                    <img src="{% static 'svgs/modify.svg' %}" alt="edit" />
+                                                </a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flexify">
+                                <div class="tabs-profile">
+                                    <a href="{% url 'profile' %}" class="public">{% translate 'Öffentlich' %}</a>
+                                    <a href="{% url 'personal' %}" class="personal current">{% translate 'Personalakte' %}</a>
+                                    <a href="{% url 'work' %}" class="work">{% translate 'Mitarbeiterakte' %}
+                                        {% if unconfirmed_salaries_count %}
+                                            <div class="count">
+                                                <p>{{ unconfirmed_salaries_count }}</p>
+                                            </div>
+                                        {% endif %}
+                                    </a>
+                                </div>
+                            </div>
+                            {% for adress in request.user.addresses.all %}
+                                <div class="flexify">
+                                    <div class="cardify">
+                                        <div class="permissions">
+                                            <h2>{% translate 'Adresse' %}</h2>
+                                            <p class="datafy">{% translate 'Land' %}: {{ adress.country }}</p>
+                                            {% if adress.country == "Schweiz" %}
+                                                <p class="datafy">{% translate 'Kanton' %}: {{ adress.federal_state }}</p>
+                                            {% else %}
+                                                <p class="datafy">{% translate 'Bundesland' %}: {{ adress.federal_state }}</p>
+                                            {% endif %}
+                                            <p class="datafy">{% translate 'Ort' %}: {{ adress.location }}</p>
+                                            <p class="datafy">{% translate 'Strasse' %}: {{ adress.street }}</p>
+                                            <p class="datafy">{% translate 'Hausnummer' %}: {{ adress.housenumber }}</p>
+                                            <p class="datafy">{% translate 'Von' %}: {{ adress.format_from_date }}</p>
+                                            {% if adress.to_date %}
+                                                <p class="datafy">{% translate 'Bis' %}: {{ adress.format_to_date }}</p>
+                                            {% else %}
+                                                <p class="datafy">{% translate 'Bis' %}: {% translate 'Jetzt' %}</p>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% empty %}
+                                <div class="flexify">
+                                    <div class="access-denied">
+                                        <img src="{% static 'svgs/undraw_no_data.svg' %}" alt="access-denide" />
+                                    </div>
+                                </div>
+                                <div class="flexify">
+                                    <div class="">
+                                        <p class="access-denied">{% translate "Keine Daten vorhanden" %}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>

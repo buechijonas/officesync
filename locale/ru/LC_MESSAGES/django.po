@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-23 23:58+0000\n"
+"POT-Creation-Date: 2024-02-12 05:45+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,51 +20,51 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: administration/models.py:38 disposition/models.py:55
-#: disposition/templates/pages/vehicles/vehicle.html:225
+#: administration/models.py:38 disposition/models.py:61
+#: disposition/templates/pages/vehicles/vehicle.html:227
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 #: administration/models.py:43
 msgid "Color"
-msgstr ""
+msgstr "Цвет"
 
 #: administration/templates/components/subsidebar/subsidebar_administration.html:13
 #: administration/templates/components/subsidebar/subsidebar_administration.html:24
 #: administration/templates/pages/system.html:17
 msgid "Konfiguration"
-msgstr ""
+msgstr "Конфигурация"
 
 #: administration/templates/components/subsidebar/subsidebar_administration.html:36
 #: administration/templates/components/subsidebar/subsidebar_administration.html:47
 #: administration/templates/pages/roles/index.html:17
 #: administration/templates/pages/roles/index.html:32
 msgid "Rollen"
-msgstr ""
+msgstr "Роли"
 
 #: administration/templates/components/subsidebar/subsidebar_administration.html:60
 #: administration/templates/components/subsidebar/subsidebar_administration.html:75
 msgid "Benutzer*innenliste"
-msgstr ""
+msgstr "Список пользователей"
 
 #: administration/templates/components/subsidebar/subsidebar_administration.html:62
 #: administration/templates/components/subsidebar/subsidebar_administration.html:77
 #: administration/templates/pages/users/index.html:17
 #: administration/templates/pages/users/index.html:32
 msgid "Benutzerliste"
-msgstr ""
+msgstr "Список пользователей"
 
 #: administration/templates/components/subsidebar/subsidebar_administration.html:90
 #: administration/templates/components/subsidebar/subsidebar_administration.html:101
 #: administration/templates/pages/logs.html:17
 #: administration/templates/pages/logs.html:32
 msgid "Protokolle"
-msgstr ""
+msgstr "Журналы"
 
 #: administration/templates/components/subsidebar/subsidebar_administration.html:113
 #: administration/templates/components/subsidebar/subsidebar_administration.html:124
 msgid "Signatur"
-msgstr ""
+msgstr "Подпись"
 
 #: administration/templates/pages/roles/delete_role.html:17
 #: administration/templates/pages/roles/delete_role.html:20
@@ -73,291 +73,383 @@ msgstr ""
 #: disposition/templates/pages/vehicles/delete.html:17
 #: disposition/templates/pages/vehicles/delete.html:20
 msgid "Warning"
-msgstr ""
+msgstr "Предупреждение"
 
 #: administration/templates/pages/roles/delete_role.html:42
 #: disposition/templates/pages/stations/delete.html:42
 #: disposition/templates/pages/vehicles/delete.html:42
 msgid "Bist du sicher?"
-msgstr ""
+msgstr "Ты уверен?"
 
 #: administration/templates/pages/roles/delete_role.html:48
-#: administration/templates/pages/roles/form_management_permission.html:114
-#: administration/templates/pages/roles/form_role.html:47
+#: administration/templates/pages/roles/form_management_permission.html:116
+#: administration/templates/pages/roles/form_role.html:49
 #: administration/templates/pages/roles/form_role_user.html:73
 #: authentication/templates/pages/laws/copyright.html:77
 #: authentication/templates/pages/laws/privacy.html:76
 #: authentication/templates/pages/laws/terms.html:76
+#: authentication/templates/pages/settings/account.html:46
 #: communication/templates/pages/announcements/create.html:42
 #: communication/templates/pages/inbox/create.html:45
 #: disposition/templates/pages/stations/delete.html:48
+#: disposition/templates/pages/stations/form.html:56
+#: disposition/templates/pages/stations/form.html:60
 #: disposition/templates/pages/vehicles/delete.html:48
-#: disposition/templates/pages/vehicles/form.html:54
-#: disposition/templates/pages/vehicles/form.html:58
+#: disposition/templates/pages/vehicles/form.html:56
+#: disposition/templates/pages/vehicles/form.html:60
+#: personal/templates/pages/profile/profile_form.html:114
 msgid "Abbrechen"
-msgstr ""
+msgstr "Отмена"
 
 #: administration/templates/pages/roles/delete_role.html:49
 #: disposition/templates/pages/stations/delete.html:49
 #: disposition/templates/pages/vehicles/delete.html:49
 msgid "Löschen"
-msgstr ""
+msgstr "Удалить"
 
 #: administration/templates/pages/roles/form_index.html:28
 msgid "Rolle erstellen"
-msgstr ""
+msgstr "Создать роль"
 
 #: administration/templates/pages/roles/form_index.html:34
-#: administration/templates/pages/roles/form_management_permission.html:115
-#: administration/templates/pages/roles/form_role.html:49
+#: administration/templates/pages/roles/form_management_permission.html:117
+#: administration/templates/pages/roles/form_role.html:51
 #: administration/templates/pages/roles/form_role_user.html:74
-#: disposition/templates/pages/vehicles/form.html:55
+#: authentication/templates/pages/settings/account.html:48
+#: disposition/templates/pages/stations/form.html:57
+#: disposition/templates/pages/vehicles/form.html:57
+#: personal/templates/pages/notes/update.html:60
+#: personal/templates/pages/notes/update.html:80
+#: personal/templates/pages/notes/update.html:100
+#: personal/templates/pages/notes/update.html:120
+#: personal/templates/pages/notes/update.html:140
+#: personal/templates/pages/notes/update.html:160
+#: personal/templates/pages/notes/update.html:180
+#: personal/templates/pages/notes/update.html:200
+#: personal/templates/pages/profile/profile_form.html:116
 msgid "Speichern"
-msgstr ""
+msgstr "Сохранить"
 
 #: administration/templates/pages/roles/form_index.html:36
-#: administration/templates/pages/roles/form_role.html:51
-#: disposition/templates/pages/vehicles/form.html:59
+#: administration/templates/pages/roles/form_role.html:53
+#: disposition/templates/pages/stations/form.html:61
+#: disposition/templates/pages/vehicles/form.html:61
+#: personal/templates/pages/profile/profile_form.html:118
 msgid "Hinzufügen"
-msgstr ""
+msgstr "Добавить"
 
 #: administration/templates/pages/roles/form_index.html:40
-#: administration/templates/pages/roles/form_role.html:56
-#: disposition/templates/pages/vehicles/form.html:64
+#: administration/templates/pages/roles/form_role.html:58
+#: authentication/templates/pages/authentication/access.html:34
+#: authentication/templates/pages/settings/account.html:53
+#: disposition/templates/pages/vehicles/form.html:66
+#: personal/templates/pages/profile/profile_form.html:123
 msgid "Zugriff verweigert"
-msgstr ""
+msgstr "Доступ запрещен"
 
-#: administration/templates/pages/roles/form_management_permission.html:42
+#: administration/templates/pages/roles/form_management_permission.html:44
 #: administration/templates/pages/roles/form_role_user.html:44
-#: administration/templates/pages/roles/role.html:44
-#: administration/templates/pages/roles/role_manage.html:42
+#: administration/templates/pages/roles/role.html:46
+#: administration/templates/pages/roles/role_manage.html:44
 msgid "Detail"
-msgstr ""
+msgstr "Детали"
 
-#: administration/templates/pages/roles/form_management_permission.html:45
+#: administration/templates/pages/roles/form_management_permission.html:47
 #: administration/templates/pages/roles/form_role_user.html:47
-#: administration/templates/pages/roles/role.html:47
-#: administration/templates/pages/roles/role_manage.html:45
+#: administration/templates/pages/roles/role.html:49
+#: administration/templates/pages/roles/role_manage.html:47
 msgid "Verwalten"
-msgstr ""
+msgstr "Управление"
 
-#: administration/templates/pages/roles/form_management_permission.html:53
-#: administration/templates/pages/roles/role_manage.html:58
+#: administration/templates/pages/roles/form_management_permission.html:55
+#: administration/templates/pages/roles/role_manage.html:62
 #: authentication/templates/components/sidebar/sidebar.html:42
 #: authentication/templates/components/sidebar/sidebar.html:53
 #: authentication/templates/pages/root/home.html:33
 msgid "Administration"
-msgstr ""
-
-#: administration/templates/pages/roles/form_management_permission.html:55
-#: administration/templates/pages/roles/form_management_permission.html:75
-#: administration/templates/pages/roles/form_management_permission.html:95
-#: administration/templates/pages/roles/role_manage.html:60
-#: administration/templates/pages/roles/role_manage.html:83
-#: administration/templates/pages/roles/role_manage.html:106
-msgid "Wert"
-msgstr ""
-
-#: administration/templates/pages/roles/form_management_permission.html:56
-#: administration/templates/pages/roles/form_management_permission.html:76
-#: administration/templates/pages/roles/form_management_permission.html:96
-#: administration/templates/pages/roles/role_manage.html:61
-#: administration/templates/pages/roles/role_manage.html:84
-#: administration/templates/pages/roles/role_manage.html:107
-msgid "Beschreibung"
-msgstr ""
+msgstr "Администрирование"
 
 #: administration/templates/pages/roles/form_management_permission.html:57
 #: administration/templates/pages/roles/form_management_permission.html:77
 #: administration/templates/pages/roles/form_management_permission.html:97
-#: administration/templates/pages/roles/role_manage.html:62
-#: administration/templates/pages/roles/role_manage.html:85
-#: administration/templates/pages/roles/role_manage.html:108
-msgid "Status"
-msgstr ""
+#: administration/templates/pages/roles/role_manage.html:64
+#: administration/templates/pages/roles/role_manage.html:87
+#: administration/templates/pages/roles/role_manage.html:110
+msgid "Wert"
+msgstr "Значение"
 
-#: administration/templates/pages/roles/form_management_permission.html:73
-#: administration/templates/pages/roles/role_manage.html:81
+#: administration/templates/pages/roles/form_management_permission.html:58
+#: administration/templates/pages/roles/form_management_permission.html:78
+#: administration/templates/pages/roles/form_management_permission.html:98
+#: administration/templates/pages/roles/role_manage.html:65
+#: administration/templates/pages/roles/role_manage.html:88
+#: administration/templates/pages/roles/role_manage.html:111
+msgid "Beschreibung"
+msgstr "Описание"
+
+#: administration/templates/pages/roles/form_management_permission.html:59
+#: administration/templates/pages/roles/form_management_permission.html:79
+#: administration/templates/pages/roles/form_management_permission.html:99
+#: administration/templates/pages/roles/role_manage.html:66
+#: administration/templates/pages/roles/role_manage.html:89
+#: administration/templates/pages/roles/role_manage.html:112
+#: personal/templates/pages/profile/work/absence.html:80
+#: personal/templates/pages/profile/work/absence.html:82
+msgid "Status"
+msgstr "Статус"
+
+#: administration/templates/pages/roles/form_management_permission.html:75
+#: administration/templates/pages/roles/role_manage.html:85
 #: authentication/templates/components/sidebar/sidebar.html:139
 #: authentication/templates/components/sidebar/sidebar.html:150
 #: authentication/templates/pages/root/home.html:65
 msgid "Disposition"
-msgstr ""
+msgstr "Диспозиция"
 
-#: administration/templates/pages/roles/form_management_permission.html:93
-#: administration/templates/pages/roles/role_manage.html:104
+#: administration/templates/pages/roles/form_management_permission.html:95
+#: administration/templates/pages/roles/role_manage.html:108
 #: authentication/templates/components/sidebar/sidebar.html:126
 #: authentication/templates/pages/root/home.html:57
 msgid "Verwaltung"
-msgstr ""
+msgstr "Управление"
 
-#: administration/templates/pages/system.html:43 communication/models.py:25
+#: administration/templates/pages/system.html:45 communication/models.py:25
 msgid "Logo"
-msgstr ""
+msgstr "Логотип"
 
 #: administration/templates/pages/users/index.html:41
 #: communication/templates/pages/inbox/select.html:43
 msgid "Benutzer suchen..."
-msgstr ""
+msgstr "Поиск пользователей..."
 
 #: administration/templates/pages/users/index.html:43
 msgid "Alle Rollen"
-msgstr ""
+msgstr "Все роли"
 
 #: administration/templates/pages/users/index.html:48
 #: communication/templates/pages/inbox/select.html:46
 msgid "Zurücksetzen"
-msgstr ""
+msgstr "Сброс"
 
 #: administration/templates/pages/users/index.html:51
 #: communication/templates/pages/inbox/select.html:49
 msgid "Suchen"
-msgstr ""
+msgstr "Поиск"
 
-#: authentication/models.py:62
+#: authentication/models.py:36
+msgid "-"
+msgstr "-"
+
+#: authentication/models.py:37
+msgid "Vogel"
+msgstr "Птица"
+
+#: authentication/models.py:38
+msgid "Schmetterling"
+msgstr "Бабочка"
+
+#: authentication/models.py:39
+msgid "Katze"
+msgstr "Кошка"
+
+#: authentication/models.py:40
+msgid "Hund"
+msgstr "Собака"
+
+#: authentication/models.py:41
+msgid "Ente"
+msgstr "Утка"
+
+#: authentication/models.py:42
+msgid "Qualle"
+msgstr "Медуза"
+
+#: authentication/models.py:43
+msgid "Eule"
+msgstr "Сова"
+
+#: authentication/models.py:44
+msgid "Panda"
+msgstr "Панда"
+
+#: authentication/models.py:45
+msgid "Pinguin"
+msgstr "Пингвин"
+
+#: authentication/models.py:46
+msgid "Schwein"
+msgstr "Свинья"
+
+#: authentication/models.py:47
+msgid "Hase"
+msgstr "Заяц"
+
+#: authentication/models.py:48
+msgid "Schaf"
+msgstr "Овца"
+
+#: authentication/models.py:49
+msgid "Schnecke"
+msgstr "Улитка"
+
+#: authentication/models.py:50
+msgid "Schlange"
+msgstr "Змея"
+
+#: authentication/models.py:51
+msgid "Truthan"
+msgstr "Индейка "
+
+#: authentication/models.py:52
+msgid "Schildkröte"
+msgstr "Черепаха    "
+
+#: authentication/models.py:335
 msgid "Hell"
-msgstr ""
+msgstr "Светлая"
 
-#: authentication/models.py:63
+#: authentication/models.py:336
 msgid "Dunkel"
-msgstr ""
+msgstr "Темная"
 
-#: authentication/models.py:64
+#: authentication/models.py:337
 msgid "Kontrast"
-msgstr ""
+msgstr "Контрастная"
 
-#: authentication/models.py:78
+#: authentication/models.py:351
 msgid "Falschinformationen"
-msgstr ""
+msgstr "Ложная информация"
 
-#: authentication/models.py:79
+#: authentication/models.py:352
 msgid "Missbrauch von Privilegien"
-msgstr ""
+msgstr "Злоупотребление привилегиями"
 
-#: authentication/models.py:80
+#: authentication/models.py:353
 msgid "Belästigung"
-msgstr ""
+msgstr "Домогательство"
 
-#: authentication/models.py:81
+#: authentication/models.py:354
 msgid "Cybermobbing"
-msgstr ""
+msgstr "Кибербуллинг"
 
-#: authentication/models.py:82
+#: authentication/models.py:355
 msgid "Cybergrooming"
-msgstr ""
+msgstr "Кибергруминг"
 
-#: authentication/models.py:83
+#: authentication/models.py:356
 msgid "Whataboutismus"
-msgstr ""
+msgstr "Вотэбаутизм"
 
-#: authentication/models.py:84
+#: authentication/models.py:357
 msgid "Relativierung"
-msgstr ""
+msgstr "Релятивизация"
 
-#: authentication/models.py:85
+#: authentication/models.py:358
 msgid "Erpressung"
-msgstr ""
+msgstr "Шантаж"
 
-#: authentication/models.py:86
+#: authentication/models.py:359
 msgid "Drohung"
-msgstr ""
+msgstr "Угроза"
 
-#: authentication/models.py:87
+#: authentication/models.py:360
 msgid "Wortwahl"
-msgstr ""
+msgstr "Выбор слов"
 
-#: authentication/models.py:88
+#: authentication/models.py:361
 msgid "Hassrede"
-msgstr ""
+msgstr "Речь ненависти"
 
-#: authentication/models.py:89
+#: authentication/models.py:362
 msgid "Beleidigung"
-msgstr ""
+msgstr "Оскорбление"
 
-#: authentication/models.py:90
+#: authentication/models.py:363
 msgid "Diskriminierung"
-msgstr ""
+msgstr "Дискриминация"
 
-#: authentication/models.py:91
+#: authentication/models.py:364
 msgid "Sexismus"
-msgstr ""
+msgstr "Сексизм"
 
-#: authentication/models.py:92
+#: authentication/models.py:365
 msgid "Rassismus"
-msgstr ""
+msgstr "Расизм"
 
-#: authentication/models.py:93
+#: authentication/models.py:366
 msgid "Faschismus"
-msgstr ""
+msgstr "Фашизм"
 
-#: authentication/models.py:94
+#: authentication/models.py:367
 msgid "Antisemitismus"
-msgstr ""
+msgstr "Антисемитизм"
 
-#: authentication/models.py:95
+#: authentication/models.py:368
 msgid "Islamophobie"
-msgstr ""
+msgstr "Исламофобия"
 
-#: authentication/models.py:96
+#: authentication/models.py:369
 msgid "Homophobie"
-msgstr ""
+msgstr "Гомофобия"
 
-#: authentication/models.py:97
+#: authentication/models.py:370
 msgid "Betrug"
-msgstr ""
+msgstr "Мошенничество"
 
-#: authentication/models.py:98
+#: authentication/models.py:371
 msgid "Spam"
-msgstr ""
+msgstr "Спам"
 
 #: authentication/templates/components/sidebar/sidebar.html:17
 #: authentication/templates/components/sidebar/sidebar.html:28
 msgid "Startseite"
-msgstr ""
+msgstr "Главная страница"
 
 #: authentication/templates/components/sidebar/sidebar.html:67
 #: authentication/templates/components/sidebar/sidebar.html:78
 #: authentication/templates/pages/root/home.html:41
 msgid "Persönlich"
-msgstr ""
+msgstr "Личное"
 
 #: authentication/templates/components/sidebar/sidebar.html:92
 #: authentication/templates/components/sidebar/sidebar.html:108
 #: authentication/templates/pages/root/home.html:49
+#: personal/templates/pages/profile/work/performance.html:99
+#: personal/templates/pages/profile/work/performance.html:101
 msgid "Kommunikation"
-msgstr ""
+msgstr "Коммуникация"
 
 #: authentication/templates/components/sidebar/sidebar.html:163
 #: authentication/templates/pages/root/home.html:73
 msgid "Cloud"
-msgstr ""
+msgstr "Облако"
 
 #: authentication/templates/components/sidebar/sidebar.html:174
 msgid "Impressum"
-msgstr ""
+msgstr "Импрессум"
 
 #: authentication/templates/components/sidebar/sidebar.html:185
 #: authentication/templates/components/sidebar/sidebar.html:196
 #: authentication/templates/pages/laws/privacy.html:14
 msgid "Datenschutzerklärung"
-msgstr ""
+msgstr "Политика конфиденциальности"
 
 #: authentication/templates/components/sidebar/sidebar.html:208
 #: authentication/templates/components/sidebar/sidebar.html:219
 #: authentication/templates/pages/laws/terms.html:14
 msgid "Nutzungsbedingungen"
-msgstr ""
+msgstr "Условия использования"
 
 #: authentication/templates/components/sidebar/sidebar.html:231
 #: authentication/templates/components/sidebar/sidebar.html:242
 #: authentication/templates/pages/laws/copyright.html:15
 #: authentication/templates/pages/laws/copyright.html:27
 msgid "Urheberrecht"
-msgstr ""
+msgstr "Авторское право"
 
 #: authentication/templates/components/sidebar/sidebar.html:249
 msgid "Abmelden"
-msgstr ""
+msgstr "Выйти"
 
 #: authentication/templates/components/sidebar/sidebar.html:254
 #: authentication/templates/pages/authentication/login.html:17
@@ -365,35 +457,56 @@ msgstr ""
 #: authentication/templates/pages/authentication/login.html:38
 #: authentication/templates/pages/authentication/signup.html:41
 msgid "Anmelden"
-msgstr ""
+msgstr "Войти"
 
 #: authentication/templates/components/sidebar/sidebar.html:259
 #: communication/models.py:15
 msgid "OfficeSync"
-msgstr ""
+msgstr "OfficeSync"
+
+#: authentication/templates/components/subsidebar/subsidebar_settings.html:13
+#: authentication/templates/components/subsidebar/subsidebar_settings.html:24
+#: authentication/templates/pages/settings/account.html:30
+msgid "Konto"
+msgstr "Аккаунт"
+
+#: authentication/templates/components/subsidebar/subsidebar_settings.html:36
+#: authentication/templates/components/subsidebar/subsidebar_settings.html:47
+msgid "Oberfläche"
+msgstr "Интерфейс"
+
+#: authentication/templates/components/subsidebar/subsidebar_settings.html:59
+#: authentication/templates/components/subsidebar/subsidebar_settings.html:70
+msgid "Verknüpfungen"
+msgstr "Ссылки"
 
 #: authentication/templates/pages/authentication/login.html:31
 msgid "Willkommen"
-msgstr ""
+msgstr "Добро пожаловать"
 
 #: authentication/templates/pages/authentication/login.html:41
 msgid "Kein Konto?"
-msgstr ""
+msgstr "Нет аккаунта?"
 
 #: authentication/templates/pages/authentication/login.html:41
 #: authentication/templates/pages/authentication/signup.html:17
 #: authentication/templates/pages/authentication/signup.html:20
 #: authentication/templates/pages/authentication/signup.html:38
 msgid "Registrieren"
-msgstr ""
+msgstr "Регистрация"
+
+#: authentication/templates/pages/authentication/maintenance.html:33
+#: disposition/models.py:117
+msgid "Wartungsarbeiten"
+msgstr "Техническое обслуживание"
 
 #: authentication/templates/pages/authentication/signup.html:31
 msgid "Konto eröffnen"
-msgstr ""
+msgstr "Открыть аккаунт"
 
 #: authentication/templates/pages/authentication/signup.html:41
 msgid "Bereits Konto?"
-msgstr ""
+msgstr "Уже есть аккаунт?"
 
 #: authentication/templates/pages/laws/copyright.html:35
 msgid ""
@@ -404,16 +517,24 @@ msgid ""
 "diesen Bestimmungen nicht zustimmen, dürfen Sie \"OfficeSync\" nicht "
 "verwenden."
 msgstr ""
+"Эти условия авторского права регулируют использование веб-приложения с "
+"открытым исходным кодом \"OfficeSync\", разработанного компанией Kiidle по "
+"заказу фирмы \"Ruch Transporte GmbH\". Используя \"OfficeSync\", вы явно "
+"соглашаетесь с этими условиями. Если вы не согласны с этими условиями, вы не "
+"должны использовать \"OfficeSync\"."
 
 #: authentication/templates/pages/laws/copyright.html:37
 msgid "1. Nutzung und Veränderung"
-msgstr ""
+msgstr "1. Использование и изменение"
 
 #: authentication/templates/pages/laws/copyright.html:39
 msgid ""
 "1.1 \"OfficeSync\" ist als Open-Source-Software verfügbar und kann von "
 "Dritten verwendet und auf eigenen Servern deployt werden."
 msgstr ""
+"1. 1 \"OfficeSync\" доступен как программное обеспечение с открытым исходным "
+"кодом и может использоваться третьими лицами и развёртываться на собственных "
+"серверах."
 
 #: authentication/templates/pages/laws/copyright.html:42
 msgid ""
@@ -421,22 +542,28 @@ msgid ""
 "Funktionalitäten oder das Design der Plattform zu verändern, zu ergänzen "
 "oder zu manipulieren."
 msgstr ""
+"1.2 Вы можете использовать \"OfficeSync\" но не имеете права изменять, "
+"дополнять или манипулировать кодом, функциональностью или дизайном платформы."
 
 #: authentication/templates/pages/laws/copyright.html:45
 msgid ""
 "1.3 Insbesondere ist es Ihnen untersagt, das Logo von \"Kiidle\" im "
 "\"OfficeSync\" zu entfernen oder anderweitig zu manipulieren."
 msgstr ""
+"1.3 В частности, вам запрещается удалять или как-либо манипулировать "
+"логотипом \"Kiidle\" в \"OfficeSync\"."
 
 #: authentication/templates/pages/laws/copyright.html:47
 msgid "2. Einschränkungen und Konsequenzen"
-msgstr ""
+msgstr "2. Ограничения и последствия"
 
 #: authentication/templates/pages/laws/copyright.html:49
 msgid ""
 "2.1 Die Verwendung von veränderten, ergänzten oder manipulierten Kopien von "
 "\"OfficeSync\" ohne ausdrückliche Genehmigung ist strikt untersagt."
 msgstr ""
+"2.1 Использование измененных, дополненных или манипулированных копий "
+"\"OfficeSync\" без явного разрешения строго запрещено."
 
 #: authentication/templates/pages/laws/copyright.html:52
 msgid ""
@@ -444,16 +571,21 @@ msgid ""
 "manipulierte Kopien von \"OfficeSync\" verwenden, unterliegen denselben "
 "rechtlichen Konsequenzen wie diejenigen, die \"OfficeSync\" verändert haben."
 msgstr ""
+"2.2 Клиенты или третьи лица, использующие незаконные копии, измененные "
+"версии или манипулированные копии \"OfficeSync\", подлежат тем же "
+"юридическим последствиям, что и те, кто изменял \"OfficeSync\"."
 
 #: authentication/templates/pages/laws/copyright.html:54
 msgid "3. Schutz des Urheberrechts"
-msgstr ""
+msgstr "3. Защита авторских прав"
 
 #: authentication/templates/pages/laws/copyright.html:56
 msgid ""
 "3.1 \"OfficeSync\" und alle damit verbundenen geistigen Eigentumsrechte, "
 "einschließlich Urheberrechte, gehören der Organisation Kiidle."
 msgstr ""
+"3.1 \"OfficeSync\" и все связанные с ним интеллектуальные права, включая "
+"авторские права, принадлежат организации Kiidle."
 
 #: authentication/templates/pages/laws/copyright.html:59
 msgid ""
@@ -461,11 +593,13 @@ msgid ""
 "ausdrückliche Genehmigung von Kiidle stellt eine Verletzung des "
 "Urheberrechts dar."
 msgstr ""
+"3.2 Любое использование, применение или изменение \"OfficeSync\" без явного "
+"разрешения от Kiidle является нарушением авторских прав."
 
 #: authentication/templates/pages/laws/copyright.html:61
 #: authentication/templates/pages/laws/terms.html:57
 msgid "4. Haftungsausschluss"
-msgstr ""
+msgstr "4. Отказ от ответственности"
 
 #: authentication/templates/pages/laws/copyright.html:63
 msgid ""
@@ -473,10 +607,13 @@ msgid ""
 "Bereitstellung oder Bereitstellung veränderter Versionen von \"OfficeSync\" "
 "entstehen."
 msgstr ""
+"4.1 Kiidle не несет ответственности за ущерб, возникший в результате "
+"использования, предоставления или распространения измененных версий "
+"\"OfficeSync\"."
 
 #: authentication/templates/pages/laws/copyright.html:65
 msgid "5. Änderungen der Bestimmungen"
-msgstr ""
+msgstr "5. Изменения условий"
 
 #: authentication/templates/pages/laws/copyright.html:67
 msgid ""
@@ -484,6 +621,8 @@ msgid ""
 "oder zu aktualisieren. Die aktualisierten Bestimmungen treten mit ihrer "
 "Veröffentlichung in Kraft."
 msgstr ""
+"5.1 Kiidle оставляет за собой право в любое время изменять или обновлять эти "
+"положения. Обновленные положения вступают в силу с момента их публикации."
 
 #: authentication/templates/pages/laws/copyright.html:70
 msgid ""
@@ -492,16 +631,21 @@ msgid ""
 "erklären. Diese Bestimmungen bilden die gesamte Vereinbarung zwischen Ihnen "
 "und [Ihr Unternehmen/Name] in Bezug auf die Verwendung von \"OfficeSync\"."
 msgstr ""
+"Используя \"OfficeSync\", вы соглашаетесь с тем, что прочитали и поняли эти "
+"условия и соглашаетесь с ними. Эти условия составляют полное соглашение "
+"между вами и Kiidle в отношении использования \"OfficeSync\"."
 
 #: authentication/templates/pages/laws/copyright.html:78
 #: authentication/templates/pages/laws/privacy.html:77
 #: authentication/templates/pages/laws/terms.html:77
 msgid "Zustimmen"
-msgstr ""
+msgstr "Согласен"
 
 #: authentication/templates/pages/laws/privacy.html:26
 msgid "Datenschutzerklärung gemäß Europäischer Union (EU) & der Schweiz"
 msgstr ""
+"Политика конфиденциальности в соответствии с законодательством Европейского "
+"Союза (ЕС) и Швейцарии"
 
 #: authentication/templates/pages/laws/privacy.html:34
 msgid ""
@@ -511,10 +655,14 @@ msgid ""
 "mit der Nutzung der OfficeSync-Plattform gesammelt, verarbeitet und "
 "geschützt werden."
 msgstr ""
+"Мы придаем большое значение защите ваших личных данных и соблюдению "
+"нормативов о защите данных Европейского Союза. Настоящая политика "
+"конфиденциальности объясняет, как ваши персональные данные собираются, "
+"обрабатываются и защищаются в связи с использованием платформы OfficeSync."
 
 #: authentication/templates/pages/laws/privacy.html:36
 msgid "Datenerhebung und -verarbeitung"
-msgstr ""
+msgstr "Сбор и обработка данных"
 
 #: authentication/templates/pages/laws/privacy.html:38
 msgid ""
@@ -522,6 +670,8 @@ msgid ""
 "Kontaktdaten und berufliche Informationen, werden ausschließlich für interne "
 "Zwecke verwendet."
 msgstr ""
+"- Предоставленные вами данные, включая имя, фамилию, контактные данные и "
+"профессиональную информацию, используются исключительно во внутренних целях."
 
 #: authentication/templates/pages/laws/privacy.html:41
 #: authentication/templates/pages/laws/privacy.html:44
@@ -530,26 +680,33 @@ msgid ""
 "Ferien- und Arbeitszeitinformationen, werden zur effizienten Abwicklung "
 "Ihrer Arbeitsabläufe erfasst und verarbeitet."
 msgstr ""
+"- Данные, необходимые для функционирования платформы, такие как информация о "
+"отпусках и рабочем времени, собираются и обрабатываются для эффективной "
+"организации ваших рабочих процессов."
 
 #: authentication/templates/pages/laws/privacy.html:46
 msgid "Datensicherheit"
-msgstr ""
+msgstr "Безопасность данных"
 
 #: authentication/templates/pages/laws/privacy.html:48
 msgid ""
 "- Wir setzen angemessene technische und organisatorische Maßnahmen ein, um "
 "Ihre Daten vor unbefugtem Zugriff, Verlust oder Missbrauch zu schützen."
 msgstr ""
+"- Мы применяем соответствующие технические и организационные меры для защиты"
 
 #: authentication/templates/pages/laws/privacy.html:51
 msgid ""
 "- Zugriff auf Ihre persönlichen Daten erhalten nur berechtigte Mitarbeiter, "
 "die diese Informationen zur Erfüllung ihrer beruflichen Aufgaben benötigen."
 msgstr ""
+"- Доступ к вашим личным данным имеют только уполномоченные сотрудники, "
+"которым эта информация необходима для выполнения их профессиональных "
+"обязанностей."
 
 #: authentication/templates/pages/laws/privacy.html:53
 msgid "Datenweitergabe"
-msgstr ""
+msgstr "Передача данных"
 
 #: authentication/templates/pages/laws/privacy.html:55
 msgid ""
@@ -557,10 +714,13 @@ msgid ""
 "Dritte weitergegeben, es sei denn, dies ist gesetzlich vorgeschrieben oder "
 "für die Ausführung bestimmter Funktionen der Plattform erforderlich."
 msgstr ""
+"- Ваши личные данные не будут переданы третьим лицам без вашего явного "
+"согласия, за исключением случаев, предусмотренных законом или необходимых "
+"для выполнения определенных функций платформы."
 
 #: authentication/templates/pages/laws/privacy.html:57
 msgid "Datenlöschung"
-msgstr ""
+msgstr "Удаление данных"
 
 #: authentication/templates/pages/laws/privacy.html:59
 msgid ""
@@ -568,6 +728,9 @@ msgid ""
 "werden sämtliche personalisierten persönlichen Daten nach einer "
 "Aufbewahrungsfrist von 10 Jahren unwiderruflich gelöscht."
 msgstr ""
+"- После прекращения вашего счета и завершения работы в компании все "
+"персонализированные личные данные будут безвозвратно удалены по истечении 10-"
+"летнего срока хранения."
 
 #: authentication/templates/pages/laws/privacy.html:62
 msgid ""
@@ -575,26 +738,33 @@ msgid ""
 "und Ferientage werden aus Gründen der Compliance und auf Anfrage von "
 "Behörden aufbewahrt."
 msgstr ""
+"- Некоторые необходимые данные, такие как имя, фамилия, количество рабочих "
+"часов и дней отпуска, сохраняются по причинам соответствия нормативным "
+"требованиям и по запросу властных органов."
 
 #: authentication/templates/pages/laws/privacy.html:64
 msgid "Ihre Rechte"
-msgstr ""
+msgstr "Ваши права"
 
 #: authentication/templates/pages/laws/privacy.html:66
 msgid ""
 "- Sie haben das Recht, auf Ihre persönlichen Daten zuzugreifen, sie zu "
 "korrigieren oder zu löschen."
 msgstr ""
+"- У вас есть право получать доступ к вашим личным данным, корректировать или "
+"удалять их."
 
 #: authentication/templates/pages/laws/privacy.html:69
 msgid ""
 "- Sie können der Verarbeitung Ihrer Daten widersprechen oder die "
 "Einschränkung der Verarbeitung beantragen."
 msgstr ""
+"- Вы можете возражать против обработки ваших данных или запросить "
+"ограничение их обработки."
 
 #: authentication/templates/pages/laws/terms.html:26
 msgid "Nutzungsbedingungen von OfficeSync auf eigenen Servern"
-msgstr ""
+msgstr "Условия использования OfficeSync на собственных серверах"
 
 #: authentication/templates/pages/laws/terms.html:34
 msgid ""
@@ -605,26 +775,36 @@ msgid ""
 "Sie diesen Bedingungen nicht zustimmen, dürfen Sie die Plattform nicht "
 "bereitstellen oder nutzen."
 msgstr ""
+"Эти условия использования (\"Условия\") регулируют предоставление и "
+"использование веб-приложения \"OfficeSync\" (\"Платформа\") на собственных "
+"серверах третьими лицами. Если вы хотите разместить Платформу на своих "
+"серверах, вы явно соглашаетесь с этими Условиями. Если вы не согласны с "
+"этими Условиями, вы не должны размещать или использовать Платформу."
 
 #: authentication/templates/pages/laws/terms.html:36
 msgid "1. Bereitstellung der Plattform"
-msgstr ""
+msgstr "1. Предоставление Платформы"
 
 #: authentication/templates/pages/laws/terms.html:38
 msgid ""
 "1.1 Die Plattform wird als Open-Source-Software bereitgestellt und kann von "
 "Dritten auf eigenen Servern deployt werden."
 msgstr ""
+"1.1 Платформа предоставляется как программное обеспечение с открытым "
+"исходным кодом и может быть развернута третьими лицами на собственных "
+"серверах."
 
 #: authentication/templates/pages/laws/terms.html:41
 msgid ""
 "1.2 Sie sind verantwortlich für die ordnungsgemäße Installation, "
 "Konfiguration und Wartung der Plattform auf Ihren Servern."
 msgstr ""
+"1.2 Вы несете ответственность за правильную установку, конфигурацию и "
+"обслуживание Платформы на ваших серверах."
 
 #: authentication/templates/pages/laws/terms.html:43
 msgid "2. Nutzung und Inhalte"
-msgstr ""
+msgstr "2. Использование и содержание"
 
 #: authentication/templates/pages/laws/terms.html:45
 msgid ""
@@ -632,16 +812,21 @@ msgid ""
 "Servern und für sämtliche Inhalte, die innerhalb der Plattform erstellt, "
 "hochgeladen oder geteilt werden."
 msgstr ""
+"2.1 Вы единственно ответственны за использование Платформы на ваших серверах "
+"и за все содержимое, которое создается, загружается или делится в рамках "
+"Платформы."
 
 #: authentication/templates/pages/laws/terms.html:48
 msgid ""
 "2.2 Sie stimmen zu, die Plattform nicht für illegale, diffamierende, "
 "beleidigende oder rechtswidrige Aktivitäten zu nutzen."
 msgstr ""
+"2.2 Вы соглашаетесь не использовать Платформу для незаконных, "
+"клеветнических, оскорбительных или противозаконных действий."
 
 #: authentication/templates/pages/laws/terms.html:50
 msgid "3. Datenschutz und Sicherheit"
-msgstr ""
+msgstr "3. Конфиденциальность и безопасность"
 
 #: authentication/templates/pages/laws/terms.html:52
 msgid ""
@@ -649,6 +834,8 @@ msgid ""
 "Schutz der persönlichen Daten zu ergreifen, die innerhalb der Plattform "
 "verarbeitet werden."
 msgstr ""
+"3.1 Вы обязаны принимать соответствующие меры для обеспечения безопасности и "
+"защиты личных данных, обрабатываемых в рамках Платформы."
 
 #: authentication/templates/pages/laws/terms.html:55
 msgid ""
@@ -656,6 +843,9 @@ msgid ""
 "Sicherheitsvorfälle, die im Zusammenhang mit der Bereitstellung der "
 "Plattform auf Ihren Servern auftreten."
 msgstr ""
+"3.2 Мы не несем ответственности за нарушения конфиденциальности или "
+"инциденты безопасности, связанные с предоставлением Платформы на ваших "
+"серверах."
 
 #: authentication/templates/pages/laws/terms.html:59
 msgid ""
@@ -663,16 +853,21 @@ msgid ""
 "Wir übernehmen keine Verantwortung für Schäden, die durch die "
 "Bereitstellung, Nutzung oder Inhalte der Plattform entstehen."
 msgstr ""
+"4.1 Предоставление и использование Платформы происходит на ваш собственный "
+"риск. Мы не несем ответственности за ущерб, возникающий в результате "
+"предоставления, использования или содержания Платформы."
 
 #: authentication/templates/pages/laws/terms.html:62
 msgid ""
 "4.2 Wir übernehmen keine Gewährleistung für die Funktionalität, Richtigkeit "
 "oder Verfügbarkeit der Plattform auf Ihren Servern."
 msgstr ""
+"4.2 Мы не предоставляем гарантий функциональности, правильности или "
+"доступности Платформы на ваших серверах."
 
 #: authentication/templates/pages/laws/terms.html:64
 msgid "5. Änderungen der Nutzungsbedingungen"
-msgstr ""
+msgstr "5. Изменения условий использования"
 
 #: authentication/templates/pages/laws/terms.html:66
 msgid ""
@@ -680,6 +875,9 @@ msgid ""
 "ändern oder zu aktualisieren. Die aktualisierten Bedingungen treten mit "
 "ihrer Veröffentlichung in Kraft."
 msgstr ""
+"5.1 Мы оставляем за собой право в любое время изменять или обновлять эти "
+"условия использования. Обновленные условия вступают в силу с момента их "
+"публикации."
 
 #: authentication/templates/pages/laws/terms.html:69
 msgid ""
@@ -689,133 +887,13 @@ msgid ""
 "gesamte Vereinbarung zwischen Ihnen und Kiidle in Bezug auf die "
 "Bereitstellung und Nutzung der Plattform auf eigenen Servern."
 msgstr ""
+"Используя и предоставляя Платформу на собственных серверах, вы "
+"подтверждаете, что прочитали и поняли эти условия использования и "
+"соглашаетесь с ними. Эти условия составляют полную договоренность между вами "
+"и Kiidle относительно предоставления и использования Платформы на "
+"собственных серверах."
 
-#: communication/models.py:12
-msgid "Name anzeigen"
-msgstr ""
-
-#: communication/models.py:13
-msgid "Rollen anzeigen"
-msgstr ""
-
-#: communication/models.py:15
-msgid "Unternehmen"
-msgstr ""
-
-#: communication/models.py:18
-msgid "Unternehmen anzeigen"
-msgstr ""
-
-#: communication/models.py:27
-msgid "Logo anzeigen"
-msgstr ""
-
-#: communication/models.py:29
-msgid "Schweiz"
-msgstr ""
-
-#: communication/models.py:29
-#: disposition/templates/pages/stations/station.html:53
-msgid "Land"
-msgstr ""
-
-#: communication/models.py:31
-msgid "Land anzeigen"
-msgstr ""
-
-#: communication/models.py:33
-#: disposition/templates/pages/stations/station.html:55
-msgid "Ort"
-msgstr ""
-
-#: communication/models.py:35
-msgid "Ort anzeigen"
-msgstr ""
-
-#: communication/models.py:36
-#: disposition/templates/pages/stations/station.html:55
-msgid "PLZ"
-msgstr ""
-
-#: communication/models.py:37
-msgid "PLZ anzeigen"
-msgstr ""
-
-#: communication/models.py:39
-#: disposition/templates/pages/stations/station.html:56
-msgid "Strasse"
-msgstr ""
-
-#: communication/models.py:41
-msgid "Strasse anzeigen"
-msgstr ""
-
-#: communication/models.py:43
-msgid "Hausnummer"
-msgstr ""
-
-#: communication/models.py:46
-msgid "Hausnummer anzeigen"
-msgstr ""
-
-#: communication/models.py:49
-msgid "Webseite"
-msgstr ""
-
-#: communication/models.py:51
-msgid "Webseite anzeigen"
-msgstr ""
-
-#: communication/models.py:78 communication/models.py:130
-msgid "Title"
-msgstr ""
-
-#: communication/models.py:79 communication/models.py:131
-msgid "Content"
-msgstr ""
-
-#: communication/models.py:80 communication/models.py:132
-msgid "Created at"
-msgstr ""
-
-#: communication/models.py:98 communication/models.py:151
-#, python-brace-format
-msgid "Vor {seconds} Sekunden"
-msgstr ""
-
-#: communication/models.py:100 communication/models.py:153
-msgid "Vor 1 Minute"
-msgstr ""
-
-#: communication/models.py:102 communication/models.py:155
-#, python-brace-format
-msgid "Vor {minutes} Minuten"
-msgstr ""
-
-#: communication/models.py:104 communication/models.py:157
-msgid "Vor 1 Stunde"
-msgstr ""
-
-#: communication/models.py:106 communication/models.py:159
-#, python-brace-format
-msgid "Vor {hours} Stunden"
-msgstr ""
-
-#: communication/models.py:108 communication/models.py:161
-#, python-brace-format
-msgid "Gestern um {time} Uhr"
-msgstr ""
-
-#: communication/models.py:112 communication/models.py:165
-#, python-brace-format
-msgid "Vor {days} Tagen um {time} Uhr"
-msgstr ""
-
-#: communication/models.py:116 communication/models.py:169
-#, python-brace-format
-msgid "Vor 1 Woche um {time} Uhr"
-msgstr ""
-
+#: authentication/templates/pages/settings/account.html:17
 #: communication/templates/components/subsidebar/subsidebar_communication.html:13
 #: communication/templates/components/subsidebar/subsidebar_communication.html:29
 #: communication/templates/pages/announcements/announcement.html:17
@@ -828,275 +906,460 @@ msgstr ""
 #: communication/templates/pages/outbox/message.html:17
 #: communication/templates/pages/outbox/outbox.html:17
 msgid "Ankündigungen"
-msgstr ""
+msgstr "Объявления"
+
+#: communication/models.py:12
+msgid "Name anzeigen"
+msgstr "Показать имя"
+
+#: communication/models.py:13
+msgid "Rollen anzeigen"
+msgstr "Показать роли"
+
+#: communication/models.py:15
+msgid "Unternehmen"
+msgstr "Компания"
+
+#: communication/models.py:18
+msgid "Unternehmen anzeigen"
+msgstr "Показать компанию"
+
+#: communication/models.py:27
+msgid "Logo anzeigen"
+msgstr "Показать логотип"
+
+#: communication/models.py:29
+msgid "Schweiz"
+msgstr "Швейцария"
+
+#: communication/models.py:29 disposition/models.py:19
+#: disposition/templates/pages/stations/station.html:55
+#: personal/templates/pages/profile/personal/adress.html:61
+msgid "Land"
+msgstr "Страна"
+
+#: communication/models.py:31
+msgid "Land anzeigen"
+msgstr "Показать страну"
+
+#: communication/models.py:33 disposition/models.py:21
+#: disposition/templates/pages/stations/station.html:57
+#: personal/templates/pages/profile/personal/adress.html:67
+msgid "Ort"
+msgstr "Место"
+
+#: communication/models.py:35
+msgid "Ort anzeigen"
+msgstr "Показать место"
+
+#: communication/models.py:36
+#: disposition/templates/pages/stations/station.html:57
+msgid "PLZ"
+msgstr "Почтовый индекс"
+
+#: communication/models.py:37
+msgid "PLZ anzeigen"
+msgstr "Показать почтовый индекс"
+
+#: communication/models.py:39 disposition/models.py:22
+#: disposition/templates/pages/stations/station.html:58
+#: personal/templates/pages/profile/personal/adress.html:68
+msgid "Strasse"
+msgstr "Улица"
+
+#: communication/models.py:41
+msgid "Strasse anzeigen"
+msgstr "Показать улицу"
+
+#: communication/models.py:43
+#: personal/templates/pages/profile/personal/adress.html:69
+msgid "Hausnummer"
+msgstr "Номер дома"
+
+#: communication/models.py:46
+msgid "Hausnummer anzeigen"
+msgstr "Показать номер дома"
+
+#: communication/models.py:49
+msgid "Webseite"
+msgstr "Веб-сайт"
+
+#: communication/models.py:51
+msgid "Webseite anzeigen"
+msgstr "Показать веб-сайт"
+
+#: communication/models.py:78 communication/models.py:130
+msgid "Title"
+msgstr "Заголовок"
+
+#: communication/models.py:79 communication/models.py:131
+msgid "Content"
+msgstr "Содержание"
+
+#: communication/models.py:80 communication/models.py:132
+msgid "Created at"
+msgstr "Создано в"
+
+#: communication/models.py:98 communication/models.py:151
+#, python-brace-format
+msgid "Vor {seconds} Sekunden"
+msgstr "{seconds} секунд назад"
+
+#: communication/models.py:100 communication/models.py:153
+msgid "Vor 1 Minute"
+msgstr "1 минуту назад"
+
+#: communication/models.py:102 communication/models.py:155
+#, python-brace-format
+msgid "Vor {minutes} Minuten"
+msgstr "{minutes} минут назад"
+
+#: communication/models.py:104 communication/models.py:157
+msgid "Vor 1 Stunde"
+msgstr "1 час назад"
+
+#: communication/models.py:106 communication/models.py:159
+#, python-brace-format
+msgid "Vor {hours} Stunden"
+msgstr "{hours} часов назад"
+
+#: communication/models.py:108 communication/models.py:161
+#, python-brace-format
+msgid "Gestern um {time} Uhr"
+msgstr "Вчера в {time} часов"
+
+#: communication/models.py:112 communication/models.py:165
+#, python-brace-format
+msgid "Vor {days} Tagen um {time} Uhr"
+msgstr "{days} дней назад в {time} часов"
+
+#: communication/models.py:116 communication/models.py:169
+#, python-brace-format
+msgid "Vor 1 Woche um {time} Uhr"
+msgstr "1 неделю назад в {time} часов"
 
 #: communication/templates/components/subsidebar/subsidebar_communication.html:46
 #: communication/templates/components/subsidebar/subsidebar_communication.html:62
 #: communication/templates/pages/inbox/inbox.html:32
 msgid "Eingang"
-msgstr ""
+msgstr "Входящие"
 
 #: communication/templates/components/subsidebar/subsidebar_communication.html:79
 #: communication/templates/components/subsidebar/subsidebar_communication.html:90
 #: communication/templates/pages/outbox/outbox.html:32
 msgid "Ausgang"
-msgstr ""
+msgstr "Исходящие"
 
 #: communication/templates/components/subsidebar/subsidebar_communication.html:102
 #: communication/templates/components/subsidebar/subsidebar_communication.html:113
 #: communication/templates/pages/archive/archive.html:32
 msgid "Archiv"
-msgstr ""
+msgstr "Архив"
 
-#: communication/templates/pages/announcements/announcement.html:113
-#: communication/templates/pages/archive/message.html:110
-#: communication/templates/pages/inbox/message.html:110
+#: communication/templates/pages/announcements/announcement.html:180
+#: communication/templates/pages/archive/message.html:177
+#: communication/templates/pages/inbox/message.html:177
 msgid "Gelesen"
-msgstr ""
+msgstr "Прочитано"
 
 #: communication/templates/pages/announcements/create.html:17
 #: communication/templates/pages/announcements/create.html:30
 #: communication/templates/pages/inbox/create.html:17
 #: communication/templates/pages/inbox/select.html:17
 msgid "Ankündigung erstellen"
-msgstr ""
+msgstr "Создать объявление"
 
 #: communication/templates/pages/announcements/create.html:43
 msgid "Veröffentlichen"
-msgstr ""
+msgstr "Опубликовать"
 
 #: communication/templates/pages/inbox/create.html:32
 msgid "Nachricht erstellen"
-msgstr ""
+msgstr "Создать сообщение"
 
 #: communication/templates/pages/inbox/create.html:46
 msgid "Senden"
-msgstr ""
+msgstr "Отправить"
 
 #: communication/templates/pages/inbox/select.html:32
 msgid "Senden an"
-msgstr ""
+msgstr "Отправить к"
 
-#: disposition/models.py:21
-#: disposition/templates/pages/vehicles/vehicle.html:52
-msgid "Personenwagen"
-msgstr ""
+#: disposition/models.py:11
+#: disposition/templates/pages/stations/station.html:50
+msgid "E-Mail"
+msgstr "Электронная почта"
 
-#: disposition/models.py:22
-#: disposition/templates/pages/vehicles/vehicle.html:58
-msgid "Kleintransporter"
-msgstr ""
+#: disposition/models.py:14
+#: disposition/templates/pages/stations/station.html:51
+msgid "Mobile"
+msgstr "Мобильный"
 
-#: disposition/models.py:23
-#: disposition/templates/pages/vehicles/vehicle.html:64
-msgid "Lastwagen"
-msgstr ""
+#: disposition/models.py:17
+msgid "Kapazität"
+msgstr "Капацитет"
 
-#: disposition/models.py:24
-#: disposition/templates/pages/vehicles/vehicle.html:70
-msgid "Lieferwagen"
-msgstr ""
-
-#: disposition/models.py:25
-#: disposition/templates/pages/vehicles/vehicle.html:77
-msgid "Frachtcontainerlastwagen"
-msgstr ""
-
-#: disposition/models.py:26
-#: disposition/templates/pages/vehicles/vehicle.html:83
-msgid "Kipplaster"
-msgstr ""
+#: disposition/models.py:20
+#: disposition/templates/pages/stations/station.html:56
+#: personal/templates/pages/profile/personal/adress.html:65
+msgid "Bundesland"
+msgstr "Федеральная земля"
 
 #: disposition/models.py:27
-#: disposition/templates/pages/vehicles/vehicle.html:89
-msgid "Tanklastwagen"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:54
+msgid "Personenwagen"
+msgstr "Легковой автомобиль"
 
 #: disposition/models.py:28
-#: disposition/templates/pages/vehicles/vehicle.html:95
-msgid "Abschleppwagen"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:60
+msgid "Kleintransporter"
+msgstr "Малотоннажный транспортер"
 
 #: disposition/models.py:29
-#: disposition/templates/pages/vehicles/vehicle.html:101
-msgid "Pritschenwagen"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:66
+msgid "Lastwagen"
+msgstr "Грузовик"
 
 #: disposition/models.py:30
-#: disposition/templates/pages/vehicles/vehicle.html:107
-msgid "Anhänger"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:72
+msgid "Lieferwagen"
+msgstr "Фургон"
+
+#: disposition/models.py:31
+#: disposition/templates/pages/vehicles/vehicle.html:79
+msgid "Frachtcontainerlastwagen"
+msgstr "Грузовик для контейнеров"
+
+#: disposition/models.py:32
+#: disposition/templates/pages/vehicles/vehicle.html:85
+msgid "Kipplaster"
+msgstr "Самосвал"
 
 #: disposition/models.py:33
-#: disposition/templates/pages/vehicles/vehicle.html:115
-msgid "Diesel"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:91
+msgid "Tanklastwagen"
+msgstr "Цистерна"
 
 #: disposition/models.py:34
-#: disposition/templates/pages/vehicles/vehicle.html:121
-msgid "Benzin"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:97
+msgid "Abschleppwagen"
+msgstr "Эвакуатор"
 
 #: disposition/models.py:35
-#: disposition/templates/pages/vehicles/vehicle.html:127
-msgid "Elektrisch"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:103
+msgid "Pritschenwagen"
+msgstr "Пикап"
 
 #: disposition/models.py:36
-#: disposition/templates/pages/vehicles/vehicle.html:133
-msgid "Wasserstoff"
-msgstr ""
-
-#: disposition/models.py:37
-#: disposition/templates/pages/vehicles/vehicle.html:139
-msgid "Erdgas"
-msgstr ""
-
-#: disposition/models.py:38
-#: disposition/templates/pages/vehicles/vehicle.html:145
-msgid "Biodiesel"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:109
+msgid "Anhänger"
+msgstr "Прицеп"
 
 #: disposition/models.py:39
-#: disposition/templates/pages/vehicles/vehicle.html:151
-msgid "Autogas"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:117
+msgid "Diesel"
+msgstr "Дизель"
 
 #: disposition/models.py:40
-#: disposition/templates/pages/vehicles/vehicle.html:157
-msgid "E85"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:123
+msgid "Benzin"
+msgstr "Бензин"
 
 #: disposition/models.py:41
-#: disposition/templates/pages/vehicles/vehicle.html:163
-msgid "Flüssigerdgas"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:129
+msgid "Elektrisch"
+msgstr "Электрический"
+
+#: disposition/models.py:42
+#: disposition/templates/pages/vehicles/vehicle.html:135
+msgid "Wasserstoff"
+msgstr "Водород"
+
+#: disposition/models.py:43
+#: disposition/templates/pages/vehicles/vehicle.html:141
+msgid "Erdgas"
+msgstr "Природный газ"
 
 #: disposition/models.py:44
-msgid "Nicht gebraucht"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:147
+msgid "Biodiesel"
+msgstr "Биодизель"
 
 #: disposition/models.py:45
-#: disposition/templates/pages/vehicles/vehicle.html:177
-msgid "Gebraucht"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:153
+msgid "Autogas"
+msgstr "Автогаз"
 
-#: disposition/models.py:46 disposition/models.py:110
-#: disposition/templates/pages/vehicles/vehicle.html:183
-msgid "Beschädigt"
-msgstr ""
+#: disposition/models.py:46
+#: disposition/templates/pages/vehicles/vehicle.html:159
+msgid "E85"
+msgstr "E85"
 
 #: disposition/models.py:47
-#: disposition/templates/pages/vehicles/vehicle.html:189
-msgid "Repariert"
-msgstr ""
-
-#: disposition/models.py:48
-#: disposition/templates/pages/vehicles/vehicle.html:196
-msgid "Totalschaden"
-msgstr ""
-
-#: disposition/models.py:49
-#: disposition/templates/pages/vehicles/vehicle.html:202
-msgid "Instandhaltungsbedarf"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:165
+msgid "Flüssigerdgas"
+msgstr "Сжиженный природный газ"
 
 #: disposition/models.py:50
-msgid "Nicht Fahrbereit"
-msgstr ""
+msgid "Nicht gebraucht"
+msgstr "Не использованный"
 
 #: disposition/models.py:51
-#: disposition/templates/pages/vehicles/vehicle.html:214
-msgid "Modifiziert"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:179
+msgid "Gebraucht"
+msgstr "Бывший в употреблении"
+
+#: disposition/models.py:52 disposition/models.py:116
+#: disposition/templates/pages/vehicles/vehicle.html:185
+msgid "Beschädigt"
+msgstr "Поврежденный"
 
 #: disposition/models.py:53
-#: disposition/templates/pages/vehicles/vehicle.html:224
-msgid "Kennzeichen"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:191
+msgid "Repariert"
+msgstr "Отремонтированный"
+
+#: disposition/models.py:54
+#: disposition/templates/pages/vehicles/vehicle.html:198
+msgid "Totalschaden"
+msgstr "Полный ущерб"
 
 #: disposition/models.py:55
-msgid "Keine"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:204
+msgid "Instandhaltungsbedarf"
+msgstr "Требуется техническое обслуживание"
+
+#: disposition/models.py:56
+msgid "Nicht Fahrbereit"
+msgstr "Не на ходу"
+
+#: disposition/models.py:57
+#: disposition/templates/pages/vehicles/vehicle.html:216
+msgid "Modifiziert"
+msgstr "Модифицированный"
+
+#: disposition/models.py:59
+#: disposition/templates/pages/vehicles/vehicle.html:226
+msgid "Kennzeichen"
+msgstr "Регистрационный знак"
 
 #: disposition/models.py:61
-msgid "Fahrzeugtyp"
-msgstr ""
-
-#: disposition/models.py:63
-#: disposition/templates/pages/vehicles/vehicle.html:230
-msgid "Fahrzeugmodell"
-msgstr ""
-
-#: disposition/models.py:64
-msgid "Hersteller"
-msgstr ""
+msgid "Keine"
+msgstr "Нет"
 
 #: disposition/models.py:67
-msgid "Baujahr"
-msgstr ""
+msgid "Fahrzeugtyp"
+msgstr "Тип транспортного средства"
+
+#: disposition/models.py:69
+#: disposition/templates/pages/vehicles/vehicle.html:232
+msgid "Fahrzeugmodell"
+msgstr "Модель транспортного средства"
 
 #: disposition/models.py:70
-#: disposition/templates/pages/vehicles/vehicle.html:226
-msgid "Identifikationsnummer"
-msgstr ""
+msgid "Hersteller"
+msgstr "Производитель"
 
 #: disposition/models.py:73
+msgid "Baujahr"
+msgstr "Год выпуска"
+
+#: disposition/models.py:76
+#: disposition/templates/pages/vehicles/vehicle.html:228
+msgid "Identifikationsnummer"
+msgstr "Идентификационный номер"
+
+#: disposition/models.py:79
+#: personal/templates/pages/profile/personal/criminal.html:64
+#: personal/templates/pages/profile/personal/criminal.html:69
+#: personal/templates/pages/profile/personal/criminal.html:74
+#: personal/templates/pages/profile/personal/criminal.html:79
+#: personal/templates/pages/profile/personal/criminal.html:84
+#: personal/templates/pages/profile/personal/criminal.html:89
+#: personal/templates/pages/profile/personal/health.html:63
+#: personal/templates/pages/profile/personal/health.html:68
+#: personal/templates/pages/profile/personal/health.html:73
+#: personal/templates/pages/profile/personal/health.html:78
+#: personal/templates/pages/profile/personal/health.html:83
+#: personal/templates/pages/profile/personal/meta.html:63
+#: personal/templates/pages/profile/personal/meta.html:68
+#: personal/templates/pages/profile/personal/meta.html:73
+#: personal/templates/pages/profile/personal/meta.html:78
+#: personal/templates/pages/profile/work/absence.html:64
+#: personal/templates/pages/profile/work/absence.html:69
+#: personal/templates/pages/profile/work/absence.html:74
+#: personal/templates/pages/profile/work/absence.html:82
+#: personal/templates/pages/profile/work/absence.html:89
+#: personal/templates/pages/profile/work/performance.html:64
+#: personal/templates/pages/profile/work/performance.html:71
+#: personal/templates/pages/profile/work/performance.html:76
+#: personal/templates/pages/profile/work/performance.html:81
+#: personal/templates/pages/profile/work/performance.html:86
+#: personal/templates/pages/profile/work/performance.html:91
+#: personal/templates/pages/profile/work/performance.html:96
+#: personal/templates/pages/profile/work/performance.html:101
+#: personal/templates/pages/profile/work/performance.html:106
+#: personal/templates/pages/profile/work/performance.html:111
+#: personal/templates/pages/profile/work/performance.html:116
+#: personal/templates/pages/profile/work/performance.html:121
+#: personal/templates/pages/profile/work/reprimant.html:83
+#: personal/templates/pages/profile/work/reprimant.html:88
+#: personal/templates/pages/profile/work/reprimant.html:93
+#: personal/templates/pages/profile/work/salary.html:64
+#: personal/templates/pages/profile/work/salary.html:69
+#: personal/templates/pages/profile/work/salary.html:76
 msgid "Unbekannt"
-msgstr ""
+msgstr "Неизвестно"
 
-#: disposition/models.py:74
-#: disposition/templates/pages/vehicles/vehicle.html:219
+#: disposition/models.py:80
+#: disposition/templates/pages/vehicles/vehicle.html:221
 msgid "Leistung & Motor"
-msgstr ""
+msgstr "Мощность и двигатель"
 
-#: disposition/models.py:78
-#: disposition/templates/pages/vehicles/vehicle.html:220
+#: disposition/models.py:84
+#: disposition/templates/pages/vehicles/vehicle.html:222
 msgid "Lagerkapazität"
-msgstr ""
+msgstr "Грузоподъемность"
 
-#: disposition/models.py:83
+#: disposition/models.py:89
 msgid "Kraftstofftyp"
-msgstr ""
+msgstr "Тип топлива"
 
-#: disposition/models.py:86
+#: disposition/models.py:92
 msgid "Durchschnittlicher Kraftstoffverbrauch"
-msgstr ""
+msgstr "Средний расход топлива"
 
-#: disposition/models.py:90
+#: disposition/models.py:96
 msgid "Keine Angaben"
-msgstr ""
-
-#: disposition/models.py:93
-msgid "Versicherungsdaten"
-msgstr ""
+msgstr "Нет данных"
 
 #: disposition/models.py:99
+msgid "Versicherungsdaten"
+msgstr "Данные страховки"
+
+#: disposition/models.py:105
 msgid "Zustand"
-msgstr ""
+msgstr "Состояние"
 
-#: disposition/models.py:109
+#: disposition/models.py:115
 msgid "Funktionsfähig"
-msgstr ""
-
-#: disposition/models.py:111
-msgid "Wartungsarbeiten"
-msgstr ""
+msgstr "Рабочее состояние"
 
 #: disposition/templates/components/subsidebar/subsidebar_disposition.html:14
 #: disposition/templates/components/subsidebar/subsidebar_disposition.html:26
-#: personal/templates/components/subsidebar/subsidebar_personal.html:59
-#: personal/templates/components/subsidebar/subsidebar_personal.html:70
+#: personal/templates/components/subsidebar/subsidebar_personal.html:64
+#: personal/templates/components/subsidebar/subsidebar_personal.html:75
 msgid "Touren"
-msgstr ""
+msgstr "Туры"
 
 #: disposition/templates/components/subsidebar/subsidebar_disposition.html:38
 #: disposition/templates/components/subsidebar/subsidebar_disposition.html:49
+#: disposition/templates/pages/stations/form.html:33
 #: disposition/templates/pages/stations/index.html:17
 #: disposition/templates/pages/stations/index.html:32
 #: disposition/templates/pages/stations/station.html:17
 msgid "Standorte"
-msgstr ""
+msgstr "Местоположения"
 
 #: disposition/templates/components/subsidebar/subsidebar_disposition.html:61
 #: disposition/templates/components/subsidebar/subsidebar_disposition.html:72
@@ -1104,67 +1367,56 @@ msgstr ""
 #: disposition/templates/pages/vehicles/index.html:32
 #: disposition/templates/pages/vehicles/vehicle.html:17
 msgid "Fahrzeuge"
-msgstr ""
-
-#: disposition/templates/pages/stations/station.html:47
-msgid "Kontakt"
-msgstr ""
-
-#: disposition/templates/pages/stations/station.html:48
-msgid "E-Mail"
-msgstr ""
+msgstr "Транспортные средства"
 
 #: disposition/templates/pages/stations/station.html:49
-msgid "Mobile"
-msgstr ""
-
-#: disposition/templates/pages/stations/station.html:52
-msgid "Adresse"
-msgstr ""
+msgid "Kontakt"
+msgstr "Контакт"
 
 #: disposition/templates/pages/stations/station.html:54
-msgid "Bundesland"
-msgstr ""
+#: personal/templates/pages/profile/personal/adress.html:60
+msgid "Adresse"
+msgstr "Адрес"
 
-#: disposition/templates/pages/stations/station.html:56
+#: disposition/templates/pages/stations/station.html:58
 msgid "Nr"
-msgstr ""
+msgstr "Номер"
 
-#: disposition/templates/pages/vehicles/vehicle.html:47
+#: disposition/templates/pages/vehicles/vehicle.html:49
 msgid "Metadaten"
-msgstr ""
+msgstr "Метаданные"
 
-#: disposition/templates/pages/vehicles/vehicle.html:171
+#: disposition/templates/pages/vehicles/vehicle.html:173
 msgid "Ungebraucht"
-msgstr ""
+msgstr "Не использовался"
 
-#: disposition/templates/pages/vehicles/vehicle.html:208
+#: disposition/templates/pages/vehicles/vehicle.html:210
 msgid "Unbetriebsbereit"
-msgstr ""
+msgstr "Неисправный"
 
-#: disposition/templates/pages/vehicles/vehicle.html:218
+#: disposition/templates/pages/vehicles/vehicle.html:220
 msgid "Kraftstoffverbrauch"
-msgstr ""
+msgstr "Расход топлива"
 
-#: disposition/templates/pages/vehicles/vehicle.html:223
+#: disposition/templates/pages/vehicles/vehicle.html:225
 msgid "Erkennungsdaten"
-msgstr ""
-
-#: disposition/templates/pages/vehicles/vehicle.html:229
-msgid "Produktionsdaten"
-msgstr ""
+msgstr "Идентификационные данные"
 
 #: disposition/templates/pages/vehicles/vehicle.html:231
+msgid "Produktionsdaten"
+msgstr "Данные о производстве"
+
+#: disposition/templates/pages/vehicles/vehicle.html:233
 msgid "Fahrzeughersteller"
-msgstr ""
+msgstr "Производитель транспортного средства"
 
-#: disposition/templates/pages/vehicles/vehicle.html:232
+#: disposition/templates/pages/vehicles/vehicle.html:234
 msgid "Herstellungsjahr"
-msgstr ""
+msgstr "Год изготовления"
 
-#: disposition/templates/pages/vehicles/vehicle.html:235
+#: disposition/templates/pages/vehicles/vehicle.html:237
 msgid "Versicherung"
-msgstr ""
+msgstr "Страхование"
 
 #: officesync/settings.py:66
 msgid "deutsch"
@@ -1203,15 +1455,367 @@ msgid "shqiptare"
 msgstr ""
 
 #: personal/templates/components/subsidebar/subsidebar_personal.html:13
-#: personal/templates/components/subsidebar/subsidebar_personal.html:24
+#: personal/templates/components/subsidebar/subsidebar_personal.html:29
+#: personal/templates/pages/notes/index.html:17
+#: personal/templates/pages/notes/update.html:17
+#: personal/templates/pages/profile/personal.html:17
+#: personal/templates/pages/profile/personal/adress.html:17
+#: personal/templates/pages/profile/personal/criminal.html:17
+#: personal/templates/pages/profile/personal/health.html:17
+#: personal/templates/pages/profile/personal/meta.html:17
 #: personal/templates/pages/profile/profile.html:17
+#: personal/templates/pages/profile/profile_form.html:17
+#: personal/templates/pages/profile/work.html:17
+#: personal/templates/pages/profile/work/absence.html:17
+#: personal/templates/pages/profile/work/performance.html:17
+#: personal/templates/pages/profile/work/reprimant.html:17
+#: personal/templates/pages/profile/work/salary.html:17
 msgid "Profil"
-msgstr ""
+msgstr "Профиль"
 
-#: personal/templates/components/subsidebar/subsidebar_personal.html:36
-#: personal/templates/components/subsidebar/subsidebar_personal.html:47
+#: personal/templates/components/subsidebar/subsidebar_personal.html:41
+#: personal/templates/components/subsidebar/subsidebar_personal.html:52
 msgid "Notizen"
+msgstr "Заметки"
+
+#: personal/templates/pages/notes/index.html:32
+msgid "Meine Notizen"
+msgstr "Мои заметки"
+
+#: personal/templates/pages/notes/update.html:32
+msgid "Notiz bearbeiten"
+msgstr "Редактировать заметку"
+
+#: personal/templates/pages/profile/personal.html:45
+#: personal/templates/pages/profile/personal/adress.html:45
+#: personal/templates/pages/profile/personal/criminal.html:45
+#: personal/templates/pages/profile/personal/health.html:45
+#: personal/templates/pages/profile/personal/meta.html:45
+#: personal/templates/pages/profile/profile.html:45
+#: personal/templates/pages/profile/profile_form.html:45
+#: personal/templates/pages/profile/work.html:45
+#: personal/templates/pages/profile/work/absence.html:45
+#: personal/templates/pages/profile/work/performance.html:45
+#: personal/templates/pages/profile/work/reprimant.html:45
+#: personal/templates/pages/profile/work/salary.html:45
+msgid "Öffentlich"
+msgstr "Публичный"
+
+#: personal/templates/pages/profile/personal.html:46
+#: personal/templates/pages/profile/personal/adress.html:46
+#: personal/templates/pages/profile/personal/criminal.html:46
+#: personal/templates/pages/profile/personal/health.html:46
+#: personal/templates/pages/profile/personal/meta.html:46
+#: personal/templates/pages/profile/profile.html:46
+#: personal/templates/pages/profile/profile_form.html:46
+#: personal/templates/pages/profile/work.html:46
+#: personal/templates/pages/profile/work/absence.html:46
+#: personal/templates/pages/profile/work/performance.html:46
+#: personal/templates/pages/profile/work/reprimant.html:46
+#: personal/templates/pages/profile/work/salary.html:46
+msgid "Personalakte"
+msgstr "Личное дело"
+
+#: personal/templates/pages/profile/personal.html:47
+#: personal/templates/pages/profile/personal/adress.html:47
+#: personal/templates/pages/profile/personal/criminal.html:47
+#: personal/templates/pages/profile/personal/health.html:47
+#: personal/templates/pages/profile/personal/meta.html:47
+#: personal/templates/pages/profile/profile.html:47
+#: personal/templates/pages/profile/profile_form.html:47
+#: personal/templates/pages/profile/work.html:47
+#: personal/templates/pages/profile/work/absence.html:47
+#: personal/templates/pages/profile/work/performance.html:47
+#: personal/templates/pages/profile/work/reprimant.html:47
+#: personal/templates/pages/profile/work/salary.html:47
+msgid "Mitarbeiterakte"
+msgstr "Досье сотрудника"
+
+#: personal/templates/pages/profile/personal.html:63
+#: personal/templates/pages/profile/personal/meta.html:59
+msgid "Stammakte"
+msgstr "Основное дело"
+
+#: personal/templates/pages/profile/personal.html:71
+msgid "Addressakte"
+msgstr "Дело по адресу"
+
+#: personal/templates/pages/profile/personal.html:79
+#: personal/templates/pages/profile/personal/health.html:59
+msgid "Gesundheitsakte"
+msgstr "Медицинское дело"
+
+#: personal/templates/pages/profile/personal.html:87
+msgid "Strafregisterakte"
+msgstr "Досье сотрудника"
+
+#: personal/templates/pages/profile/personal/adress.html:63
+msgid "Kanton"
+msgstr "Кантон"
+
+#: personal/templates/pages/profile/personal/adress.html:70
+#: personal/templates/pages/profile/work/absence.html:67
+#: personal/templates/pages/profile/work/absence.html:69
+msgid "Von"
+msgstr "С"
+
+#: personal/templates/pages/profile/personal/adress.html:72
+#: personal/templates/pages/profile/personal/adress.html:74
+#: personal/templates/pages/profile/work/absence.html:72
+#: personal/templates/pages/profile/work/absence.html:74
+msgid "Bis"
+msgstr "До"
+
+#: personal/templates/pages/profile/personal/adress.html:74
+msgid "Jetzt"
+msgstr "Сейчас"
+
+#: personal/templates/pages/profile/personal/adress.html:87
+#: personal/templates/pages/profile/personal/criminal.html:102
+#: personal/templates/pages/profile/work/absence.html:102
+#: personal/templates/pages/profile/work/performance.html:134
+#: personal/templates/pages/profile/work/reprimant.html:106
+#: personal/templates/pages/profile/work/salary.html:106
+msgid "Keine Daten vorhanden"
+msgstr "Данные отсутствуют"
+
+#: personal/templates/pages/profile/personal/criminal.html:60
+msgid "Auszug"
+msgstr "Выписка"
+
+#: personal/templates/pages/profile/personal/criminal.html:62
+#: personal/templates/pages/profile/personal/criminal.html:64
+msgid "Straftat"
+msgstr "Преступление"
+
+#: personal/templates/pages/profile/personal/criminal.html:67
+#: personal/templates/pages/profile/personal/criminal.html:69
+msgid "Urteil"
+msgstr "Приговор"
+
+#: personal/templates/pages/profile/personal/criminal.html:72
+#: personal/templates/pages/profile/personal/criminal.html:74
+#: personal/templates/pages/profile/work/performance.html:62
+#: personal/templates/pages/profile/work/performance.html:64
+#: personal/templates/pages/profile/work/reprimant.html:81
+#: personal/templates/pages/profile/work/reprimant.html:83
+#: personal/templates/pages/profile/work/salary.html:67
+#: personal/templates/pages/profile/work/salary.html:69
+msgid "Datum"
+msgstr "Дата"
+
+#: personal/templates/pages/profile/personal/criminal.html:77
+#: personal/templates/pages/profile/personal/criminal.html:79
+msgid "Verantwortlich"
+msgstr "Ответственный"
+
+#: personal/templates/pages/profile/personal/criminal.html:82
+#: personal/templates/pages/profile/personal/criminal.html:84
+msgid "Institution"
+msgstr "Учреждение"
+
+#: personal/templates/pages/profile/personal/criminal.html:87
+#: personal/templates/pages/profile/personal/criminal.html:89
+msgid "Wichtig zu wissen"
+msgstr "Важно знать"
+
+#: personal/templates/pages/profile/personal/health.html:61
+#: personal/templates/pages/profile/personal/health.html:63
+msgid "Allergien"
+msgstr "Аллергии"
+
+#: personal/templates/pages/profile/personal/health.html:66
+#: personal/templates/pages/profile/personal/health.html:68
+msgid "Chronische Erkankungen"
+msgstr "Хронические заболевания"
+
+#: personal/templates/pages/profile/personal/health.html:71
+#: personal/templates/pages/profile/personal/health.html:73
+msgid "Medizinische Behandlung"
+msgstr "Медицинское лечение"
+
+#: personal/templates/pages/profile/personal/health.html:76
+#: personal/templates/pages/profile/personal/health.html:78
+msgid "Medikamente"
+msgstr "Лекарства"
+
+#: personal/templates/pages/profile/personal/health.html:81
+#: personal/templates/pages/profile/personal/health.html:83
+msgid "Psychische Verfassung"
+msgstr "Психическое состояние"
+
+#: personal/templates/pages/profile/personal/meta.html:61
+#: personal/templates/pages/profile/personal/meta.html:63
+msgid "Geschlecht"
+msgstr "Пол"
+
+#: personal/templates/pages/profile/personal/meta.html:66
+#: personal/templates/pages/profile/personal/meta.html:68
+msgid "Geburtsdatum"
+msgstr "Дата рождения"
+
+#: personal/templates/pages/profile/personal/meta.html:71
+#: personal/templates/pages/profile/personal/meta.html:73
+msgid "Nationalität"
+msgstr "Национальность"
+
+#: personal/templates/pages/profile/personal/meta.html:76
+#: personal/templates/pages/profile/personal/meta.html:78
+msgid "Staatsbürgerschaft"
+msgstr "Гражданство"
+
+#: personal/templates/pages/profile/personal/meta.html:83
+msgid ""
+"Hinweis: Sollten Ihre Stammdaten nicht korrekt sein, besteht die "
+"Möglichkeit, einen formellen Antrag über OfficeSync an das Personal zur "
+"Korrektur einzureichen."
 msgstr ""
+"Примечание: Если ваши основные данные некорректны, вы можете подать "
+"официальный запрос через OfficeSync в отдел кадров для их исправления."
+
+#: personal/templates/pages/profile/profile.html:116
+msgid "Biografie"
+msgstr "Биография"
+
+#: personal/templates/pages/profile/profile.html:119
+msgid "Medien"
+msgstr "СМИ"
+
+#: personal/templates/pages/profile/work.html:63
+msgid "Gehalts- und Vergütungsakten"
+msgstr " Дело о заработной плате и вознаграждениях"
+
+#: personal/templates/pages/profile/work.html:76
+msgid "Krankheits- und Urlaubsakten"
+msgstr "Дело о болезни и отпусках"
+
+#: personal/templates/pages/profile/work.html:84
+msgid "Leistungsbeurteilungsakten"
+msgstr "Дело оценки производительности"
+
+#: personal/templates/pages/profile/work.html:92
+msgid "Disziplinarakten"
+msgstr "Дисциплинарное дело"
+
+#: personal/templates/pages/profile/work/absence.html:60
+msgid "Absenz"
+msgstr "Отсутствие"
+
+#: personal/templates/pages/profile/work/absence.html:62
+#: personal/templates/pages/profile/work/absence.html:64
+msgid "Typ"
+msgstr "Тип"
+
+#: personal/templates/pages/profile/work/absence.html:77
+msgid "Bemerkung"
+msgstr "Примечание"
+
+#: personal/templates/pages/profile/work/absence.html:86
+#: personal/templates/pages/profile/work/absence.html:89
+#: personal/templates/pages/profile/work/salary.html:73
+#: personal/templates/pages/profile/work/salary.html:76
+msgid "Begünstigter"
+msgstr "Бенефициар"
+
+#: personal/templates/pages/profile/work/performance.html:60
+msgid "Leistungsbericht"
+msgstr "Отчет о работе"
+
+#: personal/templates/pages/profile/work/performance.html:68
+#: personal/templates/pages/profile/work/performance.html:71
+msgid "Bewerter"
+msgstr "Оценщик"
+
+#: personal/templates/pages/profile/work/performance.html:74
+#: personal/templates/pages/profile/work/performance.html:76
+msgid "Note"
+msgstr "Оценка"
+
+#: personal/templates/pages/profile/work/performance.html:79
+#: personal/templates/pages/profile/work/performance.html:81
+msgid "Erscheinungsbild"
+msgstr "Внешний вид"
+
+#: personal/templates/pages/profile/work/performance.html:84
+#: personal/templates/pages/profile/work/performance.html:86
+msgid "Teamarbeit"
+msgstr "Командная работа"
+
+#: personal/templates/pages/profile/work/performance.html:89
+#: personal/templates/pages/profile/work/performance.html:91
+msgid "Hilsbereitschaft"
+msgstr "Готовность помогать"
+
+#: personal/templates/pages/profile/work/performance.html:94
+#: personal/templates/pages/profile/work/performance.html:96
+msgid "Höflichkeit"
+msgstr "Вежливость"
+
+#: personal/templates/pages/profile/work/performance.html:104
+#: personal/templates/pages/profile/work/performance.html:106
+msgid "Arbeitsqualität"
+msgstr "Качество работы"
+
+#: personal/templates/pages/profile/work/performance.html:109
+#: personal/templates/pages/profile/work/performance.html:111
+msgid "Arbeitsorganisation"
+msgstr "Организация работы"
+
+#: personal/templates/pages/profile/work/performance.html:114
+#: personal/templates/pages/profile/work/performance.html:116
+msgid "Fachkenntnisse"
+msgstr "Профессиональные знания"
+
+#: personal/templates/pages/profile/work/performance.html:119
+#: personal/templates/pages/profile/work/performance.html:121
+msgid "Ziele"
+msgstr "Цели"
+
+#: personal/templates/pages/profile/work/reprimant.html:60
+#: personal/templates/pages/profile/work/reprimant.html:65
+#: personal/templates/pages/profile/work/reprimant.html:70
+msgid "Total"
+msgstr "Итого"
+
+#: personal/templates/pages/profile/work/reprimant.html:79
+msgid "Disziplinarfall"
+msgstr "Дисциплинарное дело"
+
+#: personal/templates/pages/profile/work/reprimant.html:86
+#: personal/templates/pages/profile/work/reprimant.html:88
+msgid "Erstellt"
+msgstr "Создано"
+
+#: personal/templates/pages/profile/work/reprimant.html:91
+#: personal/templates/pages/profile/work/reprimant.html:93
+msgid "Grund"
+msgstr "Причина"
+
+#: personal/templates/pages/profile/work/salary.html:60
+msgid "Lohnauszug"
+msgstr "Выписка о зарплате"
+
+#: personal/templates/pages/profile/work/salary.html:62
+#: personal/templates/pages/profile/work/salary.html:64
+msgid "Betrag"
+msgstr "Сумма"
+
+#: personal/templates/pages/profile/work/salary.html:79
+#: personal/templates/pages/profile/work/salary.html:81
+msgid "Bestätigung"
+msgstr "Подтверждение"
+
+#: personal/templates/pages/profile/work/salary.html:79
+msgid "Bestätigt "
+msgstr "Подтверждено "
+
+#: personal/templates/pages/profile/work/salary.html:81
+msgid "Nicht bestätigt"
+msgstr "Не подтверждено"
+
+#: personal/templates/pages/profile/work/salary.html:92
+msgid "Bestätigen"
+msgstr "Подтвердить"
 
 #: venv/lib/python3.11/site-packages/click/_termui_impl.py:518
 #, python-brace-format

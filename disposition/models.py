@@ -7,13 +7,19 @@ from django.utils.translation import gettext_lazy as _
 
 class Station(models.Model):
     name = models.CharField(max_length=30)
-    contactmail = models.EmailField(max_length=30, null=True, blank=True)
-    contactphone = models.CharField(max_length=30, null=True, blank=True)
-    capacity = models.TextField(max_length=50, null=True, blank=True)
-    country = models.CharField(max_length=30)
-    state = models.CharField(max_length=30)
-    location = models.CharField(max_length=30)
-    street = models.CharField(max_length=30)
+    contactmail = models.EmailField(
+        max_length=30, null=True, blank=True, verbose_name=_("E-Mail")
+    )
+    contactphone = models.CharField(
+        max_length=30, null=True, blank=True, verbose_name=_("Mobile")
+    )
+    capacity = models.TextField(
+        max_length=50, null=True, blank=True, verbose_name=_("Kapazität")
+    )
+    country = models.CharField(max_length=30, verbose_name=_("Land"))
+    state = models.CharField(max_length=30, verbose_name=_("Bundesland"))
+    location = models.CharField(max_length=30, verbose_name=_("Ort"))
+    street = models.CharField(max_length=30, verbose_name=_("Strasse"))
 
 
 class Vehicle(models.Model):
@@ -50,7 +56,7 @@ class Vehicle(models.Model):
         NOT_DRIVABLE = "not_drivable", _("Nicht Fahrbereit")
         MODIFIED = "modified", _("Modifiziert")
 
-    license_plate = models.CharField(max_length=20, verbose_name=_("Kennzeichen") + "*")
+    license_plate = models.CharField(max_length=20, verbose_name=_("Kennzeichen"))
     name = models.CharField(
         max_length=20, null=True, blank=True, default=_("Keine"), verbose_name=_("Name")
     )
@@ -58,16 +64,16 @@ class Vehicle(models.Model):
         max_length=50,
         choices=Type.choices,
         default=Type.PASSENGER_CAR,
-        verbose_name=_("Fahrzeugtyp") + "*",
+        verbose_name=_("Fahrzeugtyp"),
     )
-    model = models.CharField(max_length=20, verbose_name=_("Fahrzeugmodell") + "*")
-    manufacturer = models.CharField(max_length=20, verbose_name=_("Hersteller") + "*")
+    model = models.CharField(max_length=20, verbose_name=_("Fahrzeugmodell"))
+    manufacturer = models.CharField(max_length=20, verbose_name=_("Hersteller"))
     year_of_manufacturer = models.PositiveIntegerField(
         default=1900,
-        verbose_name=_("Baujahr") + "*",
+        verbose_name=_("Baujahr"),
         validators=[MinValueValidator(1900)],
     )
-    vin = models.CharField(max_length=20, verbose_name=_("Identifikationsnummer") + "*")
+    vin = models.CharField(max_length=20, verbose_name=_("Identifikationsnummer"))
     power_engine = models.CharField(
         max_length=20,
         default=_("Unbekannt"),
@@ -75,15 +81,15 @@ class Vehicle(models.Model):
         null=True,
         blank=True,
     )
-    capacity = models.CharField(max_length=20, verbose_name=_("Lagerkapazität") + "*")
+    capacity = models.CharField(max_length=20, verbose_name=_("Lagerkapazität"))
     fuel_type = models.CharField(
         max_length=20,
         choices=Fuel.choices,
         default=Fuel.DIESEL,
-        verbose_name=_("Kraftstofftyp") + "*",
+        verbose_name=_("Kraftstofftyp"),
     )
     fuel_consumption = models.CharField(
-        max_length=20, verbose_name=_("Durchschnittlicher Kraftstoffverbrauch") + "*"
+        max_length=20, verbose_name=_("Durchschnittlicher Kraftstoffverbrauch")
     )
     insurance = models.TextField(
         max_length=200,
@@ -96,7 +102,7 @@ class Vehicle(models.Model):
         max_length=20,
         choices=Condition.choices,
         default=Condition.UNUSED,
-        verbose_name=_("Zustand") + "*",
+        verbose_name=_("Zustand"),
     )
 
 

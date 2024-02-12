@@ -60,7 +60,7 @@
                                             <img src="{% static 'svgs/folder.svg' %}" alt="folder" />
                                         </div>
                                         <div class="title">
-                                            <p>Gehalts- und Vergütungsakten</p>
+                                            <p>{% translate 'Gehalts- und Vergütungsakten' %}</p>
                                         </div>
                                         {% if unconfirmed_salaries_count %}
                                             <div class="count">
@@ -73,7 +73,7 @@
                                             <img src="{% static 'svgs/folder.svg' %}" alt="folder" />
                                         </div>
                                         <div class="title">
-                                            <p>Krankheits- und Urlaubsakten</p>
+                                            <p>{% translate 'Krankheits- und Urlaubsakten' %}</p>
                                         </div>
                                     </a>
                                     <a href="{% url 'performance' %}" class="folder">
@@ -81,7 +81,7 @@
                                             <img src="{% static 'svgs/folder.svg' %}" alt="folder" />
                                         </div>
                                         <div class="title">
-                                            <p>Leistungsbeurteilungsakten</p>
+                                            <p>{% translate 'Leistungsbeurteilungsakten' %}</p>
                                         </div>
                                     </a>
                                     <a href="{% url 'reprimant' %}" class="folder">
@@ -89,7 +89,7 @@
                                             <img src="{% static 'svgs/folder.svg' %}" alt="folder" />
                                         </div>
                                         <div class="title">
-                                            <p>Disziplinarakten</p>
+                                            <p>{% translate 'Disziplinarakten' %}</p>
                                         </div>
                                     </a>
                                 </div>

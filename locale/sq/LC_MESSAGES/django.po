@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-23 23:59+0000\n"
+"POT-Creation-Date: 2024-02-12 05:45+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,51 +18,51 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: administration/models.py:38 disposition/models.py:55
-#: disposition/templates/pages/vehicles/vehicle.html:225
+#: administration/models.py:38 disposition/models.py:61
+#: disposition/templates/pages/vehicles/vehicle.html:227
 msgid "Name"
-msgstr ""
+msgstr "Emri"
 
 #: administration/models.py:43
 msgid "Color"
-msgstr ""
+msgstr "Ngjyra"
 
 #: administration/templates/components/subsidebar/subsidebar_administration.html:13
 #: administration/templates/components/subsidebar/subsidebar_administration.html:24
 #: administration/templates/pages/system.html:17
 msgid "Konfiguration"
-msgstr ""
+msgstr "Konfigurimi"
 
 #: administration/templates/components/subsidebar/subsidebar_administration.html:36
 #: administration/templates/components/subsidebar/subsidebar_administration.html:47
 #: administration/templates/pages/roles/index.html:17
 #: administration/templates/pages/roles/index.html:32
 msgid "Rollen"
-msgstr ""
+msgstr "Rolet"
 
 #: administration/templates/components/subsidebar/subsidebar_administration.html:60
 #: administration/templates/components/subsidebar/subsidebar_administration.html:75
 msgid "Benutzer*innenliste"
-msgstr ""
+msgstr "Lista e përdoruesve"
 
 #: administration/templates/components/subsidebar/subsidebar_administration.html:62
 #: administration/templates/components/subsidebar/subsidebar_administration.html:77
 #: administration/templates/pages/users/index.html:17
 #: administration/templates/pages/users/index.html:32
 msgid "Benutzerliste"
-msgstr ""
+msgstr "Lista e përdoruesve"
 
 #: administration/templates/components/subsidebar/subsidebar_administration.html:90
 #: administration/templates/components/subsidebar/subsidebar_administration.html:101
 #: administration/templates/pages/logs.html:17
 #: administration/templates/pages/logs.html:32
 msgid "Protokolle"
-msgstr ""
+msgstr "Protokollet"
 
 #: administration/templates/components/subsidebar/subsidebar_administration.html:113
 #: administration/templates/components/subsidebar/subsidebar_administration.html:124
 msgid "Signatur"
-msgstr ""
+msgstr "Nënshkrimi"
 
 #: administration/templates/pages/roles/delete_role.html:17
 #: administration/templates/pages/roles/delete_role.html:20
@@ -71,291 +71,383 @@ msgstr ""
 #: disposition/templates/pages/vehicles/delete.html:17
 #: disposition/templates/pages/vehicles/delete.html:20
 msgid "Warning"
-msgstr ""
+msgstr "Paralajmërim"
 
 #: administration/templates/pages/roles/delete_role.html:42
 #: disposition/templates/pages/stations/delete.html:42
 #: disposition/templates/pages/vehicles/delete.html:42
 msgid "Bist du sicher?"
-msgstr ""
+msgstr "A je i sigurt?"
 
 #: administration/templates/pages/roles/delete_role.html:48
-#: administration/templates/pages/roles/form_management_permission.html:114
-#: administration/templates/pages/roles/form_role.html:47
+#: administration/templates/pages/roles/form_management_permission.html:116
+#: administration/templates/pages/roles/form_role.html:49
 #: administration/templates/pages/roles/form_role_user.html:73
 #: authentication/templates/pages/laws/copyright.html:77
 #: authentication/templates/pages/laws/privacy.html:76
 #: authentication/templates/pages/laws/terms.html:76
+#: authentication/templates/pages/settings/account.html:46
 #: communication/templates/pages/announcements/create.html:42
 #: communication/templates/pages/inbox/create.html:45
 #: disposition/templates/pages/stations/delete.html:48
+#: disposition/templates/pages/stations/form.html:56
+#: disposition/templates/pages/stations/form.html:60
 #: disposition/templates/pages/vehicles/delete.html:48
-#: disposition/templates/pages/vehicles/form.html:54
-#: disposition/templates/pages/vehicles/form.html:58
+#: disposition/templates/pages/vehicles/form.html:56
+#: disposition/templates/pages/vehicles/form.html:60
+#: personal/templates/pages/profile/profile_form.html:114
 msgid "Abbrechen"
-msgstr ""
+msgstr "Anulo"
 
 #: administration/templates/pages/roles/delete_role.html:49
 #: disposition/templates/pages/stations/delete.html:49
 #: disposition/templates/pages/vehicles/delete.html:49
 msgid "Löschen"
-msgstr ""
+msgstr "Fshij"
 
 #: administration/templates/pages/roles/form_index.html:28
 msgid "Rolle erstellen"
-msgstr ""
+msgstr "Krijo Rol"
 
 #: administration/templates/pages/roles/form_index.html:34
-#: administration/templates/pages/roles/form_management_permission.html:115
-#: administration/templates/pages/roles/form_role.html:49
+#: administration/templates/pages/roles/form_management_permission.html:117
+#: administration/templates/pages/roles/form_role.html:51
 #: administration/templates/pages/roles/form_role_user.html:74
-#: disposition/templates/pages/vehicles/form.html:55
+#: authentication/templates/pages/settings/account.html:48
+#: disposition/templates/pages/stations/form.html:57
+#: disposition/templates/pages/vehicles/form.html:57
+#: personal/templates/pages/notes/update.html:60
+#: personal/templates/pages/notes/update.html:80
+#: personal/templates/pages/notes/update.html:100
+#: personal/templates/pages/notes/update.html:120
+#: personal/templates/pages/notes/update.html:140
+#: personal/templates/pages/notes/update.html:160
+#: personal/templates/pages/notes/update.html:180
+#: personal/templates/pages/notes/update.html:200
+#: personal/templates/pages/profile/profile_form.html:116
 msgid "Speichern"
-msgstr ""
+msgstr "Ruaj"
 
 #: administration/templates/pages/roles/form_index.html:36
-#: administration/templates/pages/roles/form_role.html:51
-#: disposition/templates/pages/vehicles/form.html:59
+#: administration/templates/pages/roles/form_role.html:53
+#: disposition/templates/pages/stations/form.html:61
+#: disposition/templates/pages/vehicles/form.html:61
+#: personal/templates/pages/profile/profile_form.html:118
 msgid "Hinzufügen"
-msgstr ""
+msgstr "Shto"
 
 #: administration/templates/pages/roles/form_index.html:40
-#: administration/templates/pages/roles/form_role.html:56
-#: disposition/templates/pages/vehicles/form.html:64
+#: administration/templates/pages/roles/form_role.html:58
+#: authentication/templates/pages/authentication/access.html:34
+#: authentication/templates/pages/settings/account.html:53
+#: disposition/templates/pages/vehicles/form.html:66
+#: personal/templates/pages/profile/profile_form.html:123
 msgid "Zugriff verweigert"
-msgstr ""
+msgstr "Qasja u mohua"
 
-#: administration/templates/pages/roles/form_management_permission.html:42
+#: administration/templates/pages/roles/form_management_permission.html:44
 #: administration/templates/pages/roles/form_role_user.html:44
-#: administration/templates/pages/roles/role.html:44
-#: administration/templates/pages/roles/role_manage.html:42
+#: administration/templates/pages/roles/role.html:46
+#: administration/templates/pages/roles/role_manage.html:44
 msgid "Detail"
-msgstr ""
+msgstr "Detaje"
 
-#: administration/templates/pages/roles/form_management_permission.html:45
+#: administration/templates/pages/roles/form_management_permission.html:47
 #: administration/templates/pages/roles/form_role_user.html:47
-#: administration/templates/pages/roles/role.html:47
-#: administration/templates/pages/roles/role_manage.html:45
+#: administration/templates/pages/roles/role.html:49
+#: administration/templates/pages/roles/role_manage.html:47
 msgid "Verwalten"
-msgstr ""
+msgstr "Menaxho"
 
-#: administration/templates/pages/roles/form_management_permission.html:53
-#: administration/templates/pages/roles/role_manage.html:58
+#: administration/templates/pages/roles/form_management_permission.html:55
+#: administration/templates/pages/roles/role_manage.html:62
 #: authentication/templates/components/sidebar/sidebar.html:42
 #: authentication/templates/components/sidebar/sidebar.html:53
 #: authentication/templates/pages/root/home.html:33
 msgid "Administration"
-msgstr ""
-
-#: administration/templates/pages/roles/form_management_permission.html:55
-#: administration/templates/pages/roles/form_management_permission.html:75
-#: administration/templates/pages/roles/form_management_permission.html:95
-#: administration/templates/pages/roles/role_manage.html:60
-#: administration/templates/pages/roles/role_manage.html:83
-#: administration/templates/pages/roles/role_manage.html:106
-msgid "Wert"
-msgstr ""
-
-#: administration/templates/pages/roles/form_management_permission.html:56
-#: administration/templates/pages/roles/form_management_permission.html:76
-#: administration/templates/pages/roles/form_management_permission.html:96
-#: administration/templates/pages/roles/role_manage.html:61
-#: administration/templates/pages/roles/role_manage.html:84
-#: administration/templates/pages/roles/role_manage.html:107
-msgid "Beschreibung"
-msgstr ""
+msgstr "Administrimi"
 
 #: administration/templates/pages/roles/form_management_permission.html:57
 #: administration/templates/pages/roles/form_management_permission.html:77
 #: administration/templates/pages/roles/form_management_permission.html:97
-#: administration/templates/pages/roles/role_manage.html:62
-#: administration/templates/pages/roles/role_manage.html:85
-#: administration/templates/pages/roles/role_manage.html:108
-msgid "Status"
-msgstr ""
+#: administration/templates/pages/roles/role_manage.html:64
+#: administration/templates/pages/roles/role_manage.html:87
+#: administration/templates/pages/roles/role_manage.html:110
+msgid "Wert"
+msgstr "Vlerë"
 
-#: administration/templates/pages/roles/form_management_permission.html:73
-#: administration/templates/pages/roles/role_manage.html:81
+#: administration/templates/pages/roles/form_management_permission.html:58
+#: administration/templates/pages/roles/form_management_permission.html:78
+#: administration/templates/pages/roles/form_management_permission.html:98
+#: administration/templates/pages/roles/role_manage.html:65
+#: administration/templates/pages/roles/role_manage.html:88
+#: administration/templates/pages/roles/role_manage.html:111
+msgid "Beschreibung"
+msgstr "Përshkrim"
+
+#: administration/templates/pages/roles/form_management_permission.html:59
+#: administration/templates/pages/roles/form_management_permission.html:79
+#: administration/templates/pages/roles/form_management_permission.html:99
+#: administration/templates/pages/roles/role_manage.html:66
+#: administration/templates/pages/roles/role_manage.html:89
+#: administration/templates/pages/roles/role_manage.html:112
+#: personal/templates/pages/profile/work/absence.html:80
+#: personal/templates/pages/profile/work/absence.html:82
+msgid "Status"
+msgstr "Statusi"
+
+#: administration/templates/pages/roles/form_management_permission.html:75
+#: administration/templates/pages/roles/role_manage.html:85
 #: authentication/templates/components/sidebar/sidebar.html:139
 #: authentication/templates/components/sidebar/sidebar.html:150
 #: authentication/templates/pages/root/home.html:65
 msgid "Disposition"
-msgstr ""
+msgstr "Përgatitje"
 
-#: administration/templates/pages/roles/form_management_permission.html:93
-#: administration/templates/pages/roles/role_manage.html:104
+#: administration/templates/pages/roles/form_management_permission.html:95
+#: administration/templates/pages/roles/role_manage.html:108
 #: authentication/templates/components/sidebar/sidebar.html:126
 #: authentication/templates/pages/root/home.html:57
 msgid "Verwaltung"
-msgstr ""
+msgstr "Menaxhimi"
 
-#: administration/templates/pages/system.html:43 communication/models.py:25
+#: administration/templates/pages/system.html:45 communication/models.py:25
 msgid "Logo"
-msgstr ""
+msgstr "Logo"
 
 #: administration/templates/pages/users/index.html:41
 #: communication/templates/pages/inbox/select.html:43
 msgid "Benutzer suchen..."
-msgstr ""
+msgstr "Kërko përdorues..."
 
 #: administration/templates/pages/users/index.html:43
 msgid "Alle Rollen"
-msgstr ""
+msgstr "Të gjitha rolet"
 
 #: administration/templates/pages/users/index.html:48
 #: communication/templates/pages/inbox/select.html:46
 msgid "Zurücksetzen"
-msgstr ""
+msgstr "Rivendos"
 
 #: administration/templates/pages/users/index.html:51
 #: communication/templates/pages/inbox/select.html:49
 msgid "Suchen"
-msgstr ""
+msgstr "Kërko"
 
-#: authentication/models.py:62
+#: authentication/models.py:36
+msgid "-"
+msgstr "-"
+
+#: authentication/models.py:37
+msgid "Vogel"
+msgstr "Zog"
+
+#: authentication/models.py:38
+msgid "Schmetterling"
+msgstr "Flutur"
+
+#: authentication/models.py:39
+msgid "Katze"
+msgstr "Mace"
+
+#: authentication/models.py:40
+msgid "Hund"
+msgstr "Qen"
+
+#: authentication/models.py:41
+msgid "Ente"
+msgstr "Rosë"
+
+#: authentication/models.py:42
+msgid "Qualle"
+msgstr "Meduza"
+
+#: authentication/models.py:43
+msgid "Eule"
+msgstr "Buf"
+
+#: authentication/models.py:44
+msgid "Panda"
+msgstr "Panda"
+
+#: authentication/models.py:45
+msgid "Pinguin"
+msgstr "Penguin"
+
+#: authentication/models.py:46
+msgid "Schwein"
+msgstr "Derr"
+
+#: authentication/models.py:47
+msgid "Hase"
+msgstr "Lepur"
+
+#: authentication/models.py:48
+msgid "Schaf"
+msgstr "Dele"
+
+#: authentication/models.py:49
+msgid "Schnecke"
+msgstr "Krimb"
+
+#: authentication/models.py:50
+msgid "Schlange"
+msgstr "Gjarper"
+
+#: authentication/models.py:51
+msgid "Truthan"
+msgstr "Pulë e egër"
+
+#: authentication/models.py:52
+msgid "Schildkröte"
+msgstr "Breshkë"
+
+#: authentication/models.py:335
 msgid "Hell"
-msgstr ""
+msgstr "I Ndritshme"
 
-#: authentication/models.py:63
+#: authentication/models.py:336
 msgid "Dunkel"
-msgstr ""
+msgstr "I Errët"
 
-#: authentication/models.py:64
+#: authentication/models.py:337
 msgid "Kontrast"
-msgstr ""
+msgstr "Kontrast"
 
-#: authentication/models.py:78
+#: authentication/models.py:351
 msgid "Falschinformationen"
-msgstr ""
+msgstr "Informacion i Rremë"
 
-#: authentication/models.py:79
+#: authentication/models.py:352
 msgid "Missbrauch von Privilegien"
-msgstr ""
+msgstr "Abuzim i Privilegjeve"
 
-#: authentication/models.py:80
+#: authentication/models.py:353
 msgid "Belästigung"
-msgstr ""
+msgstr "Ngacmim"
 
-#: authentication/models.py:81
+#: authentication/models.py:354
 msgid "Cybermobbing"
-msgstr ""
+msgstr "Bulizëm Kibernetik"
 
-#: authentication/models.py:82
+#: authentication/models.py:355
 msgid "Cybergrooming"
-msgstr ""
+msgstr "Grooming Kibernetik"
 
-#: authentication/models.py:83
+#: authentication/models.py:356
 msgid "Whataboutismus"
-msgstr ""
+msgstr "Whataboutism"
 
-#: authentication/models.py:84
+#: authentication/models.py:357
 msgid "Relativierung"
-msgstr ""
+msgstr "Relativizim"
 
-#: authentication/models.py:85
+#: authentication/models.py:358
 msgid "Erpressung"
-msgstr ""
+msgstr "Shantazh"
 
-#: authentication/models.py:86
+#: authentication/models.py:359
 msgid "Drohung"
-msgstr ""
+msgstr "Kërcënim"
 
-#: authentication/models.py:87
+#: authentication/models.py:360
 msgid "Wortwahl"
-msgstr ""
+msgstr "Përzgjedhje e Fjalëve"
 
-#: authentication/models.py:88
+#: authentication/models.py:361
 msgid "Hassrede"
-msgstr ""
+msgstr "Fjalë urrejtjeje"
 
-#: authentication/models.py:89
+#: authentication/models.py:362
 msgid "Beleidigung"
-msgstr ""
+msgstr "Ofendim"
 
-#: authentication/models.py:90
+#: authentication/models.py:363
 msgid "Diskriminierung"
-msgstr ""
+msgstr "Diskriminim"
 
-#: authentication/models.py:91
+#: authentication/models.py:364
 msgid "Sexismus"
-msgstr ""
+msgstr "Seksizëm"
 
-#: authentication/models.py:92
+#: authentication/models.py:365
 msgid "Rassismus"
-msgstr ""
+msgstr "Racizëm"
 
-#: authentication/models.py:93
+#: authentication/models.py:366
 msgid "Faschismus"
-msgstr ""
+msgstr "Fashizëm"
 
-#: authentication/models.py:94
+#: authentication/models.py:367
 msgid "Antisemitismus"
-msgstr ""
+msgstr "Antisemitizëm"
 
-#: authentication/models.py:95
+#: authentication/models.py:368
 msgid "Islamophobie"
-msgstr ""
+msgstr "Islamofobi"
 
-#: authentication/models.py:96
+#: authentication/models.py:369
 msgid "Homophobie"
-msgstr ""
+msgstr "Homofobi"
 
-#: authentication/models.py:97
+#: authentication/models.py:370
 msgid "Betrug"
-msgstr ""
+msgstr "Mashtrim"
 
-#: authentication/models.py:98
+#: authentication/models.py:371
 msgid "Spam"
-msgstr ""
+msgstr "Spam"
 
 #: authentication/templates/components/sidebar/sidebar.html:17
 #: authentication/templates/components/sidebar/sidebar.html:28
 msgid "Startseite"
-msgstr ""
+msgstr "Faqja Kryesore"
 
 #: authentication/templates/components/sidebar/sidebar.html:67
 #: authentication/templates/components/sidebar/sidebar.html:78
 #: authentication/templates/pages/root/home.html:41
 msgid "Persönlich"
-msgstr ""
+msgstr "Personale"
 
 #: authentication/templates/components/sidebar/sidebar.html:92
 #: authentication/templates/components/sidebar/sidebar.html:108
 #: authentication/templates/pages/root/home.html:49
+#: personal/templates/pages/profile/work/performance.html:99
+#: personal/templates/pages/profile/work/performance.html:101
 msgid "Kommunikation"
-msgstr ""
+msgstr "Komunikim"
 
 #: authentication/templates/components/sidebar/sidebar.html:163
 #: authentication/templates/pages/root/home.html:73
 msgid "Cloud"
-msgstr ""
+msgstr "Cloud"
 
 #: authentication/templates/components/sidebar/sidebar.html:174
 msgid "Impressum"
-msgstr ""
+msgstr "Impressum"
 
 #: authentication/templates/components/sidebar/sidebar.html:185
 #: authentication/templates/components/sidebar/sidebar.html:196
 #: authentication/templates/pages/laws/privacy.html:14
 msgid "Datenschutzerklärung"
-msgstr ""
+msgstr "Deklaratë për Mbrojtjen e të Dhënave"
 
 #: authentication/templates/components/sidebar/sidebar.html:208
 #: authentication/templates/components/sidebar/sidebar.html:219
 #: authentication/templates/pages/laws/terms.html:14
 msgid "Nutzungsbedingungen"
-msgstr ""
+msgstr "Kushtet e Përdorimit"
 
 #: authentication/templates/components/sidebar/sidebar.html:231
 #: authentication/templates/components/sidebar/sidebar.html:242
 #: authentication/templates/pages/laws/copyright.html:15
 #: authentication/templates/pages/laws/copyright.html:27
 msgid "Urheberrecht"
-msgstr ""
+msgstr "Të Drejtat e Autorit"
 
 #: authentication/templates/components/sidebar/sidebar.html:249
 msgid "Abmelden"
-msgstr ""
+msgstr "Ç'kyç"
 
 #: authentication/templates/components/sidebar/sidebar.html:254
 #: authentication/templates/pages/authentication/login.html:17
@@ -363,35 +455,56 @@ msgstr ""
 #: authentication/templates/pages/authentication/login.html:38
 #: authentication/templates/pages/authentication/signup.html:41
 msgid "Anmelden"
-msgstr ""
+msgstr "Kyç"
 
 #: authentication/templates/components/sidebar/sidebar.html:259
 #: communication/models.py:15
 msgid "OfficeSync"
-msgstr ""
+msgstr "OfficeSync"
+
+#: authentication/templates/components/subsidebar/subsidebar_settings.html:13
+#: authentication/templates/components/subsidebar/subsidebar_settings.html:24
+#: authentication/templates/pages/settings/account.html:30
+msgid "Konto"
+msgstr "Llogari"
+
+#: authentication/templates/components/subsidebar/subsidebar_settings.html:36
+#: authentication/templates/components/subsidebar/subsidebar_settings.html:47
+msgid "Oberfläche"
+msgstr "Ndërfaqe"
+
+#: authentication/templates/components/subsidebar/subsidebar_settings.html:59
+#: authentication/templates/components/subsidebar/subsidebar_settings.html:70
+msgid "Verknüpfungen"
+msgstr "Shkurtore"
 
 #: authentication/templates/pages/authentication/login.html:31
 msgid "Willkommen"
-msgstr ""
+msgstr "Mirësevini"
 
 #: authentication/templates/pages/authentication/login.html:41
 msgid "Kein Konto?"
-msgstr ""
+msgstr "Nuk keni llogari?"
 
 #: authentication/templates/pages/authentication/login.html:41
 #: authentication/templates/pages/authentication/signup.html:17
 #: authentication/templates/pages/authentication/signup.html:20
 #: authentication/templates/pages/authentication/signup.html:38
 msgid "Registrieren"
-msgstr ""
+msgstr "Regjistrohu"
+
+#: authentication/templates/pages/authentication/maintenance.html:33
+#: disposition/models.py:117
+msgid "Wartungsarbeiten"
+msgstr "Mirëmbajtje"
 
 #: authentication/templates/pages/authentication/signup.html:31
 msgid "Konto eröffnen"
-msgstr ""
+msgstr "Hapni një Llogari"
 
 #: authentication/templates/pages/authentication/signup.html:41
 msgid "Bereits Konto?"
-msgstr ""
+msgstr "Tashmë keni llogari?"
 
 #: authentication/templates/pages/laws/copyright.html:35
 msgid ""
@@ -402,16 +515,23 @@ msgid ""
 "diesen Bestimmungen nicht zustimmen, dürfen Sie \"OfficeSync\" nicht "
 "verwenden."
 msgstr ""
+"Këto rregullore të të drejtave të autorit rregullojnë përdorimin e "
+"aplikacionit web me burim të hapur \"OfficeSync\", i cili është zhvilluar "
+"nga Kiidle në porosi të kompanisë \"Ruch Transporte GmbH\". Duke përdorur "
+"\"OfficeSync\" ju pranoni këto rregullore në mënyrë të qartë. Nëse nuk "
+"pranoni këto rregullore, ju nuk lejoheni të përdorni \"OfficeSync\"."
 
 #: authentication/templates/pages/laws/copyright.html:37
 msgid "1. Nutzung und Veränderung"
-msgstr ""
+msgstr "1. Përdorimi dhe Ndryshimi"
 
 #: authentication/templates/pages/laws/copyright.html:39
 msgid ""
 "1.1 \"OfficeSync\" ist als Open-Source-Software verfügbar und kann von "
 "Dritten verwendet und auf eigenen Servern deployt werden."
 msgstr ""
+"1.1 \"OfficeSync\" është në dispozicion si softuer me burim të hapur dhe "
+"mund të përdoret dhe të vendoset në serverët e tyre nga palët e treta."
 
 #: authentication/templates/pages/laws/copyright.html:42
 msgid ""
@@ -419,22 +539,28 @@ msgid ""
 "Funktionalitäten oder das Design der Plattform zu verändern, zu ergänzen "
 "oder zu manipulieren."
 msgstr ""
+"1.2 Ju mund të përdorni \"OfficeSync\", por nuk lejoheni të ndryshoni, "
+"shtoni ose manipuloni kodin, funksionalitetet ose dizajnin e platformës."
 
 #: authentication/templates/pages/laws/copyright.html:45
 msgid ""
 "1.3 Insbesondere ist es Ihnen untersagt, das Logo von \"Kiidle\" im "
 "\"OfficeSync\" zu entfernen oder anderweitig zu manipulieren."
 msgstr ""
+"1.3 Veçanërisht, ju ndalohet të hiqni ose në ndonjë mënyrë tjetër të "
+"manipuloni logon e \"Kiidle\" në \"OfficeSync\"."
 
 #: authentication/templates/pages/laws/copyright.html:47
 msgid "2. Einschränkungen und Konsequenzen"
-msgstr ""
+msgstr "2. Kufizimet dhe Pasojat"
 
 #: authentication/templates/pages/laws/copyright.html:49
 msgid ""
 "2.1 Die Verwendung von veränderten, ergänzten oder manipulierten Kopien von "
 "\"OfficeSync\" ohne ausdrückliche Genehmigung ist strikt untersagt."
 msgstr ""
+"2.1 Përdorimi i kopjeve të ndryshuara, shtuar ose manipuluar të "
+"\"OfficeSync\" pa leje të shprehur është striktisht i ndaluar."
 
 #: authentication/templates/pages/laws/copyright.html:52
 msgid ""
@@ -442,16 +568,22 @@ msgid ""
 "manipulierte Kopien von \"OfficeSync\" verwenden, unterliegen denselben "
 "rechtlichen Konsequenzen wie diejenigen, die \"OfficeSync\" verändert haben."
 msgstr ""
+"2.2 Klientët ose palët e treta që përdorin kopje të paligjshme, versione të "
+"ndryshuara ose kopje të manipuluara të \"OfficeSync\" nënshtrihen të "
+"njëjtave pasojave ligjore si ata që kanë ndryshuar \"OfficeSync\"."
 
 #: authentication/templates/pages/laws/copyright.html:54
 msgid "3. Schutz des Urheberrechts"
-msgstr ""
+msgstr "3. Mbrojtja e të Drejtave të Autorit"
 
 #: authentication/templates/pages/laws/copyright.html:56
 msgid ""
 "3.1 \"OfficeSync\" und alle damit verbundenen geistigen Eigentumsrechte, "
 "einschließlich Urheberrechte, gehören der Organisation Kiidle."
 msgstr ""
+"3.1 \"OfficeSync\" dhe të gjitha të drejtat e tjera të pronësisë "
+"intelektuale të lidhura me të, përfshirë të drejtat e autorit, i përkasin "
+"organizatës Kiidle."
 
 #: authentication/templates/pages/laws/copyright.html:59
 msgid ""
@@ -459,11 +591,13 @@ msgid ""
 "ausdrückliche Genehmigung von Kiidle stellt eine Verletzung des "
 "Urheberrechts dar."
 msgstr ""
+"3.2 Çdo përdorim, përdorim ose ndryshim i \"OfficeSync\" pa leje të shprehur "
+"nga Kiidle përbën një shkelje të të drejtave të autorit."
 
 #: authentication/templates/pages/laws/copyright.html:61
 #: authentication/templates/pages/laws/terms.html:57
 msgid "4. Haftungsausschluss"
-msgstr ""
+msgstr "4. Mospërgjegjësia"
 
 #: authentication/templates/pages/laws/copyright.html:63
 msgid ""
@@ -471,10 +605,12 @@ msgid ""
 "Bereitstellung oder Bereitstellung veränderter Versionen von \"OfficeSync\" "
 "entstehen."
 msgstr ""
+"4.1 Kiidle nuk merr përsipër asnjë përgjegjësi për dëmet që shkaktohen nga "
+"përdorimi, ofrimi apo furnizimi i versioneve të ndryshuara të \"OfficeSync\"."
 
 #: authentication/templates/pages/laws/copyright.html:65
 msgid "5. Änderungen der Bestimmungen"
-msgstr ""
+msgstr "5. Ndryshimet e Rregulloreve"
 
 #: authentication/templates/pages/laws/copyright.html:67
 msgid ""
@@ -482,6 +618,9 @@ msgid ""
 "oder zu aktualisieren. Die aktualisierten Bestimmungen treten mit ihrer "
 "Veröffentlichung in Kraft."
 msgstr ""
+"5.1 Kiidle mbajnë të drejtën për të ndryshuar ose përditësuar këto "
+"rregullore në çdo kohë. Rregulloret e përditësuara hyjnë në fuqi me "
+"publikimin e tyre."
 
 #: authentication/templates/pages/laws/copyright.html:70
 msgid ""
@@ -490,16 +629,20 @@ msgid ""
 "erklären. Diese Bestimmungen bilden die gesamte Vereinbarung zwischen Ihnen "
 "und [Ihr Unternehmen/Name] in Bezug auf die Verwendung von \"OfficeSync\"."
 msgstr ""
+"Duke përdorur \"OfficeSync\", ju pranoni se keni lexuar dhe kuptuar këto "
+"rregullore dhe jeni të dakord me to. Këto rregullore përbëjnë marrëveshjen e "
+"plotë ndërmjet jush dhe Kiidle lidhur me përdorimin e \"OfficeSync\"."
 
 #: authentication/templates/pages/laws/copyright.html:78
 #: authentication/templates/pages/laws/privacy.html:77
 #: authentication/templates/pages/laws/terms.html:77
 msgid "Zustimmen"
-msgstr ""
+msgstr "Pajtohem"
 
 #: authentication/templates/pages/laws/privacy.html:26
 msgid "Datenschutzerklärung gemäß Europäischer Union (EU) & der Schweiz"
 msgstr ""
+"Deklaratë e Mbrojtjes së të Dhënave sipas Bashkimit Evropian (BE) dhe Zvicrës"
 
 #: authentication/templates/pages/laws/privacy.html:34
 msgid ""
@@ -509,10 +652,14 @@ msgid ""
 "mit der Nutzung der OfficeSync-Plattform gesammelt, verarbeitet und "
 "geschützt werden."
 msgstr ""
+"Ne vlerësojmë shumë mbrojtjen e të dhënave tuaja personale dhe përputhjen me "
+"rregulloret e Mbrojtjes së të Dhënave të Bashkimit Evropian. Kjo deklaratë e "
+"mbrojtjes së të dhënave shpjegon se si të dhënat tuaja personale mbledhen, "
+"përpunohen dhe mbrohen në lidhje me përdorimin e platformës OfficeSync."
 
 #: authentication/templates/pages/laws/privacy.html:36
 msgid "Datenerhebung und -verarbeitung"
-msgstr ""
+msgstr "Mbledhja dhe Përpunimi i të Dhënave"
 
 #: authentication/templates/pages/laws/privacy.html:38
 msgid ""
@@ -520,6 +667,9 @@ msgid ""
 "Kontaktdaten und berufliche Informationen, werden ausschließlich für interne "
 "Zwecke verwendet."
 msgstr ""
+"- Të dhënat që ju ofroni, duke përfshirë emrin, mbiemrin, të dhënat e "
+"kontaktit dhe informacionin profesional, do të përdoren vetëm për qëllime të "
+"brendshme."
 
 #: authentication/templates/pages/laws/privacy.html:41
 #: authentication/templates/pages/laws/privacy.html:44
@@ -528,26 +678,34 @@ msgid ""
 "Ferien- und Arbeitszeitinformationen, werden zur effizienten Abwicklung "
 "Ihrer Arbeitsabläufe erfasst und verarbeitet."
 msgstr ""
+"- Të dhënat që janë të nevojshme për funksionet e platformës, si "
+"informacionet mbi pushimet dhe orarin e punës, do të mbledhen dhe përpunohen "
+"për të menaxhuar me efikasitet proceset tuaja të punës."
 
 #: authentication/templates/pages/laws/privacy.html:46
 msgid "Datensicherheit"
-msgstr ""
+msgstr "Siguria e të Dhënave"
 
 #: authentication/templates/pages/laws/privacy.html:48
 msgid ""
 "- Wir setzen angemessene technische und organisatorische Maßnahmen ein, um "
 "Ihre Daten vor unbefugtem Zugriff, Verlust oder Missbrauch zu schützen."
 msgstr ""
+"- Ne zbatojmë masa teknike dhe organizative të përshtatshme për të mbrojtur "
+"të dhënat tuaja nga aksesi i paautorizuar, humbja ose abuzimi."
 
 #: authentication/templates/pages/laws/privacy.html:51
 msgid ""
 "- Zugriff auf Ihre persönlichen Daten erhalten nur berechtigte Mitarbeiter, "
 "die diese Informationen zur Erfüllung ihrer beruflichen Aufgaben benötigen."
 msgstr ""
+"- Vetëm punonjësit e autorizuar, të cilët kanë nevojë për këto informacione "
+"për të kryer detyrat e tyre profesionale, do të kenë qasje në të dhënat "
+"tuaja personale."
 
 #: authentication/templates/pages/laws/privacy.html:53
 msgid "Datenweitergabe"
-msgstr ""
+msgstr "Siguria e të Dhënave"
 
 #: authentication/templates/pages/laws/privacy.html:55
 msgid ""
@@ -555,10 +713,13 @@ msgid ""
 "Dritte weitergegeben, es sei denn, dies ist gesetzlich vorgeschrieben oder "
 "für die Ausführung bestimmter Funktionen der Plattform erforderlich."
 msgstr ""
+"- Të dhënat tuaja personale nuk do të ndahen me palë të treta pa pëlqimin "
+"tuaj të shprehur, përveç nëse kërkohet me ligj ose është e nevojshme për "
+"zbatimin e funksioneve të caktuara të platformës."
 
 #: authentication/templates/pages/laws/privacy.html:57
 msgid "Datenlöschung"
-msgstr ""
+msgstr "Fshirja e të Dhënave"
 
 #: authentication/templates/pages/laws/privacy.html:59
 msgid ""
@@ -566,6 +727,9 @@ msgid ""
 "werden sämtliche personalisierten persönlichen Daten nach einer "
 "Aufbewahrungsfrist von 10 Jahren unwiderruflich gelöscht."
 msgstr ""
+"- Pas përfundimit të llogarisë suaj dhe të punësimit tuaj në kompani, të "
+"gjitha të dhënat tuaja personale të personalizuara do të fshihen "
+"përfundimisht pas një periudhe ruajtjeje prej 10 vjetësh."
 
 #: authentication/templates/pages/laws/privacy.html:62
 msgid ""
@@ -573,26 +737,33 @@ msgid ""
 "und Ferientage werden aus Gründen der Compliance und auf Anfrage von "
 "Behörden aufbewahrt."
 msgstr ""
+"- Disa të dhëna të nevojshme si emri, mbiemri, numri i orëve të punës dhe "
+"diteve të pushimit do të ruhen për arsye të përputhshmërisë dhe në kërkesë "
+"të autoriteteve."
 
 #: authentication/templates/pages/laws/privacy.html:64
 msgid "Ihre Rechte"
-msgstr ""
+msgstr "Të Drejtat Tuaja"
 
 #: authentication/templates/pages/laws/privacy.html:66
 msgid ""
 "- Sie haben das Recht, auf Ihre persönlichen Daten zuzugreifen, sie zu "
 "korrigieren oder zu löschen."
 msgstr ""
+"- Ju keni të drejtën të keni qasje në të dhënat tuaja personale, t'i "
+"korrigjoni ose t'i fshini ato."
 
 #: authentication/templates/pages/laws/privacy.html:69
 msgid ""
 "- Sie können der Verarbeitung Ihrer Daten widersprechen oder die "
 "Einschränkung der Verarbeitung beantragen."
 msgstr ""
+"- Ju mund të kundërshtoni përpunimin e të dhënave tuaja ose të kërkoni "
+"kufizimin e përpunimit."
 
 #: authentication/templates/pages/laws/terms.html:26
 msgid "Nutzungsbedingungen von OfficeSync auf eigenen Servern"
-msgstr ""
+msgstr "Kushtet e Përdorimit të OfficeSync në Serverët tuaj"
 
 #: authentication/templates/pages/laws/terms.html:34
 msgid ""
@@ -603,26 +774,35 @@ msgid ""
 "Sie diesen Bedingungen nicht zustimmen, dürfen Sie die Plattform nicht "
 "bereitstellen oder nutzen."
 msgstr ""
+"Këto kushte të përdorimit (\"Kushtet\") rregullojnë ofrimin dhe përdorimin e "
+"aplikacionit të uebit \"OfficeSync\" (\"Platforma\") në serverët tuaj nga "
+"palët e treta. Nëse dëshironi të ofroni Platformën në serverët tuaj, ju "
+"pranoni këto kushte në mënyrë të qartë. Nëse nuk pranoni këto kushte, nuk ju "
+"lejohet të ofroni ose të përdorni Platformën."
 
 #: authentication/templates/pages/laws/terms.html:36
 msgid "1. Bereitstellung der Plattform"
-msgstr ""
+msgstr "1. Ofrimi i Platformës"
 
 #: authentication/templates/pages/laws/terms.html:38
 msgid ""
 "1.1 Die Plattform wird als Open-Source-Software bereitgestellt und kann von "
 "Dritten auf eigenen Servern deployt werden."
 msgstr ""
+"1.1 Platforma ofrohet si softuer me burim të hapur dhe mund të vendoset nga "
+"palët e treta në serverët e tyre."
 
 #: authentication/templates/pages/laws/terms.html:41
 msgid ""
 "1.2 Sie sind verantwortlich für die ordnungsgemäße Installation, "
 "Konfiguration und Wartung der Plattform auf Ihren Servern."
 msgstr ""
+"1.2 Ju jeni përgjegjës për instalimin, konfigurimin dhe mirëmbajtjen e duhur "
+"të platformës në serverët tuaj."
 
 #: authentication/templates/pages/laws/terms.html:43
 msgid "2. Nutzung und Inhalte"
-msgstr ""
+msgstr "2. Përdorimi dhe Përmbajtja"
 
 #: authentication/templates/pages/laws/terms.html:45
 msgid ""
@@ -630,16 +810,21 @@ msgid ""
 "Servern und für sämtliche Inhalte, die innerhalb der Plattform erstellt, "
 "hochgeladen oder geteilt werden."
 msgstr ""
+"2.1 Ju jeni të vetëm përgjegjës për përdorimin e platformës në serverët tuaj "
+"dhe për të gjithë përmbajtjet që krijohen, ngarkohen ose ndahen brenda "
+"platformës."
 
 #: authentication/templates/pages/laws/terms.html:48
 msgid ""
 "2.2 Sie stimmen zu, die Plattform nicht für illegale, diffamierende, "
 "beleidigende oder rechtswidrige Aktivitäten zu nutzen."
 msgstr ""
+"2.2 Ju pranoni të mos përdorni platformën për aktivitete të paligjshme, "
+"defamuese, ofenduese ose të paligjshme."
 
 #: authentication/templates/pages/laws/terms.html:50
 msgid "3. Datenschutz und Sicherheit"
-msgstr ""
+msgstr "3. Mbrojtja e të Dhënave dhe Siguria"
 
 #: authentication/templates/pages/laws/terms.html:52
 msgid ""
@@ -647,6 +832,8 @@ msgid ""
 "Schutz der persönlichen Daten zu ergreifen, die innerhalb der Plattform "
 "verarbeitet werden."
 msgstr ""
+"3.1 Ju jeni të detyruar të ndërmerrni masa të përshtatshme për sigurinë dhe "
+"mbrojtjen e të dhënave personale që përpunohen brenda platformës."
 
 #: authentication/templates/pages/laws/terms.html:55
 msgid ""
@@ -654,6 +841,9 @@ msgid ""
 "Sicherheitsvorfälle, die im Zusammenhang mit der Bereitstellung der "
 "Plattform auf Ihren Servern auftreten."
 msgstr ""
+"3.2 Ne nuk marrim asnjë përgjegjësi për shkeljet e të dhënave personale ose "
+"incidentet e sigurisë që ndodhin në lidhje me ofrimin e platformës në "
+"serverët tuaj."
 
 #: authentication/templates/pages/laws/terms.html:59
 msgid ""
@@ -661,16 +851,21 @@ msgid ""
 "Wir übernehmen keine Verantwortung für Schäden, die durch die "
 "Bereitstellung, Nutzung oder Inhalte der Plattform entstehen."
 msgstr ""
+"4.1 Ofrimi dhe përdorimi i platformës bëhet në rrezikun tuaj. Ne nuk marrim "
+"asnjë përgjegjësi për dëmet që shkaktohen nga ofrimi, përdorimi ose "
+"përmbajtja e platformës."
 
 #: authentication/templates/pages/laws/terms.html:62
 msgid ""
 "4.2 Wir übernehmen keine Gewährleistung für die Funktionalität, Richtigkeit "
 "oder Verfügbarkeit der Plattform auf Ihren Servern."
 msgstr ""
+"4.2 Ne nuk ofrojmë asnjë garanci për funksionalitetin, saktësinë ose "
+"disponueshmërinë e platformës në serverët tuaj."
 
 #: authentication/templates/pages/laws/terms.html:64
 msgid "5. Änderungen der Nutzungsbedingungen"
-msgstr ""
+msgstr "5. Ndryshimet e Kushteve të Përdorimit"
 
 #: authentication/templates/pages/laws/terms.html:66
 msgid ""
@@ -678,6 +873,9 @@ msgid ""
 "ändern oder zu aktualisieren. Die aktualisierten Bedingungen treten mit "
 "ihrer Veröffentlichung in Kraft."
 msgstr ""
+"5.1 Ne rezervojmë të drejtën për të ndryshuar ose përditësuar këto kushte të "
+"përdorimit në çdo kohë. Kushtet e përditësuara hyjnë në fuqi me publikimin e "
+"tyre."
 
 #: authentication/templates/pages/laws/terms.html:69
 msgid ""
@@ -687,133 +885,12 @@ msgid ""
 "gesamte Vereinbarung zwischen Ihnen und Kiidle in Bezug auf die "
 "Bereitstellung und Nutzung der Plattform auf eigenen Servern."
 msgstr ""
+"Duke ofruar dhe përdorur platformën në serverët tuaj, ju shpallni se keni "
+"lexuar dhe kuptuar këto kushte të përdorimit dhe jeni dakord me to. Këto "
+"kushte përbëjnë marrëveshjen e plotë midis jush dhe Kiidle në lidhje me "
+"ofrimin dhe përdorimin e platformës në serverët tuaj."
 
-#: communication/models.py:12
-msgid "Name anzeigen"
-msgstr ""
-
-#: communication/models.py:13
-msgid "Rollen anzeigen"
-msgstr ""
-
-#: communication/models.py:15
-msgid "Unternehmen"
-msgstr ""
-
-#: communication/models.py:18
-msgid "Unternehmen anzeigen"
-msgstr ""
-
-#: communication/models.py:27
-msgid "Logo anzeigen"
-msgstr ""
-
-#: communication/models.py:29
-msgid "Schweiz"
-msgstr ""
-
-#: communication/models.py:29
-#: disposition/templates/pages/stations/station.html:53
-msgid "Land"
-msgstr ""
-
-#: communication/models.py:31
-msgid "Land anzeigen"
-msgstr ""
-
-#: communication/models.py:33
-#: disposition/templates/pages/stations/station.html:55
-msgid "Ort"
-msgstr ""
-
-#: communication/models.py:35
-msgid "Ort anzeigen"
-msgstr ""
-
-#: communication/models.py:36
-#: disposition/templates/pages/stations/station.html:55
-msgid "PLZ"
-msgstr ""
-
-#: communication/models.py:37
-msgid "PLZ anzeigen"
-msgstr ""
-
-#: communication/models.py:39
-#: disposition/templates/pages/stations/station.html:56
-msgid "Strasse"
-msgstr ""
-
-#: communication/models.py:41
-msgid "Strasse anzeigen"
-msgstr ""
-
-#: communication/models.py:43
-msgid "Hausnummer"
-msgstr ""
-
-#: communication/models.py:46
-msgid "Hausnummer anzeigen"
-msgstr ""
-
-#: communication/models.py:49
-msgid "Webseite"
-msgstr ""
-
-#: communication/models.py:51
-msgid "Webseite anzeigen"
-msgstr ""
-
-#: communication/models.py:78 communication/models.py:130
-msgid "Title"
-msgstr ""
-
-#: communication/models.py:79 communication/models.py:131
-msgid "Content"
-msgstr ""
-
-#: communication/models.py:80 communication/models.py:132
-msgid "Created at"
-msgstr ""
-
-#: communication/models.py:98 communication/models.py:151
-#, python-brace-format
-msgid "Vor {seconds} Sekunden"
-msgstr ""
-
-#: communication/models.py:100 communication/models.py:153
-msgid "Vor 1 Minute"
-msgstr ""
-
-#: communication/models.py:102 communication/models.py:155
-#, python-brace-format
-msgid "Vor {minutes} Minuten"
-msgstr ""
-
-#: communication/models.py:104 communication/models.py:157
-msgid "Vor 1 Stunde"
-msgstr ""
-
-#: communication/models.py:106 communication/models.py:159
-#, python-brace-format
-msgid "Vor {hours} Stunden"
-msgstr ""
-
-#: communication/models.py:108 communication/models.py:161
-#, python-brace-format
-msgid "Gestern um {time} Uhr"
-msgstr ""
-
-#: communication/models.py:112 communication/models.py:165
-#, python-brace-format
-msgid "Vor {days} Tagen um {time} Uhr"
-msgstr ""
-
-#: communication/models.py:116 communication/models.py:169
-#, python-brace-format
-msgid "Vor 1 Woche um {time} Uhr"
-msgstr ""
-
+#: authentication/templates/pages/settings/account.html:17
 #: communication/templates/components/subsidebar/subsidebar_communication.html:13
 #: communication/templates/components/subsidebar/subsidebar_communication.html:29
 #: communication/templates/pages/announcements/announcement.html:17
@@ -826,275 +903,460 @@ msgstr ""
 #: communication/templates/pages/outbox/message.html:17
 #: communication/templates/pages/outbox/outbox.html:17
 msgid "Ankündigungen"
-msgstr ""
+msgstr "Njoftimet"
+
+#: communication/models.py:12
+msgid "Name anzeigen"
+msgstr "Shfaq Emrin"
+
+#: communication/models.py:13
+msgid "Rollen anzeigen"
+msgstr "Shfaq Rolet"
+
+#: communication/models.py:15
+msgid "Unternehmen"
+msgstr "Kompania"
+
+#: communication/models.py:18
+msgid "Unternehmen anzeigen"
+msgstr "Shfaq Kompaninë"
+
+#: communication/models.py:27
+msgid "Logo anzeigen"
+msgstr "Shfaq Logon"
+
+#: communication/models.py:29
+msgid "Schweiz"
+msgstr "Zvicra"
+
+#: communication/models.py:29 disposition/models.py:19
+#: disposition/templates/pages/stations/station.html:55
+#: personal/templates/pages/profile/personal/adress.html:61
+msgid "Land"
+msgstr "Shteti"
+
+#: communication/models.py:31
+msgid "Land anzeigen"
+msgstr "Shfaq Shtetin"
+
+#: communication/models.py:33 disposition/models.py:21
+#: disposition/templates/pages/stations/station.html:57
+#: personal/templates/pages/profile/personal/adress.html:67
+msgid "Ort"
+msgstr "Vendndodhja"
+
+#: communication/models.py:35
+msgid "Ort anzeigen"
+msgstr "Shfaq Vendndodhjen"
+
+#: communication/models.py:36
+#: disposition/templates/pages/stations/station.html:57
+msgid "PLZ"
+msgstr "Kodi Postar"
+
+#: communication/models.py:37
+msgid "PLZ anzeigen"
+msgstr "Shfaq Kodin Postar"
+
+#: communication/models.py:39 disposition/models.py:22
+#: disposition/templates/pages/stations/station.html:58
+#: personal/templates/pages/profile/personal/adress.html:68
+msgid "Strasse"
+msgstr "Rruga"
+
+#: communication/models.py:41
+msgid "Strasse anzeigen"
+msgstr "Shfaq Rrugën"
+
+#: communication/models.py:43
+#: personal/templates/pages/profile/personal/adress.html:69
+msgid "Hausnummer"
+msgstr "Numri i Shtëpisë"
+
+#: communication/models.py:46
+msgid "Hausnummer anzeigen"
+msgstr "Shfaq Numrin e Shtëpisë"
+
+#: communication/models.py:49
+msgid "Webseite"
+msgstr "Faqja e Internetit"
+
+#: communication/models.py:51
+msgid "Webseite anzeigen"
+msgstr "Shfaq Faqen e Internetit"
+
+#: communication/models.py:78 communication/models.py:130
+msgid "Title"
+msgstr "Titulli"
+
+#: communication/models.py:79 communication/models.py:131
+msgid "Content"
+msgstr "Përmbajtja"
+
+#: communication/models.py:80 communication/models.py:132
+msgid "Created at"
+msgstr "Krijuar në"
+
+#: communication/models.py:98 communication/models.py:151
+#, python-brace-format
+msgid "Vor {seconds} Sekunden"
+msgstr "Para {seconds} Sekondave"
+
+#: communication/models.py:100 communication/models.py:153
+msgid "Vor 1 Minute"
+msgstr "Para 1 Minute"
+
+#: communication/models.py:102 communication/models.py:155
+#, python-brace-format
+msgid "Vor {minutes} Minuten"
+msgstr "Para {minutes} Minutave"
+
+#: communication/models.py:104 communication/models.py:157
+msgid "Vor 1 Stunde"
+msgstr "Para 1 Ore"
+
+#: communication/models.py:106 communication/models.py:159
+#, python-brace-format
+msgid "Vor {hours} Stunden"
+msgstr "Para {hours} Orëve"
+
+#: communication/models.py:108 communication/models.py:161
+#, python-brace-format
+msgid "Gestern um {time} Uhr"
+msgstr "Dje në ora {time}"
+
+#: communication/models.py:112 communication/models.py:165
+#, python-brace-format
+msgid "Vor {days} Tagen um {time} Uhr"
+msgstr "Para {days} Ditëve në ora {time}"
+
+#: communication/models.py:116 communication/models.py:169
+#, python-brace-format
+msgid "Vor 1 Woche um {time} Uhr"
+msgstr "Para 1 Jave në ora {time}"
 
 #: communication/templates/components/subsidebar/subsidebar_communication.html:46
 #: communication/templates/components/subsidebar/subsidebar_communication.html:62
 #: communication/templates/pages/inbox/inbox.html:32
 msgid "Eingang"
-msgstr ""
+msgstr "Hyrja"
 
 #: communication/templates/components/subsidebar/subsidebar_communication.html:79
 #: communication/templates/components/subsidebar/subsidebar_communication.html:90
 #: communication/templates/pages/outbox/outbox.html:32
 msgid "Ausgang"
-msgstr ""
+msgstr "Dalja"
 
 #: communication/templates/components/subsidebar/subsidebar_communication.html:102
 #: communication/templates/components/subsidebar/subsidebar_communication.html:113
 #: communication/templates/pages/archive/archive.html:32
 msgid "Archiv"
-msgstr ""
+msgstr "Arkivi"
 
-#: communication/templates/pages/announcements/announcement.html:113
-#: communication/templates/pages/archive/message.html:110
-#: communication/templates/pages/inbox/message.html:110
+#: communication/templates/pages/announcements/announcement.html:180
+#: communication/templates/pages/archive/message.html:177
+#: communication/templates/pages/inbox/message.html:177
 msgid "Gelesen"
-msgstr ""
+msgstr "Lexuar"
 
 #: communication/templates/pages/announcements/create.html:17
 #: communication/templates/pages/announcements/create.html:30
 #: communication/templates/pages/inbox/create.html:17
 #: communication/templates/pages/inbox/select.html:17
 msgid "Ankündigung erstellen"
-msgstr ""
+msgstr "Krijo Njoftimin"
 
 #: communication/templates/pages/announcements/create.html:43
 msgid "Veröffentlichen"
-msgstr ""
+msgstr "Publiko"
 
 #: communication/templates/pages/inbox/create.html:32
 msgid "Nachricht erstellen"
-msgstr ""
+msgstr "Krijo Mesazhin"
 
 #: communication/templates/pages/inbox/create.html:46
 msgid "Senden"
-msgstr ""
+msgstr "Dërgo"
 
 #: communication/templates/pages/inbox/select.html:32
 msgid "Senden an"
-msgstr ""
+msgstr "Dërgo tek"
 
-#: disposition/models.py:21
-#: disposition/templates/pages/vehicles/vehicle.html:52
-msgid "Personenwagen"
-msgstr ""
+#: disposition/models.py:11
+#: disposition/templates/pages/stations/station.html:50
+msgid "E-Mail"
+msgstr "E-Mail"
 
-#: disposition/models.py:22
-#: disposition/templates/pages/vehicles/vehicle.html:58
-msgid "Kleintransporter"
-msgstr ""
+#: disposition/models.py:14
+#: disposition/templates/pages/stations/station.html:51
+msgid "Mobile"
+msgstr "Celular"
 
-#: disposition/models.py:23
-#: disposition/templates/pages/vehicles/vehicle.html:64
-msgid "Lastwagen"
-msgstr ""
+#: disposition/models.py:17
+msgid "Kapazität"
+msgstr "Kapaciteti"
 
-#: disposition/models.py:24
-#: disposition/templates/pages/vehicles/vehicle.html:70
-msgid "Lieferwagen"
-msgstr ""
-
-#: disposition/models.py:25
-#: disposition/templates/pages/vehicles/vehicle.html:77
-msgid "Frachtcontainerlastwagen"
-msgstr ""
-
-#: disposition/models.py:26
-#: disposition/templates/pages/vehicles/vehicle.html:83
-msgid "Kipplaster"
-msgstr ""
+#: disposition/models.py:20
+#: disposition/templates/pages/stations/station.html:56
+#: personal/templates/pages/profile/personal/adress.html:65
+msgid "Bundesland"
+msgstr "Shteti Federal"
 
 #: disposition/models.py:27
-#: disposition/templates/pages/vehicles/vehicle.html:89
-msgid "Tanklastwagen"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:54
+msgid "Personenwagen"
+msgstr "Veturë Personale"
 
 #: disposition/models.py:28
-#: disposition/templates/pages/vehicles/vehicle.html:95
-msgid "Abschleppwagen"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:60
+msgid "Kleintransporter"
+msgstr "Transportues i Vogël"
 
 #: disposition/models.py:29
-#: disposition/templates/pages/vehicles/vehicle.html:101
-msgid "Pritschenwagen"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:66
+msgid "Lastwagen"
+msgstr "Kamion"
 
 #: disposition/models.py:30
-#: disposition/templates/pages/vehicles/vehicle.html:107
-msgid "Anhänger"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:72
+msgid "Lieferwagen"
+msgstr "Furgon"
+
+#: disposition/models.py:31
+#: disposition/templates/pages/vehicles/vehicle.html:79
+msgid "Frachtcontainerlastwagen"
+msgstr "Kamion me Kontejnerë"
+
+#: disposition/models.py:32
+#: disposition/templates/pages/vehicles/vehicle.html:85
+msgid "Kipplaster"
+msgstr "Kamion Kipër"
 
 #: disposition/models.py:33
-#: disposition/templates/pages/vehicles/vehicle.html:115
-msgid "Diesel"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:91
+msgid "Tanklastwagen"
+msgstr "Kamion Cisternë"
 
 #: disposition/models.py:34
-#: disposition/templates/pages/vehicles/vehicle.html:121
-msgid "Benzin"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:97
+msgid "Abschleppwagen"
+msgstr "Automjet Rimorkio"
 
 #: disposition/models.py:35
-#: disposition/templates/pages/vehicles/vehicle.html:127
-msgid "Elektrisch"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:103
+msgid "Pritschenwagen"
+msgstr "Kamion me Platformë"
 
 #: disposition/models.py:36
-#: disposition/templates/pages/vehicles/vehicle.html:133
-msgid "Wasserstoff"
-msgstr ""
-
-#: disposition/models.py:37
-#: disposition/templates/pages/vehicles/vehicle.html:139
-msgid "Erdgas"
-msgstr ""
-
-#: disposition/models.py:38
-#: disposition/templates/pages/vehicles/vehicle.html:145
-msgid "Biodiesel"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:109
+msgid "Anhänger"
+msgstr "Rimorkio"
 
 #: disposition/models.py:39
-#: disposition/templates/pages/vehicles/vehicle.html:151
-msgid "Autogas"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:117
+msgid "Diesel"
+msgstr "Dizel"
 
 #: disposition/models.py:40
-#: disposition/templates/pages/vehicles/vehicle.html:157
-msgid "E85"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:123
+msgid "Benzin"
+msgstr "Benzinë"
 
 #: disposition/models.py:41
-#: disposition/templates/pages/vehicles/vehicle.html:163
-msgid "Flüssigerdgas"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:129
+msgid "Elektrisch"
+msgstr "Elektrike"
+
+#: disposition/models.py:42
+#: disposition/templates/pages/vehicles/vehicle.html:135
+msgid "Wasserstoff"
+msgstr "Hidrogjen"
+
+#: disposition/models.py:43
+#: disposition/templates/pages/vehicles/vehicle.html:141
+msgid "Erdgas"
+msgstr "Gaz Natyror"
 
 #: disposition/models.py:44
-msgid "Nicht gebraucht"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:147
+msgid "Biodiesel"
+msgstr "Biodizel"
 
 #: disposition/models.py:45
-#: disposition/templates/pages/vehicles/vehicle.html:177
-msgid "Gebraucht"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:153
+msgid "Autogas"
+msgstr "Gaz Automjeti"
 
-#: disposition/models.py:46 disposition/models.py:110
-#: disposition/templates/pages/vehicles/vehicle.html:183
-msgid "Beschädigt"
-msgstr ""
+#: disposition/models.py:46
+#: disposition/templates/pages/vehicles/vehicle.html:159
+msgid "E85"
+msgstr "E85"
 
 #: disposition/models.py:47
-#: disposition/templates/pages/vehicles/vehicle.html:189
-msgid "Repariert"
-msgstr ""
-
-#: disposition/models.py:48
-#: disposition/templates/pages/vehicles/vehicle.html:196
-msgid "Totalschaden"
-msgstr ""
-
-#: disposition/models.py:49
-#: disposition/templates/pages/vehicles/vehicle.html:202
-msgid "Instandhaltungsbedarf"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:165
+msgid "Flüssigerdgas"
+msgstr "Gaz i Lëngshëm Natyror"
 
 #: disposition/models.py:50
-msgid "Nicht Fahrbereit"
-msgstr ""
+msgid "Nicht gebraucht"
+msgstr "E pa përdorur"
 
 #: disposition/models.py:51
-#: disposition/templates/pages/vehicles/vehicle.html:214
-msgid "Modifiziert"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:179
+msgid "Gebraucht"
+msgstr "E përdorur"
+
+#: disposition/models.py:52 disposition/models.py:116
+#: disposition/templates/pages/vehicles/vehicle.html:185
+msgid "Beschädigt"
+msgstr "I Dëmtuar"
 
 #: disposition/models.py:53
-#: disposition/templates/pages/vehicles/vehicle.html:224
-msgid "Kennzeichen"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:191
+msgid "Repariert"
+msgstr "I Riparuar"
+
+#: disposition/models.py:54
+#: disposition/templates/pages/vehicles/vehicle.html:198
+msgid "Totalschaden"
+msgstr "Dëm Total"
 
 #: disposition/models.py:55
-msgid "Keine"
-msgstr ""
+#: disposition/templates/pages/vehicles/vehicle.html:204
+msgid "Instandhaltungsbedarf"
+msgstr "Nevojë për Mirëmbajtje"
+
+#: disposition/models.py:56
+msgid "Nicht Fahrbereit"
+msgstr "E pa Gati për Përdorim"
+
+#: disposition/models.py:57
+#: disposition/templates/pages/vehicles/vehicle.html:216
+msgid "Modifiziert"
+msgstr "I Modifikuar"
+
+#: disposition/models.py:59
+#: disposition/templates/pages/vehicles/vehicle.html:226
+msgid "Kennzeichen"
+msgstr "Targa"
 
 #: disposition/models.py:61
-msgid "Fahrzeugtyp"
-msgstr ""
-
-#: disposition/models.py:63
-#: disposition/templates/pages/vehicles/vehicle.html:230
-msgid "Fahrzeugmodell"
-msgstr ""
-
-#: disposition/models.py:64
-msgid "Hersteller"
-msgstr ""
+msgid "Keine"
+msgstr "Asnjë"
 
 #: disposition/models.py:67
-msgid "Baujahr"
-msgstr ""
+msgid "Fahrzeugtyp"
+msgstr "Lloji i Automjetit"
+
+#: disposition/models.py:69
+#: disposition/templates/pages/vehicles/vehicle.html:232
+msgid "Fahrzeugmodell"
+msgstr "Modeli i Automjetit"
 
 #: disposition/models.py:70
-#: disposition/templates/pages/vehicles/vehicle.html:226
-msgid "Identifikationsnummer"
-msgstr ""
+msgid "Hersteller"
+msgstr "Prodhuesi"
 
 #: disposition/models.py:73
+msgid "Baujahr"
+msgstr "Viti i Prodhimit"
+
+#: disposition/models.py:76
+#: disposition/templates/pages/vehicles/vehicle.html:228
+msgid "Identifikationsnummer"
+msgstr "Numri i Identifikimit"
+
+#: disposition/models.py:79
+#: personal/templates/pages/profile/personal/criminal.html:64
+#: personal/templates/pages/profile/personal/criminal.html:69
+#: personal/templates/pages/profile/personal/criminal.html:74
+#: personal/templates/pages/profile/personal/criminal.html:79
+#: personal/templates/pages/profile/personal/criminal.html:84
+#: personal/templates/pages/profile/personal/criminal.html:89
+#: personal/templates/pages/profile/personal/health.html:63
+#: personal/templates/pages/profile/personal/health.html:68
+#: personal/templates/pages/profile/personal/health.html:73
+#: personal/templates/pages/profile/personal/health.html:78
+#: personal/templates/pages/profile/personal/health.html:83
+#: personal/templates/pages/profile/personal/meta.html:63
+#: personal/templates/pages/profile/personal/meta.html:68
+#: personal/templates/pages/profile/personal/meta.html:73
+#: personal/templates/pages/profile/personal/meta.html:78
+#: personal/templates/pages/profile/work/absence.html:64
+#: personal/templates/pages/profile/work/absence.html:69
+#: personal/templates/pages/profile/work/absence.html:74
+#: personal/templates/pages/profile/work/absence.html:82
+#: personal/templates/pages/profile/work/absence.html:89
+#: personal/templates/pages/profile/work/performance.html:64
+#: personal/templates/pages/profile/work/performance.html:71
+#: personal/templates/pages/profile/work/performance.html:76
+#: personal/templates/pages/profile/work/performance.html:81
+#: personal/templates/pages/profile/work/performance.html:86
+#: personal/templates/pages/profile/work/performance.html:91
+#: personal/templates/pages/profile/work/performance.html:96
+#: personal/templates/pages/profile/work/performance.html:101
+#: personal/templates/pages/profile/work/performance.html:106
+#: personal/templates/pages/profile/work/performance.html:111
+#: personal/templates/pages/profile/work/performance.html:116
+#: personal/templates/pages/profile/work/performance.html:121
+#: personal/templates/pages/profile/work/reprimant.html:83
+#: personal/templates/pages/profile/work/reprimant.html:88
+#: personal/templates/pages/profile/work/reprimant.html:93
+#: personal/templates/pages/profile/work/salary.html:64
+#: personal/templates/pages/profile/work/salary.html:69
+#: personal/templates/pages/profile/work/salary.html:76
 msgid "Unbekannt"
-msgstr ""
+msgstr "I panjohur"
 
-#: disposition/models.py:74
-#: disposition/templates/pages/vehicles/vehicle.html:219
+#: disposition/models.py:80
+#: disposition/templates/pages/vehicles/vehicle.html:221
 msgid "Leistung & Motor"
-msgstr ""
+msgstr "Performanca & Motorri"
 
-#: disposition/models.py:78
-#: disposition/templates/pages/vehicles/vehicle.html:220
+#: disposition/models.py:84
+#: disposition/templates/pages/vehicles/vehicle.html:222
 msgid "Lagerkapazität"
-msgstr ""
+msgstr "Kapaciteti i Magazinimit"
 
-#: disposition/models.py:83
+#: disposition/models.py:89
 msgid "Kraftstofftyp"
-msgstr ""
+msgstr "Lloji i Karburantit"
 
-#: disposition/models.py:86
+#: disposition/models.py:92
 msgid "Durchschnittlicher Kraftstoffverbrauch"
-msgstr ""
+msgstr "Konsumi Mesatar i Karburantit"
 
-#: disposition/models.py:90
+#: disposition/models.py:96
 msgid "Keine Angaben"
-msgstr ""
-
-#: disposition/models.py:93
-msgid "Versicherungsdaten"
-msgstr ""
+msgstr "Pa të dhëna"
 
 #: disposition/models.py:99
+msgid "Versicherungsdaten"
+msgstr "Të dhënat e Sigurimit"
+
+#: disposition/models.py:105
 msgid "Zustand"
-msgstr ""
+msgstr "Gjendja"
 
-#: disposition/models.py:109
+#: disposition/models.py:115
 msgid "Funktionsfähig"
-msgstr ""
-
-#: disposition/models.py:111
-msgid "Wartungsarbeiten"
-msgstr ""
+msgstr "Funksional"
 
 #: disposition/templates/components/subsidebar/subsidebar_disposition.html:14
 #: disposition/templates/components/subsidebar/subsidebar_disposition.html:26
-#: personal/templates/components/subsidebar/subsidebar_personal.html:59
-#: personal/templates/components/subsidebar/subsidebar_personal.html:70
+#: personal/templates/components/subsidebar/subsidebar_personal.html:64
+#: personal/templates/components/subsidebar/subsidebar_personal.html:75
 msgid "Touren"
-msgstr ""
+msgstr "Turnetë"
 
 #: disposition/templates/components/subsidebar/subsidebar_disposition.html:38
 #: disposition/templates/components/subsidebar/subsidebar_disposition.html:49
+#: disposition/templates/pages/stations/form.html:33
 #: disposition/templates/pages/stations/index.html:17
 #: disposition/templates/pages/stations/index.html:32
 #: disposition/templates/pages/stations/station.html:17
 msgid "Standorte"
-msgstr ""
+msgstr "Vendndodhjet"
 
 #: disposition/templates/components/subsidebar/subsidebar_disposition.html:61
 #: disposition/templates/components/subsidebar/subsidebar_disposition.html:72
@@ -1102,67 +1364,56 @@ msgstr ""
 #: disposition/templates/pages/vehicles/index.html:32
 #: disposition/templates/pages/vehicles/vehicle.html:17
 msgid "Fahrzeuge"
-msgstr ""
-
-#: disposition/templates/pages/stations/station.html:47
-msgid "Kontakt"
-msgstr ""
-
-#: disposition/templates/pages/stations/station.html:48
-msgid "E-Mail"
-msgstr ""
+msgstr "Automjetet"
 
 #: disposition/templates/pages/stations/station.html:49
-msgid "Mobile"
-msgstr ""
-
-#: disposition/templates/pages/stations/station.html:52
-msgid "Adresse"
-msgstr ""
+msgid "Kontakt"
+msgstr "Kontakti"
 
 #: disposition/templates/pages/stations/station.html:54
-msgid "Bundesland"
-msgstr ""
+#: personal/templates/pages/profile/personal/adress.html:60
+msgid "Adresse"
+msgstr "Adresa"
 
-#: disposition/templates/pages/stations/station.html:56
+#: disposition/templates/pages/stations/station.html:58
 msgid "Nr"
-msgstr ""
+msgstr "Nr"
 
-#: disposition/templates/pages/vehicles/vehicle.html:47
+#: disposition/templates/pages/vehicles/vehicle.html:49
 msgid "Metadaten"
-msgstr ""
+msgstr "Metatë dhëna"
 
-#: disposition/templates/pages/vehicles/vehicle.html:171
+#: disposition/templates/pages/vehicles/vehicle.html:173
 msgid "Ungebraucht"
-msgstr ""
+msgstr "E papërdorur"
 
-#: disposition/templates/pages/vehicles/vehicle.html:208
+#: disposition/templates/pages/vehicles/vehicle.html:210
 msgid "Unbetriebsbereit"
-msgstr ""
+msgstr "Jashtë Përdorimit"
 
-#: disposition/templates/pages/vehicles/vehicle.html:218
+#: disposition/templates/pages/vehicles/vehicle.html:220
 msgid "Kraftstoffverbrauch"
-msgstr ""
+msgstr "Konsumi i Karburantit"
 
-#: disposition/templates/pages/vehicles/vehicle.html:223
+#: disposition/templates/pages/vehicles/vehicle.html:225
 msgid "Erkennungsdaten"
-msgstr ""
-
-#: disposition/templates/pages/vehicles/vehicle.html:229
-msgid "Produktionsdaten"
-msgstr ""
+msgstr "Të dhëna Identifikuese"
 
 #: disposition/templates/pages/vehicles/vehicle.html:231
+msgid "Produktionsdaten"
+msgstr "Të dhënat e Prodhimit"
+
+#: disposition/templates/pages/vehicles/vehicle.html:233
 msgid "Fahrzeughersteller"
-msgstr ""
+msgstr "Prodhuesi i Automjetit"
 
-#: disposition/templates/pages/vehicles/vehicle.html:232
+#: disposition/templates/pages/vehicles/vehicle.html:234
 msgid "Herstellungsjahr"
-msgstr ""
+msgstr "Viti i Prodhimit"
 
-#: disposition/templates/pages/vehicles/vehicle.html:235
+#: disposition/templates/pages/vehicles/vehicle.html:237
 msgid "Versicherung"
-msgstr ""
+msgstr "Sigurimi"
 
 #: officesync/settings.py:66
 msgid "deutsch"
@@ -1201,15 +1452,368 @@ msgid "shqiptare"
 msgstr ""
 
 #: personal/templates/components/subsidebar/subsidebar_personal.html:13
-#: personal/templates/components/subsidebar/subsidebar_personal.html:24
+#: personal/templates/components/subsidebar/subsidebar_personal.html:29
+#: personal/templates/pages/notes/index.html:17
+#: personal/templates/pages/notes/update.html:17
+#: personal/templates/pages/profile/personal.html:17
+#: personal/templates/pages/profile/personal/adress.html:17
+#: personal/templates/pages/profile/personal/criminal.html:17
+#: personal/templates/pages/profile/personal/health.html:17
+#: personal/templates/pages/profile/personal/meta.html:17
 #: personal/templates/pages/profile/profile.html:17
+#: personal/templates/pages/profile/profile_form.html:17
+#: personal/templates/pages/profile/work.html:17
+#: personal/templates/pages/profile/work/absence.html:17
+#: personal/templates/pages/profile/work/performance.html:17
+#: personal/templates/pages/profile/work/reprimant.html:17
+#: personal/templates/pages/profile/work/salary.html:17
 msgid "Profil"
-msgstr ""
+msgstr "Profili"
 
-#: personal/templates/components/subsidebar/subsidebar_personal.html:36
-#: personal/templates/components/subsidebar/subsidebar_personal.html:47
+#: personal/templates/components/subsidebar/subsidebar_personal.html:41
+#: personal/templates/components/subsidebar/subsidebar_personal.html:52
 msgid "Notizen"
+msgstr "Shënime"
+
+#: personal/templates/pages/notes/index.html:32
+msgid "Meine Notizen"
+msgstr "Shënimet e mia"
+
+#: personal/templates/pages/notes/update.html:32
+msgid "Notiz bearbeiten"
+msgstr "Redakto shënimin"
+
+#: personal/templates/pages/profile/personal.html:45
+#: personal/templates/pages/profile/personal/adress.html:45
+#: personal/templates/pages/profile/personal/criminal.html:45
+#: personal/templates/pages/profile/personal/health.html:45
+#: personal/templates/pages/profile/personal/meta.html:45
+#: personal/templates/pages/profile/profile.html:45
+#: personal/templates/pages/profile/profile_form.html:45
+#: personal/templates/pages/profile/work.html:45
+#: personal/templates/pages/profile/work/absence.html:45
+#: personal/templates/pages/profile/work/performance.html:45
+#: personal/templates/pages/profile/work/reprimant.html:45
+#: personal/templates/pages/profile/work/salary.html:45
+msgid "Öffentlich"
+msgstr "Publike"
+
+#: personal/templates/pages/profile/personal.html:46
+#: personal/templates/pages/profile/personal/adress.html:46
+#: personal/templates/pages/profile/personal/criminal.html:46
+#: personal/templates/pages/profile/personal/health.html:46
+#: personal/templates/pages/profile/personal/meta.html:46
+#: personal/templates/pages/profile/profile.html:46
+#: personal/templates/pages/profile/profile_form.html:46
+#: personal/templates/pages/profile/work.html:46
+#: personal/templates/pages/profile/work/absence.html:46
+#: personal/templates/pages/profile/work/performance.html:46
+#: personal/templates/pages/profile/work/reprimant.html:46
+#: personal/templates/pages/profile/work/salary.html:46
+msgid "Personalakte"
+msgstr "Dosja personale"
+
+#: personal/templates/pages/profile/personal.html:47
+#: personal/templates/pages/profile/personal/adress.html:47
+#: personal/templates/pages/profile/personal/criminal.html:47
+#: personal/templates/pages/profile/personal/health.html:47
+#: personal/templates/pages/profile/personal/meta.html:47
+#: personal/templates/pages/profile/profile.html:47
+#: personal/templates/pages/profile/profile_form.html:47
+#: personal/templates/pages/profile/work.html:47
+#: personal/templates/pages/profile/work/absence.html:47
+#: personal/templates/pages/profile/work/performance.html:47
+#: personal/templates/pages/profile/work/reprimant.html:47
+#: personal/templates/pages/profile/work/salary.html:47
+msgid "Mitarbeiterakte"
+msgstr "Dosja e punonjësit"
+
+#: personal/templates/pages/profile/personal.html:63
+#: personal/templates/pages/profile/personal/meta.html:59
+msgid "Stammakte"
+msgstr "Dosja bazë"
+
+#: personal/templates/pages/profile/personal.html:71
+msgid "Addressakte"
+msgstr "Dosja e adresave"
+
+#: personal/templates/pages/profile/personal.html:79
+#: personal/templates/pages/profile/personal/health.html:59
+msgid "Gesundheitsakte"
+msgstr "Dosja shëndetësore"
+
+#: personal/templates/pages/profile/personal.html:87
+msgid "Strafregisterakte"
+msgstr "Dosja penale"
+
+#: personal/templates/pages/profile/personal/adress.html:63
+msgid "Kanton"
+msgstr "Kanton"
+
+#: personal/templates/pages/profile/personal/adress.html:70
+#: personal/templates/pages/profile/work/absence.html:67
+#: personal/templates/pages/profile/work/absence.html:69
+msgid "Von"
+msgstr "Nga"
+
+#: personal/templates/pages/profile/personal/adress.html:72
+#: personal/templates/pages/profile/personal/adress.html:74
+#: personal/templates/pages/profile/work/absence.html:72
+#: personal/templates/pages/profile/work/absence.html:74
+msgid "Bis"
+msgstr "Deri"
+
+#: personal/templates/pages/profile/personal/adress.html:74
+msgid "Jetzt"
+msgstr "Tani"
+
+#: personal/templates/pages/profile/personal/adress.html:87
+#: personal/templates/pages/profile/personal/criminal.html:102
+#: personal/templates/pages/profile/work/absence.html:102
+#: personal/templates/pages/profile/work/performance.html:134
+#: personal/templates/pages/profile/work/reprimant.html:106
+#: personal/templates/pages/profile/work/salary.html:106
+msgid "Keine Daten vorhanden"
+msgstr "Nuk ka të dhëna"
+
+#: personal/templates/pages/profile/personal/criminal.html:60
+msgid "Auszug"
+msgstr "Përmbledhje"
+
+#: personal/templates/pages/profile/personal/criminal.html:62
+#: personal/templates/pages/profile/personal/criminal.html:64
+msgid "Straftat"
+msgstr "Krimi"
+
+#: personal/templates/pages/profile/personal/criminal.html:67
+#: personal/templates/pages/profile/personal/criminal.html:69
+msgid "Urteil"
+msgstr "Vendimi"
+
+#: personal/templates/pages/profile/personal/criminal.html:72
+#: personal/templates/pages/profile/personal/criminal.html:74
+#: personal/templates/pages/profile/work/performance.html:62
+#: personal/templates/pages/profile/work/performance.html:64
+#: personal/templates/pages/profile/work/reprimant.html:81
+#: personal/templates/pages/profile/work/reprimant.html:83
+#: personal/templates/pages/profile/work/salary.html:67
+#: personal/templates/pages/profile/work/salary.html:69
+msgid "Datum"
+msgstr "Data"
+
+#: personal/templates/pages/profile/personal/criminal.html:77
+#: personal/templates/pages/profile/personal/criminal.html:79
+msgid "Verantwortlich"
+msgstr "Përgjegjës"
+
+#: personal/templates/pages/profile/personal/criminal.html:82
+#: personal/templates/pages/profile/personal/criminal.html:84
+msgid "Institution"
+msgstr "Institucioni"
+
+#: personal/templates/pages/profile/personal/criminal.html:87
+#: personal/templates/pages/profile/personal/criminal.html:89
+msgid "Wichtig zu wissen"
+msgstr "E rëndësishme për t’u ditur"
+
+#: personal/templates/pages/profile/personal/health.html:61
+#: personal/templates/pages/profile/personal/health.html:63
+msgid "Allergien"
+msgstr "Alergjitë"
+
+#: personal/templates/pages/profile/personal/health.html:66
+#: personal/templates/pages/profile/personal/health.html:68
+msgid "Chronische Erkankungen"
+msgstr "Sëmundje kronike"
+
+#: personal/templates/pages/profile/personal/health.html:71
+#: personal/templates/pages/profile/personal/health.html:73
+msgid "Medizinische Behandlung"
+msgstr "Trajtim mjekësor"
+
+#: personal/templates/pages/profile/personal/health.html:76
+#: personal/templates/pages/profile/personal/health.html:78
+msgid "Medikamente"
+msgstr "Ilaçe"
+
+#: personal/templates/pages/profile/personal/health.html:81
+#: personal/templates/pages/profile/personal/health.html:83
+msgid "Psychische Verfassung"
+msgstr "Gjendje psikike"
+
+#: personal/templates/pages/profile/personal/meta.html:61
+#: personal/templates/pages/profile/personal/meta.html:63
+msgid "Geschlecht"
+msgstr "Gjinia"
+
+#: personal/templates/pages/profile/personal/meta.html:66
+#: personal/templates/pages/profile/personal/meta.html:68
+msgid "Geburtsdatum"
+msgstr "Data e lindjes"
+
+#: personal/templates/pages/profile/personal/meta.html:71
+#: personal/templates/pages/profile/personal/meta.html:73
+msgid "Nationalität"
+msgstr "Kombësia"
+
+#: personal/templates/pages/profile/personal/meta.html:76
+#: personal/templates/pages/profile/personal/meta.html:78
+msgid "Staatsbürgerschaft"
+msgstr "Shtetësia"
+
+#: personal/templates/pages/profile/personal/meta.html:83
+msgid ""
+"Hinweis: Sollten Ihre Stammdaten nicht korrekt sein, besteht die "
+"Möglichkeit, einen formellen Antrag über OfficeSync an das Personal zur "
+"Korrektur einzureichen."
 msgstr ""
+"Shënim: Nëse të dhënat tuaja bazë nuk janë të sakta, ekziston mundësia për "
+"të paraqitur një kërkesë formale përmes OfficeSync te personeli për "
+"korrigjim."
+
+#: personal/templates/pages/profile/profile.html:116
+msgid "Biografie"
+msgstr "Biografia"
+
+#: personal/templates/pages/profile/profile.html:119
+msgid "Medien"
+msgstr "Mediat"
+
+#: personal/templates/pages/profile/work.html:63
+msgid "Gehalts- und Vergütungsakten"
+msgstr "Dosja e pagave dhe kompensimeve"
+
+#: personal/templates/pages/profile/work.html:76
+msgid "Krankheits- und Urlaubsakten"
+msgstr "Dosja e sëmundjeve dhe pushimeve"
+
+#: personal/templates/pages/profile/work.html:84
+msgid "Leistungsbeurteilungsakten"
+msgstr "Dosja e vlerësimit të performancës"
+
+#: personal/templates/pages/profile/work.html:92
+msgid "Disziplinarakten"
+msgstr "Dosja disiplinore"
+
+#: personal/templates/pages/profile/work/absence.html:60
+msgid "Absenz"
+msgstr "Mungesa"
+
+#: personal/templates/pages/profile/work/absence.html:62
+#: personal/templates/pages/profile/work/absence.html:64
+msgid "Typ"
+msgstr "Lloji"
+
+#: personal/templates/pages/profile/work/absence.html:77
+msgid "Bemerkung"
+msgstr "Shënim"
+
+#: personal/templates/pages/profile/work/absence.html:86
+#: personal/templates/pages/profile/work/absence.html:89
+#: personal/templates/pages/profile/work/salary.html:73
+#: personal/templates/pages/profile/work/salary.html:76
+msgid "Begünstigter"
+msgstr "Përfituesi"
+
+#: personal/templates/pages/profile/work/performance.html:60
+msgid "Leistungsbericht"
+msgstr "Raporti i performancës"
+
+#: personal/templates/pages/profile/work/performance.html:68
+#: personal/templates/pages/profile/work/performance.html:71
+msgid "Bewerter"
+msgstr "Vlerësuesi"
+
+#: personal/templates/pages/profile/work/performance.html:74
+#: personal/templates/pages/profile/work/performance.html:76
+msgid "Note"
+msgstr "Vlerësimi"
+
+#: personal/templates/pages/profile/work/performance.html:79
+#: personal/templates/pages/profile/work/performance.html:81
+msgid "Erscheinungsbild"
+msgstr "Pamja"
+
+#: personal/templates/pages/profile/work/performance.html:84
+#: personal/templates/pages/profile/work/performance.html:86
+msgid "Teamarbeit"
+msgstr "Puna në grup"
+
+#: personal/templates/pages/profile/work/performance.html:89
+#: personal/templates/pages/profile/work/performance.html:91
+msgid "Hilsbereitschaft"
+msgstr "Gatishmëria për të ndihmuar"
+
+#: personal/templates/pages/profile/work/performance.html:94
+#: personal/templates/pages/profile/work/performance.html:96
+msgid "Höflichkeit"
+msgstr "Mirësjellje"
+
+#: personal/templates/pages/profile/work/performance.html:104
+#: personal/templates/pages/profile/work/performance.html:106
+msgid "Arbeitsqualität"
+msgstr "Cilësia e punës"
+
+#: personal/templates/pages/profile/work/performance.html:109
+#: personal/templates/pages/profile/work/performance.html:111
+msgid "Arbeitsorganisation"
+msgstr "Organizimi i punës"
+
+#: personal/templates/pages/profile/work/performance.html:114
+#: personal/templates/pages/profile/work/performance.html:116
+msgid "Fachkenntnisse"
+msgstr "Njohuritë profesionale"
+
+#: personal/templates/pages/profile/work/performance.html:119
+#: personal/templates/pages/profile/work/performance.html:121
+msgid "Ziele"
+msgstr "Qëllimet"
+
+#: personal/templates/pages/profile/work/reprimant.html:60
+#: personal/templates/pages/profile/work/reprimant.html:65
+#: personal/templates/pages/profile/work/reprimant.html:70
+msgid "Total"
+msgstr "Totali"
+
+#: personal/templates/pages/profile/work/reprimant.html:79
+msgid "Disziplinarfall"
+msgstr "Rasti disiplinor"
+
+#: personal/templates/pages/profile/work/reprimant.html:86
+#: personal/templates/pages/profile/work/reprimant.html:88
+msgid "Erstellt"
+msgstr "Krijuar"
+
+#: personal/templates/pages/profile/work/reprimant.html:91
+#: personal/templates/pages/profile/work/reprimant.html:93
+msgid "Grund"
+msgstr "Arsyeja"
+
+#: personal/templates/pages/profile/work/salary.html:60
+msgid "Lohnauszug"
+msgstr "Ekstrakti i pagës"
+
+#: personal/templates/pages/profile/work/salary.html:62
+#: personal/templates/pages/profile/work/salary.html:64
+msgid "Betrag"
+msgstr "Shuma"
+
+#: personal/templates/pages/profile/work/salary.html:79
+#: personal/templates/pages/profile/work/salary.html:81
+msgid "Bestätigung"
+msgstr "Konfirmimi"
+
+#: personal/templates/pages/profile/work/salary.html:79
+msgid "Bestätigt "
+msgstr "Konfirmuar"
+
+#: personal/templates/pages/profile/work/salary.html:81
+msgid "Nicht bestätigt"
+msgstr "E pakonfirmuar"
+
+#: personal/templates/pages/profile/work/salary.html:92
+msgid "Bestätigen"
+msgstr "Konfirmo"
 
 #: venv/lib/python3.11/site-packages/click/_termui_impl.py:518
 #, python-brace-format

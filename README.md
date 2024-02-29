@@ -3,6 +3,11 @@
 ## In a Nutshell
 This platform has been developed to enable comprehensive and efficient management of tasks, communication, human resources, and more. OfficeSync stands out with its clear structure and intuitive user interface, allowing users to effectively organize and manage their work processes.
 
+## Table of Contents
+- [Technologies](https://github.com/Kiidle/product.officesync?tab=readme-ov-file#technologies)
+- [Installation](https://github.com/Kiidle/product.officesync?tab=readme-ov-file#installation)
+- [Contributors](https://github.com/Kiidle/product.officesync?tab=readme-ov-file#contributors)
+
 ## Technologies
 ### Django
 "OfficeSync" was developed using the Django technology. Django is a popular web framework that is widely used for building high-quality web applications quickly and efficiently. It provides a powerful and secure infrastructure for developing complex applications, and it is known for its scalability and flexibility. With Django, developers can easily create web applications with clean and maintainable code, making it a popular choice for building web applications. The use of Django in the development of "OfficeSync" ensures that the app is reliable, secure, and easy to maintain.
@@ -22,7 +27,7 @@ Pillow is a modern and powerful image editing library in Python. It extends the 
 ### djlint
 djlint is a tool for analyzing and cleaning HTML and template code, specifically for use with Django templates. It helps find and fix errors and inconsistencies in template files and helps improve the quality and readability of template code. Integrating djlint into the development of "OfficeSync" ensures that the templates are clean, error-free and easily maintainable, which forms a solid foundation for the application's user interface.
 
-## Setup
+## Installation
 ### MacOS
 #### Clone Project
 ##### Using SSH
@@ -77,3 +82,6 @@ Congratulations! You have successfully installed Django on your computer in a vi
 2. Run the following command to execute all the tests in the project: `python manage.py test -p '*.py'`. This will run all the tests in the project, including any tests you've written yourself.
 3. If you want to run tests for a specific app in your project, you can specify the app's name after the "test" command, like this: `python manage.py test <app_name>`. For example, if you want to run tests for the "feeds" app, you would use the following command: `python manage.py test feeds`.
 4. Django provides a range of test runner option that you can use to customize your test execution, such as verbosity level and coverage report. To see all available options, run the following command: `python manage.py help test`.
+
+## Contributors
+- Jonas S. Büchi
